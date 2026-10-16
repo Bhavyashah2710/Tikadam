@@ -1,0 +1,353 @@
+{
+  "id": "aws",
+  "name": "AWS Fundamental",
+  "code": "303105301",
+  "chapters": [
+    {
+      "id": "aws-c1",
+      "number": 1,
+      "title": "Introduction to Cloud Computing and AWS",
+      "weightage": 20,
+      "teachingHours": 6,
+      "topics": [
+        {
+          "id": "aws-c1-t01",
+          "title": "What is Cloud Computing?",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c1-t02",
+          "title": "Key Benefits of Cloud Computing",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c1-t03",
+          "title": "Cloud Service Models",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c1-t04",
+          "title": "Cloud Deployment Models",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c1-t05",
+          "title": "What is AWS?",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c1-t06",
+          "title": "The AWS Global Infrastructure",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "aws-c2",
+      "number": 2,
+      "title": "Networking Services",
+      "weightage": 15,
+      "teachingHours": 5,
+      "topics": [
+        {
+          "id": "aws-c2-t01",
+          "title": "Networking Basics",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c2-t02",
+          "title": "Virtual Private Cloud",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c2-t03",
+          "title": "Subnets",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c2-t04",
+          "title": "Route Tables",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c2-t05",
+          "title": "Security Groups",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c2-t06",
+          "title": "VPC Security",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c2-t07",
+          "title": "DNS: AWS Route 53",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c2-t08",
+          "title": "CloudFront",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c2-t09",
+          "title": "Build Your VPC in AWS and Launch a Web Server",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "aws-c3",
+      "number": 3,
+      "title": "Compute Services",
+      "weightage": 20,
+      "teachingHours": 5,
+      "topics": [
+        {
+          "id": "aws-c3-t01",
+          "title": "IaaS",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t02",
+          "title": "Virtual Machines in the Cloud",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t03",
+          "title": "Amazon EC2",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t04",
+          "title": "Elastic Load Balancing",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t05",
+          "title": "AutoScaling",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t06",
+          "title": "Launch an Amazon EC2 Instance",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t07",
+          "title": "Serverless Computing",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t08",
+          "title": "AWS Lambda",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t09",
+          "title": "Characteristics of AWS Lambda",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t10",
+          "title": "Create and Configure a Lambda Function",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t11",
+          "title": "PaaS: AWS Elastic Beanstalk",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c3-t12",
+          "title": "Deploy a Sample Application to Elastic Beanstalk",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "aws-c4",
+      "number": 4,
+      "title": "Storage Services",
+      "weightage": 15,
+      "teachingHours": 5,
+      "topics": [
+        {
+          "id": "aws-c4-t01",
+          "title": "Object Storage, Block Storage, and File Storage",
+          "subtopics": [
+            {
+              "id": "aws-c4-t01-s01",
+              "title": "Object Storage"
+            },
+            {
+              "id": "aws-c4-t01-s02",
+              "title": "Block Storage"
+            },
+            {
+              "id": "aws-c4-t01-s03",
+              "title": "File Storage"
+            }
+          ]
+        },
+        {
+          "id": "aws-c4-t02",
+          "title": "AWS Storage Services: Amazon S3",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c4-t03",
+          "title": "Various Storage Classes of S3",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c4-t04",
+          "title": "Amazon EFS",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c4-t05",
+          "title": "Amazon EBS",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c4-t06",
+          "title": "Create an Amazon EBS Volume",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c4-t07",
+          "title": "Hosting a Static Website using S3",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "aws-c5",
+      "number": 5,
+      "title": "AWS Architecture and Database Service",
+      "weightage": 15,
+      "teachingHours": 5,
+      "topics": [
+        {
+          "id": "aws-c5-t01",
+          "title": "AWS Well-Architected Framework Design Principles",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t02",
+          "title": "Relational Database Service",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t03",
+          "title": "MySQL",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t04",
+          "title": "PostgreSQL",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t05",
+          "title": "SQL Server",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t06",
+          "title": "Amazon RDS (Relational Database Service)",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t07",
+          "title": "Amazon Aurora",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t08",
+          "title": "Amazon DynamoDB",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t09",
+          "title": "Amazon Redshift",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c5-t10",
+          "title": "Launch an Amazon RDS DB Instance",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "aws-c6",
+      "number": 6,
+      "title": "AWS Security, Monitoring, Scaling, and Billing",
+      "weightage": 15,
+      "teachingHours": 4,
+      "topics": [
+        {
+          "id": "aws-c6-t01",
+          "title": "Identity and Access Management",
+          "subtopics": [
+            {
+              "id": "aws-c6-t01-s01",
+              "title": "Users"
+            },
+            {
+              "id": "aws-c6-t01-s02",
+              "title": "Groups"
+            },
+            {
+              "id": "aws-c6-t01-s03",
+              "title": "Roles"
+            },
+            {
+              "id": "aws-c6-t01-s04",
+              "title": "Policies"
+            }
+          ]
+        },
+        {
+          "id": "aws-c6-t02",
+          "title": "AWS IAM",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c6-t03",
+          "title": "Implement IAM Policies",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c6-t04",
+          "title": "Monitoring Resources: AWS CloudWatch",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c6-t05",
+          "title": "Elastic Load Balancing",
+          "subtopics": [],
+          "syllabusNote": "Also appears in Chapter 3 (Compute Services); kept as separate entry per syllabus."
+        },
+        {
+          "id": "aws-c6-t06",
+          "title": "Auto Scaling",
+          "subtopics": [],
+          "syllabusNote": "Also appears in Chapter 3 (Compute Services); kept as separate entry per syllabus."
+        },
+        {
+          "id": "aws-c6-t07",
+          "title": "Cloud Economics and Billing",
+          "subtopics": []
+        },
+        {
+          "id": "aws-c6-t08",
+          "title": "Scale and Load Balance Your Architecture",
+          "subtopics": []
+        }
+      ]
+    }
+  ]
+}

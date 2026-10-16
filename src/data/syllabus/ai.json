@@ -1,0 +1,510 @@
+{
+  "id": "ai",
+  "name": "Artificial Intelligence",
+  "code": "303105307",
+  "chapters": [
+    {
+      "id": "ai-c1",
+      "number": 1,
+      "title": "Introduction",
+      "weightage": 15,
+      "teachingHours": 7,
+      "topics": [
+        {
+          "id": "ai-c1-t01",
+          "title": "Definition of an AI",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t02",
+          "title": "Major Areas of Artificial Intelligence",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t03",
+          "title": "AI Techniques",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t04",
+          "title": "History of AI",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t05",
+          "title": "AI Problems",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t06",
+          "title": "Production Systems",
+          "subtopics": [],
+          "syllabusNote": "Listed twice in syllabus (also at end of chapter); one lesson covers both."
+        },
+        {
+          "id": "ai-c1-t07",
+          "title": "Problem Characteristics",
+          "subtopics": [],
+          "syllabusNote": "Listed twice in syllabus; one lesson covers both."
+        },
+        {
+          "id": "ai-c1-t08",
+          "title": "Intelligent Agents",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t09",
+          "title": "Agent Architecture",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t10",
+          "title": "AI Application (E-Commerce & Medicine)",
+          "subtopics": [
+            {
+              "id": "ai-c1-t10-s01",
+              "title": "E-Commerce"
+            },
+            {
+              "id": "ai-c1-t10-s02",
+              "title": "Medicine"
+            }
+          ]
+        },
+        {
+          "id": "ai-c1-t11",
+          "title": "AI Representation",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t12",
+          "title": "Properties of Internal Representation",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t13",
+          "title": "Future Scope of AI",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t14",
+          "title": "Issues in the Design of Search Algorithms",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t15",
+          "title": "Introduction to AI Problems and Applications",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c1-t16",
+          "title": "Defining Problems as a State Space Search",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "ai-c2",
+      "number": 2,
+      "title": "Search Techniques",
+      "weightage": 20,
+      "teachingHours": 8,
+      "topics": [
+        {
+          "id": "ai-c2-t01",
+          "title": "Generate-And-Test",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t02",
+          "title": "Hill Climbing",
+          "subtopics": [],
+          "syllabusNote": "Listed twice in syllabus; one lesson covers both."
+        },
+        {
+          "id": "ai-c2-t03",
+          "title": "Best-First Search",
+          "subtopics": [],
+          "syllabusNote": "Listed twice in syllabus; one lesson covers both."
+        },
+        {
+          "id": "ai-c2-t04",
+          "title": "Problem Reduction",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t05",
+          "title": "Constraint Satisfaction",
+          "subtopics": [],
+          "syllabusNote": "Listed twice in syllabus; one lesson covers both."
+        },
+        {
+          "id": "ai-c2-t06",
+          "title": "Means-Ends Analysis",
+          "subtopics": [],
+          "syllabusNote": "Listed as 'Means-Ends Analysis' and 'mean and end analysis'; one lesson."
+        },
+        {
+          "id": "ai-c2-t07",
+          "title": "Heuristic Search",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t08",
+          "title": "A* and AO* Algorithm",
+          "subtopics": [
+            {
+              "id": "ai-c2-t08-s01",
+              "title": "A* Algorithm"
+            },
+            {
+              "id": "ai-c2-t08-s02",
+              "title": "AO* Algorithm"
+            }
+          ]
+        },
+        {
+          "id": "ai-c2-t09",
+          "title": "Knowledge Representation: Basic Concepts",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t10",
+          "title": "Knowledge Representation Paradigms",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t11",
+          "title": "Propositional Logic",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t12",
+          "title": "Inference Rules in Propositional Logic",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t13",
+          "title": "Knowledge Representation using Predicate Logic",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t14",
+          "title": "Predicate Calculus",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t15",
+          "title": "Predicate and Arguments",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t16",
+          "title": "ISA Hierarchy",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t17",
+          "title": "Frame Notation",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t18",
+          "title": "Resolution",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c2-t19",
+          "title": "Natural Deduction",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "ai-c3",
+      "number": 3,
+      "title": "Knowledge Representation",
+      "weightage": 15,
+      "teachingHours": 8,
+      "topics": [
+        {
+          "id": "ai-c3-t01",
+          "title": "Representation and Mappings",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c3-t02",
+          "title": "Different Approaches to Knowledge Representation",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c3-t03",
+          "title": "Issues in Knowledge Representation",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c3-t04",
+          "title": "Predicate Logic",
+          "subtopics": [
+            {
+              "id": "ai-c3-t04-s01",
+              "title": "Representing Simple Facts in Logic"
+            },
+            {
+              "id": "ai-c3-t04-s02",
+              "title": "Representing Instance and Isa Relationships"
+            },
+            {
+              "id": "ai-c3-t04-s03",
+              "title": "Computable Functions and Predicates"
+            },
+            {
+              "id": "ai-c3-t04-s04",
+              "title": "Resolution"
+            }
+          ]
+        },
+        {
+          "id": "ai-c3-t05",
+          "title": "Propositional Logic",
+          "subtopics": [
+            {
+              "id": "ai-c3-t05-s01",
+              "title": "Representation"
+            },
+            {
+              "id": "ai-c3-t05-s02",
+              "title": "Inference"
+            },
+            {
+              "id": "ai-c3-t05-s03",
+              "title": "Reasoning Patterns"
+            },
+            {
+              "id": "ai-c3-t05-s04",
+              "title": "Resolution"
+            }
+          ]
+        },
+        {
+          "id": "ai-c3-t06",
+          "title": "First-Order Logic",
+          "subtopics": [
+            {
+              "id": "ai-c3-t06-s01",
+              "title": "Representation"
+            },
+            {
+              "id": "ai-c3-t06-s02",
+              "title": "Inference"
+            },
+            {
+              "id": "ai-c3-t06-s03",
+              "title": "Reasoning Patterns"
+            },
+            {
+              "id": "ai-c3-t06-s04",
+              "title": "Resolution"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-c4",
+      "number": 4,
+      "title": "Uncertainty",
+      "weightage": 15,
+      "teachingHours": 4,
+      "topics": [
+        {
+          "id": "ai-c4-t01",
+          "title": "Non-Monotonic Reasoning",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t02",
+          "title": "Logics for Non-Monotonic Reasoning",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t03",
+          "title": "Forward Rules and Backward Rules",
+          "subtopics": [
+            {
+              "id": "ai-c4-t03-s01",
+              "title": "Forward Rules"
+            },
+            {
+              "id": "ai-c4-t03-s02",
+              "title": "Backward Rules"
+            }
+          ]
+        },
+        {
+          "id": "ai-c4-t04",
+          "title": "Justification Based Truth Maintenance Systems",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t05",
+          "title": "Semantic Nets",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t06",
+          "title": "Statistical Reasoning",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t07",
+          "title": "Probability and Bayes' Theorem",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t08",
+          "title": "Bayesian Network",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t09",
+          "title": "Markov Networks",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t10",
+          "title": "Hidden Markov Model",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t11",
+          "title": "Basis of Utility Theory",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c4-t12",
+          "title": "Utility Functions",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "ai-c5",
+      "number": 5,
+      "title": "Fuzzy Sets and Fuzzy Logic",
+      "weightage": 10,
+      "teachingHours": 5,
+      "topics": [
+        {
+          "id": "ai-c5-t01",
+          "title": "Fuzzy Set Operations",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c5-t02",
+          "title": "Membership Functions",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c5-t03",
+          "title": "Fuzzy Logic",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c5-t04",
+          "title": "Hedges",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c5-t05",
+          "title": "Fuzzy Proposition and Inference Rules",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c5-t06",
+          "title": "Fuzzy Systems",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "ai-c6",
+      "number": 6,
+      "title": "Natural Language Processing",
+      "weightage": 10,
+      "teachingHours": 5,
+      "topics": [
+        {
+          "id": "ai-c6-t01",
+          "title": "Introduction to NLP",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c6-t02",
+          "title": "Syntactic Processing",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c6-t03",
+          "title": "Semantic Analysis",
+          "subtopics": [],
+          "syllabusNote": "Listed twice in syllabus; one lesson covers both."
+        },
+        {
+          "id": "ai-c6-t04",
+          "title": "Discourse and Pragmatic Processing",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c6-t05",
+          "title": "Spell Checking",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "ai-c7",
+      "number": 7,
+      "title": "Neural Networks and Expert Systems",
+      "weightage": 15,
+      "teachingHours": 8,
+      "topics": [
+        {
+          "id": "ai-c7-t01",
+          "title": "Introduction to Neural Networks",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c7-t02",
+          "title": "Perception-Qualitative Analysis",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c7-t03",
+          "title": "Neural Net Architecture and Applications",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c7-t04",
+          "title": "Utilization and Functionality",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c7-t05",
+          "title": "Architecture of the Expert System",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c7-t06",
+          "title": "Knowledge Representation in Expert Systems",
+          "subtopics": []
+        },
+        {
+          "id": "ai-c7-t07",
+          "title": "Two Case Studies on Expert Systems",
+          "subtopics": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "id": "epj",
+  "name": "Enterprise Programming",
+  "code": "303105309",
+  "chapters": [
+    {
+      "id": "epj-c1",
+      "number": 1,
+      "title": "Foundation of Enterprise Programming",
+      "weightage": 10,
+      "teachingHours": 3,
+      "topics": [
+        {
+          "id": "epj-c1-t01",
+          "title": "JDBC",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c1-t02",
+          "title": "JDBC Architecture",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c1-t03",
+          "title": "JDBC with Oracle and MySQL",
+          "subtopics": [
+            {
+              "id": "epj-c1-t03-s01",
+              "title": "JDBC with Oracle"
+            },
+            {
+              "id": "epj-c1-t03-s02",
+              "title": "JDBC with MySQL"
+            }
+          ]
+        },
+        {
+          "id": "epj-c1-t04",
+          "title": "Maven: Integration with Eclipse",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c1-t05",
+          "title": "POM.xml",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "epj-c2",
+      "number": 2,
+      "title": "Servlets",
+      "weightage": 15,
+      "teachingHours": 4,
+      "topics": [
+        {
+          "id": "epj-c2-t01",
+          "title": "Basics of Web",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c2-t02",
+          "title": "Servlet Lifecycle",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c2-t03",
+          "title": "Servlets API",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c2-t04",
+          "title": "HTTP Servlets with XML and Annotation",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c2-t05",
+          "title": "Servlets Configuration",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c2-t06",
+          "title": "Servlets Context",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c2-t07",
+          "title": "Servlets Collaboration",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c2-t08",
+          "title": "Session Tracking",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c2-t09",
+          "title": "CRUD Operations (Servlets)",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "epj-c3",
+      "number": 3,
+      "title": "JSP: Java Server Programming",
+      "weightage": 15,
+      "teachingHours": 4,
+      "topics": [
+        {
+          "id": "epj-c3-t01",
+          "title": "Scripting Elements",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c3-t02",
+          "title": "Directive Elements",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c3-t03",
+          "title": "CRUD Operations (JSP)",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "epj-c4",
+      "number": 4,
+      "title": "Hibernate (ORM)",
+      "weightage": 20,
+      "teachingHours": 6,
+      "topics": [
+        {
+          "id": "epj-c4-t01",
+          "title": "Hibernate Architecture",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t02",
+          "title": "JPA",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t03",
+          "title": "Generator Class",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t04",
+          "title": "Dialects",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t05",
+          "title": "Mapping",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t06",
+          "title": "Annotations",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t07",
+          "title": "Transaction Management",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t08",
+          "title": "HQL",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t09",
+          "title": "HCQL",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c4-t10",
+          "title": "CRUD Operations (Hibernate)",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "epj-c5",
+      "number": 5,
+      "title": "Spring",
+      "weightage": 20,
+      "teachingHours": 7,
+      "topics": [
+        {
+          "id": "epj-c5-t01",
+          "title": "Spring Architecture",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c5-t02",
+          "title": "Spring Modules",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c5-t03",
+          "title": "Dependency Injection",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c5-t04",
+          "title": "Autowire",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c5-t05",
+          "title": "Application Context",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c5-t06",
+          "title": "Annotation-based Configuration",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c5-t07",
+          "title": "Spring MVC",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c5-t08",
+          "title": "CRUD Operations (Spring)",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "epj-c6",
+      "number": 6,
+      "title": "Spring Boot",
+      "weightage": 20,
+      "teachingHours": 6,
+      "topics": [
+        {
+          "id": "epj-c6-t01",
+          "title": "Dependency Injection (Spring Boot)",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c6-t02",
+          "title": "Web App using Spring Boot",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c6-t03",
+          "title": "Spring Boot AOP",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c6-t04",
+          "title": "Spring Boot Database",
+          "subtopics": []
+        },
+        {
+          "id": "epj-c6-t05",
+          "title": "Spring Rest",
+          "subtopics": []
+        }
+      ]
+    }
+  ]
+}

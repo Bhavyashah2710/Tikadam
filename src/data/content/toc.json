@@ -1,0 +1,3635 @@
+{
+ "toc-c1-t01": {
+  "id": "toc-c1-t01",
+  "title": "Alphabet",
+  "importance": "high",
+  "definition": "An alphabet Σ is a finite, non-empty set of symbols; strings are finite sequences of symbols from Σ.",
+  "simpleExplanation": "Alphabet symbols ka finite set hai (jaise {0,1} ya {a,b}). Strings us alphabet ke symbols ko jodkar bante hain. Empty string ε me koi symbol nahi hota.",
+  "realLifeAnalogy": "The alphabet is the keyboard keys available; strings are the words you can type using only those keys.",
+  "example": "Σ={0,1}. Strings: ε, 0, 1, 00, 01, 10, 11, … Σ² = {00,01,10,11} has |Σ|² = 4 strings. Σ* is the set of all strings including ε.",
+  "keyPoints": [
+   "Alphabet: finite non-empty set of symbols.",
+   "String: finite sequence of symbols; length |w|; empty string ε has |ε|=0.",
+   "Σⁿ = all strings of length n; |Σⁿ| = |Σ|ⁿ.",
+   "Σ* = ∪ Σⁿ (n≥0) includes ε; Σ⁺ = Σ* − {ε}.",
+   "Concatenation xy; wε = εw = w; reversal wᴿ.",
+   "Prefix, suffix, substring of a string."
+  ],
+  "mustKnow": [
+   "Σ*, Σ⁺.",
+   "Length and concatenation.",
+   "Prefix/suffix/substring."
+  ],
+  "ifYouKnow": [
+   "Compute Σⁿ.",
+   "List prefixes and suffixes.",
+   "Count strings of length n."
+  ],
+  "commonMistakes": [
+   "Treating ε as a symbol of Σ (it is a string).",
+   "Calling Σ* finite (it is countably infinite)."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Σ={a,b}: list Σ² and |Σ³|.",
+    "answer": "Σ²={aa,ab,ba,bb}; |Σ³|=8."
+   },
+   {
+    "type": "conceptual",
+    "question": "Define alphabet, string, Σ*, Σ⁺.",
+    "answer": "As above."
+   },
+   {
+    "type": "viva",
+    "question": "Is ε in Σ⁺?",
+    "answer": "No; Σ⁺ excludes ε."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "|Σⁿ| for |Σ|=3:",
+    "answer": "3ⁿ",
+    "explanation": "",
+    "options": [
+     "3n",
+     "3ⁿ",
+     "n³",
+     "n"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "ε has length 0.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Define Σ*.",
+    "answer": "Set of all finite strings over Σ including ε.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Prefixes of 'ab'.",
+    "answer": "ε, a, ab",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Σ* vs Σ⁺.",
+    "answer": "Σ* includes ε; Σ⁺ excludes it.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Alphabet Σ finite symbols; strings over Σ; |Σⁿ|=|Σ|ⁿ; Σ* includes ε, Σ⁺ excludes; ε length 0.",
+  "formalDefinition": "Σ is a finite non-empty set. A string over Σ is a finite sequence w=a₁a₂…aₙ with aᵢ∈Σ; |w|=n. Σ*=⋃ₙ₌₀^∞ Σⁿ.",
+  "notation": "Σ alphabet; ε empty string; |w| length; wᴿ reversal; xy concatenation; Σ*, Σ⁺.",
+  "components": [
+   "Symbols",
+   "Strings",
+   "Empty string ε",
+   "Σ*, Σ⁺"
+  ],
+  "examples": [
+   "Σ={0,1}: 0110 is a string, |0110|=4.",
+   "Σ={a,b,c}: Σ¹={a,b,c}."
+  ],
+  "counterexamples": [
+   "Σ=ℕ is not an alphabet (infinite).",
+   "ε∈Σ is wrong; ε is a string."
+  ],
+  "properties": [
+   "|xy|=|x|+|y|",
+   "(xy)ᴿ=yᴿxᴿ",
+   "|Σⁿ|=|Σ|ⁿ"
+  ],
+  "examProblems": [
+   {
+    "question": "Σ={0,1}. How many strings of length ≤ 3?",
+    "answer": "1+2+4+8=15."
+   },
+   {
+    "question": "Write all suffixes of 'abc'.",
+    "answer": "ε, c, bc, abc."
+   }
+  ]
+ },
+ "toc-c1-t02": {
+  "id": "toc-c1-t02",
+  "title": "Languages and Grammars",
+  "importance": "high",
+  "definition": "A language is any set of strings over an alphabet Σ (L ⊆ Σ*), and a grammar G=(V,T,P,S) is a finite set of rules that generates the strings of a language.",
+  "simpleExplanation": "Language = strings ka set. Grammar rules ka set hai jisse us language ki saari strings generate hoti hain. Jaise L={0ⁿ1ⁿ} ko S→0S1|ε se generate kar sakte hain.",
+  "realLifeAnalogy": "A language is a dictionary of valid words; a grammar is the rulebook that tells how to build every valid word.",
+  "example": "L={0ⁿ1ⁿ | n≥0}={ε,01,0011,…}. Grammar G: S→0S1 | ε generates exactly L.",
+  "keyPoints": [
+   "Language L ⊆ Σ*; may be finite or infinite; ∅ and {ε} are different languages.",
+   "Operations: union, intersection, complement, concatenation LM, Kleene star L*, reversal.",
+   "Grammar G=(V,T,P,S): variables, terminals, productions, start symbol.",
+   "L(G)={w∈T* | S ⇒* w}.",
+   "Different grammars can generate the same language.",
+   "Languages are classified by the grammar/machine needed."
+  ],
+  "mustKnow": [
+   "Grammar 4-tuple.",
+   "L(G) definition.",
+   "Language operations."
+  ],
+  "ifYouKnow": [
+   "Define a language and a grammar.",
+   "Write a grammar for a simple language.",
+   "Apply operations on languages."
+  ],
+  "commonMistakes": [
+   "Confusing ∅ with {ε}.",
+   "Thinking each language has a unique grammar."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Define grammar and give an example.",
+    "answer": "G=(V,T,P,S); S→0S1|ε for {0ⁿ1ⁿ}."
+   },
+   {
+    "type": "numerical",
+    "question": "L1={a,ab}, L2={b,ba}: find L1L2.",
+    "answer": "{ab,aba,abb,abba}."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Components of grammar:",
+    "answer": "V,T,P,S",
+    "explanation": "",
+    "options": [
+     "Q,Σ,δ,q0,F",
+     "V,T,P,S",
+     "N,E",
+     "None"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "∅ and {ε} are the same language.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is L(G)?",
+    "answer": "Set of terminal strings derivable from S.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Grammar for a*.",
+    "answer": "S→aS | ε",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Language vs grammar.",
+    "answer": "Language is a set of strings; grammar is a finite description generating it.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Language L⊆Σ*; grammar G=(V,T,P,S); L(G)={w∈T*|S⇒*w}; ops: ∪,∩,concat,*,complement.",
+  "formalDefinition": "A grammar is G=(V,T,P,S) with finite sets V (variables), T (terminals, V∩T=∅), P (productions α→β), start symbol S∈V. L(G)={w∈T* : S ⇒* w}.",
+  "notation": "L, L₁L₂, L*, L⁺, Lᶜ, Lᴿ; productions α→β; S start symbol.",
+  "components": [
+   "V variables",
+   "T terminals",
+   "P productions",
+   "S start symbol"
+  ],
+  "examples": [
+   "{0ⁿ1ⁿ} generated by S→0S1|ε.",
+   "{a,b}* generated by S→aS|bS|ε."
+  ],
+  "counterexamples": [
+   "S→aS alone generates ∅ (no terminating rule)."
+  ],
+  "properties": [
+   "L∅=∅L=∅",
+   "L{ε}=L",
+   "(L*)*=L*"
+  ],
+  "examProblems": [
+   {
+    "question": "Write a grammar for strings over {a,b} ending in a.",
+    "answer": "S→aS | bS | a"
+   }
+  ]
+ },
+ "toc-c1-t03": {
+  "id": "toc-c1-t03",
+  "title": "Productions and Derivation",
+  "importance": "high",
+  "definition": "A production α→β rewrites α as β; a derivation is a sequence of such rewriting steps (⇒) starting from the start symbol and ending in a terminal string.",
+  "simpleExplanation": "Production ek rewriting rule hai. Derivation me S se shuru karke rules apply karte jaate hain jab tak sirf terminals na bachen. Leftmost derivation me hamesha sabse left variable replace hota hai.",
+  "realLifeAnalogy": "Cooking with a recipe: start from the main dish (S) and replace each step by detailed steps until only basic ingredients (terminals) remain.",
+  "example": "G: S→0S1|ε. Derive 0011: S ⇒ 0S1 ⇒ 00S11 ⇒ 0011.",
+  "keyPoints": [
+   "⇒ one-step derivation; ⇒* zero or more steps.",
+   "Sentential form: any string of variables and terminals derivable from S.",
+   "Leftmost derivation replaces the leftmost variable; rightmost the rightmost.",
+   "Sentence: sentential form with only terminals.",
+   "Derivation tree (parse tree) shows the structure.",
+   "A string is in L(G) iff S ⇒* w."
+  ],
+  "mustKnow": [
+   "Derivation example.",
+   "Leftmost vs rightmost.",
+   "Sentential form."
+  ],
+  "ifYouKnow": [
+   "Derive a string.",
+   "Write leftmost/rightmost derivations.",
+   "Identify sentential forms."
+  ],
+  "commonMistakes": [
+   "Replacing more than one variable in a single step.",
+   "Calling a string with variables a sentence."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Derive 000111 using S→0S1|ε.",
+    "answer": "S⇒0S1⇒00S11⇒000S111⇒000111."
+   },
+   {
+    "type": "difference",
+    "question": "Leftmost vs rightmost derivation.",
+    "answer": "Leftmost expands the leftmost variable each step; rightmost the rightmost."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "⇒* means:",
+    "answer": "Zero or more derivation steps",
+    "explanation": "",
+    "options": [
+     "One step",
+     "Zero or more derivation steps",
+     "Reverse",
+     "Equality"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Sentences contain only terminals.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Define sentential form.",
+    "answer": "String over V∪T derivable from S.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Derive 01 from S→0S1|ε.",
+    "answer": "S⇒0S1⇒01",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Derivation vs derivation tree.",
+    "answer": "Derivation is a step sequence; tree shows the same structure hierarchically.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Derivation: S ⇒ … ⇒ w via productions; leftmost/rightmost; sentential form vs sentence.",
+  "formalDefinition": "αAβ ⇒ αγβ if A→γ ∈ P. ⇒* is the reflexive–transitive closure. A derivation of w is S ⇒ α₁ ⇒ … ⇒ w.",
+  "notation": "⇒ one step; ⇒* many steps; ⇒lm leftmost; ⇒rm rightmost.",
+  "components": [
+   "Productions",
+   "Sentential forms",
+   "Sentences",
+   "Derivation steps"
+  ],
+  "derivationSteps": [
+   "S ⇒ 0S1",
+   "⇒ 00S11",
+   "⇒ 0011 (using S→ε)"
+  ],
+  "examples": [
+   "S→aS|b: S⇒aS⇒aaS⇒aab."
+  ],
+  "counterexamples": [
+   "With S→0S1|ε, the string 0101 is not derivable."
+  ],
+  "properties": [
+   "Every string in L(G) has at least one derivation",
+   "Ambiguous grammars have ≥2 leftmost derivations for some string"
+  ],
+  "examProblems": [
+   {
+    "question": "G: E→E+E|id. Give leftmost derivation of id+id.",
+    "answer": "E ⇒ E+E ⇒ id+E ⇒ id+id."
+   }
+  ]
+ },
+ "toc-c1-t04": {
+  "id": "toc-c1-t04",
+  "title": "Chomsky Hierarchy of Languages",
+  "importance": "high",
+  "definition": "The Chomsky hierarchy classifies grammars into Type 0 (unrestricted), Type 1 (context-sensitive), Type 2 (context-free) and Type 3 (regular), each strictly more powerful than the next.",
+  "simpleExplanation": "Chomsky hierarchy grammars ko 4 levels me baantta hai: Type 3 regular (sabse weak), Type 2 context-free, Type 1 context-sensitive, Type 0 unrestricted (sabse powerful). Har ke saath ek machine hoti hai.",
+  "realLifeAnalogy": "Nested Russian dolls: regular languages sit inside context-free ones, which sit inside context-sensitive ones, which sit inside recursively enumerable ones.",
+  "example": "a*b* → regular (DFA). {aⁿbⁿ} → context-free, not regular. {aⁿbⁿcⁿ} → context-sensitive, not context-free. The halting problem language → type 0 (RE) but not decidable.",
+  "keyPoints": [
+   "Type 3: A→aB | a (right-linear); accepted by finite automata.",
+   "Type 2: A→γ (single variable on left); accepted by pushdown automata.",
+   "Type 1: α→β with |α| ≤ |β|; accepted by linear bounded automata.",
+   "Type 0: α→β any (α≠ε); accepted by Turing machines.",
+   "Regular ⊂ CFL ⊂ CSL ⊂ Recursive ⊂ RE.",
+   "Each inclusion is proper."
+  ],
+  "mustKnow": [
+   "Table of types, grammars, machines.",
+   "Containment chain.",
+   "Example languages."
+  ],
+  "ifYouKnow": [
+   "Classify a grammar.",
+   "Name the machine for each type.",
+   "Give separating languages."
+  ],
+  "commonMistakes": [
+   "Placing CFL inside regular (reverse containment).",
+   "Forgetting the recursive languages between CSL and RE."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain the Chomsky hierarchy with a table.",
+    "answer": "Four types, production forms, machines, examples."
+   },
+   {
+    "type": "difference",
+    "question": "Type 2 vs Type 3 grammar.",
+    "answer": "Type 2: A→γ for any γ; Type 3: A→aB or A→a (restricted)."
+   },
+   {
+    "type": "viva",
+    "question": "Which machine accepts context-sensitive languages?",
+    "answer": "Linear bounded automaton."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Type 2 grammar corresponds to:",
+    "answer": "Context-free",
+    "explanation": "",
+    "options": [
+     "Regular",
+     "Context-free",
+     "Context-sensitive",
+     "Unrestricted"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Every regular language is context-free.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Machine for Type 0?",
+    "answer": "Turing machine",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Language {aⁿbⁿ} lies in which type?",
+    "answer": "Type 2 (not Type 3)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Type 1 vs Type 0.",
+    "answer": "Type 1 needs |α|≤|β| (non-contracting); Type 0 has no restriction.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Chomsky: Type3 regular(FA) ⊂ Type2 CFL(PDA) ⊂ Type1 CSL(LBA) ⊂ Recursive ⊂ Type0 RE(TM).",
+  "formalDefinition": "Type 0: α→β (α∈(V∪T)⁺V(V∪T)*). Type 1: |α|≤|β|. Type 2: α∈V. Type 3: right- or left-linear.",
+  "notation": "Types 0–3; REG ⊂ CFL ⊂ CSL ⊂ REC ⊂ RE.",
+  "components": [
+   "Grammar types",
+   "Production restrictions",
+   "Accepting machines",
+   "Language classes"
+  ],
+  "diagram": "RE (Type 0)\n └ Recursive\n    └ CSL (Type 1)\n       └ CFL (Type 2)\n          └ Regular (Type 3)",
+  "examples": [
+   "a*b*: regular",
+   "{aⁿbⁿ}: CFL",
+   "{aⁿbⁿcⁿ}: CSL",
+   "Halting language: RE"
+  ],
+  "counterexamples": [
+   "{aⁿbⁿ} is not regular",
+   "{aⁿbⁿcⁿ} is not context-free"
+  ],
+  "properties": [
+   "Strict inclusions",
+   "Closure properties differ by class"
+  ],
+  "comparison": {
+   "title": "Chomsky Hierarchy",
+   "headers": [
+    "Type",
+    "Grammar",
+    "Machine",
+    "Example"
+   ],
+   "rows": [
+    [
+     "3",
+     "Regular",
+     "Finite automaton",
+     "a*b*"
+    ],
+    [
+     "2",
+     "Context-free",
+     "PDA",
+     "aⁿbⁿ"
+    ],
+    [
+     "1",
+     "Context-sensitive",
+     "LBA",
+     "aⁿbⁿcⁿ"
+    ],
+    [
+     "0",
+     "Unrestricted",
+     "Turing machine",
+     "Halting-related"
+    ]
+   ]
+  },
+  "examProblems": [
+   {
+    "question": "Classify S→aSb|ε.",
+    "answer": "Type 2 (context-free), generates aⁿbⁿ."
+   }
+  ]
+ },
+ "toc-c2-t01": {
+  "id": "toc-c2-t01",
+  "title": "Regular Expressions and Languages",
+  "importance": "high",
+  "definition": "A regular expression is a symbolic description of a language built from ∅, ε, symbols and the operations union (+), concatenation and Kleene star (*); the languages described are exactly the regular languages.",
+  "simpleExplanation": "Regular expression ek formula hai jo strings ke pattern ko describe karta hai: a+b (a ya b), ab (a ke baad b), a* (a zero ya zyada baar). Jo language RE se bane wo regular language hai.",
+  "realLifeAnalogy": "A pattern template like 'any number of 0s followed by a 1' that many strings fit.",
+  "example": "(0+1)*01 = all binary strings ending in 01. a*b* = any number of a's followed by any number of b's. (a+b)*abb = strings ending in abb.",
+  "keyPoints": [
+   "Base: ∅, ε, and a∈Σ are regular expressions.",
+   "If R,S are REs then R+S, RS and R* are REs.",
+   "Precedence: * highest, then concatenation, then +.",
+   "L(R+S)=L(R)∪L(S); L(RS)=L(R)L(S); L(R*)=L(R)*.",
+   "Identities: R+∅=R, Rε=R, R∅=∅, (R*)*=R*, ε+RR*=R*.",
+   "Regular languages = languages of REs = languages of DFAs/NFAs."
+  ],
+  "mustKnow": [
+   "Recursive definition.",
+   "Precedence.",
+   "Common identities."
+  ],
+  "ifYouKnow": [
+   "Write an RE for a language.",
+   "Simplify with identities.",
+   "Describe an RE in words."
+  ],
+  "commonMistakes": [
+   "Treating + as arithmetic addition.",
+   "Forgetting parentheses so * binds incorrectly."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Write REs: strings over {0,1} with exactly two 0s.",
+    "answer": "1*01*01*."
+   },
+   {
+    "type": "numerical",
+    "question": "RE for strings over {a,b} not containing 'aa'.",
+    "answer": "(b+ab)*(a+ε)."
+   },
+   {
+    "type": "viva",
+    "question": "Is {0ⁿ1ⁿ} describable by an RE?",
+    "answer": "No; it is not regular."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "RE for 'ends with 01':",
+    "answer": "(0+1)*01",
+    "explanation": "",
+    "options": [
+     "0*1*",
+     "(0+1)*01",
+     "01*",
+     "(01)*"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "(R*)* = R*",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Precedence order?",
+    "answer": "*, concatenation, +",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "RE for even-length strings over {a}.",
+    "answer": "(aa)*",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "a*b* vs (ab)*.",
+    "answer": "a*b*: a's then b's; (ab)*: repeated ab.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "RE: ∅, ε, a; R+S, RS, R*; precedence * > concat > +; languages of REs = regular.",
+  "formalDefinition": "Regular expressions over Σ: ∅, ε, a (a∈Σ) are REs; if R,S are REs then (R+S), (RS), (R*) are REs. L(∅)=∅, L(ε)={ε}, L(a)={a}.",
+  "notation": "R+S union (also R|S); RS concatenation; R* star; R⁺=RR*.",
+  "components": [
+   "Basis ∅, ε, a",
+   "Union",
+   "Concatenation",
+   "Kleene star"
+  ],
+  "examples": [
+   "(0+1)*01",
+   "1*0 1*",
+   "(a+b)*abb"
+  ],
+  "counterexamples": [
+   "No RE exists for {0ⁿ1ⁿ} or palindromes."
+  ],
+  "properties": [
+   "R+S=S+R",
+   "(RS)T=R(ST)",
+   "R(S+T)=RS+RT",
+   "R*=ε+RR*"
+  ],
+  "examProblems": [
+   {
+    "question": "RE for binary strings starting and ending with the same symbol.",
+    "answer": "0(0+1)*0 + 1(0+1)*1 + 0 + 1"
+   }
+  ]
+ },
+ "toc-c2-t02": {
+  "id": "toc-c2-t02",
+  "title": "Deterministic Finite Automata (DFA) and Equivalence with Regular Expressions",
+  "importance": "high",
+  "definition": "A DFA is a 5-tuple M=(Q,Σ,δ,q₀,F) with exactly one transition for every state and input symbol; DFAs accept exactly the regular languages, the same as regular expressions.",
+  "simpleExplanation": "DFA machine hai jo input ko ek ek symbol karke padhti hai aur har state par har symbol ke liye sirf ek transition hoti hai. Final state par end ho to string accept. DFA aur RE ek hi class (regular languages) describe karte hain.",
+  "realLifeAnalogy": "A turnstile or vending machine: each coin or button moves it to exactly one next state; it unlocks only in the accepting state.",
+  "example": "DFA for strings over {0,1} ending in 01: states q0,q1,q2; q0:0→q1,1→q0; q1:0→q1,1→q2; q2:0→q1,1→q0; start q0; final q2. Trace 1101: q0→1→q0→1→q0→0→q1→1→q2 accept.",
+  "keyPoints": [
+   "Formal: M=(Q,Σ,δ,q₀,F); δ:Q×Σ→Q total.",
+   "Extended δ̂(q,wa)=δ(δ̂(q,w),a); L(M)={w|δ̂(q₀,w)∈F}.",
+   "Transition diagram or table represents δ.",
+   "RE → NFA (Thompson/ε-NFA) → DFA (subset construction).",
+   "DFA → RE by state elimination or Arden's theorem.",
+   "Arden: R=Q+RP with ε∉P ⇒ R=QP*."
+  ],
+  "mustKnow": [
+   "5-tuple.",
+   "Trace a string.",
+   "Arden's theorem."
+  ],
+  "ifYouKnow": [
+   "Design a DFA.",
+   "Convert DFA to RE.",
+   "Trace strings."
+  ],
+  "commonMistakes": [
+   "Leaving some transitions undefined (that is NFA/partial DFA).",
+   "Misapplying Arden's theorem when ε∈P."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Design DFA for strings with even number of 1s.",
+    "answer": "Two states even/odd; 1 toggles; accept even."
+   },
+   {
+    "type": "numerical",
+    "question": "Trace 1101 on the DFA ending in 01.",
+    "answer": "Final state q2 → accepted? Run: q0,q0,q0,q1,q2 ⇒ accept."
+   },
+   {
+    "type": "conceptual",
+    "question": "Show RE and DFA equivalence.",
+    "answer": "RE→ε-NFA→DFA; DFA→RE by state elimination/Arden."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "DFA transitions per state and symbol:",
+    "answer": "Exactly one",
+    "explanation": "",
+    "options": [
+     "Zero or one",
+     "Exactly one",
+     "Many",
+     "Any"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "DFAs and REs describe the same languages.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Define L(M).",
+    "answer": "{w | δ̂(q₀,w)∈F}",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Minimum states for DFA accepting strings of even length over {a}.",
+    "answer": "2",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "DFA vs NFA transitions.",
+    "answer": "DFA: one next state; NFA: set of next states.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "DFA (Q,Σ,δ,q0,F): one move per (state,symbol); accepts regular languages = RE; Arden R=Q+RP⇒QP*.",
+  "formalDefinition": "M=(Q,Σ,δ,q₀,F): Q finite states, Σ alphabet, δ:Q×Σ→Q, q₀∈Q start, F⊆Q accepting. L(M)={w∈Σ*: δ̂(q₀,w)∈F}.",
+  "notation": "δ(q,a)=p; δ̂ extended; q₀ start (arrow); F double circle.",
+  "components": [
+   "Q states",
+   "Σ alphabet",
+   "δ transition function",
+   "q₀ start state",
+   "F final states"
+  ],
+  "derivationSteps": [
+   "Arden: for q0 = ε + q0·1 + q2·1, q1 = q0·0 + q1·0 + q2·0, q2 = q1·1 → substitute and solve with R=Q+RP ⇒ R=QP*.",
+   "Result for 'ends in 01': (0+1)*01"
+  ],
+  "diagram": "      1        0        1\n →q0 ──0──▶ q1 ──1──▶ (q2)\n  ↺1       ↺0        0→q1, 1→q0\nTable: q0:0→q1,1→q0 | q1:0→q1,1→q2 | q2:0→q1,1→q0",
+  "examples": [
+   "Even number of 1s",
+   "Strings ending in 01"
+  ],
+  "counterexamples": [
+   "No DFA for {0ⁿ1ⁿ} (needs unbounded memory)."
+  ],
+  "properties": [
+   "Total transition function",
+   "Deterministic computation",
+   "Equivalent to NFA and RE in power"
+  ],
+  "examProblems": [
+   {
+    "question": "DFA for binary strings divisible by 2.",
+    "answer": "Accept strings ending in 0: two states tracking last bit."
+   }
+  ]
+ },
+ "toc-c2-t03": {
+  "id": "toc-c2-t03",
+  "title": "Moore Machines and Mealy Machines",
+  "importance": "medium",
+  "definition": "Moore and Mealy machines are finite automata with outputs: in a Moore machine the output depends only on the current state, while in a Mealy machine it depends on the current state and input (the transition).",
+  "simpleExplanation": "Moore/Mealy machines output bhi dete hain (sirf accept/reject nahi). Moore me output state par hota hai, Mealy me transition par (state + input). Mealy ka output length = input length; Moore ka n+1.",
+  "realLifeAnalogy": "Moore is like a lamp that shows a colour for each state; Mealy is like a vending machine whose reaction depends on both its state and the button you press.",
+  "example": "Mealy 1's complement: single state q0 with 0/1 and 1/0. Input 1011 → output 0100. Moore example: states q0(out 0), qa(out 1), qb(out 0) tracking 'last input was a': abab → outputs 0,1,0,1,0.",
+  "keyPoints": [
+   "Moore: (Q,Σ,Δ,δ,λ,q₀) with λ:Q→Δ.",
+   "Mealy: (Q,Σ,Δ,δ,λ,q₀) with λ:Q×Σ→Δ.",
+   "For input length n: Mealy gives n outputs; Moore gives n+1 outputs.",
+   "No final states; used as transducers.",
+   "Applications: sequence detectors, counters, controllers.",
+   "Both are equivalent in power (see conversion)."
+  ],
+  "mustKnow": [
+   "Definition difference.",
+   "Output length.",
+   "Examples."
+  ],
+  "ifYouKnow": [
+   "Define both machines.",
+   "Trace input to output.",
+   "Compare them."
+  ],
+  "commonMistakes": [
+   "Forgetting Moore's extra output for the start state.",
+   "Attaching outputs to states in a Mealy machine."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "Moore vs Mealy machine.",
+    "answer": "Output by state vs by transition; length n+1 vs n; Mealy often fewer states."
+   },
+   {
+    "type": "numerical",
+    "question": "Mealy 1's complement on 1011.",
+    "answer": "0100."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Output depends on state only in:",
+    "answer": "Moore",
+    "explanation": "",
+    "options": [
+     "Mealy",
+     "Moore",
+     "DFA",
+     "PDA"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Mealy output length equals input length.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Moore output length for input of length n?",
+    "answer": "n+1",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Mealy complement machine input 0011.",
+    "answer": "1100",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Do Moore/Mealy have final states?",
+    "answer": "No; outputs are produced instead.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Moore: λ(state), n+1 outputs; Mealy: λ(state,input), n outputs; transducers without final states.",
+  "formalDefinition": "Moore: M=(Q,Σ,Δ,δ,λ,q₀), δ:Q×Σ→Q, λ:Q→Δ. Mealy: λ:Q×Σ→Δ.",
+  "notation": "Mealy edge label a/b (input/output); Moore state label q/b.",
+  "components": [
+   "Q",
+   "Σ input alphabet",
+   "Δ output alphabet",
+   "δ",
+   "λ output function",
+   "q₀"
+  ],
+  "diagram": "Mealy (1's complement):  q0 --0/1--> q0,  q0 --1/0--> q0\nMoore (last=a): q0[0] -a-> qa[1], qa -b-> qb[0], qb -a-> qa, qa -a-> qa, qb -b-> qb",
+  "examples": [
+   "1's complement (Mealy)",
+   "Sequence detector"
+  ],
+  "counterexamples": [
+   "A DFA with accept/reject is not a Moore/Mealy transducer (no output alphabet)."
+  ],
+  "properties": [
+   "Mealy outputs n symbols; Moore n+1",
+   "Equivalent power"
+  ],
+  "examProblems": [
+   {
+    "question": "Moore machine states for input abab (last=a detector): list outputs.",
+    "answer": "0,1,0,1,0"
+   }
+  ]
+ },
+ "toc-c2-t04": {
+  "id": "toc-c2-t04",
+  "title": "Conversion from Mealy to Moore and Vice Versa",
+  "importance": "medium",
+  "definition": "Mealy and Moore machines can be converted into each other: Moore → Mealy by moving each state's output onto incoming transitions, and Mealy → Moore by splitting states by the outputs on their incoming transitions.",
+  "simpleExplanation": "Conversion ka rule: Moore→Mealy me destination state ka output transition par laga do. Mealy→Moore me har state ko uski incoming outputs ke hisaab se alag-alag copies me tod do.",
+  "realLifeAnalogy": "Moving the label from the room (Moore) onto the doors leading into it (Mealy), or splitting a room into several rooms, one per door-label.",
+  "example": "Mealy: q0 –0/0→q0, q0 –1/1→q1, q1 –0/1→q0, q1 –1/0→q1. Incoming outputs: q0 gets 0 and 1 → split into q00(out 0), q01(out 1); q1 gets 1 and 0 → q11(out 1), q10(out 0). Moore: q00 –0→q00, –1→q11; q01 same; q10 –0→q01, –1→q10; q11 same.",
+  "keyPoints": [
+   "Moore→Mealy: λ'(q,a)=λ(δ(q,a)); number of states unchanged.",
+   "Mealy→Moore: states become (q,b) where b is an output on an incoming transition.",
+   "Start state needs an output (often arbitrary/0) in Moore.",
+   "Mealy→Moore may increase states up to |Q|·|Δ|.",
+   "Resulting Moore has an extra initial output.",
+   "Outputs match except for the extra first symbol."
+  ],
+  "mustKnow": [
+   "Two rules.",
+   "State splitting.",
+   "Worked example."
+  ],
+  "ifYouKnow": [
+   "Convert Moore to Mealy.",
+   "Convert Mealy to Moore with state splitting.",
+   "Count new states."
+  ],
+  "commonMistakes": [
+   "Forgetting to split states with different incoming outputs.",
+   "Not assigning the Moore start output."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Convert the Mealy machine above to Moore.",
+    "answer": "4-state Moore with q00,q01,q10,q11."
+   },
+   {
+    "type": "conceptual",
+    "question": "State rules of conversion.",
+    "answer": "As above."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Moore→Mealy output of transition:",
+    "answer": "Output of destination state",
+    "explanation": "",
+    "options": [
+     "Source output",
+     "Output of destination state",
+     "Input symbol",
+     "Zero"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Mealy→Moore can add states.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Why split states?",
+    "answer": "Because Moore output is tied to a state, so different incoming outputs need different states.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "A Mealy state has incoming outputs {0,1}. Moore copies?",
+    "answer": "2",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Moore→Mealy state change?",
+    "answer": "No new states.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Moore→Mealy: λ'(q,a)=λ(δ(q,a)); Mealy→Moore: split state per incoming output, assign start output.",
+  "formalDefinition": "Moore→Mealy: λ_Mealy(q,a)=λ_Moore(δ(q,a)). Mealy→Moore: Q'={(q,b)}, δ'((q,b),a)=(δ(q,a),λ(q,a)), λ'((q,b))=b.",
+  "notation": "(q,b) copy of q with output b.",
+  "components": [
+   "States",
+   "Transitions",
+   "Outputs"
+  ],
+  "derivationSteps": [
+   "1. List outputs on all incoming transitions of each Mealy state.",
+   "2. Create a Moore state for each (state, output) pair.",
+   "3. Define transitions to the copy with the matching output.",
+   "4. Give the start state an output (e.g. 0)."
+  ],
+  "diagram": "Mealy: q0 -0/0->q0, q0 -1/1->q1, q1 -0/1->q0, q1 -1/0->q1\nMoore: q00[0], q01[1], q10[0], q11[1] with transitions as in the example.",
+  "examples": [
+   "The 4-state conversion above"
+  ],
+  "counterexamples": [
+   "Direct copy of Mealy transitions with outputs on states fails when incoming outputs differ."
+  ],
+  "properties": [
+   "Equivalent output behaviour (up to start output)",
+   "Moore may need more states"
+  ],
+  "examProblems": [
+   {
+    "question": "Convert Moore state q with output 1 and transition q–a→p to Mealy.",
+    "answer": "Mealy transition for edge into q: …/1; edge q–a→p outputs λ(p)."
+   }
+  ]
+ },
+ "toc-c2-t05": {
+  "id": "toc-c2-t05",
+  "title": "Nondeterministic Finite Automata (NFA) and Equivalence with DFA",
+  "importance": "high",
+  "definition": "An NFA is a finite automaton whose transition function maps a state and symbol to a set of states (possibly empty), and every NFA has an equivalent DFA obtained by the subset construction.",
+  "simpleExplanation": "NFA me ek state aur symbol par kai next states ho sakte hain (ya koi nahi). Agar koi bhi path accept kare to string accept. Subset construction se har NFA ko DFA me badal sakte hain, isliye power same hai.",
+  "realLifeAnalogy": "Exploring a maze by cloning yourself at every fork: if any clone reaches the exit, you succeed.",
+  "example": "NFA for 'ends with 01': q0 loops on 0,1; q0 –0→ q1; q1 –1→ q2; accept q2. Subset construction gives DFA states {q0}, {q0,q1}, {q0,q2} with accepting {q0,q2}.",
+  "keyPoints": [
+   "Formal: N=(Q,Σ,δ,q₀,F), δ:Q×Σ→2^Q.",
+   "Accepts if some computation ends in an accepting state.",
+   "ε-NFA allows ε-moves; use ε-closure.",
+   "Subset construction: DFA states = subsets of Q; DFA accepting subsets contain an NFA final state.",
+   "Worst case DFA has 2ⁿ states.",
+   "NFA, DFA and RE are equivalent in power."
+  ],
+  "mustKnow": [
+   "Formal definition.",
+   "Subset construction steps.",
+   "2ⁿ blow-up."
+  ],
+  "ifYouKnow": [
+   "Design an NFA.",
+   "Convert NFA to DFA.",
+   "Use ε-closure."
+  ],
+  "commonMistakes": [
+   "Thinking NFAs accept more languages than DFAs (they don't).",
+   "Missing ε-closure in subset construction."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Convert the NFA for 'ends with 01' to DFA.",
+    "answer": "States {q0},{q0,q1},{q0,q2} with transitions as above."
+   },
+   {
+    "type": "difference",
+    "question": "NFA vs DFA.",
+    "answer": "NFA: set of next states, ε-moves, easier to design; DFA: exactly one next state."
+   },
+   {
+    "type": "viva",
+    "question": "Worst-case size of DFA from n-state NFA?",
+    "answer": "2ⁿ states."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "NFA transition function:",
+    "answer": "Q×Σ→2^Q",
+    "explanation": "",
+    "options": [
+     "Q×Σ→Q",
+     "Q×Σ→2^Q",
+     "Q→Σ",
+     "Σ→Q"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "NFA and DFA accept the same class of languages.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method to convert NFA to DFA?",
+    "answer": "Subset construction",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "DFA states from a 3-state NFA (max)?",
+    "answer": "8",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "ε-closure meaning?",
+    "answer": "Set of states reachable using only ε-transitions.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "NFA: δ→2^Q, ε-moves; accepts if any path accepts; subset construction → DFA (≤2ⁿ states); same power as DFA/RE.",
+  "formalDefinition": "N=(Q,Σ,δ,q₀,F), δ:Q×Σ_ε→P(Q). L(N)={w : δ̂(q₀,w)∩F≠∅}. Subset construction: Q_D=P(Q), δ_D(S,a)=⋃_{q∈S}δ(q,a).",
+  "notation": "δ(q,a)={p₁,…}; ε-closure(q).",
+  "components": [
+   "Q",
+   "Σ",
+   "δ into subsets",
+   "q₀",
+   "F"
+  ],
+  "derivationSteps": [
+   "Start: {q0}.",
+   "{q0} –0→ {q0,q1}; –1→ {q0}.",
+   "{q0,q1} –0→ {q0,q1}; –1→ {q0,q2}.",
+   "{q0,q2} –0→ {q0,q1}; –1→ {q0}.",
+   "Accepting: subsets containing q2."
+  ],
+  "diagram": "NFA: q0 ↺{0,1}; q0 -0-> q1 -1-> (q2)\nDFA: {q0}-0->{q0,q1}-1->({q0,q2})",
+  "examples": [
+   "NFA for strings ending in 01",
+   "NFA with ε for (a+b)*"
+  ],
+  "counterexamples": [
+   "Language {0ⁿ1ⁿ} has no NFA."
+  ],
+  "properties": [
+   "Equivalent to DFA",
+   "Closed under union via ε-NFA",
+   "May be exponentially smaller than DFA"
+  ],
+  "examProblems": [
+   {
+    "question": "Construct an NFA accepting strings whose third symbol from the end is 1.",
+    "answer": "q0 loops; q0–1→q1–0/1→q2–0/1→q3 (final); DFA needs 8 states."
+   }
+  ]
+ },
+ "toc-c2-t06": {
+  "id": "toc-c2-t06",
+  "title": "Regular Grammars and Equivalence with Finite Automata",
+  "importance": "high",
+  "definition": "A regular (right-linear) grammar has productions of the form A→aB, A→a or A→ε, and regular grammars generate exactly the languages accepted by finite automata.",
+  "simpleExplanation": "Regular grammar me rules A→aB ya A→a (right-linear) ya A→Ba (left-linear) hote hain. Isse jo language banti hai wo wahi hai jo finite automata accept karte hain; DFA ke states ko variables bana ke grammar milta hai.",
+  "realLifeAnalogy": "A script for typing one letter at a time and stating what you may type next — the same as moving between states of an automaton.",
+  "example": "DFA for (ab)*: q0 (start, accept) –a→ q1 –b→ q0. Grammar: S→aA | ε; A→bS. Derive abab: S⇒aA⇒abS⇒abaA⇒ababS⇒abab.",
+  "keyPoints": [
+   "Right-linear: A→aB | a | ε; left-linear: A→Ba | a.",
+   "DFA→grammar: states→variables, δ(A,a)=B gives A→aB, final state A gives A→ε.",
+   "Grammar→NFA: variables→states, A→aB edge A–a→B, A→a edge to a new final state.",
+   "Start variable ↔ start state.",
+   "Mixing left- and right-linear in one grammar can generate non-regular languages.",
+   "Regular grammar = Type 3."
+  ],
+  "mustKnow": [
+   "Conversion rules.",
+   "Example (ab)*.",
+   "Right vs left linear."
+  ],
+  "ifYouKnow": [
+   "Convert DFA to grammar.",
+   "Convert grammar to NFA.",
+   "Identify regular grammars."
+  ],
+  "commonMistakes": [
+   "Forgetting A→ε for accepting states.",
+   "Mixing left- and right-linear rules."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Grammar for DFA of (ab)*.",
+    "answer": "S→aA|ε, A→bS."
+   },
+   {
+    "type": "conceptual",
+    "question": "Prove regular grammars ⇔ finite automata (sketch).",
+    "answer": "Construction both ways using states↔variables."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Right-linear rule:",
+    "answer": "A→aB",
+    "explanation": "",
+    "options": [
+     "A→Ba",
+     "A→aB",
+     "AB→a",
+     "a→A"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Regular grammars are Type 3.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "How handle final state?",
+    "answer": "Add A→ε.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Grammar for a*b.",
+    "answer": "S→aS|b",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Right-linear vs left-linear.",
+    "answer": "Variable at right end vs at left end of the body.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Regular grammar: A→aB|a|ε (right-linear); states↔variables; final state → A→ε; equals FA/regular languages.",
+  "formalDefinition": "A grammar G=(V,T,P,S) is right-linear if every production is A→wB or A→w with w∈T*. L(G) is regular and every regular language has such a grammar.",
+  "notation": "A→aB; A→ε.",
+  "components": [
+   "Variables = states",
+   "Terminals",
+   "Productions = transitions"
+  ],
+  "derivationSteps": [
+   "DFA→G: V=Q, S=q₀.",
+   "For δ(A,a)=B add A→aB.",
+   "For A∈F add A→ε."
+  ],
+  "diagram": "DFA: →(q0) -a-> q1 -b-> q0\nG: S→aA | ε ; A→bS",
+  "examples": [
+   "S→aS|b for a*b"
+  ],
+  "counterexamples": [
+   "S→aSb|ε is not regular."
+  ],
+  "properties": [
+   "Equivalent to FA",
+   "Closed under standard regular operations"
+  ],
+  "examProblems": [
+   {
+    "question": "Give a right-linear grammar for (0+1)*00.",
+    "answer": "S→0S|1S|0A; A→0"
+   }
+  ]
+ },
+ "toc-c2-t07": {
+  "id": "toc-c2-t07",
+  "title": "Properties of Regular Languages",
+  "importance": "high",
+  "definition": "Regular languages are closed under union, intersection, complement, concatenation, Kleene star, reversal and difference, and have decidable emptiness, finiteness, membership and equivalence problems.",
+  "simpleExplanation": "Regular languages ki closure properties: union, intersection, complement, concatenation, star, reversal sab ke baad bhi language regular rehti hai. Decision properties: empty hai? finite hai? string member hai? do languages equal hain?",
+  "realLifeAnalogy": "Combining Lego pieces by standard moves always gives another Lego piece of the same family.",
+  "example": "L1=even number of a's, L2=ends with b. Intersection via product DFA with state pairs. Complement: make the DFA complete and swap accepting and non-accepting states.",
+  "keyPoints": [
+   "Closure: ∪, ∩, complement, concatenation, *, reversal, difference, homomorphism, inverse homomorphism.",
+   "Complement: complete DFA, flip final states.",
+   "Intersection: product construction (p,q); union similarly; or De Morgan.",
+   "Reversal: reverse edges, swap start and final (NFA).",
+   "Decision: emptiness (reachability), finiteness (cycles), membership (run DFA), equivalence (minimise or symmetric difference empty).",
+   "Not closed under infinite union."
+  ],
+  "mustKnow": [
+   "Closure list.",
+   "Product construction.",
+   "Decision algorithms."
+  ],
+  "ifYouKnow": [
+   "Prove closure by construction.",
+   "Decide emptiness/finiteness.",
+   "Use closure to prove non-regularity."
+  ],
+  "commonMistakes": [
+   "Assuming closure under infinite union.",
+   "Complementing an incomplete DFA without making it total."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Prove regular languages are closed under complement and intersection.",
+    "answer": "Complement by flipping finals of a total DFA; intersection by product DFA."
+   },
+   {
+    "type": "viva",
+    "question": "How decide equivalence of two DFAs?",
+    "answer": "Check that the symmetric difference language is empty."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Closed under:",
+    "answer": "All of these",
+    "explanation": "",
+    "options": [
+     "Union",
+     "Complement",
+     "Intersection",
+     "All of these"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Regular languages are closed under reversal.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Complement construction?",
+    "answer": "Swap final and non-final states of a complete DFA.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Use closure to show a language is not regular: L∩a*b* = aⁿbⁿ. Conclude?",
+    "answer": "L is not regular (since aⁿbⁿ isn't).",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Emptiness check method.",
+    "answer": "Check whether any final state is reachable from the start.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Regular closed under ∪,∩,complement,concat,*,reversal,diff; decidable: empty, finite, member, equivalence.",
+  "formalDefinition": "If L₁,L₂ are regular then L₁∪L₂, L₁∩L₂, L̄₁, L₁L₂, L₁*, L₁ᴿ, L₁−L₂ are regular.",
+  "notation": "L̄ complement; Lᴿ reversal; × product construction.",
+  "components": [
+   "Closure properties",
+   "Decision properties"
+  ],
+  "derivationSteps": [
+   "Product DFA: Q=Q₁×Q₂, δ((p,q),a)=(δ₁(p,a),δ₂(q,a)).",
+   "Intersection: F=F₁×F₂; Union: F=(F₁×Q₂)∪(Q₁×F₂)."
+  ],
+  "examples": [
+   "Complement of 'ends with 01' = strings not ending in 01."
+  ],
+  "counterexamples": [
+   "Infinite union of {aⁿbⁿ} singletons is not regular."
+  ],
+  "properties": [
+   "Closure under ∪ ∩ ᶜ · * ᴿ",
+   "Decidable emptiness, finiteness, membership, equivalence"
+  ],
+  "examProblems": [
+   {
+    "question": "Is {w : w has equal 0s and 1s} regular? Use closure.",
+    "answer": "No: intersect with 0*1* gives 0ⁿ1ⁿ which is not regular."
+   }
+  ]
+ },
+ "toc-c2-t08": {
+  "id": "toc-c2-t08",
+  "title": "Pumping Lemma for Regular Languages",
+  "importance": "high",
+  "definition": "The pumping lemma states that for every regular language L there is a pumping length p such that any string s∈L with |s|≥p can be split s=xyz with |xy|≤p, |y|>0 and xyⁱz∈L for all i≥0.",
+  "simpleExplanation": "Pumping lemma regular languages ka ek zaroori gun batata hai: lambi string me koi hissa y repeat (pump) kar sakte hain aur string language me hi rehti hai. Agar ye gun fail ho to language regular nahi.",
+  "realLifeAnalogy": "A long journey on a track with a loop: you can loop around any number of times and still end up at the destination.",
+  "example": "L={aⁿbⁿ} not regular: assume p, take s=aᵖbᵖ; |xy|≤p so y=aᵏ (k>0); xy²z has p+k a's but p b's ∉ L. Contradiction.",
+  "keyPoints": [
+   "Statement: ∃p ∀s∈L, |s|≥p ⇒ ∃x,y,z: s=xyz, |xy|≤p, |y|≥1, ∀i≥0 xyⁱz∈L.",
+   "Used only to prove non-regularity (necessary, not sufficient).",
+   "Proof pattern: assume regular → adversary picks p → you choose s → adversary splits → you pick i giving contradiction.",
+   "p can be the number of states of a DFA.",
+   "Typical non-regular languages: aⁿbⁿ, palindromes, a^{n²}, equal 0s and 1s, primes.",
+   "Pumping with i=0 (pump down) also useful."
+  ],
+  "mustKnow": [
+   "Statement with quantifiers.",
+   "Proof template.",
+   "aⁿbⁿ example."
+  ],
+  "ifYouKnow": [
+   "Prove a language non-regular.",
+   "State the lemma correctly.",
+   "Choose a good string."
+  ],
+  "commonMistakes": [
+   "Using the lemma to prove a language regular.",
+   "Choosing the split yourself (the adversary chooses it)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Prove {aⁿbⁿ} is not regular.",
+    "answer": "As above with i=2 (or i=0)."
+   },
+   {
+    "type": "conceptual",
+    "question": "Prove {a^{n²}} is not regular.",
+    "answer": "s=a^{p²}; pump i=2: length p²+k with 0<k≤p<2p+1 lies strictly between p² and (p+1)² ⇒ not a square."
+   },
+   {
+    "type": "viva",
+    "question": "Can pumping prove regularity?",
+    "answer": "No; it is a necessary condition only."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "In the lemma |xy| ≤:",
+    "answer": "p",
+    "explanation": "",
+    "options": [
+     "|y|",
+     "p",
+     "|z|",
+     "2p"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "y must be non-empty.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What does p represent?",
+    "answer": "Pumping length (≥ number of DFA states).",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Who chooses the decomposition xyz?",
+    "answer": "The adversary (not you).",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Pumping up vs pumping down.",
+    "answer": "Up: i>1 adds copies of y; down: i=0 removes y.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Pumping lemma: ∃p ∀s(|s|≥p) s=xyz, |xy|≤p, |y|>0, xyⁱz∈L ∀i; used to disprove regularity (aⁿbⁿ).",
+  "formalDefinition": "If L is regular, ∃p≥1 such that ∀s∈L with |s|≥p, ∃ s=xyz with (1) |y|>0, (2) |xy|≤p, (3) xyⁱz∈L ∀i≥0.",
+  "notation": "p pumping length; s=xyz; yⁱ i copies.",
+  "components": [
+   "Pumping length p",
+   "Decomposition xyz",
+   "Pump exponent i"
+  ],
+  "derivationSteps": [
+   "Assume L={aⁿbⁿ} regular with pumping length p.",
+   "Take s=aᵖbᵖ∈L, |s|≥p.",
+   "Since |xy|≤p, y=aᵏ, k≥1.",
+   "xy²z=aᵖ⁺ᵏbᵖ∉L — contradiction.",
+   "Hence L is not regular."
+  ],
+  "examples": [
+   "{aⁿbⁿ}, {ww}, {a^{n²}} are non-regular."
+  ],
+  "counterexamples": [
+   "Pumping condition holds for some non-regular languages, so it cannot prove regularity."
+  ],
+  "properties": [
+   "Necessary but not sufficient",
+   "Based on a repeated state (pigeonhole)"
+  ],
+  "examProblems": [
+   {
+    "question": "Show {0ⁿ1^{2n}} is not regular.",
+    "answer": "s=0ᵖ1^{2p}; y=0ᵏ; pump i=2 gives 0^{p+k}1^{2p} ∉ L."
+   }
+  ]
+ },
+ "toc-c2-t09": {
+  "id": "toc-c2-t09",
+  "title": "Minimization of Finite Automata",
+  "importance": "high",
+  "definition": "DFA minimisation produces the unique smallest DFA accepting the same language by removing unreachable states and merging indistinguishable (equivalent) states.",
+  "simpleExplanation": "Minimization me DFA ke bekar states hata kar aur equivalent states ko merge karke sabse chhota DFA banate hain. Pehle unreachable states hatao, phir partition refinement (table filling) se equivalent states nikalo.",
+  "realLifeAnalogy": "Merging duplicate rooms that behave identically so the building has the minimum number of rooms.",
+  "example": "DFA states q0..q4, accepting {q3,q4}; q0:0→q1,1→q2; q1,q2:0→q3,1→q4; q3,q4:0→q3,1→q4. Partitions: {q0,q1,q2},{q3,q4} → {q0},{q1,q2},{q3,q4}. Minimal DFA has 3 states (strings of length ≥2).",
+  "keyPoints": [
+   "Step 1: remove unreachable states.",
+   "Step 2: start with partition {F, Q−F}.",
+   "Step 3: refine groups whose members go to different groups on some symbol.",
+   "Step 4: stop when no change; each group becomes one state.",
+   "Myhill–Nerode: number of equivalence classes = minimal DFA size.",
+   "Table-filling algorithm marks distinguishable pairs."
+  ],
+  "mustKnow": [
+   "Partition refinement.",
+   "Unreachable removal.",
+   "Myhill–Nerode."
+  ],
+  "ifYouKnow": [
+   "Minimise a given DFA.",
+   "Explain equivalence of states.",
+   "Count minimal states."
+  ],
+  "commonMistakes": [
+   "Forgetting to remove unreachable states first.",
+   "Merging non-equivalent states."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Minimise the DFA above.",
+    "answer": "3 states: [q0],[q1,q2],[q3,q4]."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain DFA minimisation algorithm.",
+    "answer": "Partition refinement or table filling."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Initial partition:",
+    "answer": "Final and non-final states",
+    "explanation": "",
+    "options": [
+     "Single block",
+     "Final and non-final states",
+     "Each state alone",
+     "Start vs rest"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "The minimal DFA is unique (up to renaming).",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Define equivalent states.",
+    "answer": "States p,q where for every string w, δ̂(p,w)∈F ⇔ δ̂(q,w)∈F.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Minimal states for 'even number of a's'.",
+    "answer": "2",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Distinguishable vs equivalent.",
+    "answer": "Distinguishable: some string separates them; equivalent: none does.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Minimise DFA: drop unreachable; partition {F,Q−F}; refine by transitions; merge equivalent states; unique minimal DFA.",
+  "formalDefinition": "States p,q are equivalent (p≡q) iff ∀w∈Σ*: δ̂(p,w)∈F ⇔ δ̂(q,w)∈F. The minimal DFA has the equivalence classes as states.",
+  "notation": "[q] equivalence class; ≡; Myhill–Nerode relation.",
+  "components": [
+   "Reachable states",
+   "Partition",
+   "Equivalence classes",
+   "Merged states"
+  ],
+  "derivationSteps": [
+   "P0={q0,q1,q2},{q3,q4}",
+   "On 0/1: q0→(q1,q2) same group; q1,q2→(q3,q4) group B ⇒ q0 splits.",
+   "P1={q0},{q1,q2},{q3,q4}",
+   "No further split ⇒ minimal DFA with 3 states."
+  ],
+  "diagram": "Minimal DFA: →[q0] -0,1-> [q1q2] -0,1-> ([q3q4]) ↺0,1",
+  "examples": [
+   "Strings of length ≥2 over {0,1}"
+  ],
+  "counterexamples": [
+   "Merging q0 and q1 would accept the wrong strings."
+  ],
+  "properties": [
+   "Unique minimal DFA",
+   "Equivalent DFAs minimise to the same machine"
+  ],
+  "examProblems": [
+   {
+    "question": "Minimise a DFA with states A,B,C,D, finals {C,D}, A:0→B,1→C; B:0→A,1→D; C,D self-loops to themselves.",
+    "answer": "Groups {A,B},{C,D}: A,B go to (B/A, C/D) same groups ⇒ 2-state DFA."
+   }
+  ]
+ },
+ "toc-c3-t01": {
+  "id": "toc-c3-t01",
+  "title": "Context-Free Grammars (CFG) and Languages (CFL)",
+  "importance": "high",
+  "definition": "A context-free grammar G=(V,T,P,S) has productions of the form A→α with a single variable on the left; the languages they generate are the context-free languages (CFLs).",
+  "simpleExplanation": "CFG me har rule ka left side sirf ek variable hota hai (A→α). Isse aise languages bante hain jisme nesting/matching ho, jaise balanced brackets, palindromes aur aⁿbⁿ. Ye regular languages se zyada powerful hain.",
+  "realLifeAnalogy": "A set of rewriting rules for building nested structures, like Russian dolls or matched brackets.",
+  "example": "Palindromes over {a,b}: S→aSa | bSb | a | b | ε. Balanced parentheses: S→(S)S | ε. {aⁿbⁿ}: S→aSb | ε.",
+  "keyPoints": [
+   "Production form A→α, A∈V, α∈(V∪T)*.",
+   "L(G)={w∈T* | S⇒*w}; CFLs are accepted by PDAs.",
+   "Can express nested/matched structure (aⁿbⁿ, palindromes, balanced brackets).",
+   "Regular languages ⊂ CFLs.",
+   "Not all languages are CFL, e.g. {aⁿbⁿcⁿ}.",
+   "Used to specify programming-language syntax (BNF)."
+  ],
+  "mustKnow": [
+   "Production form.",
+   "Three standard grammars.",
+   "Why more powerful than regular."
+  ],
+  "ifYouKnow": [
+   "Write a CFG for a language.",
+   "Derive strings.",
+   "Say when a language is not CFL."
+  ],
+  "commonMistakes": [
+   "Using two symbols on the left side (that is context-sensitive).",
+   "Thinking every language is CFL."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Write CFG for {aⁿb²ⁿ | n≥0}.",
+    "answer": "S→aSbb | ε."
+   },
+   {
+    "type": "numerical",
+    "question": "CFG for palindromes over {0,1}.",
+    "answer": "S→0S0|1S1|0|1|ε."
+   },
+   {
+    "type": "conceptual",
+    "question": "Define CFG and CFL with examples.",
+    "answer": "As above."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "LHS of a CFG production:",
+    "answer": "Single variable",
+    "explanation": "",
+    "options": [
+     "Single variable",
+     "String of terminals",
+     "Two variables",
+     "Any string"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "aⁿbⁿ is context-free.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Machine for CFL?",
+    "answer": "Pushdown automaton",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "CFG for strings with equal a's then b's (aⁿbⁿ).",
+    "answer": "S→aSb|ε",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Regular vs CFL.",
+    "answer": "CFL can count/match unboundedly using a stack; regular cannot.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "CFG: A→α (one variable LHS); CFL = accepted by PDA; examples aⁿbⁿ, palindromes, balanced brackets.",
+  "formalDefinition": "G=(V,T,P,S) with each production A→α, A∈V, α∈(V∪T)*. L(G)={w∈T*: S⇒*w}. A language is context-free iff it is L(G) for some CFG.",
+  "notation": "V variables, T terminals, P productions, S start; A→α₁|α₂.",
+  "components": [
+   "V",
+   "T",
+   "P",
+   "S"
+  ],
+  "derivationSteps": [
+   "S→aSb|ε; derive aabb: S⇒aSb⇒aaSbb⇒aabb"
+  ],
+  "examples": [
+   "{aⁿbⁿ}",
+   "Palindromes",
+   "Balanced parentheses"
+  ],
+  "counterexamples": [
+   "{aⁿbⁿcⁿ} is not context-free"
+  ],
+  "properties": [
+   "Closed under union, concatenation, star",
+   "Not closed under intersection and complement"
+  ],
+  "examProblems": [
+   {
+    "question": "CFG for {aⁱbʲ | i≠j}.",
+    "answer": "S→A|B; A→aA|aC; B→Bb|Cb; C→aCb|ε  (A gives i>j, B gives j>i, C gives aⁿbⁿ)"
+   }
+  ]
+ },
+ "toc-c3-t02": {
+  "id": "toc-c3-t02",
+  "title": "Chomsky Normal Forms",
+  "importance": "high",
+  "definition": "A CFG is in Chomsky Normal Form (CNF) if every production is A→BC (two variables) or A→a (one terminal), with S→ε allowed only if ε is in the language.",
+  "simpleExplanation": "CNF me har rule ya to A→BC hota hai ya A→a. Har CFG (ε ke bina) ko CNF me convert kiya ja sakta hai. CNF me n length string ki derivation exactly 2n−1 steps leti hai, aur CYK algorithm isi par chalta hai.",
+  "realLifeAnalogy": "Standardising every sentence into a strict two-part or single-word format so analysis is uniform.",
+  "example": "S→aSb | ab → CNF: S→AX | AB; X→SB; A→a; B→b. Derive aabb: S⇒AX⇒aX⇒aSB⇒aABB⇒aaBB⇒aabB⇒aabb (7=2·4−1 steps).",
+  "keyPoints": [
+   "Forms: A→BC or A→a.",
+   "Conversion steps: (1) remove ε-productions, (2) remove unit productions A→B, (3) remove useless symbols, (4) replace terminals inside long rules by new variables, (5) break long rules into pairs.",
+   "Any CFG (without ε) has an equivalent CNF.",
+   "Derivation of w of length n takes 2n−1 steps; parse tree is binary.",
+   "Used for CYK parsing in O(n³) and in pumping lemma proof.",
+   "Greibach normal form: A→aα."
+  ],
+  "mustKnow": [
+   "Five conversion steps.",
+   "Example conversion.",
+   "2n−1 steps."
+  ],
+  "ifYouKnow": [
+   "Convert a CFG to CNF.",
+   "Count derivation steps.",
+   "Explain use in CYK."
+  ],
+  "commonMistakes": [
+   "Doing steps in the wrong order.",
+   "Leaving mixed rules like A→aB."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Convert S→aSb|ab to CNF.",
+    "answer": "S→AX|AB; X→SB; A→a; B→b."
+   },
+   {
+    "type": "viva",
+    "question": "Steps in derivation of string of length n in CNF?",
+    "answer": "2n−1."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Valid CNF rule:",
+    "answer": "A→BC",
+    "explanation": "",
+    "options": [
+     "A→aB",
+     "A→BC",
+     "A→ABC",
+     "A→ab"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Every CFG without ε has a CNF.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Algorithm using CNF for parsing?",
+    "answer": "CYK",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Derivation steps for |w|=5 in CNF.",
+    "answer": "9",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "CNF vs GNF.",
+    "answer": "CNF: A→BC|a; GNF: A→aα (starts with terminal).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "CNF: A→BC | A→a; convert by removing ε, unit, useless; fix terminals; break long rules; 2n−1 derivation steps; CYK O(n³).",
+  "formalDefinition": "A CFG is in CNF if every production has the form A→BC (B,C∈V) or A→a (a∈T); S→ε is permitted only if ε∈L and S does not appear on any right side.",
+  "notation": "A→BC, A→a.",
+  "components": [
+   "Binary rules",
+   "Terminal rules"
+  ],
+  "derivationSteps": [
+   "1. Remove ε-productions, unit productions, useless symbols.",
+   "2. For each terminal in a long body introduce A→a (S→ASB|AB).",
+   "3. Break S→ASB into S→AX, X→SB.",
+   "4. Result: S→AX|AB; X→SB; A→a; B→b."
+  ],
+  "diagram": "S\n├─A─a\n└─X\n   ├─S ...\n   └─B─b",
+  "examples": [
+   "S→aSb|ab converted above"
+  ],
+  "counterexamples": [
+   "A→aB and A→BCD are not in CNF."
+  ],
+  "properties": [
+   "Binary parse trees",
+   "2n−1 derivation steps"
+  ],
+  "examProblems": [
+   {
+    "question": "Convert S→aS|b to CNF.",
+    "answer": "S→AS|b ; A→a"
+   }
+  ]
+ },
+ "toc-c3-t03": {
+  "id": "toc-c3-t03",
+  "title": "Nondeterministic Pushdown Automata (PDA) and Equivalence with CFG",
+  "importance": "high",
+  "definition": "A (non-deterministic) pushdown automaton is a finite automaton with a stack, M=(Q,Σ,Γ,δ,q₀,Z₀,F), and it accepts exactly the context-free languages.",
+  "simpleExplanation": "PDA = finite automaton + stack. Stack se count/match yaad rakh sakte hain (aⁿbⁿ). Non-deterministic PDA exactly CFLs accept karta hai, isliye CFG aur PDA equivalent hain.",
+  "realLifeAnalogy": "A finite automaton that carries a pile of plates: it can push or pop plates to remember how many a's it has seen.",
+  "example": "PDA for {aⁿbⁿ}: push A for each a; pop A for each b; accept if stack returns to Z. Trace aabb: push A, push A, pop, pop → accept.",
+  "keyPoints": [
+   "Formal 7-tuple: Q, Σ, Γ (stack alphabet), δ: Q×(Σ∪{ε})×Γ → finite subsets of Q×Γ*, q₀, Z₀, F.",
+   "Move: (q, a, X) → (p, γ): read a, pop X, push γ, go to p.",
+   "Acceptance by final state or by empty stack (equivalent).",
+   "CFG→PDA: one state; push S; A→α: δ(q,ε,A)∋(q,α); terminal a: δ(q,a,a)=(q,ε); accept by empty stack.",
+   "PDA→CFG: variables [pXq] meaning going from p to q popping X.",
+   "NPDA more powerful than DPDA."
+  ],
+  "mustKnow": [
+   "PDA tuple.",
+   "CFG→PDA construction.",
+   "Acceptance modes."
+  ],
+  "ifYouKnow": [
+   "Design a PDA.",
+   "Trace a string.",
+   "Convert CFG to PDA."
+  ],
+  "commonMistakes": [
+   "Forgetting the initial stack symbol.",
+   "Assuming DPDA = NPDA in power."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Design a PDA for {aⁿbⁿ} and trace aabb.",
+    "answer": "δ(q0,a,Z)=(q0,AZ); δ(q0,a,A)=(q0,AA); δ(q0,b,A)=(q1,ε); δ(q1,b,A)=(q1,ε); δ(q1,ε,Z)=(q2,Z); accept."
+   },
+   {
+    "type": "conceptual",
+    "question": "Convert S→aSb|ε to a PDA.",
+    "answer": "Single state; δ(q,ε,S)={(q,aSb),(q,ε)}; δ(q,a,a)=(q,ε); δ(q,b,b)=(q,ε); accept by empty stack."
+   },
+   {
+    "type": "viva",
+    "question": "Why is a stack needed for aⁿbⁿ?",
+    "answer": "To count the a's for matching b's."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "PDA = FA plus:",
+    "answer": "Stack",
+    "explanation": "",
+    "options": [
+     "Queue",
+     "Stack",
+     "Tape",
+     "Counter only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "PDAs accept exactly CFLs.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Two acceptance modes?",
+    "answer": "Final state and empty stack.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Stack after reading aaa in the aⁿbⁿ PDA (top first).",
+    "answer": "A A A Z",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "DPDA vs NPDA.",
+    "answer": "NPDA accepts all CFLs; DPDA only a proper subset (DCFL).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "PDA=(Q,Σ,Γ,δ,q0,Z0,F): FA+stack; accepts CFLs; CFG→PDA (push S, expand/match); acceptance by final state/empty stack.",
+  "formalDefinition": "P=(Q,Σ,Γ,δ,q₀,Z₀,F), δ:Q×(Σ∪{ε})×Γ→𝒫_fin(Q×Γ*). L(P)={w:(q₀,w,Z₀)⊢*(q,ε,γ), q∈F} or with empty stack.",
+  "notation": "(q,a,X)→(p,γ); ⊢ moves; instantaneous description (q,w,γ).",
+  "components": [
+   "Q",
+   "Σ",
+   "Γ",
+   "δ",
+   "q₀",
+   "Z₀",
+   "F"
+  ],
+  "derivationSteps": [
+   "Trace aabb: (q0,aabb,Z)⊢(q0,abb,AZ)⊢(q0,bb,AAZ)⊢(q1,b,AZ)⊢(q1,ε,Z)⊢(q2,ε,Z) accept."
+  ],
+  "diagram": "q0 --a,Z/AZ--> q0   q0 --a,A/AA--> q0\nq0 --b,A/ε--> q1   q1 --b,A/ε--> q1\nq1 --ε,Z/Z--> (q2)",
+  "examples": [
+   "PDA for aⁿbⁿ",
+   "PDA for wwᴿ using nondeterministic guess of the middle"
+  ],
+  "counterexamples": [
+   "No PDA accepts {aⁿbⁿcⁿ}"
+  ],
+  "properties": [
+   "Equivalent to CFG",
+   "Stack gives unbounded counting in one direction"
+  ],
+  "examProblems": [
+   {
+    "question": "Give PDA moves for {wcwᴿ | w∈{a,b}*}.",
+    "answer": "Push symbols until c, then pop while matching input; accept when stack empty."
+   }
+  ]
+ },
+ "toc-c3-t04": {
+  "id": "toc-c3-t04",
+  "title": "Parse Trees",
+  "importance": "high",
+  "definition": "A parse (derivation) tree is an ordered tree showing how a string is derived in a CFG: the root is the start symbol, interior nodes are variables, leaves are terminals or ε, and the yield is the derived string.",
+  "simpleExplanation": "Parse tree derivation ka tree form hai: root S, andar variables, leaves terminals. Leaves ko left se right padhne par string milti hai (yield). Ek string ke liye ek ya zyada parse trees ho sakte hain.",
+  "realLifeAnalogy": "A sentence diagram showing which parts combine to form which bigger parts.",
+  "example": "G: S→aSb|ε. Tree for aabb: S → a S b; inner S → a S b; innermost S → ε. Yield = a a ε b b = aabb.",
+  "keyPoints": [
+   "Root = start symbol; interior nodes = variables; leaves = terminals/ε.",
+   "Children of A, left to right, form the body of a production A→X₁…Xₖ.",
+   "Yield = leaves read left to right.",
+   "Each parse tree ↔ unique leftmost derivation (and rightmost derivation).",
+   "Different trees for same string ⇒ ambiguity.",
+   "Used in compilers to represent syntax."
+  ],
+  "mustKnow": [
+   "Tree rules.",
+   "Yield.",
+   "Tree ↔ leftmost derivation."
+  ],
+  "ifYouKnow": [
+   "Draw a parse tree.",
+   "Find yield.",
+   "Write leftmost derivation from a tree."
+  ],
+  "commonMistakes": [
+   "Putting terminals as interior nodes.",
+   "Confusing parse tree with derivation sequence (they correspond but differ)."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Draw the parse tree for id+id*id with E→E+E|E*E|id (one tree) and write its yield.",
+    "answer": "Tree with + at root and * below the right child; yield id+id*id."
+   },
+   {
+    "type": "viva",
+    "question": "What is the yield of a parse tree?",
+    "answer": "String of leaves left to right."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Leaves of a parse tree are:",
+    "answer": "Terminals or ε",
+    "explanation": "",
+    "options": [
+     "Variables",
+     "Terminals or ε",
+     "Productions",
+     "Roots"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "A parse tree corresponds to a unique leftmost derivation.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Root symbol?",
+    "answer": "Start symbol S",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Yield of tree S→aSb→a(ε)b.",
+    "answer": "ab",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Parse tree vs derivation.",
+    "answer": "Tree shows structure; derivation lists steps in a chosen order.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Parse tree: root S, interior variables, leaves terminals/ε; yield = string; ↔ leftmost derivation.",
+  "formalDefinition": "A parse tree for G=(V,T,P,S): root labelled S; interior nodes labelled by variables; if A has children X₁…Xₖ then A→X₁…Xₖ∈P; leaves labelled by T∪{ε}. Yield = concatenation of leaves.",
+  "notation": "Tree with root S; yield(T).",
+  "components": [
+   "Root",
+   "Interior nodes",
+   "Leaves",
+   "Yield"
+  ],
+  "diagram": "      S\n    / | \\\n   a  S  b\n    / | \\\n   a  S  b\n      |\n      ε",
+  "examples": [
+   "Tree for aabb in S→aSb|ε"
+  ],
+  "counterexamples": [
+   "A tree whose children don't match any production is not a parse tree."
+  ],
+  "properties": [
+   "One leftmost and one rightmost derivation per tree",
+   "Ambiguity = multiple trees"
+  ],
+  "examProblems": [
+   {
+    "question": "Give the leftmost derivation for the aabb tree.",
+    "answer": "S⇒aSb⇒aaSbb⇒aabb"
+   }
+  ]
+ },
+ "toc-c3-t05": {
+  "id": "toc-c3-t05",
+  "title": "Ambiguity in CFG",
+  "importance": "high",
+  "definition": "A CFG is ambiguous if some string in its language has two or more different parse trees (equivalently, two distinct leftmost derivations).",
+  "simpleExplanation": "Ambiguity me ek hi string ke do alag parse tree ban jaate hain, jaise id+id*id me + pehle ya * pehle. Compiler ko exact meaning chahiye, isliye precedence ke saath grammar ko unambiguous banate hain.",
+  "realLifeAnalogy": "The sentence 'I saw the man with a telescope' — two different meanings from two structures.",
+  "example": "E→E+E|E*E|id: id+id*id has two trees (grouped (id+id)*id or id+(id*id)). Fix: E→E+T|T; T→T*F|F; F→id — unique tree with * binding tighter.",
+  "keyPoints": [
+   "Ambiguous: ≥2 parse trees / leftmost derivations for some string.",
+   "Removal: encode precedence and associativity with layered grammar.",
+   "Some CFLs are inherently ambiguous, e.g. {aⁱbʲcᵏ | i=j or j=k}.",
+   "No algorithm decides whether an arbitrary CFG is ambiguous.",
+   "Dangling-else is a classic ambiguity.",
+   "Unambiguity matters for compilers."
+  ],
+  "mustKnow": [
+   "Two-tree example.",
+   "Layered fix.",
+   "Inherent ambiguity."
+  ],
+  "ifYouKnow": [
+   "Show a grammar is ambiguous.",
+   "Remove ambiguity.",
+   "Define inherent ambiguity."
+  ],
+  "commonMistakes": [
+   "Thinking ambiguity is a property of a language rather than a grammar (except inherent).",
+   "Fixing by changing the language."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Show E→E+E|E*E|id is ambiguous.",
+    "answer": "Two parse trees/leftmost derivations for id+id*id."
+   },
+   {
+    "type": "numerical",
+    "question": "Give an unambiguous grammar for the same language.",
+    "answer": "E→E+T|T; T→T*F|F; F→id."
+   },
+   {
+    "type": "viva",
+    "question": "Is ambiguity decidable?",
+    "answer": "No."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Ambiguous means:",
+    "answer": "Some string has ≥2 parse trees",
+    "explanation": "",
+    "options": [
+     "No parse tree",
+     "Some string has ≥2 parse trees",
+     "Infinite language",
+     "Empty language"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "All ambiguous grammars can be made unambiguous.",
+    "answer": "False",
+    "explanation": "Inherently ambiguous languages exist."
+   },
+   {
+    "type": "short answer",
+    "question": "Example of inherently ambiguous language?",
+    "answer": "{aⁱbʲcᵏ | i=j or j=k}",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Number of parse trees for id+id+id in E→E+E|id.",
+    "answer": "2",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Ambiguous grammar vs inherently ambiguous language.",
+    "answer": "Grammar can be rewritten; inherently ambiguous language has no unambiguous grammar.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Ambiguity: ≥2 parse trees for one string; fix with precedence layers E→E+T|T, T→T*F|F; inherent ambiguity exists; undecidable.",
+  "formalDefinition": "G is ambiguous if ∃w∈L(G) with two distinct parse trees (equivalently two distinct leftmost derivations).",
+  "notation": "E→E+E|E*E|id; layered E,T,F.",
+  "components": [
+   "Grammar",
+   "String with multiple trees",
+   "Disambiguation rules"
+  ],
+  "derivationSteps": [
+   "Leftmost 1: E⇒E+E⇒id+E⇒id+E*E⇒id+id*E⇒id+id*id",
+   "Leftmost 2: E⇒E*E⇒E+E*E⇒id+E*E⇒id+id*E⇒id+id*id"
+  ],
+  "diagram": "Tree1:  E(+)             Tree2:  E(*)\n       id  E(*)               E(+)  id\n           id id             id id",
+  "examples": [
+   "E→E+E|E*E|id",
+   "if-else dangling else"
+  ],
+  "counterexamples": [
+   "E→E+T|T; T→T*F|F; F→id is unambiguous."
+  ],
+  "properties": [
+   "Undecidable in general",
+   "Inherent ambiguity for some CFLs"
+  ],
+  "examProblems": [
+   {
+    "question": "Is S→SS|a|ε ambiguous?",
+    "answer": "Yes: 'a' has infinitely many derivations/trees."
+   }
+  ]
+ },
+ "toc-c3-t06": {
+  "id": "toc-c3-t06",
+  "title": "Pumping Lemma for Context-Free Languages",
+  "importance": "high",
+  "definition": "The pumping lemma for CFLs says that for every CFL L there is a p such that any z∈L with |z|≥p can be written z=uvwxy with |vwx|≤p, |vx|≥1 and uvⁱwxⁱy∈L for all i≥0.",
+  "simpleExplanation": "CFL pumping lemma me lambi string ko 5 hisson me todte hain u v w x y; v aur x dono ek saath pump hote hain. Isse prove karte hain ki koi language CFL nahi hai, jaise aⁿbⁿcⁿ.",
+  "realLifeAnalogy": "A long derivation must repeat a variable on some path, so a middle chunk can be repeated in two places at once.",
+  "example": "{aⁿbⁿcⁿ} not CFL: take z=aᵖbᵖcᵖ. Since |vwx|≤p it cannot contain all three letters, so pumping changes at most two letter counts and leaves the third; counts become unequal ⇒ ∉ L.",
+  "keyPoints": [
+   "Statement: ∃p ∀z∈L,|z|≥p ∃ z=uvwxy, |vwx|≤p, |vx|>0, ∀i≥0 uvⁱwxⁱy∈L.",
+   "Proof idea: parse tree in CNF with height > |V| repeats a variable.",
+   "Used only to show languages are not CFL.",
+   "Typical non-CFLs: aⁿbⁿcⁿ, {ww}, {aⁿ²}, {aⁿbⁿcⁿdⁿ}.",
+   "v and x are pumped together.",
+   "Necessary, not sufficient."
+  ],
+  "mustKnow": [
+   "Statement.",
+   "aⁿbⁿcⁿ proof.",
+   "Case analysis of vwx."
+  ],
+  "ifYouKnow": [
+   "Prove a language is not CFL.",
+   "Choose z carefully.",
+   "Do case analysis."
+  ],
+  "commonMistakes": [
+   "Pumping only one of v or x.",
+   "Skipping cases where vwx spans two blocks."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Prove {aⁿbⁿcⁿ} is not context-free.",
+    "answer": "As above, with cases for where vwx lies."
+   },
+   {
+    "type": "conceptual",
+    "question": "Prove {ww | w∈{a,b}*} is not context-free.",
+    "answer": "z=aᵖbᵖaᵖbᵖ; pumping breaks the two halves' equality."
+   },
+   {
+    "type": "viva",
+    "question": "Can the lemma show a language is CFL?",
+    "answer": "No."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "In the lemma |vwx| ≤:",
+    "answer": "p",
+    "explanation": "",
+    "options": [
+     "|u|",
+     "p",
+     "|y|",
+     "1"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "|vx| must be at least 1.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Which language is the classic non-CFL?",
+    "answer": "{aⁿbⁿcⁿ}",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "vwx spans only a's and b's. After pumping, which count stays fixed?",
+    "answer": "The c count",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Regular vs CFL pumping.",
+    "answer": "Regular: one pumped part y; CFL: two parts v and x pumped together.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "CFL pumping: z=uvwxy, |vwx|≤p, |vx|≥1, uvⁱwxⁱy∈L; proves aⁿbⁿcⁿ, ww not CFL.",
+  "formalDefinition": "If L is context-free ∃p such that ∀z∈L, |z|≥p ⇒ ∃u,v,w,x,y: z=uvwxy, |vwx|≤p, |vx|≥1, uvⁱwxⁱy∈L ∀i≥0.",
+  "notation": "z=uvwxy; p pumping length.",
+  "components": [
+   "p",
+   "u,v,w,x,y",
+   "i"
+  ],
+  "derivationSteps": [
+   "Assume {aⁿbⁿcⁿ} is CFL with p. Take z=aᵖbᵖcᵖ.",
+   "|vwx|≤p ⇒ vwx has at most two distinct letters.",
+   "Pump i=2: the third letter's count is unchanged while another increases.",
+   "Counts unequal ⇒ uv²wx²y∉L; contradiction."
+  ],
+  "examples": [
+   "aⁿbⁿcⁿ",
+   "{ww}",
+   "{aⁿ²}"
+  ],
+  "counterexamples": [
+   "aⁿbⁿ is CFL, so pumping must hold for it."
+  ],
+  "properties": [
+   "Necessary condition",
+   "Based on repeated variable in CNF parse tree"
+  ],
+  "examProblems": [
+   {
+    "question": "Show {aⁿbⁿcⁿdⁿ} is not CFL.",
+    "answer": "z=aᵖbᵖcᵖdᵖ; vwx covers ≤2 adjacent letters; pump to unbalance."
+   }
+  ]
+ },
+ "toc-c3-t07": {
+  "id": "toc-c3-t07",
+  "title": "Deterministic Pushdown Automata",
+  "importance": "medium",
+  "definition": "A deterministic pushdown automaton (DPDA) has at most one possible move for every combination of state, input symbol (or ε) and stack top, and accepts the deterministic context-free languages (DCFLs), a proper subset of CFLs.",
+  "simpleExplanation": "DPDA me har situation me sirf ek hi move hoti hai (no guessing). Isliye ye NPDA se weak hai. aⁿbⁿ DCFL hai par palindromes wwᴿ nahi, kyunki beech ka point guess karna padta hai.",
+  "realLifeAnalogy": "A stack machine that cannot guess; it must decide each action from what it sees now.",
+  "example": "{aⁿbⁿ} is accepted by a DPDA. {wcwᴿ} is DCFL (the marker c shows the middle). {wwᴿ} is CFL but not DCFL.",
+  "keyPoints": [
+   "Determinism: |δ(q,a,X)|+|δ(q,ε,X)| ≤ 1.",
+   "Accepts by final state (empty-stack acceptance is weaker for DPDA).",
+   "DCFL ⊂ CFL (proper).",
+   "DCFLs are closed under complement but not under union or intersection.",
+   "DCFLs have unambiguous grammars; LR(k) grammars generate exactly DCFLs.",
+   "Compilers (parsers) use DPDA-like LR parsing."
+  ],
+  "mustKnow": [
+   "Determinism condition.",
+   "DCFL vs CFL examples.",
+   "Complement closure."
+  ],
+  "ifYouKnow": [
+   "Decide if a language is DCFL.",
+   "Design a DPDA.",
+   "Compare with NPDA."
+  ],
+  "commonMistakes": [
+   "Thinking all CFLs are DCFL.",
+   "Believing DPDA and NPDA are equivalent."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "DPDA vs NPDA.",
+    "answer": "DPDA: ≤1 move per configuration, accepts DCFL; NPDA: choices, accepts all CFL."
+   },
+   {
+    "type": "conceptual",
+    "question": "Why is wwᴿ not DCFL?",
+    "answer": "The middle must be guessed; no deterministic way to know when to start popping."
+   },
+   {
+    "type": "viva",
+    "question": "Which closure property do DCFLs have that CFLs lack?",
+    "answer": "Complement."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "DCFL ⊂ ?",
+    "answer": "CFL",
+    "explanation": "",
+    "options": [
+     "Regular",
+     "CFL",
+     "CSL only",
+     "RE only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "{aⁿbⁿ} is a DCFL.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Language class of LR(k) grammars?",
+    "answer": "DCFL",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "{wcwᴿ} vs {wwᴿ}: which is DCFL?",
+    "answer": "{wcwᴿ}",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "DCFL closure under complement?",
+    "answer": "Yes; CFLs are not closed.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "DPDA: ≤1 move per (state,input/ε,top); DCFL ⊂ CFL; aⁿbⁿ, wcwᴿ ∈ DCFL; wwᴿ ∉ DCFL; closed under complement.",
+  "formalDefinition": "A PDA is deterministic if ∀q,a,X: |δ(q,a,X)|+|δ(q,ε,X)|≤1. DCFL = languages accepted by DPDAs (by final state).",
+  "notation": "δ(q,a,X)=(p,γ) single value.",
+  "components": [
+   "Q",
+   "Σ",
+   "Γ",
+   "Deterministic δ"
+  ],
+  "examples": [
+   "aⁿbⁿ",
+   "wcwᴿ",
+   "Balanced parentheses"
+  ],
+  "counterexamples": [
+   "wwᴿ (needs guess of middle) is not DCFL."
+  ],
+  "properties": [
+   "Closed under complement",
+   "Not closed under union/intersection",
+   "Unambiguous grammars exist"
+  ],
+  "examProblems": [
+   {
+    "question": "Is {aⁿbᵐ | n≠m} a DCFL?",
+    "answer": "Yes; compare counts deterministically using the stack."
+   }
+  ]
+ },
+ "toc-c3-t08": {
+  "id": "toc-c3-t08",
+  "title": "Closure Properties of CFLs",
+  "importance": "high",
+  "definition": "CFLs are closed under union, concatenation, Kleene star, reversal, homomorphism and intersection with a regular language, but not under intersection, complement or difference.",
+  "simpleExplanation": "CFL closure: union, concatenation, star, reversal safe hain. Par intersection aur complement me closed nahi hain: {aⁿbⁿcᵐ} aur {aᵐbⁿcⁿ} CFL hain, par unka intersection aⁿbⁿcⁿ CFL nahi.",
+  "realLifeAnalogy": "Some operations on language families keep you inside the family, others take you out of it.",
+  "example": "L1={aⁿbⁿcᵐ}, L2={aᵐbⁿcⁿ} are CFL; L1∩L2={aⁿbⁿcⁿ} is not CFL. Union grammar: S→S₁|S₂.",
+  "keyPoints": [
+   "Closed: union, concatenation, star, reversal, homomorphism, inverse homomorphism, intersection with regular, substitution.",
+   "Not closed: intersection, complement, difference.",
+   "Union: new start S→S₁|S₂; concatenation: S→S₁S₂; star: S→S₁S|ε.",
+   "Intersection with regular: product of PDA and DFA.",
+   "Complement not closed because ∩ is not closed (De Morgan).",
+   "DCFLs are closed under complement."
+  ],
+  "mustKnow": [
+   "Closure table.",
+   "Counterexample for intersection.",
+   "Constructions."
+  ],
+  "ifYouKnow": [
+   "Prove a closure property.",
+   "Give a counterexample.",
+   "Use closure to prove non-CFL."
+  ],
+  "commonMistakes": [
+   "Assuming CFLs are closed under intersection.",
+   "Thinking regular ∩ CFL is not CFL (it is)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Show CFLs are not closed under intersection.",
+    "answer": "L1,L2 above; intersection aⁿbⁿcⁿ not CFL."
+   },
+   {
+    "type": "conceptual",
+    "question": "Show closure under union.",
+    "answer": "S→S₁|S₂ with disjoint variables."
+   },
+   {
+    "type": "viva",
+    "question": "Is CFL closed under complement?",
+    "answer": "No."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "CFLs are closed under:",
+    "answer": "Union",
+    "explanation": "",
+    "options": [
+     "Intersection",
+     "Union",
+     "Complement",
+     "Difference"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "CFL ∩ regular is CFL.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Counterexample language for intersection?",
+    "answer": "aⁿbⁿcⁿ",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Grammar for L₁*.",
+    "answer": "S→S₁S|ε",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "CFL vs regular closure.",
+    "answer": "Regular closed under complement and intersection; CFL not.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "CFL closed: ∪, ·, *, reversal, homomorphism, ∩ regular; NOT closed: ∩, complement, difference.",
+  "formalDefinition": "If L₁,L₂ are CFLs then L₁∪L₂, L₁L₂, L₁*, L₁ᴿ and L₁∩R (R regular) are CFLs; L₁∩L₂ and L̄₁ need not be.",
+  "notation": "S→S₁|S₂; S→S₁S₂; S→S₁S|ε.",
+  "components": [
+   "Closed operations",
+   "Non-closed operations"
+  ],
+  "derivationSteps": [
+   "L₁={aⁿbⁿcᵐ}, L₂={aᵐbⁿcⁿ} both CFL.",
+   "L₁∩L₂={aⁿbⁿcⁿ} fails CFL pumping lemma ⇒ not closed under ∩.",
+   "Complement: L₁∩L₂=(L̄₁∪L̄₂)ᶜ; if complement were closed so would ∩."
+  ],
+  "examples": [
+   "Union of aⁿbⁿ and cⁿdⁿ"
+  ],
+  "counterexamples": [
+   "Intersection of two CFLs giving aⁿbⁿcⁿ"
+  ],
+  "properties": [
+   "Closed under ∪ · * ᴿ h",
+   "Not closed under ∩ ᶜ −"
+  ],
+  "comparison": {
+   "title": "Closure",
+   "headers": [
+    "Operation",
+    "Regular",
+    "CFL"
+   ],
+   "rows": [
+    [
+     "Union",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Intersection",
+     "Yes",
+     "No"
+    ],
+    [
+     "Complement",
+     "Yes",
+     "No"
+    ],
+    [
+     "Concatenation",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Star",
+     "Yes",
+     "Yes"
+    ]
+   ]
+  },
+  "examProblems": [
+   {
+    "question": "Use closure to show {w: #a=#b=#c} is not CFL.",
+    "answer": "Intersect with a*b*c* giving aⁿbⁿcⁿ (not CFL) — CFL∩regular would be CFL."
+   }
+  ]
+ },
+ "toc-c3-t09": {
+  "id": "toc-c3-t09",
+  "title": "Context-Sensitive Languages: Context-Sensitive Grammars (CSG) and Languages",
+  "importance": "medium",
+  "definition": "A context-sensitive grammar has productions α→β with |α|≤|β| (non-contracting), and the languages generated, the context-sensitive languages (CSLs), are accepted by linear bounded automata.",
+  "simpleExplanation": "CSG me rule ka right side left side se chhota nahi hota (|α| ≤ |β|). Isse aⁿbⁿcⁿ jaisi languages bante hain jo CFL nahi hain. In languages ko linear bounded automaton (LBA) accept karta hai.",
+  "realLifeAnalogy": "Rules that can look at the surrounding context before rewriting, so they can compare three counts at once.",
+  "example": "CSG for {aⁿbⁿcⁿ|n≥1}: S→aSBC|aBC; CB→BC; aB→ab; bB→bb; bC→bc; cC→cc. Derive aabbcc: S⇒aSBC⇒aaBCBC⇒aaBBCC⇒aabBCC⇒aabbCC⇒aabbcC⇒aabbcc.",
+  "keyPoints": [
+   "Production α→β with |α|≤|β| (S→ε allowed if S not on any right side).",
+   "Equivalent form: αAβ→αγβ (context-sensitive).",
+   "Accepted by Linear Bounded Automata (TM with tape limited to input length).",
+   "CSL ⊂ Recursive ⊂ RE; CFL ⊂ CSL.",
+   "Closed under union, intersection, complement (Immerman–Szelepcsényi), concatenation, star.",
+   "Membership is decidable (PSPACE-complete)."
+  ],
+  "mustKnow": [
+   "Non-contracting rule.",
+   "aⁿbⁿcⁿ grammar.",
+   "LBA."
+  ],
+  "ifYouKnow": [
+   "Identify CSG productions.",
+   "Derive from the aⁿbⁿcⁿ grammar.",
+   "Place CSL in hierarchy."
+  ],
+  "commonMistakes": [
+   "Using contracting rules like AB→A in a CSG.",
+   "Confusing LBA with a general TM."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Derive aabbcc in the CSG above.",
+    "answer": "As in the example."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain context-sensitive languages and the LBA.",
+    "answer": "Non-contracting rules; LBA tape bounded by input length; hierarchy."
+   },
+   {
+    "type": "viva",
+    "question": "Is CSL closed under complement?",
+    "answer": "Yes (Immerman–Szelepcsényi)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "CSG rule condition:",
+    "answer": "|α| ≤ |β|",
+    "explanation": "",
+    "options": [
+     "|α| ≥ |β|",
+     "|α| ≤ |β|",
+     "|α|=1",
+     "β=ε"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "aⁿbⁿcⁿ is context-sensitive.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Machine for CSL?",
+    "answer": "Linear bounded automaton",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Is every CFL context-sensitive?",
+    "answer": "Yes (CFL ⊂ CSL).",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "CSL vs RE.",
+    "answer": "CSLs are decidable; RE languages need not be.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "CSG: α→β with |α|≤|β|; CSL accepted by LBA; aⁿbⁿcⁿ ∈ CSL; CFL ⊂ CSL ⊂ Recursive ⊂ RE.",
+  "formalDefinition": "G=(V,T,P,S) is context-sensitive if every production α→β satisfies |α|≤|β| (except possibly S→ε with S not on any RHS). A CSL is L(G) for a CSG G.",
+  "notation": "α→β, |α|≤|β|; αAβ→αγβ.",
+  "components": [
+   "Non-contracting productions",
+   "LBA"
+  ],
+  "derivationSteps": [
+   "S⇒aSBC⇒aaBCBC (S→aBC)",
+   "⇒aaBBCC (CB→BC)",
+   "⇒aabBCC (aB→ab) ⇒aabbCC (bB→bb)",
+   "⇒aabbcC (bC→bc) ⇒aabbcc (cC→cc)"
+  ],
+  "diagram": "Hierarchy: Regular ⊂ CFL ⊂ CSL ⊂ Recursive ⊂ RE",
+  "examples": [
+   "{aⁿbⁿcⁿ}",
+   "{ww}",
+   "{a^{2ⁿ}}"
+  ],
+  "counterexamples": [
+   "The halting problem language is not context-sensitive (not even decidable)."
+  ],
+  "properties": [
+   "Closed under ∪ ∩ complement · *",
+   "Membership decidable"
+  ],
+  "examProblems": [
+   {
+    "question": "Is {ww | w∈{a,b}*} context-sensitive?",
+    "answer": "Yes (an LBA can compare halves); it is not context-free."
+   }
+  ]
+ },
+ "toc-c4-t01": {
+  "id": "toc-c4-t01",
+  "title": "The Basic Model for Turing Machines (TM)",
+  "importance": "high",
+  "definition": "A Turing machine is a 7-tuple M=(Q,Σ,Γ,δ,q₀,B,F) with a finite control, an infinite tape and a read/write head that moves left or right, serving as the formal model of computation.",
+  "simpleExplanation": "Turing machine ek simple computer ka model hai: infinite tape, ek head jo symbol padhta/likhta hai aur left/right chalta hai, aur finite states. Har step me (state, symbol) dekh ke naya state, naya symbol aur direction decide hota hai.",
+  "realLifeAnalogy": "A clerk with an endless paper strip who reads a cell, writes something, moves one cell left or right and follows a fixed rulebook.",
+  "example": "TM for {0ⁿ1ⁿ}: mark a 0 as X, move right to the first 1 and mark it Y, return to X, repeat; when only Y's remain, accept. Input 0011 is accepted.",
+  "keyPoints": [
+   "M=(Q,Σ,Γ,δ,q₀,B,F): states, input alphabet, tape alphabet (Σ⊂Γ), δ:Q×Γ→Q×Γ×{L,R}, start, blank B, final states.",
+   "Tape infinite to the right (or both ways) initially holding the input then blanks.",
+   "Configuration (ID): αqβ — tape contents with the head at the first symbol of β.",
+   "Accepts by entering a final state; may halt without accepting or loop forever.",
+   "Language accepted L(M)={w | q₀w ⊢* αpβ, p∈F}.",
+   "Equivalent to modern computers in power (Church–Turing thesis)."
+  ],
+  "mustKnow": [
+   "7-tuple.",
+   "δ form.",
+   "Configuration notation."
+  ],
+  "ifYouKnow": [
+   "Define a TM.",
+   "Design a TM for a simple language.",
+   "Trace a computation."
+  ],
+  "commonMistakes": [
+   "Thinking the TM can only accept or reject (it may also loop).",
+   "Confusing Σ and Γ (blank ∈ Γ−Σ)."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Design a TM for {0ⁿ1ⁿ} and trace 0011.",
+    "answer": "Transitions below; accept in q4."
+   },
+   {
+    "type": "conceptual",
+    "question": "Define the Turing machine formally.",
+    "answer": "7-tuple with δ:Q×Γ→Q×Γ×{L,R}."
+   },
+   {
+    "type": "viva",
+    "question": "Can a TM loop forever?",
+    "answer": "Yes; then the input is not accepted (and not rejected either)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "δ maps to:",
+    "answer": "(state, symbol, direction)",
+    "explanation": "",
+    "options": [
+     "state only",
+     "(state, symbol, direction)",
+     "symbol only",
+     "bool"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "A TM has an infinite tape.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is the blank symbol part of?",
+    "answer": "Γ (tape alphabet) but not Σ.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "TM enters infinite loop on w. Is w accepted?",
+    "answer": "No",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "TM vs DFA memory.",
+    "answer": "DFA has finite memory; TM has unbounded read/write tape.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "TM=(Q,Σ,Γ,δ,q0,B,F): infinite tape, head moves L/R, δ:Q×Γ→Q×Γ×{L,R}; accepts by final state; may loop.",
+  "formalDefinition": "M=(Q,Σ,Γ,δ,q₀,B,F) where δ:Q×Γ→Q×Γ×{L,R}. A configuration is αqβ. M accepts w if q₀w ⊢* αqβ with q∈F.",
+  "notation": "δ(q,a)=(p,b,D); ID αqβ; ⊢ move.",
+  "components": [
+   "Q finite control",
+   "Σ input alphabet",
+   "Γ tape alphabet",
+   "δ",
+   "q₀",
+   "B blank",
+   "F"
+  ],
+  "derivationSteps": [
+   "δ(q0,0)=(q1,X,R); δ(q0,Y)=(q3,Y,R)",
+   "δ(q1,0)=(q1,0,R); δ(q1,Y)=(q1,Y,R); δ(q1,1)=(q2,Y,L)",
+   "δ(q2,0)=(q2,0,L); δ(q2,Y)=(q2,Y,L); δ(q2,X)=(q0,X,R)",
+   "δ(q3,Y)=(q3,Y,R); δ(q3,B)=(q4,B,R)  (q4 final)",
+   "Trace 0011: q0 0011 → X q1 011 → X0 q1 11 → X q2 0Y1 → q2 X0Y1 → X q0 0Y1 → XX q1 Y1 → XXY q1 1 → XX q2 YY → X q2 XYY → XX q0 YY → XXY q3 Y → XXYY q3 B → accept."
+  ],
+  "diagram": "…[B][0][0][1][1][B]…\n          ↑ head\n   Finite control (state q)",
+  "examples": [
+   "{0ⁿ1ⁿ}",
+   "Binary increment"
+  ],
+  "counterexamples": [
+   "A machine with δ undefined on some (q,a) simply halts (rejects) there."
+  ],
+  "properties": [
+   "Deterministic",
+   "May accept, reject or loop"
+  ],
+  "examProblems": [
+   {
+    "question": "Design a TM that accepts all strings over {a,b} ending in a.",
+    "answer": "Scan right to blank, move left, accept if symbol is a."
+   }
+  ]
+ },
+ "toc-c4-t02": {
+  "id": "toc-c4-t02",
+  "title": "Turing-Recognizable and Turing-Decidable Languages and their Closure Properties",
+  "importance": "high",
+  "definition": "A language is Turing-recognizable (recursively enumerable) if some TM accepts exactly its strings (it may loop on others) and Turing-decidable (recursive) if some TM halts on every input accepting exactly its strings.",
+  "simpleExplanation": "Recognizable (RE): TM string ko accept karta hai agar wo language me hai, warna reject ya loop. Decidable (recursive): TM hamesha ruk jata hai aur sahi haan/naa deta hai. Decidable ⊂ recognizable.",
+  "realLifeAnalogy": "Recognizable is like a search party that may search forever if the item isn't there; decidable always comes back with a definite yes or no.",
+  "example": "A_DFA is decidable; A_TM={⟨M,w⟩ | M accepts w} is recognizable but not decidable; its complement is not even recognizable.",
+  "keyPoints": [
+   "Recognizable (RE): TM halts and accepts if w∈L; may loop if w∉L.",
+   "Decidable (recursive): TM (a decider) always halts.",
+   "Every decidable language is recognizable.",
+   "L decidable ⇔ both L and L̄ are recognizable.",
+   "Decidable languages closed under union, intersection, complement, concatenation, star.",
+   "Recognizable languages closed under union, intersection, concatenation, star but not complement."
+  ],
+  "mustKnow": [
+   "Definitions.",
+   "L and L̄ theorem.",
+   "Closure table."
+  ],
+  "ifYouKnow": [
+   "Distinguish the classes.",
+   "Prove closure of decidable under complement.",
+   "Use L & L̄ theorem."
+  ],
+  "commonMistakes": [
+   "Thinking recognizable languages are closed under complement.",
+   "Believing 'recognizable' means 'decidable'."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "Recognizable vs decidable.",
+    "answer": "Decidable TM halts on all inputs; recognizable TM may loop on non-members."
+   },
+   {
+    "type": "conceptual",
+    "question": "Prove: L decidable iff L and L̄ recognizable.",
+    "answer": "⇒ trivial; ⇐ run both recognizers in parallel; exactly one accepts."
+   },
+   {
+    "type": "viva",
+    "question": "Which classic language is recognizable but not decidable?",
+    "answer": "A_TM (halting/acceptance problem)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Decidable languages are closed under:",
+    "answer": "Complement",
+    "explanation": "",
+    "options": [
+     "Complement",
+     "Nothing",
+     "Only union",
+     "Only star"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "RE languages are closed under complement.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Alternative name for decidable?",
+    "answer": "Recursive",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "L and L̄ both RE. What follows?",
+    "answer": "L is decidable",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Decider vs recognizer.",
+    "answer": "Decider always halts; recognizer may loop on non-members.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "RE (recognizable): TM accepts members, may loop; Recursive (decidable): TM always halts; L decidable ⇔ L,L̄ RE; RE not closed under complement.",
+  "formalDefinition": "L is recognizable if L=L(M) for some TM M. L is decidable if L=L(M) for a TM M that halts on all inputs.",
+  "notation": "RE, REC (R); L̄ complement.",
+  "components": [
+   "Recognizable (RE)",
+   "Decidable (recursive)",
+   "Closure properties"
+  ],
+  "subs": null,
+  "examples": [
+   "Decidable: A_DFA, E_DFA",
+   "Recognizable not decidable: A_TM"
+  ],
+  "counterexamples": [
+   "Ā_TM is not recognizable."
+  ],
+  "properties": [
+   "REC closed under ∪ ∩ complement · *",
+   "RE closed under ∪ ∩ · * but not complement",
+   "REC ⊂ RE"
+  ],
+  "comparison": {
+   "title": "Closure",
+   "headers": [
+    "Operation",
+    "Decidable",
+    "Recognizable"
+   ],
+   "rows": [
+    [
+     "Union",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Intersection",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Complement",
+     "Yes",
+     "No"
+    ],
+    [
+     "Concatenation",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Star",
+     "Yes",
+     "Yes"
+    ]
+   ]
+  },
+  "examProblems": [
+   {
+    "question": "Show the union of two decidable languages is decidable.",
+    "answer": "Run both deciders; accept if either accepts; always halts."
+   }
+  ]
+ },
+ "toc-c4-t03": {
+  "id": "toc-c4-t03",
+  "title": "Variants of Turing Machines",
+  "importance": "medium",
+  "definition": "Variants of Turing machines — multitape, multi-track, two-way infinite tape, multi-head, multidimensional and others — are all equivalent in computing power to the standard single-tape TM.",
+  "simpleExplanation": "TM ke kai variants hain (multitape, two-way tape, multi-head), par sab same languages accept karte hain. Variants sirf design aasan banate hain ya speed badhate hain, power nahi.",
+  "realLifeAnalogy": "Different models of calculators that can all compute the same set of answers, only some faster or easier to program.",
+  "example": "A 2-tape TM for {wcw}: copy w to tape 2 then compare. A single-tape TM can simulate it by storing both tapes' contents on one tape with markers (multi-track).",
+  "keyPoints": [
+   "Multitape TM: k tapes with independent heads; simulated by a single-tape TM (quadratic slowdown).",
+   "Multi-track: tape cells hold tuples.",
+   "Two-way infinite tape: simulate by folding into two tracks.",
+   "Multi-head, multidimensional, offline TM, counter machines (2 counters) also equivalent.",
+   "Nondeterministic TM equivalent (next topic).",
+   "Equivalence supports the Church–Turing thesis."
+  ],
+  "mustKnow": [
+   "Equivalence idea.",
+   "Multitape simulation.",
+   "Time slowdown."
+  ],
+  "ifYouKnow": [
+   "Name variants.",
+   "Sketch multitape simulation.",
+   "Explain why variants matter."
+  ],
+  "commonMistakes": [
+   "Believing multitape TMs compute more functions.",
+   "Ignoring the polynomial slowdown in simulation."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Show a multitape TM can be simulated by a single-tape TM.",
+    "answer": "Store k tapes as separate segments with end markers and head-position markers; sweep to simulate each step."
+   },
+   {
+    "type": "viva",
+    "question": "Do variants change decidability?",
+    "answer": "No; they recognize and decide the same languages."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Multitape TMs recognise:",
+    "answer": "The same languages as standard TMs",
+    "explanation": "",
+    "options": [
+     "More languages",
+     "The same languages as standard TMs",
+     "Fewer",
+     "Only regular"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Two-way infinite tape adds power.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Cost of simulating a multitape TM?",
+    "answer": "Quadratic time slowdown.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Design aid: copying w to a second tape. Variant?",
+    "answer": "Multitape TM",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Variants vs thesis.",
+    "answer": "Equivalence of many models supports the Church–Turing thesis.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "TM variants (multitape, two-way, multi-head, multi-track, 2D) are equivalent in power; multitape simulated with quadratic slowdown.",
+  "formalDefinition": "A k-tape TM has δ:Q×Γᵏ→Q×Γᵏ×{L,R,S}ᵏ. For every k-tape TM there is an equivalent single-tape TM.",
+  "notation": "Multitape δ(q,a₁…aₖ)=(p,b₁…bₖ,D₁…Dₖ).",
+  "components": [
+   "Multitape",
+   "Multi-track",
+   "Two-way tape",
+   "Multi-head"
+  ],
+  "examples": [
+   "2-tape TM for wcw",
+   "Two-way tape folded into two tracks"
+  ],
+  "counterexamples": [
+   "Adding a finite stack (PDA) in place of the tape reduces power."
+  ],
+  "properties": [
+   "All equivalent in power",
+   "Efficiency differs"
+  ],
+  "examProblems": [
+   {
+    "question": "Prove a two-way infinite-tape TM equals a standard TM.",
+    "answer": "Fold the tape at a marker into two tracks and simulate direction reversal on the lower track."
+   }
+  ]
+ },
+ "toc-c4-t04": {
+  "id": "toc-c4-t04",
+  "title": "Nondeterministic TMs and Equivalence with Deterministic TMs",
+  "importance": "high",
+  "definition": "A nondeterministic Turing machine (NTM) may have several possible moves at each step, accepts if some computation branch accepts, and recognizes exactly the same languages as deterministic TMs.",
+  "simpleExplanation": "NTM me ek step par kai choices ho sakte hain; agar koi bhi raasta accept kare to string accept. Phir bhi DTM un sab raaston ko breadth-first search se try karke NTM ko simulate kar leta hai, isliye power same hai (par time exponential).",
+  "realLifeAnalogy": "A maze solver who can clone at every fork; a deterministic solver explores all paths level by level instead.",
+  "example": "NTM guesses a divisor for 'is n composite?'. A DTM simulates by trying all possible guesses in breadth-first order.",
+  "keyPoints": [
+   "δ:Q×Γ→𝒫(Q×Γ×{L,R}).",
+   "Accepts if some branch reaches an accepting state.",
+   "DTM simulation: BFS over the computation tree (3 tapes: input, work copy, address of branch).",
+   "NTM and DTM recognize the same languages; NTM decider ⇔ DTM decider.",
+   "Simulation takes exponential time in the worst case.",
+   "P vs NP concerns time-bounded versions."
+  ],
+  "mustKnow": [
+   "BFS simulation.",
+   "3-tape DTM.",
+   "Exponential blow-up."
+  ],
+  "ifYouKnow": [
+   "Define an NTM.",
+   "Explain the simulation.",
+   "Relate to P vs NP."
+  ],
+  "commonMistakes": [
+   "Thinking NTM computes more languages.",
+   "Using DFS (may loop forever on an infinite branch)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Prove NTM ≡ DTM in language power.",
+    "answer": "Simulate by BFS over the tree of configurations on a multitape TM."
+   },
+   {
+    "type": "viva",
+    "question": "Why BFS rather than DFS?",
+    "answer": "DFS could get stuck on an infinite branch and miss an accepting one."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "NTM accepts if:",
+    "answer": "Some branch accepts",
+    "explanation": "",
+    "options": [
+     "All branches accept",
+     "Some branch accepts",
+     "First branch accepts",
+     "None"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "NTMs recognise more languages than DTMs.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Simulation strategy?",
+    "answer": "Breadth-first search of the computation tree.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Branching factor b depth d. DTM steps?",
+    "answer": "About b^d",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "DTM vs NTM time.",
+    "answer": "DTM simulation is exponential; whether polynomial is possible is P vs NP.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "NTM: δ→subsets, accepts if any branch does; simulated by DTM with BFS (3 tapes); same languages, exponential slowdown.",
+  "formalDefinition": "An NTM has δ:Q×Γ→𝒫(Q×Γ×{L,R}). It accepts w if some sequence of choices leads from q₀w to an accepting configuration.",
+  "notation": "Computation tree; branching degree b.",
+  "components": [
+   "Nondeterministic δ",
+   "Computation tree",
+   "BFS simulator tapes"
+  ],
+  "derivationSteps": [
+   "Tape 1: input (kept).",
+   "Tape 2: copy used for simulation of a branch.",
+   "Tape 3: address string of choices (like 1,3,2) enumerated in order.",
+   "For each address run the branch; accept if it accepts; else move to the next address."
+  ],
+  "examples": [
+   "Guessing a factor to test compositeness"
+  ],
+  "counterexamples": [
+   "DFS simulation fails when a branch is infinite."
+  ],
+  "properties": [
+   "Same power as DTM",
+   "Exponential time simulation"
+  ],
+  "examProblems": [
+   {
+    "question": "Explain why decidability is preserved.",
+    "answer": "If NTM halts on all branches, the BFS simulator halts on a finite tree and decides."
+   }
+  ]
+ },
+ "toc-c4-t05": {
+  "id": "toc-c4-t05",
+  "title": "Unrestricted Grammars and Equivalence with Turing Machines",
+  "importance": "medium",
+  "definition": "Unrestricted (Type 0) grammars have productions α→β with no restriction (α non-empty), and they generate exactly the Turing-recognizable (recursively enumerable) languages.",
+  "simpleExplanation": "Unrestricted grammar me rule ke dono taraf kuch bhi ho sakta hai (α→β). Ye utni hi powerful hai jitni Turing machine: jo language TM accept karta hai wahi Type 0 grammar generate karti hai.",
+  "realLifeAnalogy": "A rewriting system with no restrictions can emulate any computer program step by step.",
+  "example": "Grammar for {a^{2ⁿ} | n≥1}: S→ACaB; Ca→aaC; CB→DB | E; aD→Da; AD→AC; aE→Ea; AE→ε. Derive aa: S⇒ACaB⇒AaaCB⇒AaaE⇒AaEa⇒AEaa⇒aa.",
+  "keyPoints": [
+   "Productions α→β, α∈(V∪T)⁺V(V∪T)*, β∈(V∪T)*.",
+   "L is generated by an unrestricted grammar iff L is Turing-recognizable.",
+   "Grammar→TM: NTM guesses a derivation from S and checks whether it produces the input.",
+   "TM→grammar: generate any input string and its start configuration, simulate TM moves by rules on configurations, and erase markers if M accepts.",
+   "Can express non-context-sensitive and undecidable properties.",
+   "Type 0 in the Chomsky hierarchy."
+  ],
+  "mustKnow": [
+   "Equivalence idea.",
+   "Grammar example a^{2ⁿ}.",
+   "Construction sketch."
+  ],
+  "ifYouKnow": [
+   "Explain both directions.",
+   "Derive using the example grammar.",
+   "Place in the hierarchy."
+  ],
+  "commonMistakes": [
+   "Thinking Type 0 grammars are decidable.",
+   "Confusing with context-sensitive (|α|≤|β|)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Show unrestricted grammars ⇔ Turing machines.",
+    "answer": "Grammar→NTM; TM→grammar via configuration simulation."
+   },
+   {
+    "type": "numerical",
+    "question": "Derive aaaa with the a^{2ⁿ} grammar.",
+    "answer": "Double a's by passing C then reset via D, E."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Unrestricted grammars generate:",
+    "answer": "RE languages",
+    "explanation": "",
+    "options": [
+     "Regular",
+     "CFL",
+     "RE languages",
+     "CSL only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Type 0 requires |α|≤|β|.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Machine equivalent to Type 0?",
+    "answer": "Turing machine",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Membership for Type 0 grammar decidable?",
+    "answer": "No",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Type 0 vs Type 1.",
+    "answer": "Type 0 allows shrinking rules; Type 1 does not.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Type 0 grammars (α→β, any) generate exactly RE languages = TM-recognizable.",
+  "formalDefinition": "G=(V,T,P,S) is unrestricted if P⊆(V∪T)⁺×(V∪T)*. L(G) is recursively enumerable and every RE language equals L(G) for some such G.",
+  "notation": "α→β; configuration symbols for simulation.",
+  "components": [
+   "V",
+   "T",
+   "P",
+   "S"
+  ],
+  "derivationSteps": [
+   "S⇒ACaB⇒AaaCB (Ca→aaC)",
+   "⇒AaaE (CB→E)",
+   "⇒AaEa⇒AEaa (aE→Ea)",
+   "⇒aa (AE→ε)"
+  ],
+  "examples": [
+   "a^{2ⁿ}",
+   "aⁿbⁿcⁿ (also CSL)"
+  ],
+  "counterexamples": [
+   "Type 0 grammars cannot decide membership in general."
+  ],
+  "properties": [
+   "Generate exactly RE languages",
+   "Equivalent to TMs"
+  ],
+  "examProblems": [
+   {
+    "question": "Why can't membership for Type 0 grammars be decided?",
+    "answer": "It would decide A_TM."
+   }
+  ]
+ },
+ "toc-c4-t06": {
+  "id": "toc-c4-t06",
+  "title": "TMs as Enumerators",
+  "importance": "medium",
+  "definition": "An enumerator is a Turing machine with an output printer that prints (lists) the strings of a language, possibly repeating them and in any order; a language is Turing-recognizable iff some enumerator enumerates it.",
+  "simpleExplanation": "Enumerator TM hai jo language ki saari strings print karta rehta hai (repeat ho sakti hain, order koi bhi). Theorem: language RE hai ⟺ koi enumerator use enumerate karta hai.",
+  "realLifeAnalogy": "A printer that slowly prints every member of a list; you accept a name if it eventually appears on the printout.",
+  "example": "Enumerator for {aⁿbⁿ}: for n=0,1,2,… print aⁿbⁿ. Recognizer from enumerator: run E on input w; if w is printed, accept.",
+  "keyPoints": [
+   "Enumerator E=(TM+printer); L(E)=set of strings printed.",
+   "Theorem: L is recognizable ⇔ L=L(E) for some enumerator E.",
+   "E→M: on input w, run E; accept if w is printed.",
+   "M→E: for i=1,2,…, run M on the first i strings (in shortlex order) for i steps; print those that accept.",
+   "Decidable ⇔ enumerable in lexicographic (shortlex) order.",
+   "Explains the name 'recursively enumerable'."
+  ],
+  "mustKnow": [
+   "Both directions of the theorem.",
+   "Dovetailing.",
+   "Decidable ⇔ ordered enumeration."
+  ],
+  "ifYouKnow": [
+   "Prove the theorem.",
+   "Construct an enumerator.",
+   "Explain dovetailing."
+  ],
+  "commonMistakes": [
+   "Running M on each string to completion (may loop forever).",
+   "Believing enumerators print each string exactly once."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Prove: L recognizable iff enumerable.",
+    "answer": "E→M by running E; M→E by dovetailing M over strings s₁,s₂,… with step bounds."
+   },
+   {
+    "type": "viva",
+    "question": "Why dovetailing?",
+    "answer": "Because M may loop on some strings, so we limit steps and interleave."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Enumerator prints:",
+    "answer": "Members of a language",
+    "explanation": "",
+    "options": [
+     "Non-members",
+     "Members of a language",
+     "Only rejected inputs",
+     "Programs"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Strings may be repeated in enumeration.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Technique to build E from M?",
+    "answer": "Dovetailing",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Language enumerated in shortlex order is?",
+    "answer": "Decidable",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Recognizer vs enumerator.",
+    "answer": "Recognizer checks membership of input; enumerator lists members.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Enumerator: TM that prints strings; L is RE ⇔ some enumerator prints exactly L; E→M run E; M→E dovetail; ordered enumeration ⇔ decidable.",
+  "formalDefinition": "An enumerator E is a TM with a write-only output tape. L(E)={w : E eventually prints w}. L is Turing-recognizable ⇔ L=L(E) for some E.",
+  "notation": "E, L(E), s₁,s₂,… shortlex strings.",
+  "components": [
+   "Work tape",
+   "Printer/output tape",
+   "Enumeration order"
+  ],
+  "derivationSteps": [
+   "M→E: for i=1,2,3,…",
+   "  for each of s₁…sᵢ run M for i steps",
+   "  if M accepts sⱼ within i steps print sⱼ."
+  ],
+  "examples": [
+   "Enumerate {aⁿbⁿ}",
+   "Enumerate Σ*"
+  ],
+  "counterexamples": [
+   "Running M to completion on each string can hang forever."
+  ],
+  "properties": [
+   "RE = enumerable",
+   "Decidable = enumerable in order"
+  ],
+  "examProblems": [
+   {
+    "question": "Why does shortlex ordering imply decidability?",
+    "answer": "To test w, enumerate until w or a longer string appears: w absent ⇒ reject."
+   }
+  ]
+ },
+ "toc-c5-t01": {
+  "id": "toc-c5-t01",
+  "title": "Church-Turing Thesis",
+  "importance": "high",
+  "definition": "The Church–Turing thesis states that every function that can be effectively computed by an algorithm can be computed by a Turing machine.",
+  "simpleExplanation": "Church–Turing thesis kehti hai ki jo bhi cheez 'algorithm' se compute ho sakti hai, use Turing machine bhi compute kar sakti hai. Ye proof nahi, ek maanyata hai jo kai models ke equivalent hone se mazboot hui.",
+  "realLifeAnalogy": "Every known recipe for computing something can be followed by one standard kitchen robot (the Turing machine).",
+  "example": "Lambda calculus, μ-recursive functions, register machines, RAM and multi-tape TMs all compute exactly the same class of functions.",
+  "keyPoints": [
+   "Proposed by Alonzo Church (λ-calculus) and Alan Turing (TM) in 1936.",
+   "Informal 'algorithm' = Turing machine computation.",
+   "Not a theorem (it relates an informal notion to a formal one).",
+   "Evidence: all reasonable models are equivalent.",
+   "Consequence: proving no TM can solve something shows no algorithm can.",
+   "Basis for undecidability results; Hilbert's tenth problem."
+  ],
+  "mustKnow": [
+   "Statement.",
+   "Evidence.",
+   "Why not provable."
+  ],
+  "ifYouKnow": [
+   "State the thesis.",
+   "Give evidence.",
+   "Explain its role in undecidability."
+  ],
+  "commonMistakes": [
+   "Calling it a mathematical theorem.",
+   "Confusing with the strong (complexity) thesis."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "State and explain the Church–Turing thesis.",
+    "answer": "Informal algorithm ≡ Turing machine; evidence of equivalent models."
+   },
+   {
+    "type": "viva",
+    "question": "Why can't it be proven?",
+    "answer": "'Effectively computable' is an informal notion."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Models equivalent to TM include:",
+    "answer": "Lambda calculus",
+    "explanation": "",
+    "options": [
+     "DFA",
+     "Lambda calculus",
+     "PDA",
+     "Regular expressions"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "The thesis is a proven theorem.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Who proposed it?",
+    "answer": "Church and Turing",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "No TM decides a problem. What does the thesis imply?",
+    "answer": "No algorithm decides it.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Weak vs strong thesis.",
+    "answer": "Church–Turing is about computability; strong thesis adds efficient simulation.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Church–Turing: algorithm ≡ Turing machine (informal); evidence = equivalent models; basis for undecidability.",
+  "formalDefinition": "Thesis: A function is effectively computable (by an algorithm) iff it is computable by a Turing machine.",
+  "notation": "TM computable = recursive function = λ-definable.",
+  "components": [
+   "Informal algorithm",
+   "Turing machine",
+   "Equivalent models"
+  ],
+  "examples": [
+   "λ-calculus",
+   "μ-recursive functions",
+   "RAM machines"
+  ],
+  "counterexamples": [
+   "Hypercomputation models are not considered effective."
+  ],
+  "properties": [
+   "Unprovable but widely accepted",
+   "Anchor for undecidability"
+  ],
+  "examProblems": [
+   {
+    "question": "List three models equivalent to TMs.",
+    "answer": "Lambda calculus, μ-recursive functions, multitape/RAM machines."
+   }
+  ]
+ },
+ "toc-c5-t02": {
+  "id": "toc-c5-t02",
+  "title": "Universal Turing Machine",
+  "importance": "high",
+  "definition": "A universal Turing machine U takes as input the encoding ⟨M,w⟩ of any Turing machine M and string w, and simulates M on w, accepting exactly when M accepts w.",
+  "simpleExplanation": "Universal Turing machine ek aisi TM hai jo kisi bhi dusri TM ka description aur input leke use simulate kar leti hai. Ye stored-program computer ka idea hai: program bhi data hota hai.",
+  "realLifeAnalogy": "A general-purpose computer that runs any program you feed it as data.",
+  "example": "Encode δ(q1,X1)=(q3,X2,R) as 0 1 0 1 000 1 00 1 00 (states 0ⁱ, symbols 0ʲ, L=0, R=00; separators 1). U reads this description of M, then simulates M on w.",
+  "keyPoints": [
+   "U accepts ⟨M,w⟩ iff M accepts w: L(U)=A_TM (recognizable).",
+   "Encoding: states, symbols and directions as strings of 0s separated by 1s.",
+   "3-tape U: tape 1 = description of M; tape 2 = simulated tape of M; tape 3 = current state of M.",
+   "Each step: find a matching transition on tape 1, update tapes 2 and 3.",
+   "Shows programs can be treated as data.",
+   "U itself may loop if M loops."
+  ],
+  "mustKnow": [
+   "What U does.",
+   "Encoding of TMs.",
+   "Three tapes."
+  ],
+  "ifYouKnow": [
+   "Describe the UTM.",
+   "Encode a transition.",
+   "Explain its significance."
+  ],
+  "commonMistakes": [
+   "Thinking U decides whether M accepts (it only recognizes).",
+   "Forgetting that U may loop."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain the universal Turing machine.",
+    "answer": "Takes ⟨M,w⟩ and simulates M on w; 3-tape construction."
+   },
+   {
+    "type": "numerical",
+    "question": "Encode δ(q1,X1)=(q3,X2,R).",
+    "answer": "0 1 0 1 000 1 00 1 00."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "UTM input:",
+    "answer": "⟨M,w⟩",
+    "explanation": "",
+    "options": [
+     "w only",
+     "⟨M,w⟩",
+     "M only",
+     "δ only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "U recognises A_TM.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Tapes of a standard UTM?",
+    "answer": "Description of M, simulated tape, current state.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Idea behind stored-program computers?",
+    "answer": "Programs are data (universal machine).",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Universal vs ordinary TM.",
+    "answer": "Ordinary TM solves one fixed problem; universal TM runs any TM given its description.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "UTM: reads ⟨M,w⟩, simulates M on w; L(U)=A_TM (RE, not decidable); encodes TMs as binary strings; 3 tapes.",
+  "formalDefinition": "A universal TM U satisfies: on input ⟨M,w⟩, U accepts iff M accepts w; U halts iff M halts on w.",
+  "notation": "⟨M⟩ encoding; ⟨M,w⟩=⟨M⟩#w; L_u or A_TM.",
+  "components": [
+   "Encoded M",
+   "Encoded w",
+   "Simulation tapes",
+   "State tape"
+  ],
+  "derivationSteps": [
+   "1. Check ⟨M⟩ is a valid encoding.",
+   "2. Copy w to tape 2; put q₀ on tape 3.",
+   "3. Repeat: read symbol under head, find transition in tape 1, apply.",
+   "4. Accept if M reaches a final state."
+  ],
+  "examples": [
+   "Simulating a TM for {0ⁿ1ⁿ} on input 0011"
+  ],
+  "counterexamples": [
+   "A single fixed TM for {0ⁿ1ⁿ} is not universal."
+  ],
+  "properties": [
+   "L(U)=A_TM is recognizable but not decidable"
+  ],
+  "examProblems": [
+   {
+    "question": "Why can U not decide A_TM?",
+    "answer": "If M loops, U loops; A_TM is undecidable."
+   }
+  ]
+ },
+ "toc-c5-t03": {
+  "id": "toc-c5-t03",
+  "title": "The Universal and Diagonalization Languages",
+  "importance": "high",
+  "definition": "The universal language L_u={⟨M,w⟩ | M accepts w} is recognizable but not decidable, while the diagonalization language L_d={wᵢ | wᵢ ∉ L(Mᵢ)} is not even recognizable; both are shown using diagonalization.",
+  "simpleExplanation": "Diagonalization ek tareeka hai jisse prove hota hai ki koi language RE nahi hai. L_d wo strings hain jo apni hi TM se accept nahi hoti. L_u (universal language) RE hai par decidable nahi, aur halting problem bhi undecidable hai.",
+  "realLifeAnalogy": "A table of which machine accepts which string; the diagonal flipped gives a language that differs from every row, so no machine can accept it.",
+  "example": "Table rows Mᵢ, columns wⱼ with 1 if wⱼ∈L(Mᵢ). L_d takes the complement of the diagonal; it differs from every L(Mᵢ) at wᵢ so L_d is not RE.",
+  "keyPoints": [
+   "L_d={wᵢ : wᵢ∉L(Mᵢ)} is not recursively enumerable.",
+   "L_u={⟨M,w⟩ : w∈L(M)} is RE (recognized by U) but not recursive.",
+   "Proof for L_u undecidable: if decidable, then L̄_d would be decidable/RE ⇒ L_d RE, contradiction.",
+   "Halting problem HALT={⟨M,w⟩ : M halts on w} is undecidable.",
+   "Complement of L_u is not RE.",
+   "L decidable ⇔ L and L̄ are RE."
+  ],
+  "mustKnow": [
+   "Diagonal table.",
+   "L_u RE not recursive.",
+   "L_d not RE."
+  ],
+  "ifYouKnow": [
+   "Explain diagonalization.",
+   "Prove L_u undecidable.",
+   "State the halting problem result."
+  ],
+  "commonMistakes": [
+   "Thinking L_u is not RE (it is).",
+   "Confusing L_d with L_u."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Prove L_d is not RE.",
+    "answer": "Suppose L_d=L(Mₖ). Then wₖ∈L_d ⇔ wₖ∉L(Mₖ)=L_d, contradiction."
+   },
+   {
+    "type": "conceptual",
+    "question": "Prove the halting problem is undecidable.",
+    "answer": "Assume H decides HALT. Build D: on ⟨M⟩ run H(M,M) and do the opposite. D(⟨D⟩) contradicts."
+   },
+   {
+    "type": "viva",
+    "question": "Is L_u recognizable?",
+    "answer": "Yes, by the universal TM."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "L_d is:",
+    "answer": "Not RE",
+    "explanation": "",
+    "options": [
+     "Regular",
+     "Decidable",
+     "Not RE",
+     "CFL"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "L_u is recursively enumerable.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Technique used?",
+    "answer": "Diagonalization",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "HALT decidable?",
+    "answer": "No",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "L_u vs complement of L_u.",
+    "answer": "L_u is RE not recursive; its complement is not RE.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Diagonalization: L_d not RE; L_u (A_TM) RE not recursive; HALT undecidable; complement of L_u not RE.",
+  "formalDefinition": "L_d={wᵢ | wᵢ∉L(Mᵢ)}; L_u={⟨M,w⟩ | M accepts w}. Theorem: L_d∉RE; L_u∈RE∖REC.",
+  "notation": "Mᵢ i-th TM, wᵢ i-th string; ⟨M,w⟩ encoding.",
+  "components": [
+   "Enumeration of TMs and strings",
+   "Diagonal table",
+   "Contradiction"
+  ],
+  "derivationSteps": [
+   "Assume H decides A_TM.",
+   "Define D(⟨M⟩): run H(⟨M⟩,⟨M⟩); if H accepts, reject; else accept.",
+   "Run D on ⟨D⟩: D accepts ⟨D⟩ ⇔ D does not accept ⟨D⟩ — contradiction.",
+   "So A_TM is undecidable."
+  ],
+  "diagram": "      w1 w2 w3 w4 …\nM1    0  1  0  1\nM2    1  1  0  0\nM3    0  0  1  0\nM4    1  0  1  1\nL_d flips the diagonal: (1,0,0,0…) differs from every row.",
+  "examples": [
+   "A_TM undecidable",
+   "HALT undecidable"
+  ],
+  "counterexamples": [
+   "A_DFA is decidable."
+  ],
+  "properties": [
+   "L_u RE not recursive",
+   "Complement of L_u not RE",
+   "Reductions spread undecidability"
+  ],
+  "examProblems": [
+   {
+    "question": "Show that if L_u were decidable then L_d would be decidable.",
+    "answer": "L_d needs run U on ⟨Mᵢ,wᵢ⟩ and flip; a decider for L_u gives a decider for L_d, contradiction with L_d ∉ RE."
+   }
+  ]
+ }
+}

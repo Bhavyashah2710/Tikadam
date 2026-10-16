@@ -1,0 +1,229 @@
+{
+  "id": "toc",
+  "name": "Theory of Computation",
+  "code": "303105306",
+  "chapters": [
+    {
+      "id": "toc-c1",
+      "number": 1,
+      "title": "Introduction",
+      "weightage": 5,
+      "teachingHours": 2,
+      "topics": [
+        {
+          "id": "toc-c1-t01",
+          "title": "Alphabet",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c1-t02",
+          "title": "Languages and Grammars",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c1-t03",
+          "title": "Productions and Derivation",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c1-t04",
+          "title": "Chomsky Hierarchy of Languages",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "toc-c2",
+      "number": 2,
+      "title": "Regular Languages and Finite Automata",
+      "weightage": 30,
+      "teachingHours": 12,
+      "topics": [
+        {
+          "id": "toc-c2-t01",
+          "title": "Regular Expressions and Languages",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c2-t02",
+          "title": "Deterministic Finite Automata (DFA) and Equivalence with Regular Expressions",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c2-t03",
+          "title": "Moore Machines and Mealy Machines",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c2-t04",
+          "title": "Conversion from Mealy to Moore and Vice Versa",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c2-t05",
+          "title": "Nondeterministic Finite Automata (NFA) and Equivalence with DFA",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c2-t06",
+          "title": "Regular Grammars and Equivalence with Finite Automata",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c2-t07",
+          "title": "Properties of Regular Languages",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c2-t08",
+          "title": "Pumping Lemma for Regular Languages",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c2-t09",
+          "title": "Minimization of Finite Automata",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "toc-c3",
+      "number": 3,
+      "title": "Grammars",
+      "weightage": 35,
+      "teachingHours": 15,
+      "topics": [
+        {
+          "id": "toc-c3-t01",
+          "title": "Context-Free Grammars (CFG) and Languages (CFL)",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c3-t02",
+          "title": "Chomsky Normal Forms",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c3-t03",
+          "title": "Nondeterministic Pushdown Automata (PDA) and Equivalence with CFG",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c3-t04",
+          "title": "Parse Trees",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c3-t05",
+          "title": "Ambiguity in CFG",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c3-t06",
+          "title": "Pumping Lemma for Context-Free Languages",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c3-t07",
+          "title": "Deterministic Pushdown Automata",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c3-t08",
+          "title": "Closure Properties of CFLs",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c3-t09",
+          "title": "Context-Sensitive Languages",
+          "subtopics": [
+            {
+              "id": "toc-c3-t09-s01",
+              "title": "Context-Sensitive Grammars (CSG)"
+            },
+            {
+              "id": "toc-c3-t09-s02",
+              "title": "Context-Sensitive Languages"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toc-c4",
+      "number": 4,
+      "title": "Turing Machines",
+      "weightage": 25,
+      "teachingHours": 10,
+      "topics": [
+        {
+          "id": "toc-c4-t01",
+          "title": "The Basic Model for Turing Machines (TM)",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c4-t02",
+          "title": "Turing-Recognizable and Turing-Decidable Languages and their Closure Properties",
+          "subtopics": [
+            {
+              "id": "toc-c4-t02-s01",
+              "title": "Turing-Recognizable (Recursively Enumerable) Languages"
+            },
+            {
+              "id": "toc-c4-t02-s02",
+              "title": "Turing-Decidable (Recursive) Languages"
+            },
+            {
+              "id": "toc-c4-t02-s03",
+              "title": "Closure Properties"
+            }
+          ]
+        },
+        {
+          "id": "toc-c4-t03",
+          "title": "Variants of Turing Machines",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c4-t04",
+          "title": "Nondeterministic TMs and Equivalence with Deterministic TMs",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c4-t05",
+          "title": "Unrestricted Grammars and Equivalence with Turing Machines",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c4-t06",
+          "title": "TMs as Enumerators",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "toc-c5",
+      "number": 5,
+      "title": "Undecidability",
+      "weightage": 5,
+      "teachingHours": 6,
+      "topics": [
+        {
+          "id": "toc-c5-t01",
+          "title": "Church-Turing Thesis",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c5-t02",
+          "title": "Universal Turing Machine",
+          "subtopics": []
+        },
+        {
+          "id": "toc-c5-t03",
+          "title": "The Universal and Diagonalization Languages",
+          "subtopics": []
+        }
+      ]
+    }
+  ]
+}

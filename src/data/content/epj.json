@@ -1,0 +1,4006 @@
+{
+ "epj-c1-t01": {
+  "id": "epj-c1-t01",
+  "title": "JDBC",
+  "importance": "high",
+  "definition": "JDBC (Java Database Connectivity) is a Java API that lets Java programs connect to relational databases, execute SQL statements and process the results.",
+  "simpleExplanation": "JDBC Java ko database se baat karne ka standard tareeka hai. Connection banao, SQL bhejo, ResultSet padho, aur sab close karo.",
+  "realLifeAnalogy": "JDBC is like a universal phone adaptor: your Java code speaks one standard language and the driver translates it for each database.",
+  "example": "Connect to MySQL, run SELECT and print rows (see code). Steps: load driver → get Connection → create Statement → execute query → process ResultSet → close.",
+  "keyPoints": [
+   "Package java.sql; part of Java SE.",
+   "Five steps: load driver, establish connection, create statement, execute, close.",
+   "Statement vs PreparedStatement (precompiled, prevents SQL injection) vs CallableStatement (stored procedures).",
+   "ResultSet iterates rows via next().",
+   "Use try-with-resources to close automatically.",
+   "executeQuery for SELECT; executeUpdate for INSERT/UPDATE/DELETE."
+  ],
+  "mustKnow": [
+   "Five steps.",
+   "PreparedStatement benefits.",
+   "executeQuery vs executeUpdate."
+  ],
+  "ifYouKnow": [
+   "Write JDBC code.",
+   "Explain each step.",
+   "Prevent SQL injection."
+  ],
+  "commonMistakes": [
+   "Not closing connections (resource leak).",
+   "Concatenating user input into SQL.",
+   "Using executeQuery for INSERT."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain JDBC and its steps.",
+    "answer": "Define; list five steps with code."
+   },
+   {
+    "type": "difference",
+    "question": "Statement vs PreparedStatement.",
+    "answer": "Statement compiles each time and is injection-prone; PreparedStatement is precompiled with ? parameters and safer."
+   },
+   {
+    "type": "viva",
+    "question": "Which method for UPDATE queries?",
+    "answer": "executeUpdate()."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Package for JDBC:",
+    "answer": "java.sql",
+    "explanation": "",
+    "options": [
+     "java.io",
+     "java.sql",
+     "javax.db",
+     "java.jdbc"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "executeQuery returns a ResultSet.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Interface that prevents SQL injection?",
+    "answer": "PreparedStatement",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Insert a row. Method?",
+    "answer": "executeUpdate()",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Statement vs CallableStatement.",
+    "answer": "Statement runs plain SQL; CallableStatement calls stored procedures.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "JDBC: java.sql; driver → Connection → Statement/PreparedStatement → ResultSet → close; executeQuery vs executeUpdate.",
+  "syntax": "Connection con = DriverManager.getConnection(url, user, pass);\nStatement st = con.createStatement();\nResultSet rs = st.executeQuery(\"SELECT ...\");",
+  "code": "import java.sql.*;\npublic class JdbcDemo {\n  public static void main(String[] a) throws Exception {\n    String url = \"jdbc:mysql://localhost:3306/college\";\n    try (Connection con = DriverManager.getConnection(url, \"root\", \"root\");\n         Statement st = con.createStatement();\n         ResultSet rs = st.executeQuery(\"SELECT id, name FROM student\")) {\n      while (rs.next())\n        System.out.println(rs.getInt(\"id\") + \" \" + rs.getString(\"name\"));\n    }\n  }\n}",
+  "expectedOutput": "1 Asha\n2 Ravi",
+  "codeExplanation": "DriverManager creates the Connection; try-with-resources closes it; executeQuery returns rows; rs.next() moves to each row.",
+  "apis": [
+   "DriverManager",
+   "Connection",
+   "Statement",
+   "PreparedStatement",
+   "ResultSet",
+   "SQLException"
+  ],
+  "commonErrors": [
+   "ClassNotFoundException/No suitable driver: connector JAR missing.",
+   "SQLException: Access denied — wrong user/password.",
+   "Communications link failure — DB not running or wrong URL/port."
+  ]
+ },
+ "epj-c1-t02": {
+  "id": "epj-c1-t02",
+  "title": "JDBC Architecture",
+  "importance": "high",
+  "definition": "JDBC architecture has an application layer using the JDBC API, a Driver Manager that selects a driver, and JDBC drivers (Type 1–4) that talk to the database, supporting two-tier and three-tier models.",
+  "simpleExplanation": "JDBC architecture: Java app → JDBC API → DriverManager → JDBC driver → Database. Driver ke 4 types hote hain; Type 4 (pure Java) sabse zyada use hota hai.",
+  "realLifeAnalogy": "A translator chain: you speak to the interpreter (API), who selects the right translator (driver), who talks to the foreigner (database).",
+  "example": "Application calls DriverManager.getConnection(url); DriverManager picks a registered driver matching the URL, which opens the connection to MySQL.",
+  "keyPoints": [
+   "Layers: JDBC API, DriverManager/DataSource, JDBC driver, database.",
+   "Two-tier: client app talks directly to DB; three-tier: app → application server → DB.",
+   "Type 1: JDBC–ODBC bridge (obsolete).",
+   "Type 2: Native-API driver (needs client libraries).",
+   "Type 3: Network protocol (middleware) driver.",
+   "Type 4: Thin pure-Java driver (most common; e.g. MySQL Connector/J)."
+  ],
+  "mustKnow": [
+   "Four driver types.",
+   "Layers.",
+   "Two-tier vs three-tier."
+  ],
+  "ifYouKnow": [
+   "Draw the architecture.",
+   "Compare driver types.",
+   "Choose a driver."
+  ],
+  "commonMistakes": [
+   "Using Type 1 bridge (removed in Java 8).",
+   "Mixing the driver JAR version with the DB version."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain JDBC architecture and driver types.",
+    "answer": "Layers and four types with pros/cons."
+   },
+   {
+    "type": "difference",
+    "question": "Type 2 vs Type 4 driver.",
+    "answer": "Type 2 needs native libraries; Type 4 is pure Java and platform independent."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Pure-Java driver:",
+    "answer": "Type 4",
+    "explanation": "",
+    "options": [
+     "Type 1",
+     "Type 2",
+     "Type 3",
+     "Type 4"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "JDBC-ODBC bridge is a Type 1 driver.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Which class selects the driver?",
+    "answer": "DriverManager",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Three-tier app: where does JDBC run?",
+    "answer": "In the application server tier",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Two-tier vs three-tier.",
+    "answer": "Two-tier: client → DB; three-tier: client → app server → DB.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "JDBC arch: App → JDBC API → DriverManager → Driver (Type 1–4) → DB; Type 4 = pure Java thin driver.",
+  "syntax": "Connection con = DriverManager.getConnection(\"jdbc:<subprotocol>://host:port/db\", user, pass);",
+  "code": "// DriverManager selects the registered driver matching the URL\nConnection con = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/college\", \"root\", \"root\");\nSystem.out.println(con.getMetaData().getDriverName());",
+  "expectedOutput": "MySQL Connector/J",
+  "codeExplanation": "The URL prefix jdbc:mysql tells DriverManager to use the MySQL Type 4 driver; metadata shows the driver in use.",
+  "apis": [
+   "DriverManager",
+   "DataSource",
+   "Driver",
+   "DatabaseMetaData"
+  ],
+  "commonErrors": [
+   "No suitable driver found for jdbc:... (wrong URL or missing JAR).",
+   "Using obsolete Type 1 driver."
+  ],
+  "comparison": {
+   "title": "JDBC Driver Types",
+   "headers": [
+    "Type",
+    "Name",
+    "Note"
+   ],
+   "rows": [
+    [
+     "1",
+     "JDBC–ODBC bridge",
+     "Obsolete"
+    ],
+    [
+     "2",
+     "Native-API",
+     "Needs native libs"
+    ],
+    [
+     "3",
+     "Network protocol",
+     "Middleware needed"
+    ],
+    [
+     "4",
+     "Thin (pure Java)",
+     "Most used"
+    ]
+   ]
+  }
+ },
+ "epj-c1-t03": {
+  "id": "epj-c1-t03",
+  "title": "JDBC with Oracle and MySQL",
+  "importance": "high",
+  "definition": "Connecting JDBC to Oracle and MySQL requires the respective driver JARs, driver class names and URLs; the rest of the JDBC code stays the same.",
+  "simpleExplanation": "Oracle aur MySQL ke liye alag driver JAR, driver class aur URL chahiye. Baaki JDBC code same rehta hai.",
+  "realLifeAnalogy": "The same TV remote logic, but you load the right batteries and codes for each brand.",
+  "example": "MySQL: URL jdbc:mysql://localhost:3306/college, driver com.mysql.cj.jdbc.Driver. Oracle: URL jdbc:oracle:thin:@localhost:1521:xe, driver oracle.jdbc.OracleDriver (ojdbc JAR). Insert a row with PreparedStatement.",
+  "keyPoints": [
+   "MySQL driver: mysql-connector-j JAR; class com.mysql.cj.jdbc.Driver; port 3306.",
+   "Oracle driver: ojdbc JAR; class oracle.jdbc.OracleDriver; port 1521; SID/service name.",
+   "Class.forName is optional in JDBC 4+ (auto-loading).",
+   "Use PreparedStatement for inserts.",
+   "Differences: SQL dialect, auto-increment (MySQL) vs sequences (Oracle), LIMIT vs ROWNUM/FETCH.",
+   "Always close resources."
+  ],
+  "mustKnow": [
+   "URLs and driver classes.",
+   "What changes between DBs.",
+   "PreparedStatement insert."
+  ],
+  "ifYouKnow": [
+   "Write connection code for both.",
+   "Insert a record.",
+   "Handle dialect differences."
+  ],
+  "commonMistakes": [
+   "Wrong URL format for Oracle (SID vs service).",
+   "Missing JAR in the classpath/Maven dependency."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write JDBC code to insert a record in MySQL.",
+    "answer": "PreparedStatement with ? placeholders and executeUpdate."
+   },
+   {
+    "type": "difference",
+    "question": "MySQL vs Oracle JDBC setup.",
+    "answer": "URL, driver class, port, JAR and SQL dialect differ."
+   },
+   {
+    "type": "viva",
+    "question": "Is Class.forName required?",
+    "answer": "Not since JDBC 4.0 (drivers auto-register)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Oracle thin URL starts with:",
+    "answer": "jdbc:oracle:thin:@",
+    "explanation": "",
+    "options": [
+     "jdbc:mysql://",
+     "jdbc:oracle:thin:@",
+     "jdbc:odbc:",
+     "jdbc:sql:"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "MySQL default port is 3306.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Oracle default listener port?",
+    "answer": "1521",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "'No suitable driver' error. Fix?",
+    "answer": "Add the correct driver JAR and verify the URL.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "MySQL AUTO_INCREMENT vs Oracle?",
+    "answer": "Oracle uses sequences (or identity columns in newer versions).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "JDBC MySQL: com.mysql.cj.jdbc.Driver, jdbc:mysql://host:3306/db; Oracle: oracle.jdbc.OracleDriver, jdbc:oracle:thin:@host:1521:xe.",
+  "syntax": "PreparedStatement ps = con.prepareStatement(\"INSERT INTO student(id,name) VALUES(?,?)\");\nps.setInt(1, 3); ps.setString(2, \"Meena\");\nint n = ps.executeUpdate();",
+  "code": "import java.sql.*;\npublic class InsertDemo {\n  public static void main(String[] a) throws Exception {\n    // MySQL URL; for Oracle use jdbc:oracle:thin:@localhost:1521:xe\n    try (Connection con = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/college\",\"root\",\"root\");\n         PreparedStatement ps = con.prepareStatement(\"INSERT INTO student(id,name) VALUES(?,?)\")) {\n      ps.setInt(1, 3); ps.setString(2, \"Meena\");\n      System.out.println(ps.executeUpdate() + \" row inserted\");\n    }\n  }\n}",
+  "expectedOutput": "1 row inserted",
+  "codeExplanation": "Placeholders ? are filled by setInt/setString; executeUpdate returns the number of rows affected.",
+  "apis": [
+   "PreparedStatement.setInt/setString",
+   "executeUpdate",
+   "DriverManager.getConnection"
+  ],
+  "commonErrors": [
+   "ORA-12505 / listener errors: wrong SID or service name.",
+   "Duplicate entry for PRIMARY KEY.",
+   "Forgetting to commit when auto-commit is off."
+  ]
+ },
+ "epj-c1-t04": {
+  "id": "epj-c1-t04",
+  "title": "Maven: Integration with Eclipse",
+  "importance": "high",
+  "definition": "Maven is a build and dependency-management tool that uses a standard project structure and the POM file; Eclipse integrates it through the m2e plugin to create, build and run Maven projects.",
+  "simpleExplanation": "Maven dependencies (JAR) automatic download karta hai aur project build karta hai. Eclipse me m2e plugin se Maven project banate hain: File → New → Maven Project.",
+  "realLifeAnalogy": "A project manager who orders all the libraries you need, builds your project in a standard way, and keeps everything organised.",
+  "example": "Eclipse: File → New → Maven Project → archetype maven-archetype-quickstart → groupId com.college, artifactId demo → Finish. Add dependency in pom.xml; Run As → Maven build… goals: clean install.",
+  "keyPoints": [
+   "Standard layout: src/main/java, src/main/resources, src/test/java, pom.xml, target/.",
+   "Local repository ~/.m2/repository; central repository downloads JARs.",
+   "Lifecycle phases: validate, compile, test, package, verify, install, deploy.",
+   "Common goals: clean, compile, test, package, install.",
+   "Eclipse m2e: Maven → Update Project after editing pom.xml.",
+   "Archetype generates a project template."
+  ],
+  "mustKnow": [
+   "Directory layout.",
+   "Lifecycle phases.",
+   "Create a project in Eclipse."
+  ],
+  "ifYouKnow": [
+   "Create a Maven project.",
+   "Add a dependency.",
+   "Run mvn clean install."
+  ],
+  "commonMistakes": [
+   "Not running Update Project after changing pom.xml.",
+   "Wrong JDK/JRE configuration in Eclipse."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Maven and its integration with Eclipse.",
+    "answer": "Features, layout, lifecycle, m2e steps."
+   },
+   {
+    "type": "difference",
+    "question": "mvn clean vs mvn install.",
+    "answer": "clean deletes target; install builds, tests and copies artifact to local repository."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Maven config file:",
+    "answer": "pom.xml",
+    "explanation": "",
+    "options": [
+     "build.xml",
+     "pom.xml",
+     "web.xml",
+     "pom.json"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Maven downloads dependencies automatically.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Local repository location?",
+    "answer": "~/.m2/repository",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "JAR not found after editing pom. Action?",
+    "answer": "Maven → Update Project",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Maven vs Ant.",
+    "answer": "Maven uses conventions and dependency management; Ant is script-based.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Maven: standard layout, pom.xml, lifecycle (compile/test/package/install), ~/.m2; Eclipse m2e: New Maven Project, Update Project.",
+  "syntax": "mvn clean install",
+  "code": "mvn archetype:generate -DgroupId=com.college -DartifactId=demo -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false\ncd demo\nmvn clean install",
+  "expectedOutput": "BUILD SUCCESS",
+  "codeExplanation": "The archetype creates the standard layout; clean install compiles, tests, packages the JAR and installs it in ~/.m2.",
+  "apis": [
+   "mvn clean",
+   "mvn compile",
+   "mvn test",
+   "mvn package",
+   "mvn install"
+  ],
+  "commonErrors": [
+   "JAVA_HOME not set.",
+   "Source/target compiler level mismatch.",
+   "Dependency not resolved (wrong coordinates/offline)."
+  ]
+ },
+ "epj-c1-t05": {
+  "id": "epj-c1-t05",
+  "title": "POM.xml",
+  "importance": "high",
+  "definition": "pom.xml (Project Object Model) is the Maven configuration file that defines project coordinates, dependencies, properties, build plugins and packaging.",
+  "simpleExplanation": "pom.xml Maven ka dil hai: project ka naam (groupId, artifactId, version), kaunsi libraries chahiye (dependencies), kaise build karna hai (plugins), aur packaging (jar/war).",
+  "realLifeAnalogy": "The shopping list and recipe card of the project: what to buy and how to cook.",
+  "example": "A pom with MySQL connector as dependency and servlet-api as provided scope, packaging war (see code).",
+  "keyPoints": [
+   "Coordinates: groupId, artifactId, version (+ packaging).",
+   "<dependencies> list libraries; Maven downloads them.",
+   "Scopes: compile (default), provided, runtime, test.",
+   "<properties> define versions and Java level.",
+   "<build><plugins> configure compiler/war plugins.",
+   "<parent> inherits configuration; <packaging> jar or war."
+  ],
+  "mustKnow": [
+   "Basic structure.",
+   "Dependency scopes.",
+   "Packaging types."
+  ],
+  "ifYouKnow": [
+   "Write a pom.xml.",
+   "Pick the right scope.",
+   "Change Java version."
+  ],
+  "commonMistakes": [
+   "Wrong dependency version/coordinates.",
+   "Using compile scope for servlet-api (conflicts with Tomcat)."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write a pom.xml with MySQL and Servlet dependencies.",
+    "answer": "XML below."
+   },
+   {
+    "type": "viva",
+    "question": "What is 'provided' scope?",
+    "answer": "Needed at compile time but supplied by the runtime container (e.g. servlet API)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Default dependency scope:",
+    "answer": "compile",
+    "explanation": "",
+    "options": [
+     "test",
+     "compile",
+     "provided",
+     "runtime"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "packaging can be war.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Three coordinates?",
+    "answer": "groupId, artifactId, version.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Servlet API supplied by Tomcat. Scope?",
+    "answer": "provided",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "runtime vs test scope.",
+    "answer": "runtime: needed to run, not compile; test: only for tests.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "pom.xml: groupId/artifactId/version, dependencies (+scope), properties, plugins, packaging.",
+  "syntax": "<dependency>\n  <groupId>…</groupId><artifactId>…</artifactId><version>…</version>\n  <scope>provided</scope>\n</dependency>",
+  "code": "<project xmlns=\"http://maven.apache.org/POM/4.0.0\">\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.college</groupId>\n  <artifactId>demo-web</artifactId>\n  <version>1.0</version>\n  <packaging>war</packaging>\n  <properties>\n    <maven.compiler.source>17</maven.compiler.source>\n    <maven.compiler.target>17</maven.compiler.target>\n  </properties>\n  <dependencies>\n    <dependency>\n      <groupId>com.mysql</groupId>\n      <artifactId>mysql-connector-j</artifactId>\n      <version>8.3.0</version>\n    </dependency>\n    <dependency>\n      <groupId>javax.servlet</groupId>\n      <artifactId>javax.servlet-api</artifactId>\n      <version>4.0.1</version>\n      <scope>provided</scope>\n    </dependency>\n  </dependencies>\n</project>",
+  "expectedOutput": "mvn package → target/demo-web-1.0.war",
+  "codeExplanation": "Coordinates identify the artifact; dependencies are fetched; servlet-api is provided by Tomcat; packaging war creates a deployable WAR.",
+  "apis": [
+   "<dependencies>",
+   "<scope>",
+   "<packaging>",
+   "<properties>",
+   "<plugins>"
+  ],
+  "commonErrors": [
+   "Malformed XML (unclosed tag).",
+   "Version typo causing 'Could not resolve dependencies'."
+  ]
+ },
+ "epj-c2-t01": {
+  "id": "epj-c2-t01",
+  "title": "Basics of Web",
+  "importance": "high",
+  "definition": "Web basics cover the client–server model, HTTP request/response, URLs, static vs dynamic content and the role of a web container such as Tomcat that runs servlets.",
+  "simpleExplanation": "Web me browser (client) request bhejta hai, server response deta hai (HTTP). Static page fixed hota hai, dynamic page servlets/JSP se banta hai. Tomcat jaisa web container servlets chalata hai.",
+  "realLifeAnalogy": "A restaurant: customer (browser) places an order (request), the kitchen (server) prepares and serves (response).",
+  "example": "Browser sends GET /hello HTTP/1.1; Tomcat routes it to HelloServlet; servlet writes HTML; response 200 OK is returned.",
+  "keyPoints": [
+   "HTTP is stateless request–response protocol.",
+   "Methods: GET (retrieve, parameters in URL), POST (submit, body), PUT, DELETE.",
+   "Status codes: 200 OK, 302 redirect, 400, 403, 404 not found, 500 server error.",
+   "Static content: HTML; dynamic: servlets, JSP.",
+   "Web container: manages servlet lifecycle (Tomcat, Jetty).",
+   "WAR layout: WEB-INF/web.xml, WEB-INF/classes, WEB-INF/lib."
+  ],
+  "mustKnow": [
+   "GET vs POST.",
+   "Status codes.",
+   "WAR structure."
+  ],
+  "ifYouKnow": [
+   "Describe HTTP flow.",
+   "Compare GET and POST.",
+   "Explain WAR structure."
+  ],
+  "commonMistakes": [
+   "Putting sensitive data in GET URLs.",
+   "Placing classes outside WEB-INF."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "GET vs POST.",
+    "answer": "GET: data in URL, bookmarkable, limited, idempotent; POST: data in body, secure-ish, no size limit."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain basics of web application architecture.",
+    "answer": "Client–server, HTTP, container, WAR."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "404 means:",
+    "answer": "Not found",
+    "explanation": "",
+    "options": [
+     "OK",
+     "Not found",
+     "Server error",
+     "Redirect"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "HTTP is stateless.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Folder holding web.xml?",
+    "answer": "WEB-INF",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Login form should hide password in URL. Method?",
+    "answer": "POST",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Static vs dynamic content.",
+    "answer": "Static is fixed files; dynamic is generated per request.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Web: client–server over HTTP (stateless); GET/POST; 200/302/404/500; Tomcat container; WAR with WEB-INF.",
+  "syntax": "GET /app/hello?name=Asha HTTP/1.1\nHost: localhost:8080",
+  "code": "GET /app/hello?name=Asha HTTP/1.1\nHost: localhost:8080\n\nHTTP/1.1 200 OK\nContent-Type: text/html\n\n<h1>Hello Asha</h1>",
+  "expectedOutput": "Browser renders: Hello Asha",
+  "codeExplanation": "Request line has method, path with query string and version; the response has a status line, headers and body.",
+  "apis": [
+   "HTTP methods",
+   "Status codes",
+   "Tomcat",
+   "WAR"
+  ],
+  "commonErrors": [
+   "404: wrong URL mapping/context path.",
+   "500: exception inside servlet."
+  ]
+ },
+ "epj-c2-t02": {
+  "id": "epj-c2-t02",
+  "title": "Servlet Lifecycle",
+  "importance": "high",
+  "definition": "The servlet lifecycle is managed by the container: loading and instantiation, init() once, service() for each request (doGet/doPost) and destroy() once before unloading.",
+  "simpleExplanation": "Servlet ki life: container class load karke object banata hai, init() ek baar chalata hai, har request par service() (jo doGet/doPost bulata hai), aur band hone par destroy().",
+  "realLifeAnalogy": "A shop employee: hired and trained once (init), serves many customers (service), and is released at closing (destroy).",
+  "example": "A servlet printing messages in init, doGet and destroy shows the order: init → doGet (per request) → destroy.",
+  "keyPoints": [
+   "Phases: loading, instantiation, init(ServletConfig), service(), destroy().",
+   "init() and destroy() are called once; service() per request.",
+   "One servlet instance serves many requests using multiple threads.",
+   "service() dispatches to doGet/doPost based on HTTP method.",
+   "Instance variables are shared among threads → not thread safe.",
+   "load-on-startup loads the servlet at server start."
+  ],
+  "mustKnow": [
+   "Lifecycle methods order.",
+   "Single instance, multiple threads.",
+   "service vs doGet."
+  ],
+  "ifYouKnow": [
+   "List lifecycle methods.",
+   "Write a servlet showing them.",
+   "Explain thread safety."
+  ],
+  "commonMistakes": [
+   "Using instance variables to store per-user data.",
+   "Overriding service() unintentionally and breaking doGet/doPost."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain the servlet lifecycle with a diagram.",
+    "answer": "Load → init → service(doGet/doPost) → destroy."
+   },
+   {
+    "type": "viva",
+    "question": "How many instances of a servlet exist?",
+    "answer": "One per declaration; requests are served by multiple threads."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Called once at start:",
+    "answer": "init()",
+    "explanation": "",
+    "options": [
+     "service()",
+     "init()",
+     "doGet()",
+     "destroy()"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "service() is called for every request.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method called before servlet removal?",
+    "answer": "destroy()",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Counter field incremented in doGet gives wrong values under load. Reason?",
+    "answer": "Shared instance variable, not thread-safe",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "init vs constructor.",
+    "answer": "init receives ServletConfig and is the lifecycle initialiser; constructor lacks container context.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Lifecycle: load/instantiate → init() once → service()→doGet/doPost per request → destroy() once; single instance, many threads.",
+  "syntax": "public void init(ServletConfig c)\nprotected void doGet(HttpServletRequest rq, HttpServletResponse rs)\npublic void destroy()",
+  "code": "import java.io.*;\nimport javax.servlet.*;\nimport javax.servlet.http.*;\nimport javax.servlet.annotation.WebServlet;\n@WebServlet(\"/life\")\npublic class LifeServlet extends HttpServlet {\n  public void init() { System.out.println(\"init\"); }\n  protected void doGet(HttpServletRequest rq, HttpServletResponse rs) throws IOException {\n    System.out.println(\"doGet\");\n    rs.getWriter().println(\"Hello\");\n  }\n  public void destroy() { System.out.println(\"destroy\"); }\n}",
+  "expectedOutput": "Console: init, doGet (for each request), destroy (on shutdown)",
+  "codeExplanation": "init runs once at first use; each browser hit runs doGet; destroy runs when the app stops.",
+  "apis": [
+   "Servlet.init",
+   "Servlet.service",
+   "Servlet.destroy",
+   "HttpServlet.doGet/doPost"
+  ],
+  "commonErrors": [
+   "Non-thread-safe instance variables.",
+   "Calling destroy() manually."
+  ]
+ },
+ "epj-c2-t03": {
+  "id": "epj-c2-t03",
+  "title": "Servlets API",
+  "importance": "high",
+  "definition": "The Servlet API consists of the javax.servlet and javax.servlet.http packages (jakarta.servlet in newer versions) that define Servlet, ServletConfig, ServletContext, request/response, HttpServlet and HttpSession.",
+  "simpleExplanation": "Servlet API me interfaces aur classes hain: Servlet → GenericServlet → HttpServlet. Request se data padhte hain, response me output likhte hain.",
+  "realLifeAnalogy": "The standard toolkit every servlet uses to receive orders and send replies.",
+  "example": "HelloServlet extends HttpServlet, reads request.getParameter(\"name\") and writes a greeting using response.getWriter().",
+  "keyPoints": [
+   "Hierarchy: Servlet (interface) → GenericServlet → HttpServlet.",
+   "HttpServletRequest: getParameter, getParameterValues, getHeader, getSession, getRequestDispatcher.",
+   "HttpServletResponse: setContentType, getWriter, sendRedirect, addCookie, setStatus.",
+   "Other: ServletConfig, ServletContext, RequestDispatcher, HttpSession, Cookie.",
+   "Newer Tomcat 10+/Jakarta EE 9+ uses package jakarta.servlet instead of javax.servlet.",
+   "Servlet API JAR is provided by the container."
+  ],
+  "mustKnow": [
+   "Hierarchy.",
+   "Key methods.",
+   "javax vs jakarta."
+  ],
+  "ifYouKnow": [
+   "Write a servlet using request/response.",
+   "Name key interfaces.",
+   "Fix javax/jakarta mismatch."
+  ],
+  "commonMistakes": [
+   "Mixing javax and jakarta imports with the wrong Tomcat.",
+   "Forgetting setContentType before writing."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Servlet API hierarchy and main interfaces.",
+    "answer": "Servlet, GenericServlet, HttpServlet; request/response methods."
+   },
+   {
+    "type": "explain with example",
+    "question": "Write a servlet that greets a user by name.",
+    "answer": "getParameter + getWriter."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Class commonly extended for HTTP servlets:",
+    "answer": "HttpServlet",
+    "explanation": "",
+    "options": [
+     "GenericServlet",
+     "HttpServlet",
+     "Servlet",
+     "Object"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Servlet is an interface.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method to read a form field?",
+    "answer": "request.getParameter()",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "ClassNotFound javax.servlet on Tomcat 10. Cause?",
+    "answer": "Tomcat 10 uses jakarta.servlet",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "GenericServlet vs HttpServlet.",
+    "answer": "GenericServlet is protocol independent; HttpServlet adds HTTP-specific methods.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Servlet API: Servlet → GenericServlet → HttpServlet; request.getParameter, response.getWriter/sendRedirect; javax vs jakarta.",
+  "syntax": "protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException",
+  "code": "@WebServlet(\"/hello\")\npublic class HelloServlet extends HttpServlet {\n  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {\n    res.setContentType(\"text/html\");\n    String name = req.getParameter(\"name\");\n    PrintWriter out = res.getWriter();\n    out.println(\"<h1>Hello \" + name + \"</h1>\");\n  }\n}",
+  "expectedOutput": "GET /hello?name=Asha → Hello Asha",
+  "codeExplanation": "getParameter reads the query value; setContentType declares HTML; getWriter writes the response body.",
+  "apis": [
+   "HttpServletRequest",
+   "HttpServletResponse",
+   "HttpSession",
+   "RequestDispatcher",
+   "ServletConfig",
+   "ServletContext"
+  ],
+  "commonErrors": [
+   "Null from getParameter when the name is misspelled.",
+   "Writing before setContentType."
+  ]
+ },
+ "epj-c2-t04": {
+  "id": "epj-c2-t04",
+  "title": "HTTP Servlets with XML and Annotation",
+  "importance": "high",
+  "definition": "A servlet can be mapped to a URL either in web.xml (<servlet> and <servlet-mapping>) or with the @WebServlet annotation (Servlet 3.0+).",
+  "simpleExplanation": "Servlet ko URL se map karne ke do tareeke: web.xml (XML configuration) ya @WebServlet annotation (seedha class par).",
+  "realLifeAnalogy": "Two ways to register a shop: file a paper form (XML) or put a signboard on the shop itself (annotation).",
+  "example": "XML: <servlet><servlet-name>hello</servlet-name><servlet-class>com.demo.HelloServlet</servlet-class></servlet> + <servlet-mapping>… /hello. Annotation: @WebServlet(\"/hello\").",
+  "keyPoints": [
+   "XML mapping uses servlet-name to link <servlet> and <servlet-mapping>.",
+   "@WebServlet(urlPatterns, name, initParams, loadOnStartup).",
+   "Annotations need Servlet 3.0+ and metadata-complete not true.",
+   "web.xml settings override annotations when both exist.",
+   "Annotation: less boilerplate; XML: central configuration without recompiling.",
+   "URL patterns: exact (/hello), path (/api/*), extension (*.do)."
+  ],
+  "mustKnow": [
+   "Both mapping styles.",
+   "Precedence.",
+   "URL pattern types."
+  ],
+  "ifYouKnow": [
+   "Write both mappings.",
+   "Choose a style.",
+   "Explain precedence."
+  ],
+  "commonMistakes": [
+   "servlet-name mismatch between <servlet> and <servlet-mapping>.",
+   "Duplicate mapping for one URL."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Map a servlet using web.xml and annotation.",
+    "answer": "Show XML and @WebServlet versions."
+   },
+   {
+    "type": "difference",
+    "question": "web.xml vs annotation.",
+    "answer": "XML central, changeable without recompiling, overrides; annotation inline, concise."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Annotation for servlet mapping:",
+    "answer": "@WebServlet",
+    "explanation": "",
+    "options": [
+     "@Servlet",
+     "@WebServlet",
+     "@Controller",
+     "@Path"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "web.xml mapping can override annotations.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Tag linking servlet to URL?",
+    "answer": "<servlet-mapping>",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Two servlets map the same URL. Result?",
+    "answer": "Deployment error/conflict",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Exact vs wildcard pattern.",
+    "answer": "/hello matches only that path; /api/* matches anything under /api.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Mapping: web.xml (<servlet>+<servlet-mapping>) or @WebServlet; XML overrides annotation; patterns exact/path/extension.",
+  "syntax": "@WebServlet(name=\"hello\", urlPatterns={\"/hello\"})",
+  "code": "<!-- web.xml -->\n<servlet>\n  <servlet-name>hello</servlet-name>\n  <servlet-class>com.demo.HelloServlet</servlet-class>\n</servlet>\n<servlet-mapping>\n  <servlet-name>hello</servlet-name>\n  <url-pattern>/hello</url-pattern>\n</servlet-mapping>\n\n// Annotation alternative\n@WebServlet(\"/hello\")\npublic class HelloServlet extends HttpServlet { … }",
+  "expectedOutput": "http://localhost:8080/app/hello → servlet response",
+  "codeExplanation": "Both approaches register the same servlet for /hello; use one, not both.",
+  "apis": [
+   "@WebServlet",
+   "<servlet>",
+   "<servlet-mapping>",
+   "<url-pattern>"
+  ],
+  "commonErrors": [
+   "Typo in servlet-class (ClassNotFoundException).",
+   "Missing leading / in url-pattern."
+  ]
+ },
+ "epj-c2-t05": {
+  "id": "epj-c2-t05",
+  "title": "Servlets Configuration",
+  "importance": "medium",
+  "definition": "ServletConfig holds configuration parameters for one servlet, defined with <init-param> or @WebInitParam and read in init().",
+  "simpleExplanation": "ServletConfig ek servlet ke liye alag settings deta hai (init parameters), jaise DB url. Har servlet ka apna ServletConfig hota hai.",
+  "realLifeAnalogy": "A personal instruction sheet given to one employee.",
+  "example": "<init-param><param-name>driver</param-name><param-value>com.mysql.cj.jdbc.Driver</param-value></init-param>; read using getServletConfig().getInitParameter(\"driver\").",
+  "keyPoints": [
+   "One ServletConfig per servlet.",
+   "Defined by <init-param> or @WebInitParam.",
+   "Methods: getInitParameter(name), getInitParameterNames(), getServletName(), getServletContext().",
+   "Available after init().",
+   "Not shared with other servlets.",
+   "<load-on-startup> controls early loading."
+  ],
+  "mustKnow": [
+   "init-param vs context-param.",
+   "Methods.",
+   "Scope."
+  ],
+  "ifYouKnow": [
+   "Declare and read init params.",
+   "State scope.",
+   "Compare config vs context."
+  ],
+  "commonMistakes": [
+   "Expecting init-param visible to other servlets.",
+   "Reading params before init."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Use ServletConfig to read an init parameter.",
+    "answer": "Declare init-param; getInitParameter."
+   },
+   {
+    "type": "difference",
+    "question": "ServletConfig vs ServletContext.",
+    "answer": "Config: per servlet; context: per web app."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "ServletConfig scope:",
+    "answer": "One servlet",
+    "explanation": "",
+    "options": [
+     "All servlets",
+     "One servlet",
+     "One session",
+     "One request"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "@WebInitParam defines init params.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method to read init param?",
+    "answer": "getInitParameter(name)",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Each servlet needs its own DB table name. Use?",
+    "answer": "init-param",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "init-param vs context-param.",
+    "answer": "init-param per servlet; context-param for the whole app.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "ServletConfig: per-servlet init-params; getInitParameter; @WebInitParam.",
+  "syntax": "getServletConfig().getInitParameter(\"name\")",
+  "code": "@WebServlet(urlPatterns=\"/cfg\", initParams=@WebInitParam(name=\"college\", value=\"PU\"))\npublic class CfgServlet extends HttpServlet {\n  protected void doGet(HttpServletRequest rq, HttpServletResponse rs) throws IOException {\n    rs.getWriter().println(getServletConfig().getInitParameter(\"college\"));\n  }\n}",
+  "expectedOutput": "PU",
+  "codeExplanation": "initParams provides a value for this servlet only; getInitParameter retrieves it.",
+  "apis": [
+   "ServletConfig",
+   "@WebInitParam",
+   "getInitParameter"
+  ],
+  "commonErrors": [
+   "Null result due to wrong param name.",
+   "Using context-param API for init-param."
+  ]
+ },
+ "epj-c2-t06": {
+  "id": "epj-c2-t06",
+  "title": "Servlets Context",
+  "importance": "medium",
+  "definition": "ServletContext is a single object per web application shared by all servlets, giving access to context parameters, attributes, resources and server information.",
+  "simpleExplanation": "ServletContext poore web app ke liye ek hota hai. Sab servlets shared data (attributes) aur context-params use kar sakte hain.",
+  "realLifeAnalogy": "A notice board in the school office visible to every teacher (servlet).",
+  "example": "web.xml <context-param> dbName=college; any servlet reads getServletContext().getInitParameter(\"dbName\"). Counter stored with setAttribute(\"hits\", n).",
+  "keyPoints": [
+   "One ServletContext per web application per JVM.",
+   "<context-param> in web.xml for app-wide constants.",
+   "Attributes: setAttribute/getAttribute/removeAttribute shared across servlets.",
+   "Other methods: getRealPath, getContextPath, getResourceAsStream, log().",
+   "Attributes are not thread-safe without synchronisation.",
+   "Lifetime: until the application stops."
+  ],
+  "mustKnow": [
+   "Context vs config.",
+   "Attributes.",
+   "Scope table."
+  ],
+  "ifYouKnow": [
+   "Use context params/attributes.",
+   "Compare scopes.",
+   "Handle thread safety."
+  ],
+  "commonMistakes": [
+   "Storing user-specific data in context.",
+   "Ignoring synchronisation on shared attributes."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "ServletConfig vs ServletContext.",
+    "answer": "Config per servlet and init-param; context per application with context-param and shared attributes."
+   },
+   {
+    "type": "explain with example",
+    "question": "Share a hit counter via ServletContext.",
+    "answer": "getAttribute/setAttribute in servlet."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Scope of ServletContext:",
+    "answer": "Whole web application",
+    "explanation": "",
+    "options": [
+     "One request",
+     "One session",
+     "Whole web application",
+     "One servlet"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Context attributes are shared across servlets.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Tag for app-wide parameter?",
+    "answer": "<context-param>",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Share DB name across all servlets. Use?",
+    "answer": "context-param",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Request vs context attribute scope.",
+    "answer": "Request: one request; context: entire application.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "ServletContext: one per app; context-params, attributes (shared), getRealPath; sync needed.",
+  "syntax": "ServletContext ctx = getServletContext(); ctx.setAttribute(\"hits\", n);",
+  "code": "protected void doGet(HttpServletRequest rq, HttpServletResponse rs) throws IOException {\n  ServletContext ctx = getServletContext();\n  Integer n = (Integer) ctx.getAttribute(\"hits\");\n  n = (n == null) ? 1 : n + 1;\n  ctx.setAttribute(\"hits\", n);\n  rs.getWriter().println(\"Hits: \" + n);\n}",
+  "expectedOutput": "Hits: 1, then Hits: 2 on the next request",
+  "codeExplanation": "The counter lives in the context so every servlet and request sees the same value.",
+  "apis": [
+   "ServletContext",
+   "getInitParameter",
+   "setAttribute/getAttribute",
+   "getRealPath"
+  ],
+  "commonErrors": [
+   "Race conditions when updating shared attributes.",
+   "Casting null to int (NullPointerException)."
+  ],
+  "comparison": {
+   "title": "Config vs Context",
+   "headers": [
+    "Aspect",
+    "ServletConfig",
+    "ServletContext"
+   ],
+   "rows": [
+    [
+     "Scope",
+     "One servlet",
+     "Whole app"
+    ],
+    [
+     "XML tag",
+     "<init-param>",
+     "<context-param>"
+    ],
+    [
+     "Obtained by",
+     "getServletConfig()",
+     "getServletContext()"
+    ]
+   ]
+  }
+ },
+ "epj-c2-t07": {
+  "id": "epj-c2-t07",
+  "title": "Servlets Collaboration",
+  "importance": "high",
+  "definition": "Servlet collaboration is communication between servlets using RequestDispatcher (forward, include), sendRedirect and shared attributes.",
+  "simpleExplanation": "Servlets aapas me milke kaam karte hain: forward (control doosre servlet ko, same request), include (doosre ka output add), sendRedirect (browser ko naye URL par bhejna).",
+  "realLifeAnalogy": "A reception desk either hands you to another counter inside (forward), asks another counter to add a note (include), or tells you to walk to another building (redirect).",
+  "example": "LoginServlet validates and forwards to WelcomeServlet using RequestDispatcher; on failure includes an error message and redisplays the form.",
+  "keyPoints": [
+   "forward: server-side, same request/response, URL does not change.",
+   "include: output of the other resource is included in the response.",
+   "sendRedirect: client-side, new request, URL changes, can go to other sites.",
+   "Share data via request.setAttribute (forward/include) or session/context.",
+   "RequestDispatcher from request.getRequestDispatcher(\"/path\").",
+   "After forward, no further output in the original servlet."
+  ],
+  "mustKnow": [
+   "forward vs sendRedirect table.",
+   "include behaviour.",
+   "Request attributes."
+  ],
+  "ifYouKnow": [
+   "Choose forward or redirect.",
+   "Write dispatcher code.",
+   "Share data between servlets."
+  ],
+  "commonMistakes": [
+   "Writing to response after forward (IllegalStateException).",
+   "Using forward to an external site (not possible)."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "forward() vs sendRedirect().",
+    "answer": "Server-side/same request/URL unchanged vs client-side/new request/URL changes."
+   },
+   {
+    "type": "explain with example",
+    "question": "Forward a request from LoginServlet to WelcomeServlet.",
+    "answer": "RequestDispatcher rd = request.getRequestDispatcher(\"/welcome\"); rd.forward(request,response);"
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "URL changes in:",
+    "answer": "sendRedirect",
+    "explanation": "",
+    "options": [
+     "forward",
+     "include",
+     "sendRedirect",
+     "none"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "forward uses the same request object.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method to share data in the same request?",
+    "answer": "request.setAttribute()",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Redirect to another website. Use?",
+    "answer": "sendRedirect",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "include vs forward.",
+    "answer": "include adds the other resource's output to current response; forward transfers control entirely.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Collaboration: RequestDispatcher forward (same request, URL same), include, sendRedirect (new request, URL changes).",
+  "syntax": "RequestDispatcher rd = request.getRequestDispatcher(\"/welcome\"); rd.forward(request, response);",
+  "code": "protected void doPost(HttpServletRequest rq, HttpServletResponse rs) throws ServletException, IOException {\n  String u = rq.getParameter(\"user\");\n  if (\"admin\".equals(u)) {\n    rq.setAttribute(\"msg\", \"Welcome \" + u);\n    rq.getRequestDispatcher(\"/welcome\").forward(rq, rs);\n  } else {\n    rs.sendRedirect(\"login.html\");\n  }\n}",
+  "expectedOutput": "admin → Welcome admin page; others → redirected to login.html",
+  "codeExplanation": "Forward keeps the request (with attribute msg) on the server; redirect asks the browser to request login.html.",
+  "apis": [
+   "RequestDispatcher.forward/include",
+   "HttpServletResponse.sendRedirect",
+   "request.setAttribute"
+  ],
+  "commonErrors": [
+   "IllegalStateException: response already committed.",
+   "Wrong path in getRequestDispatcher."
+  ],
+  "comparison": {
+   "title": "forward vs sendRedirect",
+   "headers": [
+    "Feature",
+    "forward",
+    "sendRedirect"
+   ],
+   "rows": [
+    [
+     "Side",
+     "Server",
+     "Client"
+    ],
+    [
+     "Requests",
+     "1",
+     "2"
+    ],
+    [
+     "URL",
+     "Unchanged",
+     "Changed"
+    ],
+    [
+     "Scope",
+     "Same app",
+     "Any URL"
+    ]
+   ]
+  }
+ },
+ "epj-c2-t08": {
+  "id": "epj-c2-t08",
+  "title": "Session Tracking",
+  "importance": "high",
+  "definition": "Session tracking maintains user state across multiple HTTP requests using cookies, hidden form fields, URL rewriting or the HttpSession API.",
+  "simpleExplanation": "HTTP stateless hai, isliye server ko yaad nahi rehta ki aap kaun ho. Session tracking se user ki state yaad rakhte hain: cookies, hidden fields, URL rewriting, ya HttpSession.",
+  "realLifeAnalogy": "A cloakroom token: the server gives you a token (session ID) and recognises you every time you show it.",
+  "example": "After login, store the username in the HttpSession; the next servlet reads session.getAttribute(\"user\") to greet the user.",
+  "keyPoints": [
+   "Techniques: Cookies, Hidden form fields, URL rewriting, HttpSession.",
+   "HttpSession: server-side data keyed by JSESSIONID cookie.",
+   "Methods: getSession(), setAttribute, getAttribute, invalidate(), setMaxInactiveInterval().",
+   "Cookie: small data stored in browser; use new Cookie(name,value), response.addCookie.",
+   "URL rewriting works if cookies are disabled: response.encodeURL().",
+   "Always invalidate session on logout."
+  ],
+  "mustKnow": [
+   "Four techniques.",
+   "HttpSession methods.",
+   "Cookie vs session."
+  ],
+  "ifYouKnow": [
+   "Implement login with session.",
+   "Use cookies.",
+   "Compare techniques."
+  ],
+  "commonMistakes": [
+   "Storing passwords in cookies.",
+   "Not invalidating session on logout."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain session tracking techniques.",
+    "answer": "Cookies, hidden fields, URL rewriting, HttpSession."
+   },
+   {
+    "type": "difference",
+    "question": "Cookie vs HttpSession.",
+    "answer": "Cookie stored on client (size limited, visible); session stored on server with ID cookie."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Session ID cookie name:",
+    "answer": "JSESSIONID",
+    "explanation": "",
+    "options": [
+     "SESSIONID",
+     "JSESSIONID",
+     "JSID",
+     "SID"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "HTTP is stateless.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method to end a session?",
+    "answer": "session.invalidate()",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Cookies disabled. Technique?",
+    "answer": "URL rewriting",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Hidden field vs URL rewriting.",
+    "answer": "Hidden fields travel in forms; URL rewriting appends session ID to links.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Session tracking: cookies, hidden fields, URL rewriting, HttpSession (JSESSIONID); invalidate on logout.",
+  "syntax": "HttpSession s = request.getSession(); s.setAttribute(\"user\", name);",
+  "code": "// LoginServlet\nHttpSession s = request.getSession();\ns.setAttribute(\"user\", request.getParameter(\"user\"));\nresponse.sendRedirect(\"profile\");\n\n// ProfileServlet\nHttpSession s = request.getSession(false);\nString u = (s != null) ? (String) s.getAttribute(\"user\") : null;\nresponse.getWriter().println(u == null ? \"Please login\" : \"Hello \" + u);",
+  "expectedOutput": "After login: Hello asha",
+  "codeExplanation": "The session object persists between requests; getSession(false) avoids creating a new session.",
+  "apis": [
+   "HttpSession",
+   "Cookie",
+   "HttpServletResponse.addCookie",
+   "encodeURL"
+  ],
+  "commonErrors": [
+   "NullPointerException when session is null.",
+   "Session timeout too short."
+  ]
+ },
+ "epj-c2-t09": {
+  "id": "epj-c2-t09",
+  "title": "CRUD Operations (Servlets)",
+  "importance": "high",
+  "definition": "CRUD operations in servlets use Create, Read, Update and Delete actions mapped to SQL INSERT, SELECT, UPDATE and DELETE through JDBC, usually via a DAO class.",
+  "simpleExplanation": "CRUD matlab Create, Read, Update, Delete. Servlet form data leta hai, JDBC PreparedStatement se database me INSERT/SELECT/UPDATE/DELETE karta hai aur result dikhata hai.",
+  "realLifeAnalogy": "A library desk: add a book (create), look up (read), correct details (update) and remove old books (delete).",
+  "example": "StudentServlet with action parameter: add → INSERT; list → SELECT; update → UPDATE; delete → DELETE using PreparedStatement.",
+  "keyPoints": [
+   "Create: INSERT; Read: SELECT; Update: UPDATE; Delete: DELETE.",
+   "Use doPost for create/update/delete and doGet for read.",
+   "DAO pattern separates database code from servlet.",
+   "Use PreparedStatement to avoid SQL injection.",
+   "Redirect after POST to avoid duplicate submission.",
+   "Close resources with try-with-resources."
+  ],
+  "mustKnow": [
+   "Four operations and SQL.",
+   "DAO.",
+   "Redirect after POST."
+  ],
+  "ifYouKnow": [
+   "Write CRUD with servlet+JDBC.",
+   "Explain DAO.",
+   "Avoid injection."
+  ],
+  "commonMistakes": [
+   "Building SQL with string concatenation.",
+   "Not handling SQLException."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write servlet code for inserting a student.",
+    "answer": "PreparedStatement INSERT in doPost."
+   },
+   {
+    "type": "viva",
+    "question": "Why redirect after POST?",
+    "answer": "To prevent form resubmission on refresh (PRG pattern)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "SQL for Read:",
+    "answer": "SELECT",
+    "explanation": "",
+    "options": [
+     "INSERT",
+     "SELECT",
+     "UPDATE",
+     "DELETE"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "DAO separates DB code from servlet.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method that returns row count?",
+    "answer": "executeUpdate()",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Delete student with id from request. Safe approach?",
+    "answer": "PreparedStatement with ? parameter",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "doGet vs doPost for create.",
+    "answer": "doPost is preferred for changes; doGet for reads.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "CRUD in servlets: INSERT/SELECT/UPDATE/DELETE via JDBC PreparedStatement; DAO; PRG redirect.",
+  "syntax": "PreparedStatement ps = con.prepareStatement(\"INSERT INTO student(id,name) VALUES(?,?)\");",
+  "code": "@WebServlet(\"/student\")\npublic class StudentServlet extends HttpServlet {\n  protected void doPost(HttpServletRequest rq, HttpServletResponse rs) throws IOException {\n    String act = rq.getParameter(\"action\");\n    try (Connection c = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/college\",\"root\",\"root\")) {\n      if (\"add\".equals(act)) {\n        PreparedStatement p = c.prepareStatement(\"INSERT INTO student(id,name) VALUES(?,?)\");\n        p.setInt(1, Integer.parseInt(rq.getParameter(\"id\"))); p.setString(2, rq.getParameter(\"name\")); p.executeUpdate();\n      } else if (\"delete\".equals(act)) {\n        PreparedStatement p = c.prepareStatement(\"DELETE FROM student WHERE id=?\");\n        p.setInt(1, Integer.parseInt(rq.getParameter(\"id\"))); p.executeUpdate();\n      }\n    } catch (SQLException e) { throw new IOException(e); }\n    rs.sendRedirect(\"student\");\n  }\n}",
+  "expectedOutput": "Form add id=3,name=Meena → row inserted → redirect to list",
+  "codeExplanation": "The action parameter selects the operation; PreparedStatement binds values; redirect avoids duplicate submits.",
+  "apis": [
+   "PreparedStatement",
+   "executeUpdate",
+   "executeQuery",
+   "HttpServletResponse.sendRedirect"
+  ],
+  "commonErrors": [
+   "NumberFormatException for non-numeric id.",
+   "SQLIntegrityConstraintViolation for duplicate id."
+  ]
+ },
+ "epj-c3-t01": {
+  "id": "epj-c3-t01",
+  "title": "Scripting Elements",
+  "importance": "high",
+  "definition": "JSP scripting elements embed Java code in a JSP page: scriptlet <% %>, expression <%= %>, declaration <%! %> and comments <%-- --%>.",
+  "simpleExplanation": "JSP me HTML ke andar Java code likhne ke 3 tareeke: scriptlet (<% %>) logic ke liye, expression (<%= %>) value print karne ke liye, declaration (<%! %>) variables/methods ke liye.",
+  "realLifeAnalogy": "A printed letter with blanks: expressions fill a blank with a value, scriptlets are instructions in the margin.",
+  "example": "<%! int count = 0; %> declares a field; <% count++; %> runs code; <%= count %> prints it; <%-- comment --%> is not sent to the browser.",
+  "keyPoints": [
+   "Scriptlet <% code %> goes inside _jspService().",
+   "Expression <%= expr %> is output via out.print() (no semicolon).",
+   "Declaration <%! %> becomes class-level fields/methods.",
+   "JSP is translated to a servlet and compiled on first request.",
+   "Implicit objects: request, response, out, session, application, config, pageContext, page, exception.",
+   "Lifecycle: translation, compilation, jspInit, _jspService, jspDestroy."
+  ],
+  "mustKnow": [
+   "Three scripting elements.",
+   "Implicit objects.",
+   "JSP lifecycle."
+  ],
+  "ifYouKnow": [
+   "Write a JSP with all elements.",
+   "List implicit objects.",
+   "Explain JSP→servlet."
+  ],
+  "commonMistakes": [
+   "Using a semicolon in an expression.",
+   "Putting logic-heavy code in JSP instead of servlets."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain JSP scripting elements with examples.",
+    "answer": "Scriptlet, expression, declaration, comment with code."
+   },
+   {
+    "type": "difference",
+    "question": "Scriptlet vs declaration.",
+    "answer": "Scriptlet goes inside _jspService (local); declaration defines class-level members."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Expression tag:",
+    "answer": "<%= %>",
+    "explanation": "",
+    "options": [
+     "<% %>",
+     "<%= %>",
+     "<%! %>",
+     "<%@ %>"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "JSP is converted into a servlet.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two implicit objects.",
+    "answer": "request and session.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Declare an instance method in JSP. Tag?",
+    "answer": "<%! %>",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "JSP comment vs HTML comment.",
+    "answer": "JSP comment is not sent to the browser; HTML comment is.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "JSP scripting: <% scriptlet %>, <%= expression %>, <%! declaration %>; JSP→servlet; 9 implicit objects.",
+  "syntax": "<%! declaration %>  <% scriptlet %>  <%= expression %>  <%-- comment --%>",
+  "code": "<html><body>\n<%! int count = 0; %>\n<% count++; String name = request.getParameter(\"name\"); %>\n<h2>Hello <%= (name == null) ? \"Guest\" : name %></h2>\n<p>Visits: <%= count %></p>\n</body></html>",
+  "expectedOutput": "Hello Guest\nVisits: 1",
+  "codeExplanation": "The declaration creates a field, the scriptlet increments it and reads a parameter, the expressions print values.",
+  "apis": [
+   "request",
+   "response",
+   "out",
+   "session",
+   "application",
+   "config",
+   "pageContext",
+   "page",
+   "exception"
+  ],
+  "commonErrors": [
+   "Semicolon inside <%= %>.",
+   "Count field shared by all users (thread-safety)."
+  ]
+ },
+ "epj-c3-t02": {
+  "id": "epj-c3-t02",
+  "title": "Directive Elements",
+  "importance": "high",
+  "definition": "JSP directives give instructions to the JSP container at translation time: page, include and taglib.",
+  "simpleExplanation": "Directive JSP container ko batata hai page ko kaise translate karna hai. Teen types: page (settings), include (file include karna), taglib (tag library).",
+  "realLifeAnalogy": "Setup instructions at the top of a document: paper size, headers to attach, extra fonts to load.",
+  "example": "<%@ page import=\"java.util.*\" contentType=\"text/html\" errorPage=\"error.jsp\" %>; <%@ include file=\"header.jsp\" %>; <%@ taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\" %>.",
+  "keyPoints": [
+   "Syntax: <%@ directive attribute=\"value\" %>.",
+   "page attributes: import, contentType, language, session, errorPage, isErrorPage, buffer.",
+   "include directive: static inclusion at translation time (file merged before compile).",
+   "taglib directive: declares custom/JSTL tag libraries.",
+   "jsp:include action is dynamic (at request time).",
+   "Directives affect the generated servlet class."
+  ],
+  "mustKnow": [
+   "Three directives.",
+   "Page attributes.",
+   "include directive vs action."
+  ],
+  "ifYouKnow": [
+   "Use page directive attributes.",
+   "Include a header file.",
+   "Compare include types."
+  ],
+  "commonMistakes": [
+   "Confusing include directive with jsp:include.",
+   "Forgetting import for java.util classes."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "include directive vs jsp:include action.",
+    "answer": "Directive: static, translation time, merged; action: dynamic, request time, output included."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain JSP directives.",
+    "answer": "page, include, taglib with syntax."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Directive syntax:",
+    "answer": "<%@ %>",
+    "explanation": "",
+    "options": [
+     "<%@ %>",
+     "<% %>",
+     "<%! %>",
+     "<%= %>"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "The include directive is static.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Attribute for error page?",
+    "answer": "errorPage",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Import java.util.List. Where?",
+    "answer": "page directive import attribute",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "isErrorPage purpose.",
+    "answer": "Marks a page as an error handler with access to exception object.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Directives <%@ %>: page (import, errorPage), include (static, translation time), taglib; jsp:include is dynamic.",
+  "syntax": "<%@ page import=\"java.util.*\" errorPage=\"error.jsp\" %>",
+  "code": "<%@ page import=\"java.util.Date\" contentType=\"text/html\" errorPage=\"error.jsp\" %>\n<%@ include file=\"header.jsp\" %>\n<p>Today: <%= new Date() %></p>",
+  "expectedOutput": "Header content followed by Today: <current date>",
+  "codeExplanation": "page imports Date and sets the error page; the include directive merges header.jsp before compilation.",
+  "apis": [
+   "page",
+   "include",
+   "taglib"
+  ],
+  "commonErrors": [
+   "Missing import causing compile error in generated servlet.",
+   "Wrong relative path in include file."
+  ],
+  "comparison": {
+   "title": "include directive vs action",
+   "headers": [
+    "Feature",
+    "<%@ include %>",
+    "<jsp:include>"
+   ],
+   "rows": [
+    [
+     "Time",
+     "Translation",
+     "Request"
+    ],
+    [
+     "Content",
+     "Static merge",
+     "Dynamic output"
+    ],
+    [
+     "Change visibility",
+     "Needs recompile",
+     "Reflected immediately"
+    ]
+   ]
+  }
+ },
+ "epj-c3-t03": {
+  "id": "epj-c3-t03",
+  "title": "CRUD Operations (JSP)",
+  "importance": "high",
+  "definition": "CRUD in JSP uses forms that submit to JSP/servlet code which performs INSERT, SELECT, UPDATE and DELETE with JDBC and displays the results.",
+  "simpleExplanation": "JSP me form se data jata hai, JDBC se database me insert/select/update/delete hota hai, aur list table me dikhaya jata hai. Best practice: logic servlet/DAO me, JSP sirf display.",
+  "realLifeAnalogy": "A data-entry counter: forms to add, a list to view, and buttons to edit or remove.",
+  "example": "register.jsp form → insert.jsp executes INSERT → list.jsp loops over ResultSet and prints a table with Edit/Delete links.",
+  "keyPoints": [
+   "Forms use method=POST and action=target.",
+   "Use PreparedStatement for SQL.",
+   "Read data with request.getParameter().",
+   "Display with scriptlets or JSTL <c:forEach>.",
+   "Better design: servlet controller + DAO + JSP view (MVC).",
+   "Close connections and redirect after changes."
+  ],
+  "mustKnow": [
+   "Add/list/update/delete flow.",
+   "JSTL vs scriptlets.",
+   "MVC separation."
+  ],
+  "ifYouKnow": [
+   "Build a CRUD page.",
+   "Display data in a table.",
+   "Improve with MVC."
+  ],
+  "commonMistakes": [
+   "Writing heavy JDBC code inside JSP.",
+   "Not closing connections."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write JSP code to insert and list records.",
+    "answer": "Form + JDBC INSERT + SELECT loop."
+   },
+   {
+    "type": "viva",
+    "question": "Why avoid JDBC in JSP?",
+    "answer": "Mixes presentation with logic; use servlet/DAO instead."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "JSP form submission method for insert:",
+    "answer": "POST",
+    "explanation": "",
+    "options": [
+     "GET",
+     "POST",
+     "PUT",
+     "HEAD"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "JSTL can replace scriptlets for loops.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "SQL for delete?",
+    "answer": "DELETE FROM table WHERE id=?",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Display all students. Use?",
+    "answer": "SELECT with loop (c:forEach)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "JSP vs servlet in CRUD.",
+    "answer": "JSP for view; servlet for controller logic.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "JSP CRUD: form → JDBC (PreparedStatement) → table; use servlet+DAO for logic and JSP for view.",
+  "syntax": "<form method=\"post\" action=\"insert.jsp\"> … </form>",
+  "code": "<%@ page import=\"java.sql.*\" %>\n<%\n  String name = request.getParameter(\"name\");\n  try (Connection c = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/college\",\"root\",\"root\");\n       PreparedStatement p = c.prepareStatement(\"INSERT INTO student(name) VALUES(?)\")) {\n    p.setString(1, name);\n    out.println(p.executeUpdate() + \" row inserted\");\n  }\n%>",
+  "expectedOutput": "1 row inserted",
+  "codeExplanation": "The scriptlet reads the form field and runs a parameterised INSERT; out prints the result.",
+  "apis": [
+   "PreparedStatement",
+   "ResultSet",
+   "JSTL c:forEach",
+   "request.getParameter"
+  ],
+  "commonErrors": [
+   "NullPointerException when the form field is missing.",
+   "Driver JAR not in WEB-INF/lib."
+  ]
+ },
+ "epj-c4-t01": {
+  "id": "epj-c4-t01",
+  "title": "Hibernate Architecture",
+  "importance": "high",
+  "definition": "Hibernate is an ORM framework whose architecture consists of Configuration, SessionFactory, Session, Transaction and Query objects built on top of JDBC and a database.",
+  "simpleExplanation": "Hibernate ek ORM framework hai jo Java objects ko database tables se map karta hai. Architecture: Configuration → SessionFactory (ek baar) → Session (har kaam ke liye) → Transaction → Query → JDBC → Database.",
+  "realLifeAnalogy": "A translator between Java objects and database tables, so you write objects and it writes SQL.",
+  "example": "Configuration reads hibernate.cfg.xml; builds SessionFactory once; each unit of work opens a Session, begins a Transaction, saves a Student object, commits.",
+  "keyPoints": [
+   "Configuration: loads hibernate.cfg.xml and mappings.",
+   "SessionFactory: heavyweight, thread-safe, one per database.",
+   "Session: lightweight, not thread-safe; represents a unit of work; first-level cache.",
+   "Transaction: atomic unit of work.",
+   "Query/Criteria: HQL and criteria queries.",
+   "Uses JDBC, JTA and JNDI underneath."
+  ],
+  "mustKnow": [
+   "Flow of objects.",
+   "SessionFactory vs Session.",
+   "First-level cache."
+  ],
+  "ifYouKnow": [
+   "Describe the architecture.",
+   "Bootstrap Hibernate.",
+   "Explain Session lifecycle."
+  ],
+  "commonMistakes": [
+   "Sharing a Session between threads.",
+   "Creating a SessionFactory per request."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Hibernate architecture with a diagram.",
+    "answer": "Application → Configuration/SessionFactory/Session/Transaction/Query → JDBC → DB."
+   },
+   {
+    "type": "difference",
+    "question": "SessionFactory vs Session.",
+    "answer": "SessionFactory: heavy, one per app, thread-safe; Session: light, per unit of work, not thread-safe."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Thread-safe object:",
+    "answer": "SessionFactory",
+    "explanation": "",
+    "options": [
+     "Session",
+     "SessionFactory",
+     "Transaction",
+     "Query"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Session has a first-level cache.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Config file name?",
+    "answer": "hibernate.cfg.xml",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "One SessionFactory per request. Problem?",
+    "answer": "Very expensive; should be one per app.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "ORM vs JDBC.",
+    "answer": "ORM maps objects to tables and generates SQL; JDBC needs manual SQL and mapping.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Hibernate: Configuration → SessionFactory (1, heavy, thread-safe) → Session (light, not thread-safe) → Transaction → Query → JDBC → DB.",
+  "syntax": "SessionFactory sf = new Configuration().configure().buildSessionFactory();\nSession s = sf.openSession();",
+  "code": "SessionFactory sf = new Configuration().configure(\"hibernate.cfg.xml\").addAnnotatedClass(Student.class).buildSessionFactory();\ntry (Session s = sf.openSession()) {\n  Transaction tx = s.beginTransaction();\n  s.persist(new Student(1, \"Asha\"));\n  tx.commit();\n}",
+  "expectedOutput": "Hibernate: insert into student (name, id) values (?, ?)",
+  "codeExplanation": "The factory is built once; each session wraps a transaction; persist schedules an INSERT executed at commit.",
+  "apis": [
+   "Configuration",
+   "SessionFactory",
+   "Session",
+   "Transaction",
+   "Query"
+  ],
+  "commonErrors": [
+   "HibernateException: No identifier specified.",
+   "Forgetting to commit the transaction."
+  ]
+ },
+ "epj-c4-t02": {
+  "id": "epj-c4-t02",
+  "title": "JPA",
+  "importance": "high",
+  "definition": "JPA (Java/Jakarta Persistence API) is the standard specification for ORM in Java; Hibernate is its most popular implementation.",
+  "simpleExplanation": "JPA ek standard (specification) hai ORM ke liye; Hibernate uska implementation hai. JPA annotations (@Entity, @Id) aur EntityManager use karte hain, jisse code provider se independent hota hai.",
+  "realLifeAnalogy": "JPA is the rulebook; Hibernate is a team that plays by those rules.",
+  "example": "@Entity class Student with @Id; persistence.xml defines persistence-unit; EntityManager em.persist(student) inside a transaction.",
+  "keyPoints": [
+   "JPA = specification; Hibernate/EclipseLink = implementations.",
+   "Core: EntityManagerFactory, EntityManager, EntityTransaction.",
+   "Annotations: @Entity, @Table, @Id, @Column.",
+   "Query language: JPQL.",
+   "Configuration: META-INF/persistence.xml.",
+   "Package javax.persistence (older) → jakarta.persistence (newer)."
+  ],
+  "mustKnow": [
+   "JPA vs Hibernate.",
+   "EntityManager methods.",
+   "persistence.xml."
+  ],
+  "ifYouKnow": [
+   "Explain JPA and its relation to Hibernate.",
+   "Write an entity.",
+   "Persist with EntityManager."
+  ],
+  "commonMistakes": [
+   "Thinking JPA is a framework (it is a specification).",
+   "Mixing javax and jakarta packages."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "JPA vs Hibernate.",
+    "answer": "JPA: specification; Hibernate: implementation with extra native features."
+   },
+   {
+    "type": "viva",
+    "question": "Which object replaces Session in JPA?",
+    "answer": "EntityManager."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "JPA is a:",
+    "answer": "Specification",
+    "explanation": "",
+    "options": [
+     "Library only",
+     "Specification",
+     "Database",
+     "Server"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Hibernate implements JPA.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "JPA query language?",
+    "answer": "JPQL",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Switch ORM provider without code changes. Use?",
+    "answer": "JPA APIs",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Session vs EntityManager.",
+    "answer": "Session is Hibernate-native; EntityManager is the JPA standard equivalent.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "JPA: ORM spec (javax/jakarta.persistence); Hibernate implements; EntityManager, persistence.xml, JPQL.",
+  "syntax": "EntityManagerFactory emf = Persistence.createEntityManagerFactory(\"myPU\");\nEntityManager em = emf.createEntityManager();",
+  "code": "@Entity @Table(name=\"student\")\npublic class Student {\n  @Id private int id;\n  private String name;\n  // constructors, getters\n}\n\nEntityManagerFactory emf = Persistence.createEntityManagerFactory(\"myPU\");\nEntityManager em = emf.createEntityManager();\nem.getTransaction().begin();\nem.persist(new Student(1, \"Asha\"));\nem.getTransaction().commit();",
+  "expectedOutput": "Row inserted into student table",
+  "codeExplanation": "Persistence.createEntityManagerFactory reads persistence.xml; persist plus commit stores the entity.",
+  "apis": [
+   "EntityManagerFactory",
+   "EntityManager",
+   "EntityTransaction",
+   "@Entity",
+   "@Id"
+  ],
+  "commonErrors": [
+   "No Persistence provider for EntityManager named myPU.",
+   "Entity without @Id."
+  ]
+ },
+ "epj-c4-t03": {
+  "id": "epj-c4-t03",
+  "title": "Generator Class",
+  "importance": "high",
+  "definition": "A generator class (identifier generation strategy) tells Hibernate how to produce primary key values for entities, such as assigned, increment, identity, sequence, native or UUID.",
+  "simpleExplanation": "Generator class primary key kaise banegi ye batati hai: khud assign karo, auto-increment (identity), sequence, ya UUID. Annotation: @GeneratedValue(strategy=...).",
+  "realLifeAnalogy": "A ticket machine that issues the next token number automatically.",
+  "example": "@Id @GeneratedValue(strategy = GenerationType.IDENTITY) private int id; → MySQL AUTO_INCREMENT. XML: <generator class=\"native\"/>.",
+  "keyPoints": [
+   "assigned: application sets the id.",
+   "increment: max+1 (single JVM only).",
+   "identity: DB auto-increment (MySQL, SQL Server).",
+   "sequence: DB sequence (Oracle, PostgreSQL).",
+   "native: picks identity/sequence by dialect; uuid: generates a UUID.",
+   "JPA GenerationType: AUTO, IDENTITY, SEQUENCE, TABLE."
+  ],
+  "mustKnow": [
+   "Strategies with DB examples.",
+   "Annotation syntax.",
+   "native meaning."
+  ],
+  "ifYouKnow": [
+   "Choose a strategy per DB.",
+   "Write @GeneratedValue.",
+   "Explain increment limits."
+  ],
+  "commonMistakes": [
+   "Using increment in clustered environments.",
+   "Using IDENTITY with Oracle (older versions)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Hibernate generator classes.",
+    "answer": "List strategies and use cases."
+   },
+   {
+    "type": "difference",
+    "question": "identity vs sequence.",
+    "answer": "Identity uses auto-increment column; sequence uses a database sequence object."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "MySQL auto increment strategy:",
+    "answer": "IDENTITY",
+    "explanation": "",
+    "options": [
+     "SEQUENCE",
+     "IDENTITY",
+     "TABLE",
+     "UUID"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "assigned means application provides the id.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Annotation for key generation?",
+    "answer": "@GeneratedValue",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Oracle DB needs generated ids. Strategy?",
+    "answer": "SEQUENCE",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "native vs assigned.",
+    "answer": "native lets DB/dialect choose; assigned requires manual id.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Generators: assigned, increment, identity (MySQL), sequence (Oracle/PG), native, uuid; @GeneratedValue(strategy=…).",
+  "syntax": "@Id @GeneratedValue(strategy = GenerationType.IDENTITY)\nprivate int id;",
+  "code": "@Entity\npublic class Student {\n  @Id\n  @GeneratedValue(strategy = GenerationType.IDENTITY)\n  private int id;\n  private String name;\n}",
+  "expectedOutput": "insert into Student (name) values (?)  -- id generated by the database",
+  "codeExplanation": "IDENTITY leaves the id column out of INSERT; MySQL assigns the next number.",
+  "apis": [
+   "@GeneratedValue",
+   "GenerationType",
+   "@SequenceGenerator"
+  ],
+  "commonErrors": [
+   "ids_not_generated: strategy unsupported by DB.",
+   "Manually setting an id on a generated entity."
+  ]
+ },
+ "epj-c4-t04": {
+  "id": "epj-c4-t04",
+  "title": "Dialects",
+  "importance": "medium",
+  "definition": "A Hibernate dialect is a class that tells Hibernate which SQL variant to generate for a particular database.",
+  "simpleExplanation": "Har database ka SQL thoda alag hota hai (LIMIT vs ROWNUM). Dialect Hibernate ko batata hai ki kaunsa DB hai taaki sahi SQL generate ho. Config: hibernate.dialect.",
+  "realLifeAnalogy": "Choosing the right language dialect so the translator speaks the way the local people do.",
+  "example": "<property name=\"hibernate.dialect\">org.hibernate.dialect.MySQLDialect</property> (or OracleDialect, PostgreSQLDialect).",
+  "keyPoints": [
+   "Property hibernate.dialect.",
+   "Examples: MySQLDialect/MySQL8Dialect, Oracle dialects, PostgreSQLDialect, SQLServerDialect.",
+   "Controls data type mapping, pagination, functions and id generation.",
+   "Hibernate 6 can auto-detect the dialect.",
+   "Wrong dialect gives SQL syntax errors.",
+   "Switching DB = change dialect + driver + URL."
+  ],
+  "mustKnow": [
+   "Purpose.",
+   "Property name.",
+   "Examples."
+  ],
+  "ifYouKnow": [
+   "Set a dialect.",
+   "Explain why needed.",
+   "Debug dialect errors."
+  ],
+  "commonMistakes": [
+   "Using MySQL dialect with Oracle.",
+   "Forgetting to update dialect when switching DB."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "What is a dialect in Hibernate?",
+    "answer": "Class mapping Hibernate SQL generation to a specific DB; property hibernate.dialect."
+   },
+   {
+    "type": "viva",
+    "question": "What changes when moving MySQL to Oracle?",
+    "answer": "Driver, URL, dialect, and possibly id strategy."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Property for dialect:",
+    "answer": "hibernate.dialect",
+    "explanation": "",
+    "options": [
+     "hibernate.driver",
+     "hibernate.dialect",
+     "hibernate.sql",
+     "hibernate.url"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Dialect affects pagination SQL.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Example dialect class?",
+    "answer": "org.hibernate.dialect.MySQLDialect",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Syntax error near LIMIT on Oracle. Cause?",
+    "answer": "Wrong dialect",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Dialect vs driver.",
+    "answer": "Driver connects; dialect shapes the SQL.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Dialect: hibernate.dialect tells Hibernate DB-specific SQL (pagination, types); change with the DB.",
+  "syntax": "<property name=\"hibernate.dialect\">org.hibernate.dialect.MySQLDialect</property>",
+  "code": "<hibernate-configuration><session-factory>\n  <property name=\"hibernate.connection.driver_class\">com.mysql.cj.jdbc.Driver</property>\n  <property name=\"hibernate.connection.url\">jdbc:mysql://localhost:3306/college</property>\n  <property name=\"hibernate.dialect\">org.hibernate.dialect.MySQLDialect</property>\n  <property name=\"hibernate.hbm2ddl.auto\">update</property>\n  <property name=\"hibernate.show_sql\">true</property>\n</session-factory></hibernate-configuration>",
+  "expectedOutput": "SQL printed in MySQL syntax",
+  "codeExplanation": "The dialect, driver and URL together define how Hibernate talks to MySQL.",
+  "apis": [
+   "hibernate.dialect",
+   "hibernate.hbm2ddl.auto",
+   "hibernate.show_sql"
+  ],
+  "commonErrors": [
+   "Wrong dialect → SQLGrammarException.",
+   "hbm2ddl.auto=create dropping existing data."
+  ]
+ },
+ "epj-c4-t05": {
+  "id": "epj-c4-t05",
+  "title": "Mapping",
+  "importance": "high",
+  "definition": "Mapping in Hibernate defines how Java classes and their relationships correspond to database tables, using XML (hbm) or annotations, including one-to-one, one-to-many, many-to-one and many-to-many associations.",
+  "simpleExplanation": "Mapping batata hai class → table, field → column, aur objects ke beech relationships (one-to-many etc.). XML ya annotations se kiya jata hai.",
+  "realLifeAnalogy": "A translation table between a class diagram and a database diagram.",
+  "example": "Department 1—* Employee: Employee has @ManyToOne @JoinColumn(name=\"dept_id\") Department dept; Department has @OneToMany(mappedBy=\"dept\") List<Employee> employees.",
+  "keyPoints": [
+   "Class ↔ table (@Entity/@Table); field ↔ column (@Column).",
+   "Associations: @OneToOne, @OneToMany, @ManyToOne, @ManyToMany.",
+   "@JoinColumn defines foreign key; mappedBy marks the inverse side.",
+   "cascade = persist/remove propagation; fetch = LAZY or EAGER.",
+   "Inheritance mapping: SINGLE_TABLE, JOINED, TABLE_PER_CLASS.",
+   "Component/embedded mapping with @Embeddable."
+  ],
+  "mustKnow": [
+   "Four association types.",
+   "Owning vs inverse side.",
+   "Lazy vs eager."
+  ],
+  "ifYouKnow": [
+   "Map one-to-many.",
+   "Choose fetch type.",
+   "Explain mappedBy."
+  ],
+  "commonMistakes": [
+   "Forgetting mappedBy (creates extra join table).",
+   "LazyInitializationException after closing session."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain mapping and association types in Hibernate.",
+    "answer": "Class-table mapping and four associations with examples."
+   },
+   {
+    "type": "difference",
+    "question": "Lazy vs eager fetching.",
+    "answer": "Lazy loads related data on access; eager loads immediately with the owner."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Foreign key side:",
+    "answer": "@ManyToOne with @JoinColumn",
+    "explanation": "",
+    "options": [
+     "@OneToMany(mappedBy)",
+     "@ManyToOne with @JoinColumn",
+     "@Embeddable",
+     "@Transient"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "mappedBy marks the inverse side.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Default fetch for @OneToMany?",
+    "answer": "LAZY",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "LazyInitializationException. Cause?",
+    "answer": "Accessing a lazy collection after the session closed.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "XML vs annotation mapping.",
+    "answer": "XML external config; annotations inline in classes.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Mapping: @Entity/@Table/@Column; @OneToOne/@OneToMany/@ManyToOne/@ManyToMany; @JoinColumn, mappedBy; lazy/eager; cascade.",
+  "syntax": "@ManyToOne @JoinColumn(name=\"dept_id\") private Department dept;",
+  "code": "@Entity\npublic class Department {\n  @Id @GeneratedValue private int id;\n  private String name;\n  @OneToMany(mappedBy = \"dept\", cascade = CascadeType.ALL)\n  private List<Employee> employees = new ArrayList<>();\n}\n@Entity\npublic class Employee {\n  @Id @GeneratedValue private int id;\n  private String name;\n  @ManyToOne @JoinColumn(name = \"dept_id\")\n  private Department dept;\n}",
+  "expectedOutput": "Tables department(id,name) and employee(id,name,dept_id FK)",
+  "codeExplanation": "The ManyToOne side owns the foreign key; mappedBy on the OneToMany side points to that field.",
+  "apis": [
+   "@OneToMany",
+   "@ManyToOne",
+   "@JoinColumn",
+   "CascadeType",
+   "FetchType"
+  ],
+  "commonErrors": [
+   "Infinite recursion in toString/JSON with bidirectional links.",
+   "Missing cascade so child not saved."
+  ]
+ },
+ "epj-c4-t06": {
+  "id": "epj-c4-t06",
+  "title": "Annotations",
+  "importance": "high",
+  "definition": "Hibernate/JPA annotations declare mapping metadata directly in the entity class, such as @Entity, @Table, @Id, @Column, @GeneratedValue and @Transient.",
+  "simpleExplanation": "Annotations se XML ke bina class me hi mapping likh dete hain: @Entity (table banao), @Id (primary key), @Column (column settings), @Transient (store mat karo).",
+  "realLifeAnalogy": "Sticky labels on a form that tell the system how each field is stored.",
+  "example": "@Entity @Table(name=\"student\") class Student { @Id @GeneratedValue int id; @Column(name=\"full_name\", nullable=false, length=50) String name; @Transient int age; }",
+  "keyPoints": [
+   "@Entity marks a persistent class; @Table sets table name.",
+   "@Id primary key; @GeneratedValue auto-generates.",
+   "@Column(name, length, nullable, unique).",
+   "@Transient excludes a field; @Temporal for dates; @Enumerated for enums; @Lob for large data.",
+   "Relationship annotations: @OneToMany etc.",
+   "@NamedQuery defines reusable HQL/JPQL."
+  ],
+  "mustKnow": [
+   "Common annotations.",
+   "@Column attributes.",
+   "@Transient."
+  ],
+  "ifYouKnow": [
+   "Annotate an entity.",
+   "Explain each annotation.",
+   "Exclude a field."
+  ],
+  "commonMistakes": [
+   "Forgetting @Id.",
+   "Using @Entity without a no-arg constructor."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write an annotated Student entity.",
+    "answer": "Show @Entity, @Id, @Column, @Transient."
+   },
+   {
+    "type": "viva",
+    "question": "What does @Transient do?",
+    "answer": "The field is not persisted."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Marks primary key:",
+    "answer": "@Id",
+    "explanation": "",
+    "options": [
+     "@Key",
+     "@Id",
+     "@Primary",
+     "@PK"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "@Entity needs a no-argument constructor.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Annotation to skip a field?",
+    "answer": "@Transient",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Column name differs from field name. Use?",
+    "answer": "@Column(name=…)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "@Table vs @Entity.",
+    "answer": "@Entity marks a persistent class; @Table configures its table name/schema.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Annotations: @Entity, @Table, @Id, @GeneratedValue, @Column, @Transient, @Temporal, @NamedQuery.",
+  "syntax": "@Entity @Table(name=\"student\")",
+  "code": "@Entity\n@Table(name = \"student\")\npublic class Student {\n  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)\n  private int id;\n  @Column(name = \"full_name\", nullable = false, length = 50)\n  private String name;\n  @Transient\n  private int age;\n  public Student() {}\n}",
+  "expectedOutput": "Table student(id, full_name) — age not stored",
+  "codeExplanation": "Annotations define table, key, column rules and exclude age from persistence.",
+  "apis": [
+   "@Entity",
+   "@Table",
+   "@Id",
+   "@Column",
+   "@Transient",
+   "@Temporal"
+  ],
+  "commonErrors": [
+   "MappingException: Unknown entity (class not registered).",
+   "Missing default constructor."
+  ]
+ },
+ "epj-c4-t07": {
+  "id": "epj-c4-t07",
+  "title": "Transaction Management",
+  "importance": "high",
+  "definition": "Transaction management in Hibernate groups database operations into an atomic unit using Transaction begin, commit and rollback to maintain ACID properties.",
+  "simpleExplanation": "Transaction me kai operations ek unit ki tarah hote hain: ya sab commit, ya koi error aaye to rollback. Hibernate me session.beginTransaction(), commit(), rollback().",
+  "realLifeAnalogy": "Bank transfer: both debit and credit must succeed together or neither should happen.",
+  "example": "Debit account A and credit account B inside one transaction; if the credit throws an exception, rollback restores A.",
+  "keyPoints": [
+   "ACID: Atomicity, Consistency, Isolation, Durability.",
+   "Session.beginTransaction() → Transaction.commit()/rollback().",
+   "Pattern: try { … commit } catch { rollback } finally { close }.",
+   "Local (resource-local) vs JTA (container) transactions.",
+   "Isolation levels: read uncommitted, read committed, repeatable read, serializable.",
+   "Reads also need a transaction for consistency; one transaction per unit of work."
+  ],
+  "mustKnow": [
+   "ACID.",
+   "Commit/rollback pattern.",
+   "Isolation levels."
+  ],
+  "ifYouKnow": [
+   "Write transaction code.",
+   "Explain ACID.",
+   "Pick isolation level."
+  ],
+  "commonMistakes": [
+   "Not rolling back on exception.",
+   "Leaving transactions open."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write Hibernate code with commit and rollback.",
+    "answer": "try/catch pattern."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain ACID.",
+    "answer": "Atomicity, Consistency, Isolation, Durability with bank example."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Undo changes:",
+    "answer": "rollback()",
+    "explanation": "",
+    "options": [
+     "commit()",
+     "rollback()",
+     "flush()",
+     "evict()"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "commit makes changes permanent.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Expand ACID.",
+    "answer": "Atomicity, Consistency, Isolation, Durability.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Exception after first update. Action?",
+    "answer": "rollback the transaction",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "JTA vs local transaction.",
+    "answer": "JTA is container-managed across resources; local is per connection.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Transactions: begin → commit / rollback; ACID; try-catch-finally; JTA vs local.",
+  "syntax": "Transaction tx = session.beginTransaction(); … tx.commit();",
+  "code": "Session s = sf.openSession();\nTransaction tx = null;\ntry {\n  tx = s.beginTransaction();\n  s.persist(new Student(1, \"Asha\"));\n  tx.commit();\n} catch (Exception e) {\n  if (tx != null) tx.rollback();\n  e.printStackTrace();\n} finally { s.close(); }",
+  "expectedOutput": "Committed on success; rollback and stack trace on failure",
+  "codeExplanation": "Rollback in catch prevents partial changes; finally always closes the session.",
+  "apis": [
+   "Transaction.begin/commit/rollback",
+   "Session.beginTransaction",
+   "isolation levels"
+  ],
+  "commonErrors": [
+   "TransactionRequiredException: no active transaction.",
+   "Forgetting finally close()."
+  ]
+ },
+ "epj-c4-t08": {
+  "id": "epj-c4-t08",
+  "title": "HQL",
+  "importance": "high",
+  "definition": "HQL (Hibernate Query Language) is an object-oriented query language that queries entity classes and their properties instead of tables and columns.",
+  "simpleExplanation": "HQL SQL jaisi hai par tables ki jagah classes aur properties use hoti hain: 'from Student where name = :n'. Hibernate ise SQL me convert karta hai.",
+  "realLifeAnalogy": "SQL but speaking in object names (Student) instead of table names (student_tbl).",
+  "example": "Query q = session.createQuery(\"from Student s where s.name = :n\"); q.setParameter(\"n\", \"Asha\"); List<Student> list = q.list();",
+  "keyPoints": [
+   "Uses entity class and property names (case-sensitive).",
+   "Supports select, from, where, order by, group by, joins, aggregates.",
+   "Named parameters (:name) and positional (?).",
+   "Pagination: setFirstResult(), setMaxResults().",
+   "Bulk update/delete via executeUpdate().",
+   "Database independent."
+  ],
+  "mustKnow": [
+   "Syntax forms.",
+   "Parameter binding.",
+   "Pagination."
+  ],
+  "ifYouKnow": [
+   "Write HQL queries.",
+   "Bind parameters.",
+   "Paginate results."
+  ],
+  "commonMistakes": [
+   "Using table/column names instead of class/property names.",
+   "Concatenating values into HQL."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write HQL to fetch students with marks > 60 ordered by name.",
+    "answer": "from Student s where s.marks > 60 order by s.name."
+   },
+   {
+    "type": "difference",
+    "question": "HQL vs SQL.",
+    "answer": "HQL queries objects/properties and is DB independent; SQL queries tables/columns."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "HQL queries:",
+    "answer": "Entities",
+    "explanation": "",
+    "options": [
+     "Tables",
+     "Entities",
+     "Files",
+     "Views only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "HQL supports named parameters.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method for page size?",
+    "answer": "setMaxResults()",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Fetch all students. HQL?",
+    "answer": "from Student",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "list() vs uniqueResult().",
+    "answer": "list returns many; uniqueResult returns one or null.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "HQL: object-oriented queries (from Student where …); :named params; setFirstResult/setMaxResults; executeUpdate for bulk.",
+  "syntax": "Query<Student> q = session.createQuery(\"from Student where marks > :m\", Student.class);",
+  "code": "Query<Student> q = session.createQuery(\"from Student s where s.marks > :m order by s.name\", Student.class);\nq.setParameter(\"m\", 60);\nq.setFirstResult(0); q.setMaxResults(10);\nfor (Student s : q.list()) System.out.println(s.getName());",
+  "expectedOutput": "Asha\nRavi",
+  "codeExplanation": "Named parameter :m avoids injection; paging limits rows; entity names not table names.",
+  "apis": [
+   "Session.createQuery",
+   "Query.setParameter",
+   "Query.list",
+   "executeUpdate"
+  ],
+  "commonErrors": [
+   "QuerySyntaxException: Student is not mapped (wrong entity name).",
+   "Using * in HQL select."
+  ]
+ },
+ "epj-c4-t09": {
+  "id": "epj-c4-t09",
+  "title": "HCQL",
+  "importance": "medium",
+  "definition": "HCQL (Hibernate Criteria Query Language) builds queries programmatically with the Criteria API using restrictions, ordering and projections instead of query strings.",
+  "simpleExplanation": "HCQL me query string nahi likhte; Java objects/methods se query banate hain (Restrictions.eq, gt, like). Compile-time safe aur dynamic queries ke liye achha. Note: legacy Criteria deprecated; JPA CriteriaBuilder use hota hai.",
+  "realLifeAnalogy": "Building a query by clicking filter buttons instead of typing a sentence.",
+  "example": "Legacy: session.createCriteria(Student.class).add(Restrictions.gt(\"marks\", 60)).list(). Modern JPA: CriteriaBuilder cb; cq.select(root).where(cb.gt(root.get(\"marks\"), 60)).",
+  "keyPoints": [
+   "Criteria API: programmatic, type-safe, good for dynamic filters.",
+   "Legacy: Restrictions.eq/gt/lt/like/between; Order.asc/desc; Projections.",
+   "Legacy Hibernate Criteria is deprecated (5.2) and removed (6); use JPA Criteria.",
+   "JPA: CriteriaBuilder, CriteriaQuery, Root.",
+   "Dynamic queries without string concatenation.",
+   "Pagination via setFirstResult/setMaxResults."
+  ],
+  "mustKnow": [
+   "Legacy vs JPA criteria.",
+   "Restrictions.",
+   "When to use."
+  ],
+  "ifYouKnow": [
+   "Build criteria queries.",
+   "Compare with HQL.",
+   "Add ordering."
+  ],
+  "commonMistakes": [
+   "Using removed createCriteria in Hibernate 6.",
+   "Mistyping property names."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write HCQL to fetch students with marks > 60.",
+    "answer": "Legacy and JPA CriteriaBuilder versions."
+   },
+   {
+    "type": "difference",
+    "question": "HQL vs HCQL.",
+    "answer": "HQL string-based; HCQL object-based, good for dynamic queries."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Greater-than restriction:",
+    "answer": "Restrictions.gt",
+    "explanation": "",
+    "options": [
+     "Restrictions.eq",
+     "Restrictions.gt",
+     "Restrictions.like",
+     "Order.asc"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "HCQL avoids query strings.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Modern replacement of legacy Criteria?",
+    "answer": "JPA Criteria API (CriteriaBuilder).",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Filters vary at runtime. Choice?",
+    "answer": "Criteria",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Restrictions vs Projections.",
+    "answer": "Restrictions filter rows; projections choose columns/aggregates.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "HCQL: Criteria API with Restrictions/Order/Projections; legacy removed in Hibernate 6 → JPA CriteriaBuilder.",
+  "syntax": "CriteriaBuilder cb = session.getCriteriaBuilder(); CriteriaQuery<Student> cq = cb.createQuery(Student.class);",
+  "code": "CriteriaBuilder cb = session.getCriteriaBuilder();\nCriteriaQuery<Student> cq = cb.createQuery(Student.class);\nRoot<Student> r = cq.from(Student.class);\ncq.select(r).where(cb.gt(r.get(\"marks\"), 60)).orderBy(cb.asc(r.get(\"name\")));\nList<Student> list = session.createQuery(cq).getResultList();",
+  "expectedOutput": "Students with marks > 60 ordered by name",
+  "codeExplanation": "Criteria objects represent select, where and order parts without writing HQL strings.",
+  "apis": [
+   "CriteriaBuilder",
+   "CriteriaQuery",
+   "Root",
+   "Restrictions (legacy)"
+  ],
+  "commonErrors": [
+   "Property name typo → IllegalArgumentException.",
+   "Using legacy Criteria with Hibernate 6."
+  ]
+ },
+ "epj-c4-t10": {
+  "id": "epj-c4-t10",
+  "title": "CRUD Operations (Hibernate)",
+  "importance": "high",
+  "definition": "Hibernate CRUD operations use Session methods: persist/save (create), get/load (read), update/merge (update) and delete/remove (delete), each inside a transaction.",
+  "simpleExplanation": "Hibernate CRUD: save/persist se insert, get/load se read, update/merge se modify, delete/remove se delete — sab transaction ke andar.",
+  "realLifeAnalogy": "Add a book card, look it up, correct it and throw it away, all through a librarian (Session).",
+  "example": "Create Student(1,'Asha'); read with session.get(Student.class,1); change name and merge; delete with session.remove(s).",
+  "keyPoints": [
+   "Create: persist()/save().",
+   "Read: get() (returns null if missing, hits DB immediately) / load() (proxy, throws ObjectNotFoundException later).",
+   "Update: modify a persistent object (dirty checking) or merge()/update().",
+   "Delete: remove()/delete().",
+   "Changes flush at commit.",
+   "saveOrUpdate chooses insert or update."
+  ],
+  "mustKnow": [
+   "get vs load.",
+   "Dirty checking.",
+   "persist vs save."
+  ],
+  "ifYouKnow": [
+   "Write all four operations.",
+   "Differentiate get/load.",
+   "Explain dirty checking."
+  ],
+  "commonMistakes": [
+   "Using load() and accessing after session close (LazyInitializationException).",
+   "Forgetting the transaction."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write Hibernate code for CRUD on Student.",
+    "answer": "Persist, get, modify, remove in transactions."
+   },
+   {
+    "type": "difference",
+    "question": "get() vs load().",
+    "answer": "get hits DB and returns null; load returns proxy and throws if missing on access."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Returns null if not found:",
+    "answer": "get()",
+    "explanation": "",
+    "options": [
+     "load()",
+     "get()",
+     "find only",
+     "remove()"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Persistent object changes are saved at commit (dirty checking).",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Method to delete?",
+    "answer": "session.remove()/delete()",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Update a detached object. Use?",
+    "answer": "merge()",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "save vs persist.",
+    "answer": "save returns the id (Hibernate-specific); persist is JPA, returns void.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Hibernate CRUD: persist/save, get/load, modify+commit or merge, remove/delete; get returns null, load proxy.",
+  "syntax": "session.persist(obj); session.get(Class, id); session.merge(obj); session.remove(obj);",
+  "code": "Transaction tx = s.beginTransaction();\ns.persist(new Student(1, \"Asha\"));         // Create\nStudent st = s.get(Student.class, 1);        // Read\nst.setName(\"Asha K\");                        // Update (dirty checking)\ns.remove(st);                                // Delete\ntx.commit();",
+  "expectedOutput": "insert → select → update → delete statements in the SQL log",
+  "codeExplanation": "All four operations run in one transaction; the update is detected automatically before commit.",
+  "apis": [
+   "persist",
+   "save",
+   "get",
+   "load",
+   "merge",
+   "update",
+   "remove",
+   "delete"
+  ],
+  "commonErrors": [
+   "ObjectNotFoundException from load().",
+   "NonUniqueObjectException with two instances of same id."
+  ]
+ },
+ "epj-c5-t01": {
+  "id": "epj-c5-t01",
+  "title": "Spring Architecture",
+  "importance": "high",
+  "definition": "The Spring Framework is a modular Java framework built around an Inversion of Control (IoC) container, with layers for core container, AOP, data access/integration, web and test.",
+  "simpleExplanation": "Spring ek lightweight framework hai jo objects (beans) ko khud create aur manage karta hai (IoC). Architecture layers: Core Container, AOP, Data Access, Web, Test.",
+  "realLifeAnalogy": "A building with a central management office (IoC container) that hires and supplies staff (beans) to each department.",
+  "example": "Application asks the ApplicationContext for a bean; the container creates it, injects its dependencies and returns it.",
+  "keyPoints": [
+   "Core Container: Core, Beans, Context, SpEL.",
+   "AOP and Aspects: cross-cutting concerns (logging, transactions).",
+   "Data Access/Integration: JDBC, ORM, JMS, Transactions.",
+   "Web: Servlet, Web MVC, WebSocket.",
+   "Test module for JUnit/TestNG.",
+   "IoC container manages bean lifecycle and dependency injection."
+  ],
+  "mustKnow": [
+   "Layers.",
+   "IoC.",
+   "Benefits."
+  ],
+  "ifYouKnow": [
+   "Draw Spring architecture.",
+   "Explain IoC container role.",
+   "List benefits."
+  ],
+  "commonMistakes": [
+   "Thinking Spring is only for web applications.",
+   "Confusing IoC with DI (DI implements IoC)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain the architecture of Spring Framework.",
+    "answer": "Core container, AOP, data access, web, test layers with IoC."
+   },
+   {
+    "type": "viva",
+    "question": "What is IoC?",
+    "answer": "Control of object creation and wiring is given to the container instead of the application."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Core of Spring:",
+    "answer": "IoC container",
+    "explanation": "",
+    "options": [
+     "DB driver",
+     "IoC container",
+     "JSP engine",
+     "Compiler"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Spring supports AOP.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two layers.",
+    "answer": "Core container and Web.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Manage object creation centrally. Concept?",
+    "answer": "Inversion of Control",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "IoC vs DI.",
+    "answer": "IoC is the principle; DI is a way to implement it.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Spring: IoC container + modules (Core, AOP, Data Access, Web, Test); beans managed by container.",
+  "syntax": "ApplicationContext ctx = new ClassPathXmlApplicationContext(\"beans.xml\");\nCar c = ctx.getBean(\"car\", Car.class);",
+  "code": "ApplicationContext ctx = new ClassPathXmlApplicationContext(\"beans.xml\");\nGreeting g = ctx.getBean(\"greeting\", Greeting.class);\nSystem.out.println(g.say());",
+  "expectedOutput": "Hello from Spring",
+  "codeExplanation": "The container reads configuration, creates the greeting bean and returns it.",
+  "apis": [
+   "ApplicationContext",
+   "BeanFactory",
+   "@Component",
+   "@Autowired"
+  ],
+  "commonErrors": [
+   "NoSuchBeanDefinitionException: bean id typo.",
+   "beans.xml not on the classpath."
+  ]
+ },
+ "epj-c5-t02": {
+  "id": "epj-c5-t02",
+  "title": "Spring Modules",
+  "importance": "medium",
+  "definition": "Spring is divided into modules such as Core, Beans, Context, SpEL, AOP, JDBC, ORM, Transactions, JMS, Web, Web MVC and Test, which can be used independently.",
+  "simpleExplanation": "Spring ke modules alag-alag kaam sambhalte hain: Core/Beans (IoC), Context (ApplicationContext), AOP, JDBC/ORM/Tx (data), Web MVC, Test. Jo chahiye wahi use karo.",
+  "realLifeAnalogy": "A toolbox with separate drawers: use only the tools needed.",
+  "example": "A web app uses spring-webmvc (controllers), spring-jdbc (JdbcTemplate) and spring-tx (transactions).",
+  "keyPoints": [
+   "Core & Beans: IoC and DI.",
+   "Context: ApplicationContext, resource loading, events.",
+   "SpEL: Spring Expression Language.",
+   "AOP/Aspects: aspect-oriented programming.",
+   "JDBC, ORM, Transactions (tx), JMS: data/integration.",
+   "Web, WebMVC, WebSocket; Test."
+  ],
+  "mustKnow": [
+   "Module with one-line purpose.",
+   "Independence of modules.",
+   "Related projects (Boot, Data, Security)."
+  ],
+  "ifYouKnow": [
+   "List modules.",
+   "Pick modules for a scenario.",
+   "Explain each briefly."
+  ],
+  "commonMistakes": [
+   "Pulling the whole framework when only DI is needed.",
+   "Confusing Spring modules with Spring projects."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Spring modules.",
+    "answer": "Group by layer with one-line functions."
+   },
+   {
+    "type": "viva",
+    "question": "Which module provides JdbcTemplate?",
+    "answer": "spring-jdbc."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "MVC support module:",
+    "answer": "spring-webmvc",
+    "explanation": "",
+    "options": [
+     "spring-jdbc",
+     "spring-webmvc",
+     "spring-aop",
+     "spring-tx"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Modules can be used independently.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "SpEL means?",
+    "answer": "Spring Expression Language",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Declarative transactions need module?",
+    "answer": "spring-tx",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Spring Framework vs Spring Boot.",
+    "answer": "Framework provides the core; Boot adds auto-configuration and starters.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Modules: core/beans/context/spel, aop, jdbc/orm/tx/jms, web/webmvc/websocket, test.",
+  "comparison": {
+   "title": "Key Modules",
+   "headers": [
+    "Module",
+    "Purpose"
+   ],
+   "rows": [
+    [
+     "spring-core/beans",
+     "IoC, DI"
+    ],
+    [
+     "spring-context",
+     "ApplicationContext"
+    ],
+    [
+     "spring-aop",
+     "Aspects"
+    ],
+    [
+     "spring-jdbc/orm/tx",
+     "Data access, transactions"
+    ],
+    [
+     "spring-webmvc",
+     "MVC web apps"
+    ]
+   ]
+  }
+ },
+ "epj-c5-t03": {
+  "id": "epj-c5-t03",
+  "title": "Dependency Injection",
+  "importance": "high",
+  "definition": "Dependency Injection (DI) is a pattern where the container supplies an object's dependencies from outside (via constructor, setter or field) instead of the object creating them.",
+  "simpleExplanation": "DI me class apne dependent objects khud nahi banati; Spring unhe bahar se inject karta hai (constructor, setter ya field). Isse loose coupling aur testing aasan hoti hai.",
+  "realLifeAnalogy": "A chef who is handed ingredients instead of going to buy them: the cook focuses on cooking.",
+  "example": "Car depends on Engine. Instead of new Engine() inside Car, Spring creates Engine and injects it into Car through constructor injection (XML ref or @Autowired).",
+  "keyPoints": [
+   "Types: constructor injection, setter injection, (field injection).",
+   "XML: <bean id class> with <constructor-arg> or <property ref>.",
+   "Benefits: loose coupling, easy testing, reusability.",
+   "Constructor injection for mandatory dependencies.",
+   "Setter injection for optional ones.",
+   "Container manages bean lifecycle."
+  ],
+  "mustKnow": [
+   "Three injection types.",
+   "XML example.",
+   "Benefits."
+  ],
+  "ifYouKnow": [
+   "Configure DI in XML.",
+   "Compare injection styles.",
+   "Explain loose coupling."
+  ],
+  "commonMistakes": [
+   "Using new inside the class and also injecting.",
+   "Circular dependencies with constructor injection."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Show constructor and setter injection.",
+    "answer": "XML beans with constructor-arg and property."
+   },
+   {
+    "type": "difference",
+    "question": "Constructor vs setter injection.",
+    "answer": "Constructor: mandatory, immutable; setter: optional, changeable."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "DI provides dependencies:",
+    "answer": "From outside",
+    "explanation": "",
+    "options": [
+     "Inside class",
+     "From outside",
+     "By compiler",
+     "By JVM"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Constructor injection suits mandatory dependencies.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "XML tag for setter injection?",
+    "answer": "<property>",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Switch Engine implementation without changing Car. Pattern?",
+    "answer": "DI (loose coupling)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "DI vs service locator.",
+    "answer": "DI pushes dependencies in; locator pulls them from a registry.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "DI: container injects dependencies (constructor/setter/field) → loose coupling, testable.",
+  "syntax": "<bean id=\"engine\" class=\"Engine\"/>\n<bean id=\"car\" class=\"Car\"><constructor-arg ref=\"engine\"/></bean>",
+  "code": "public class Engine { public String start() { return \"Engine started\"; } }\npublic class Car {\n  private final Engine engine;\n  public Car(Engine engine) { this.engine = engine; }\n  public void drive() { System.out.println(engine.start() + \" - driving\"); }\n}\n<!-- beans.xml -->\n<bean id=\"engine\" class=\"Engine\"/>\n<bean id=\"car\" class=\"Car\"><constructor-arg ref=\"engine\"/></bean>",
+  "expectedOutput": "Engine started - driving",
+  "codeExplanation": "Spring builds engine, then passes it to Car's constructor; Car never calls new Engine().",
+  "apis": [
+   "<bean>",
+   "<constructor-arg>",
+   "<property>",
+   "getBean"
+  ],
+  "commonErrors": [
+   "UnsatisfiedDependencyException: missing bean.",
+   "BeanCurrentlyInCreationException: circular dependency."
+  ]
+ },
+ "epj-c5-t04": {
+  "id": "epj-c5-t04",
+  "title": "Autowire",
+  "importance": "high",
+  "definition": "Autowiring lets Spring automatically resolve and inject bean dependencies, by type, name or constructor, using @Autowired or XML autowire modes.",
+  "simpleExplanation": "Autowire Spring ko khud decide karne deta hai kaunsa bean inject karna hai. @Autowired type ke basis par inject karta hai; do beans milen to @Qualifier ya @Primary use karte hain.",
+  "realLifeAnalogy": "Auto-assigning the right helper to each task without naming them one by one.",
+  "example": "@Autowired private Engine engine; If there are two Engine beans, use @Qualifier(\"petrolEngine\") or mark one @Primary.",
+  "keyPoints": [
+   "XML modes: no, byName, byType, constructor.",
+   "@Autowired by type; works on constructor, setter and field.",
+   "@Qualifier(name) resolves ambiguity; @Primary sets default bean.",
+   "required=false makes the dependency optional.",
+   "@Resource injects by name (JSR-250).",
+   "Constructor injection is recommended."
+  ],
+  "mustKnow": [
+   "Modes.",
+   "Ambiguity fix.",
+   "Annotation usage."
+  ],
+  "ifYouKnow": [
+   "Use @Autowired.",
+   "Resolve two candidate beans.",
+   "Explain modes."
+  ],
+  "commonMistakes": [
+   "NoUniqueBeanDefinitionException due to two beans of same type.",
+   "Using field injection making tests harder."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain autowiring modes.",
+    "answer": "no, byName, byType, constructor and annotation approach."
+   },
+   {
+    "type": "explain with example",
+    "question": "Resolve ambiguity with @Qualifier.",
+    "answer": "Two Engine beans; qualify by name."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Resolve ambiguity:",
+    "answer": "@Qualifier",
+    "explanation": "",
+    "options": [
+     "@Value",
+     "@Qualifier",
+     "@Bean",
+     "@Scope"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "@Autowired is by type by default.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Make a dependency optional?",
+    "answer": "@Autowired(required=false)",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Two beans of same type, one is default. Use?",
+    "answer": "@Primary",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "@Autowired vs @Resource.",
+    "answer": "@Autowired by type first; @Resource by name first.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Autowire: byType via @Autowired; ambiguity → @Qualifier/@Primary; XML modes no/byName/byType/constructor.",
+  "syntax": "@Autowired @Qualifier(\"petrolEngine\") private Engine engine;",
+  "code": "@Component(\"petrolEngine\") class PetrolEngine implements Engine { public String start(){ return \"Petrol engine\"; } }\n@Component(\"dieselEngine\") class DieselEngine implements Engine { public String start(){ return \"Diesel engine\"; } }\n@Component class Car {\n  @Autowired @Qualifier(\"petrolEngine\") private Engine engine;\n  void drive(){ System.out.println(engine.start()); }\n}",
+  "expectedOutput": "Petrol engine",
+  "codeExplanation": "Two Engine beans exist; @Qualifier selects the petrol one to avoid ambiguity.",
+  "apis": [
+   "@Autowired",
+   "@Qualifier",
+   "@Primary",
+   "@Resource"
+  ],
+  "commonErrors": [
+   "NoUniqueBeanDefinitionException.",
+   "NoSuchBeanDefinitionException (bean not scanned)."
+  ]
+ },
+ "epj-c5-t05": {
+  "id": "epj-c5-t05",
+  "title": "Application Context",
+  "importance": "high",
+  "definition": "ApplicationContext is the central Spring interface that represents the IoC container, creating and wiring beans and providing extra features like events, i18n and resource loading.",
+  "simpleExplanation": "ApplicationContext Spring container hai: beans banata hai, wire karta hai, events aur messages sambhalta hai. BeanFactory se zyada powerful hai.",
+  "realLifeAnalogy": "The head office that creates all departments, connects them and keeps records.",
+  "example": "ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class); Car c = ctx.getBean(Car.class);",
+  "keyPoints": [
+   "Implementations: ClassPathXmlApplicationContext, FileSystemXmlApplicationContext, AnnotationConfigApplicationContext, WebApplicationContext.",
+   "Extends BeanFactory; adds events, i18n, resource loading, annotation support.",
+   "BeanFactory is lazy; ApplicationContext eagerly instantiates singleton beans.",
+   "Bean scopes: singleton (default), prototype, request, session.",
+   "Lifecycle: @PostConstruct, @PreDestroy, InitializingBean, DisposableBean.",
+   "getBean(name/type) retrieves a bean."
+  ],
+  "mustKnow": [
+   "BeanFactory vs ApplicationContext.",
+   "Implementations.",
+   "Scopes."
+  ],
+  "ifYouKnow": [
+   "Create a context.",
+   "Compare with BeanFactory.",
+   "Explain scopes."
+  ],
+  "commonMistakes": [
+   "Calling getBean everywhere instead of using DI.",
+   "Confusing singleton scope with the singleton pattern (per container)."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "BeanFactory vs ApplicationContext.",
+    "answer": "BeanFactory basic lazy; ApplicationContext adds events, i18n, eager singleton init, AOP."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain bean scopes.",
+    "answer": "singleton, prototype, request, session, application."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Default scope:",
+    "answer": "singleton",
+    "explanation": "",
+    "options": [
+     "prototype",
+     "singleton",
+     "request",
+     "session"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "ApplicationContext extends BeanFactory.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Annotation-based context class?",
+    "answer": "AnnotationConfigApplicationContext",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "New instance on every getBean. Scope?",
+    "answer": "prototype",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Eager vs lazy.",
+    "answer": "ApplicationContext eagerly creates singletons; BeanFactory creates on demand.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "ApplicationContext: IoC container (extends BeanFactory); XML/annotation/web implementations; singleton default scope.",
+  "syntax": "ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);",
+  "code": "ApplicationContext ctx = new ClassPathXmlApplicationContext(\"beans.xml\");\nCar c1 = ctx.getBean(\"car\", Car.class);\nCar c2 = ctx.getBean(\"car\", Car.class);\nSystem.out.println(c1 == c2);",
+  "expectedOutput": "true  (singleton scope)",
+  "codeExplanation": "Singleton scope returns the same instance per container; prototype would print false.",
+  "apis": [
+   "ApplicationContext",
+   "ClassPathXmlApplicationContext",
+   "AnnotationConfigApplicationContext",
+   "getBean"
+  ],
+  "commonErrors": [
+   "Resource not found beans.xml.",
+   "Mixing prototype beans into singletons without proxies."
+  ]
+ },
+ "epj-c5-t06": {
+  "id": "epj-c5-t06",
+  "title": "Annotation-based Configuration",
+  "importance": "high",
+  "definition": "Annotation-based configuration defines beans and wiring using annotations like @Component, @Service, @Repository, @Configuration, @Bean and @Autowired instead of XML.",
+  "simpleExplanation": "XML ki jagah annotations se beans define karte hain: @Component/@Service/@Repository class par, @Configuration + @Bean method se, aur @ComponentScan se Spring ko batate hain kaha dhundna hai.",
+  "realLifeAnalogy": "Name tags on staff members instead of a separate paper register.",
+  "example": "@Configuration @ComponentScan(\"com.demo\") class AppConfig { } ; @Service class OrderService { @Autowired OrderRepo repo; }",
+  "keyPoints": [
+   "Stereotypes: @Component, @Service, @Repository, @Controller.",
+   "@Configuration class with @Bean methods defines beans in Java.",
+   "@ComponentScan scans packages; XML equivalent <context:component-scan>.",
+   "@Autowired, @Value (properties), @Scope, @Lazy.",
+   "@PropertySource loads property files.",
+   "Less boilerplate than XML."
+  ],
+  "mustKnow": [
+   "Stereotype annotations.",
+   "@Bean vs @Component.",
+   "@ComponentScan."
+  ],
+  "ifYouKnow": [
+   "Write Java config.",
+   "Use @Value.",
+   "Choose @Bean or @Component."
+  ],
+  "commonMistakes": [
+   "Forgetting @ComponentScan for the base package.",
+   "Using @Component on third-party classes (use @Bean)."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Show annotation-based configuration.",
+    "answer": "AppConfig with @ComponentScan and @Bean."
+   },
+   {
+    "type": "difference",
+    "question": "@Component vs @Bean.",
+    "answer": "@Component on own classes (auto-detected); @Bean method for explicit creation, e.g. third-party classes."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Marks a persistence layer bean:",
+    "answer": "@Repository",
+    "explanation": "",
+    "options": [
+     "@Service",
+     "@Repository",
+     "@Controller",
+     "@Value"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "@Configuration classes can contain @Bean methods.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Annotation to scan packages?",
+    "answer": "@ComponentScan",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Register a third-party class as bean. Use?",
+    "answer": "@Bean method",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "@Service vs @Component.",
+    "answer": "Both stereotypes; @Service documents business-layer role.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Annotations: @Component/@Service/@Repository/@Controller, @Configuration+@Bean, @ComponentScan, @Autowired, @Value.",
+  "syntax": "@Configuration @ComponentScan(\"com.demo\") public class AppConfig { @Bean DataSource ds(){…} }",
+  "code": "@Configuration\n@ComponentScan(\"com.demo\")\npublic class AppConfig {\n  @Bean public Greeting greeting() { return new Greeting(\"Hello Spring\"); }\n}\npublic class Main {\n  public static void main(String[] a) {\n    var ctx = new AnnotationConfigApplicationContext(AppConfig.class);\n    System.out.println(ctx.getBean(Greeting.class).say());\n  }\n}",
+  "expectedOutput": "Hello Spring",
+  "codeExplanation": "@Bean registers a Greeting bean; the annotation context loads AppConfig and returns it.",
+  "apis": [
+   "@Configuration",
+   "@Bean",
+   "@Component",
+   "@ComponentScan",
+   "@Value"
+  ],
+  "commonErrors": [
+   "Bean not found because package not scanned.",
+   "Missing @Configuration (lite mode issues)."
+  ]
+ },
+ "epj-c5-t07": {
+  "id": "epj-c5-t07",
+  "title": "Spring MVC",
+  "importance": "high",
+  "definition": "Spring MVC is a web framework following the Model–View–Controller pattern in which a front controller (DispatcherServlet) routes requests to controllers and renders views.",
+  "simpleExplanation": "Spring MVC me saari requests DispatcherServlet (front controller) ke paas aati hain. Wo HandlerMapping se controller dhundhta hai, controller Model deta hai, ViewResolver view chunta hai, aur page render hota hai.",
+  "realLifeAnalogy": "A reception desk (DispatcherServlet) sending each visitor to the right department (controller) and then to a waiting room (view).",
+  "example": "Request /hello → DispatcherServlet → @Controller method returns \"hello\" and puts message in Model → InternalResourceViewResolver maps to /WEB-INF/views/hello.jsp.",
+  "keyPoints": [
+   "Flow: Request → DispatcherServlet → HandlerMapping → Controller → ModelAndView → ViewResolver → View → Response.",
+   "Annotations: @Controller, @RequestMapping, @GetMapping, @PostMapping, @RequestParam, @ModelAttribute.",
+   "Model carries data to the view.",
+   "ViewResolver converts logical view names to actual pages (JSP/Thymeleaf).",
+   "Configured via web.xml/WebApplicationInitializer + servlet config.",
+   "Supports validation and form binding."
+  ],
+  "mustKnow": [
+   "Request flow.",
+   "Key annotations.",
+   "ViewResolver."
+  ],
+  "ifYouKnow": [
+   "Draw the MVC flow.",
+   "Write a controller.",
+   "Configure a view resolver."
+  ],
+  "commonMistakes": [
+   "Returning a view name that doesn't map to a page.",
+   "Forgetting @EnableWebMvc/component scan."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain the Spring MVC request flow.",
+    "answer": "DispatcherServlet, HandlerMapping, Controller, ViewResolver, View."
+   },
+   {
+    "type": "explain with example",
+    "question": "Write a simple Spring MVC controller.",
+    "answer": "@Controller with @GetMapping returning view name and Model attribute."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Front controller:",
+    "answer": "DispatcherServlet",
+    "explanation": "",
+    "options": [
+     "HandlerMapping",
+     "DispatcherServlet",
+     "ViewResolver",
+     "Model"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "ViewResolver maps logical names to views.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Annotation for a controller class?",
+    "answer": "@Controller",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Read query parameter id. Use?",
+    "answer": "@RequestParam",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "@Controller vs @RestController.",
+    "answer": "@Controller returns views; @RestController returns response body (JSON).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Spring MVC: DispatcherServlet → HandlerMapping → Controller → ModelAndView → ViewResolver → View.",
+  "syntax": "@Controller public class HelloController { @GetMapping(\"/hello\") public String hello(Model m){ … return \"hello\"; } }",
+  "code": "@Controller\npublic class HelloController {\n  @GetMapping(\"/hello\")\n  public String hello(@RequestParam(defaultValue = \"Guest\") String name, Model model) {\n    model.addAttribute(\"msg\", \"Hello \" + name);\n    return \"hello\";   // /WEB-INF/views/hello.jsp\n  }\n}",
+  "expectedOutput": "GET /hello?name=Asha → page showing Hello Asha",
+  "codeExplanation": "The controller adds msg to the model and returns a logical view name resolved by the view resolver.",
+  "apis": [
+   "DispatcherServlet",
+   "@Controller",
+   "@RequestMapping",
+   "@GetMapping",
+   "Model",
+   "ViewResolver"
+  ],
+  "commonErrors": [
+   "404 because view path/prefix is wrong.",
+   "Handler not found: controller not component-scanned."
+  ]
+ },
+ "epj-c5-t08": {
+  "id": "epj-c5-t08",
+  "title": "CRUD Operations (Spring)",
+  "importance": "high",
+  "definition": "CRUD in Spring uses Spring MVC controllers with a DAO/service layer, typically JdbcTemplate or Spring Data, to create, read, update and delete database records.",
+  "simpleExplanation": "Spring me CRUD: Controller request leta hai, Service/DAO JdbcTemplate se database operations karta hai (update() for insert/update/delete, query() for select).",
+  "realLifeAnalogy": "A clerk (controller) passing forms to the records office (DAO) which uses a standard form-processing tool (JdbcTemplate).",
+  "example": "StudentDao uses jdbcTemplate.update(\"INSERT INTO student(name) VALUES(?)\", name) and jdbcTemplate.query(\"SELECT * FROM student\", rowMapper).",
+  "keyPoints": [
+   "JdbcTemplate removes boilerplate (connection/statement handling).",
+   "Methods: update() for DML, query()/queryForObject() for SELECT.",
+   "RowMapper maps a row to an object.",
+   "Layers: Controller → Service → DAO.",
+   "DataSource bean configures the DB connection.",
+   "@Transactional manages transactions."
+  ],
+  "mustKnow": [
+   "JdbcTemplate methods.",
+   "RowMapper.",
+   "Layered design."
+  ],
+  "ifYouKnow": [
+   "Write DAO with JdbcTemplate.",
+   "Map rows to objects.",
+   "Wire controller to DAO."
+  ],
+  "commonMistakes": [
+   "Not configuring a DataSource bean.",
+   "Forgetting @Transactional for multi-step operations."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "CRUD with Spring JdbcTemplate.",
+    "answer": "DAO methods using update and query with RowMapper."
+   },
+   {
+    "type": "viva",
+    "question": "Advantage of JdbcTemplate?",
+    "answer": "Handles resource management and exceptions, reducing boilerplate."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Method for INSERT/UPDATE/DELETE:",
+    "answer": "update()",
+    "explanation": "",
+    "options": [
+     "query()",
+     "update()",
+     "execute only",
+     "list()"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "RowMapper converts a row to an object.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What configures the DB connection?",
+    "answer": "DataSource",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Two updates must succeed together. Use?",
+    "answer": "@Transactional",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "JdbcTemplate vs raw JDBC.",
+    "answer": "JdbcTemplate hides connection/statement handling.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Spring CRUD: Controller → Service → DAO with JdbcTemplate (update/query/RowMapper); DataSource; @Transactional.",
+  "syntax": "jdbcTemplate.update(\"INSERT INTO student(name) VALUES(?)\", name);",
+  "code": "@Repository\npublic class StudentDao {\n  @Autowired private JdbcTemplate jdbc;\n  public int add(String name){ return jdbc.update(\"INSERT INTO student(name) VALUES(?)\", name); }\n  public List<Student> all(){\n    return jdbc.query(\"SELECT id,name FROM student\",\n      (rs, i) -> new Student(rs.getInt(\"id\"), rs.getString(\"name\")));\n  }\n  public int delete(int id){ return jdbc.update(\"DELETE FROM student WHERE id=?\", id); }\n}",
+  "expectedOutput": "add(\"Asha\") → 1; all() → [Student(1, Asha)]",
+  "codeExplanation": "update returns affected rows; query uses a lambda RowMapper to build Student objects.",
+  "apis": [
+   "JdbcTemplate.update",
+   "JdbcTemplate.query",
+   "RowMapper",
+   "DataSource",
+   "@Transactional"
+  ],
+  "commonErrors": [
+   "BadSqlGrammarException (wrong SQL).",
+   "NoSuchBeanDefinitionException for JdbcTemplate (no DataSource)."
+  ]
+ },
+ "epj-c6-t01": {
+  "id": "epj-c6-t01",
+  "title": "Dependency Injection (Spring Boot)",
+  "importance": "high",
+  "definition": "In Spring Boot, dependency injection works with component scanning and auto-configuration: stereotype beans are detected under the main class package and injected, usually via constructors.",
+  "simpleExplanation": "Spring Boot me DI wahi hai par setup kam: @SpringBootApplication auto-configuration + component scan karta hai. Beans (@Service, @Repository) apne aap milte hain aur constructor se inject hote hain.",
+  "realLifeAnalogy": "Same office management, but with a pre-built office layout so you skip the setup.",
+  "example": "@SpringBootApplication main class; @Service OrderService with constructor taking OrderRepository; Boot finds and injects it automatically.",
+  "keyPoints": [
+   "@SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan.",
+   "Scans the main class's package and sub-packages.",
+   "Constructor injection (single constructor needs no @Autowired).",
+   "Starters bring pre-configured dependencies.",
+   "application.properties/yml for configuration; @Value, @ConfigurationProperties.",
+   "Profiles for environments."
+  ],
+  "mustKnow": [
+   "@SpringBootApplication meaning.",
+   "Auto-configuration idea.",
+   "Constructor injection."
+  ],
+  "ifYouKnow": [
+   "Explain Boot DI.",
+   "Write main class.",
+   "Externalise config."
+  ],
+  "commonMistakes": [
+   "Placing classes outside the main package (not scanned).",
+   "Hard-coding configuration instead of properties."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain DI in Spring Boot.",
+    "answer": "Component scan, auto-config, constructor injection."
+   },
+   {
+    "type": "viva",
+    "question": "What does @SpringBootApplication combine?",
+    "answer": "@Configuration, @EnableAutoConfiguration, @ComponentScan."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Boot entry annotation:",
+    "answer": "@SpringBootApplication",
+    "explanation": "",
+    "options": [
+     "@EnableBoot",
+     "@SpringBootApplication",
+     "@Main",
+     "@AppStart"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Single constructor needs no @Autowired in Spring 4.3+.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Config file name?",
+    "answer": "application.properties",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Bean not found. Check?",
+    "answer": "Whether it is in the main class's package tree.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Spring vs Boot configuration.",
+    "answer": "Spring needs explicit config; Boot auto-configures by classpath.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Boot DI: @SpringBootApplication (config+autoconfig+scan), constructor injection, application.properties, starters.",
+  "syntax": "@SpringBootApplication public class App { public static void main(String[] a){ SpringApplication.run(App.class, a);} }",
+  "code": "@SpringBootApplication\npublic class App { public static void main(String[] a){ SpringApplication.run(App.class, a); } }\n\n@Service\nclass GreetService {\n  private final Greeter greeter;\n  GreetService(Greeter greeter){ this.greeter = greeter; }   // injected\n  String hello(){ return greeter.say(); }\n}",
+  "expectedOutput": "Application starts; GreetService receives the Greeter bean automatically",
+  "codeExplanation": "Boot scans the package, creates Greeter and GreetService, and injects through the constructor.",
+  "apis": [
+   "@SpringBootApplication",
+   "@Service",
+   "@Autowired",
+   "@Value",
+   "SpringApplication.run"
+  ],
+  "commonErrors": [
+   "Unsatisfied dependency: bean outside scanned packages.",
+   "Port 8080 already in use."
+  ]
+ },
+ "epj-c6-t02": {
+  "id": "epj-c6-t02",
+  "title": "Web App using Spring Boot",
+  "importance": "high",
+  "definition": "A Spring Boot web application uses spring-boot-starter-web, which provides Spring MVC with an embedded server (Tomcat), so it runs as a simple Java application without a separate server.",
+  "simpleExplanation": "Spring Boot web app me embedded Tomcat milta hai. spring-boot-starter-web add karo, @RestController ya @Controller likho, aur 'mvn spring-boot:run' se app chalao (port 8080).",
+  "realLifeAnalogy": "A food truck: the kitchen and the stove (server) come built in; you just start cooking.",
+  "example": "Create project with Spring Initializr (Web dependency). Controller: @GetMapping(\"/hello\") returns \"Hello Boot\". Run and open http://localhost:8080/hello.",
+  "keyPoints": [
+   "Starter: spring-boot-starter-web (Spring MVC + Jackson + embedded Tomcat).",
+   "Run as JAR: java -jar app.jar or mvn spring-boot:run.",
+   "Default port 8080; change via server.port.",
+   "@RestController returns data; @Controller + Thymeleaf returns views.",
+   "Static files in src/main/resources/static; templates in /templates.",
+   "Spring Initializr generates the project."
+  ],
+  "mustKnow": [
+   "Starter idea.",
+   "Project steps.",
+   "Embedded server."
+  ],
+  "ifYouKnow": [
+   "Create a Boot web app.",
+   "Change the port.",
+   "Run it."
+  ],
+  "commonMistakes": [
+   "Packaging as WAR unnecessarily.",
+   "Static files in the wrong folder."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Create and run a Spring Boot web app.",
+    "answer": "Initializr → controller → run → open URL."
+   },
+   {
+    "type": "viva",
+    "question": "How change port?",
+    "answer": "server.port=9090 in application.properties."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Default port:",
+    "answer": "8080",
+    "explanation": "",
+    "options": [
+     "80",
+     "8080",
+     "3306",
+     "8000"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Boot includes embedded Tomcat.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Starter for web?",
+    "answer": "spring-boot-starter-web",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Run without installing Tomcat. How?",
+    "answer": "Use embedded server: java -jar.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "JAR vs WAR deployment.",
+    "answer": "JAR runs standalone; WAR deploys to an external container.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Boot web: starter-web (MVC + embedded Tomcat), @RestController/@Controller, run on 8080, server.port to change.",
+  "syntax": "@RestController public class HelloController { @GetMapping(\"/hello\") String hello(){ return \"Hello Boot\"; } }",
+  "code": "@SpringBootApplication\npublic class DemoApplication { public static void main(String[] a){ SpringApplication.run(DemoApplication.class, a);} }\n@RestController\nclass HelloController {\n  @GetMapping(\"/hello\")\n  public String hello(){ return \"Hello Boot\"; }\n}",
+  "expectedOutput": "GET http://localhost:8080/hello → Hello Boot",
+  "codeExplanation": "Starter-web provides MVC and Tomcat; the controller method is mapped to /hello.",
+  "apis": [
+   "spring-boot-starter-web",
+   "@RestController",
+   "@GetMapping",
+   "SpringApplication"
+  ],
+  "commonErrors": [
+   "Whitelabel Error Page: no mapping found.",
+   "Port in use: change server.port."
+  ]
+ },
+ "epj-c6-t03": {
+  "id": "epj-c6-t03",
+  "title": "Spring Boot AOP",
+  "importance": "medium",
+  "definition": "Aspect-Oriented Programming (AOP) in Spring Boot separates cross-cutting concerns such as logging, security and transactions into aspects applied to methods through pointcuts.",
+  "simpleExplanation": "AOP me logging, security jaisi common cheezein alag 'aspect' me likhte hain aur pointcut se batate hain kis methods par lagani hain. spring-boot-starter-aop add karo, @Aspect class likho.",
+  "realLifeAnalogy": "A security guard at the gate who checks everyone entering any room, instead of each room doing its own checks.",
+  "example": "@Aspect @Component class LogAspect { @Before(\"execution(* com.demo.service.*.*(..))\") void log(JoinPoint jp){ System.out.println(\"Calling \" + jp.getSignature()); } }",
+  "keyPoints": [
+   "Concepts: aspect, advice, join point, pointcut, weaving.",
+   "Advice types: @Before, @After, @AfterReturning, @AfterThrowing, @Around.",
+   "Pointcut expression: execution(modifiers return pkg.Class.method(args)).",
+   "Implemented via runtime proxies (JDK dynamic/CGLIB).",
+   "Starter: spring-boot-starter-aop.",
+   "Use for logging, timing, security, transactions."
+  ],
+  "mustKnow": [
+   "AOP terms.",
+   "Five advice types.",
+   "Pointcut example."
+  ],
+  "ifYouKnow": [
+   "Define AOP terms.",
+   "Write a logging aspect.",
+   "Pick advice type."
+  ],
+  "commonMistakes": [
+   "Calling an advised method from inside the same class (proxy bypassed).",
+   "Forgetting @Component on the aspect."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain AOP with terms and example.",
+    "answer": "Aspect, advice, pointcut, join point, weaving; logging aspect."
+   },
+   {
+    "type": "difference",
+    "question": "@Before vs @Around.",
+    "answer": "@Before runs before the method; @Around wraps the call and can control it."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Advice that wraps the method:",
+    "answer": "@Around",
+    "explanation": "",
+    "options": [
+     "@Before",
+     "@After",
+     "@Around",
+     "@AfterThrowing"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Spring AOP uses proxies.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is a pointcut?",
+    "answer": "An expression selecting join points where advice applies.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Log execution time of all service methods. Use?",
+    "answer": "@Around aspect",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Aspect vs advice.",
+    "answer": "Aspect is the module; advice is the action inside it.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "AOP: aspect/advice/pointcut/join point; @Before/@After/@AfterReturning/@AfterThrowing/@Around; proxy-based; starter-aop.",
+  "syntax": "@Aspect @Component class X { @Before(\"execution(* com.demo.service.*.*(..))\") void log(){…} }",
+  "code": "@Aspect\n@Component\npublic class LogAspect {\n  @Around(\"execution(* com.demo.service.*.*(..))\")\n  public Object time(ProceedingJoinPoint pjp) throws Throwable {\n    long t = System.currentTimeMillis();\n    Object r = pjp.proceed();\n    System.out.println(pjp.getSignature() + \" took \" + (System.currentTimeMillis()-t) + \" ms\");\n    return r;\n  }\n}",
+  "expectedOutput": "OrderService.place(..) took 12 ms",
+  "codeExplanation": "The around advice measures time around proceed(), applying to all service methods without changing them.",
+  "apis": [
+   "@Aspect",
+   "@Before",
+   "@After",
+   "@Around",
+   "JoinPoint",
+   "ProceedingJoinPoint"
+  ],
+  "commonErrors": [
+   "Aspect not applied: missing @Component or starter-aop.",
+   "Self-invocation not intercepted."
+  ]
+ },
+ "epj-c6-t04": {
+  "id": "epj-c6-t04",
+  "title": "Spring Boot Database",
+  "importance": "high",
+  "definition": "Spring Boot database support uses spring-boot-starter-data-jpa and a JDBC driver, auto-configures a DataSource from application.properties, and provides repositories (JpaRepository) for CRUD.",
+  "simpleExplanation": "Spring Boot me database ke liye starter-data-jpa + MySQL driver add karo, application.properties me URL/user/password do, @Entity banao aur JpaRepository extend karo — CRUD methods mil jaate hain.",
+  "realLifeAnalogy": "A ready-made records clerk: you describe the record type and it gives add/find/delete operations.",
+  "example": "interface StudentRepo extends JpaRepository<Student,Integer> { List<Student> findByName(String n); } → save(), findAll(), findById(), deleteById() free.",
+  "keyPoints": [
+   "Dependencies: starter-data-jpa + mysql-connector-j.",
+   "application.properties: spring.datasource.url/username/password; spring.jpa.hibernate.ddl-auto=update; spring.jpa.show-sql=true.",
+   "@Entity maps a class; JpaRepository<T,ID> gives CRUD.",
+   "Derived queries: findByName, findByMarksGreaterThan.",
+   "@Query for custom JPQL.",
+   "Spring Boot 3 uses jakarta.persistence."
+  ],
+  "mustKnow": [
+   "Properties.",
+   "JpaRepository methods.",
+   "Derived queries."
+  ],
+  "ifYouKnow": [
+   "Configure datasource.",
+   "Create entity + repository.",
+   "Write derived query."
+  ],
+  "commonMistakes": [
+   "Wrong URL/timezone/driver.",
+   "ddl-auto=create-drop losing data."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Spring Boot with MySQL CRUD.",
+    "answer": "Properties, entity, repository, service."
+   },
+   {
+    "type": "viva",
+    "question": "What does JpaRepository provide?",
+    "answer": "save, findAll, findById, deleteById, count, paging and more."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Repository interface:",
+    "answer": "JpaRepository",
+    "explanation": "",
+    "options": [
+     "JpaRepository",
+     "CrudService",
+     "DaoBase",
+     "JdbcRepo"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Derived query method names generate SQL.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Property for auto table update?",
+    "answer": "spring.jpa.hibernate.ddl-auto=update",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Find students by name. Method?",
+    "answer": "findByName(String name)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "JdbcTemplate vs JPA repository.",
+    "answer": "JdbcTemplate: manual SQL; JPA repository: ORM with generated CRUD.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Boot DB: starter-data-jpa + driver; spring.datasource.* props; @Entity + JpaRepository (save/findAll/findById/deleteById); derived queries.",
+  "syntax": "public interface StudentRepo extends JpaRepository<Student, Integer> {}",
+  "code": "# application.properties\nspring.datasource.url=jdbc:mysql://localhost:3306/college\nspring.datasource.username=root\nspring.datasource.password=root\nspring.jpa.hibernate.ddl-auto=update\n\n@Entity public class Student { @Id @GeneratedValue private Integer id; private String name; }\npublic interface StudentRepo extends JpaRepository<Student,Integer> { List<Student> findByName(String name); }",
+  "expectedOutput": "repo.save(new Student(\"Asha\")) inserts; findByName(\"Asha\") returns the row",
+  "codeExplanation": "Boot creates the DataSource and EntityManager from properties; the repository interface is implemented automatically.",
+  "apis": [
+   "JpaRepository",
+   "@Entity",
+   "@Query",
+   "spring.datasource.*",
+   "CrudRepository"
+  ],
+  "commonErrors": [
+   "Communications link failure (DB down/URL wrong).",
+   "Table not found (ddl-auto none)."
+  ]
+ },
+ "epj-c6-t05": {
+  "id": "epj-c6-t05",
+  "title": "Spring Rest",
+  "importance": "high",
+  "definition": "Spring REST builds RESTful web services with @RestController and HTTP-method annotations, exchanging JSON and mapping GET, POST, PUT and DELETE to read, create, update and delete operations.",
+  "simpleExplanation": "Spring REST me controller JSON return karta hai (@RestController). HTTP methods ke hisaab se CRUD: GET=read, POST=create, PUT=update, DELETE=delete. Postman ya curl se test karte hain.",
+  "realLifeAnalogy": "A vending machine with fixed buttons: each button (HTTP verb + URL) triggers one standard action and returns a standard response (JSON).",
+  "example": "GET /students → list; GET /students/1 → one; POST /students (JSON body) → create; PUT /students/1 → update; DELETE /students/1 → remove, returning proper status codes.",
+  "keyPoints": [
+   "@RestController = @Controller + @ResponseBody.",
+   "@GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @RequestMapping.",
+   "@PathVariable reads URL parts; @RequestBody reads JSON; @RequestParam reads query.",
+   "ResponseEntity sets status and headers (200, 201, 404, 204).",
+   "JSON conversion via Jackson automatically.",
+   "REST principles: stateless, resource URLs, uniform interface."
+  ],
+  "mustKnow": [
+   "Verb↔CRUD mapping.",
+   "Annotations.",
+   "Status codes."
+  ],
+  "ifYouKnow": [
+   "Write a REST controller.",
+   "Return proper status codes.",
+   "Test with curl/Postman."
+  ],
+  "commonMistakes": [
+   "Using GET for deleting.",
+   "Returning 200 for not-found resources."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write a REST controller for Student CRUD.",
+    "answer": "Controller with the four verbs and ResponseEntity."
+   },
+   {
+    "type": "difference",
+    "question": "@Controller vs @RestController.",
+    "answer": "RestController writes return values to the body as JSON."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "HTTP verb for create:",
+    "answer": "POST",
+    "explanation": "",
+    "options": [
+     "GET",
+     "POST",
+     "PUT",
+     "DELETE"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "@RequestBody binds JSON to an object.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Status for resource created?",
+    "answer": "201 Created",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Fetch student 5. Mapping?",
+    "answer": "GET /students/{id} with @PathVariable",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "PUT vs POST.",
+    "answer": "POST creates; PUT replaces/updates an existing resource (idempotent).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "REST: @RestController; GET read, POST create, PUT update, DELETE delete; @PathVariable, @RequestBody, ResponseEntity; JSON via Jackson.",
+  "syntax": "@GetMapping(\"/students/{id}\") public ResponseEntity<Student> get(@PathVariable int id)",
+  "code": "@RestController\n@RequestMapping(\"/students\")\npublic class StudentController {\n  private final StudentRepo repo;\n  public StudentController(StudentRepo repo){ this.repo = repo; }\n  @GetMapping public List<Student> all(){ return repo.findAll(); }\n  @GetMapping(\"/{id}\") public ResponseEntity<Student> one(@PathVariable int id){\n    return repo.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build()); }\n  @PostMapping public ResponseEntity<Student> add(@RequestBody Student s){\n    return ResponseEntity.status(201).body(repo.save(s)); }\n  @DeleteMapping(\"/{id}\") public ResponseEntity<Void> del(@PathVariable int id){\n    repo.deleteById(id); return ResponseEntity.noContent().build(); }\n}",
+  "expectedOutput": "GET /students → [{\"id\":1,\"name\":\"Asha\"}]; POST → 201 with created JSON; DELETE → 204",
+  "codeExplanation": "Each method handles one verb/URL; ResponseEntity sets the right status; Jackson converts objects to JSON.",
+  "apis": [
+   "@RestController",
+   "@GetMapping",
+   "@PostMapping",
+   "@PutMapping",
+   "@DeleteMapping",
+   "@PathVariable",
+   "@RequestBody",
+   "ResponseEntity"
+  ],
+  "commonErrors": [
+   "415 Unsupported Media Type: missing Content-Type: application/json.",
+   "400 Bad Request: invalid JSON body."
+  ]
+ }
+}

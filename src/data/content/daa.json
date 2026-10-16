@@ -1,0 +1,5570 @@
+{
+ "daa-c1-t01": {
+  "id": "daa-c1-t01",
+  "title": "Algorithm: Definition",
+  "importance": "high",
+  "definition": "An algorithm is a finite, well-defined sequence of steps that takes some input and produces the required output for solving a problem.",
+  "simpleExplanation": "Algorithm ek step-by-step recipe hai jo input leke output deta hai aur kabhi na khatam hone wala loop nahi hota. Program us recipe ka code form hai.",
+  "realLifeAnalogy": "A cooking recipe: ingredients are input, steps are the algorithm, and the dish is the output.",
+  "example": "Find the largest number in [3, 9, 4]: set max=3; compare 9>3 → max=9; compare 4>9? no; output 9.",
+  "keyPoints": [
+   "Algorithm ≠ program: algorithm is language independent; program is its implementation.",
+   "Has input, output, finite steps and each step is clear.",
+   "One problem can have many algorithms; we choose the most efficient.",
+   "Described using natural language, flowchart or pseudocode.",
+   "Correctness + efficiency are the key quality measures.",
+   "Time and space are the main resources analysed."
+  ],
+  "mustKnow": [
+   "Definition in one line.",
+   "Algorithm vs program.",
+   "Max-finding example."
+  ],
+  "ifYouKnow": [
+   "Define algorithm.",
+   "Write a small algorithm.",
+   "Distinguish algorithm and program."
+  ],
+  "commonMistakes": [
+   "Calling any code an algorithm even if it may not terminate.",
+   "Mixing the algorithm (idea) with its program (implementation)."
+  ],
+  "examQuestions": [
+   {
+    "type": "definition",
+    "question": "Define algorithm.",
+    "answer": "A finite sequence of well-defined steps that transforms input into output to solve a problem."
+   },
+   {
+    "type": "difference",
+    "question": "Algorithm vs program.",
+    "answer": "Algorithm is language-independent logic; program is its code in a language."
+   },
+   {
+    "type": "viva",
+    "question": "Can a problem have more than one algorithm?",
+    "answer": "Yes; e.g. sorting has many (bubble, merge, quick)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "An algorithm must be:",
+    "answer": "Finite",
+    "explanation": "",
+    "options": [
+     "Infinite",
+     "Finite",
+     "Random",
+     "Language dependent"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "An algorithm depends on programming language.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name three ways to express an algorithm.",
+    "answer": "Natural language, flowchart, pseudocode.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Two sorting methods give same output but different speed. What differs?",
+    "answer": "Their efficiency (time/space).",
+    "explanation": ""
+   },
+   {
+    "type": "viva",
+    "question": "What are the main measures of an algorithm?",
+    "answer": "Correctness, time and space efficiency.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Algorithm = finite, well-defined steps: input → output; language-independent; judged by correctness, time, space.",
+  "problemStatement": "Find the maximum of n numbers.",
+  "approach": "Scan once keeping the largest seen so far.",
+  "algorithmSteps": [
+   "1. Set max = A[1].",
+   "2. For i = 2 to n: if A[i] > max then max = A[i].",
+   "3. Return max."
+  ],
+  "pseudocode": "Algorithm Max(A, n)\n  max ← A[1]\n  for i ← 2 to n do\n    if A[i] > max then max ← A[i]\n  return max",
+  "workedExample": "A=[3,9,4]: max=3 → 9>3 so max=9 → 4>9 false → output 9.",
+  "timeComplexity": "Θ(n)",
+  "spaceComplexity": "O(1)"
+ },
+ "daa-c1-t02": {
+  "id": "daa-c1-t02",
+  "title": "Properties of Algorithms",
+  "importance": "high",
+  "definition": "An algorithm must satisfy: input, output, definiteness, finiteness and effectiveness (and should be correct and general).",
+  "simpleExplanation": "Algorithm ke 5 zaroori gun: input (0 ya zyada), output (kam se kam 1), definiteness (har step saaf), finiteness (khatam ho), effectiveness (step simple aur doable).",
+  "realLifeAnalogy": "A good recipe: clear steps, finishes in reasonable time, every step is something a cook can actually do.",
+  "example": "Euclid's GCD(48,18): 48 mod 18 = 12; 18 mod 12 = 6; 12 mod 6 = 0 → GCD = 6. Inputs 48,18; output 6; each step is definite and doable; it terminates because the remainder decreases.",
+  "keyPoints": [
+   "Input: zero or more externally supplied values.",
+   "Output: at least one result.",
+   "Definiteness: each step is precise and unambiguous.",
+   "Finiteness: terminates after a finite number of steps.",
+   "Effectiveness: every step is basic enough to be carried out exactly.",
+   "Also desirable: correctness, generality, efficiency."
+  ],
+  "mustKnow": [
+   "Five properties by Knuth.",
+   "GCD example showing each.",
+   "Why finiteness matters."
+  ],
+  "ifYouKnow": [
+   "List the properties.",
+   "Show them on an example.",
+   "Say why a loop without exit violates them."
+  ],
+  "commonMistakes": [
+   "Treating 'infinite loop' procedures as algorithms.",
+   "Using vague steps like 'make it fast' (not definite)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain properties of an algorithm.",
+    "answer": "Input, output, definiteness, finiteness, effectiveness with example."
+   },
+   {
+    "type": "viva",
+    "question": "Which property does 'while true' violate?",
+    "answer": "Finiteness."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Which is NOT a property?",
+    "answer": "Compilation",
+    "explanation": "",
+    "options": [
+     "Finiteness",
+     "Definiteness",
+     "Compilation",
+     "Effectiveness"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "An algorithm may have zero outputs.",
+    "answer": "False",
+    "explanation": "At least one output."
+   },
+   {
+    "type": "short answer",
+    "question": "What is definiteness?",
+    "answer": "Each step is clear and unambiguous.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "GCD(48,18) using Euclid.",
+    "answer": "6",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Instruction 'pick a good number' — which property fails?",
+    "answer": "Definiteness",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Properties: input, output, definiteness, finiteness, effectiveness (+correctness).",
+  "problemStatement": "Compute GCD of two integers.",
+  "algorithmSteps": [
+   "1. While b ≠ 0: r = a mod b; a = b; b = r.",
+   "2. Return a."
+  ],
+  "pseudocode": "Algorithm GCD(a, b)\n  while b ≠ 0 do\n    r ← a mod b\n    a ← b\n    b ← r\n  return a",
+  "workedExample": "a=48,b=18 → (18,12) → (12,6) → (6,0) → return 6.",
+  "timeComplexity": "O(log min(a,b))",
+  "spaceComplexity": "O(1)"
+ },
+ "daa-c1-t03": {
+  "id": "daa-c1-t03",
+  "title": "Types of Algorithms",
+  "importance": "medium",
+  "definition": "Algorithms can be classified by design approach (brute force, divide and conquer, greedy, dynamic programming, backtracking, branch and bound, randomised) and by other features such as recursive/iterative and exact/approximate.",
+  "simpleExplanation": "Algorithms ko design style ke hisaab se types me baanta jata hai: brute force, divide & conquer, greedy, dynamic programming, backtracking, etc. Har type ka alag use hota hai.",
+  "realLifeAnalogy": "Different ways to travel: walk everywhere (brute force), split the route among friends (D&C), always take the nearest road (greedy).",
+  "example": "Sorting: bubble sort (brute force), merge sort (divide & conquer). Shortest path: Dijkstra (greedy), Floyd–Warshall (dynamic programming). N-Queens: backtracking.",
+  "keyPoints": [
+   "Brute force: try all possibilities.",
+   "Divide and conquer: split, solve, combine (merge sort).",
+   "Greedy: best local choice each step (Kruskal).",
+   "Dynamic programming: store sub-problem results (LCS).",
+   "Backtracking: build solution and undo on failure (N-Queens).",
+   "Branch and bound: prune using bounds (TSP).",
+   "Randomised, approximation, recursive vs iterative, serial vs parallel."
+  ],
+  "mustKnow": [
+   "Type with one example each.",
+   "Recursive vs iterative.",
+   "Exact vs approximate."
+  ],
+  "ifYouKnow": [
+   "Name types with examples.",
+   "Classify a given algorithm.",
+   "Choose a type for a problem."
+  ],
+  "commonMistakes": [
+   "Calling every recursive algorithm divide and conquer.",
+   "Using greedy where optimal substructure + greedy-choice property fails."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain different types of algorithms with examples.",
+    "answer": "Brute force, D&C, greedy, DP, backtracking, B&B, randomised."
+   },
+   {
+    "type": "difference",
+    "question": "Greedy vs dynamic programming.",
+    "answer": "Greedy commits to a local best choice; DP considers all sub-problems and stores results."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Merge sort is:",
+    "answer": "Divide and conquer",
+    "explanation": "",
+    "options": [
+     "Greedy",
+     "Divide and conquer",
+     "DP",
+     "Backtracking"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Kruskal's algorithm is greedy.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Example of backtracking.",
+    "answer": "N-Queens problem",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Overlapping sub-problems and optimal substructure. Technique?",
+    "answer": "Dynamic programming",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Exact vs approximation algorithms.",
+    "answer": "Exact gives optimal; approximation gives near-optimal in polynomial time.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Types: brute force, D&C, greedy, DP, backtracking, B&B, randomised; recursive/iterative; exact/approx.",
+  "comparison": {
+   "title": "Design Types",
+   "headers": [
+    "Type",
+    "Idea",
+    "Example"
+   ],
+   "rows": [
+    [
+     "Brute force",
+     "Try all",
+     "Linear search"
+    ],
+    [
+     "Divide & conquer",
+     "Split, solve, merge",
+     "Merge sort"
+    ],
+    [
+     "Greedy",
+     "Local best",
+     "Kruskal, Huffman"
+    ],
+    [
+     "Dynamic programming",
+     "Store sub-results",
+     "LCS, Knapsack"
+    ],
+    [
+     "Backtracking",
+     "Try & undo",
+     "N-Queens"
+    ]
+   ]
+  }
+ },
+ "daa-c1-t04": {
+  "id": "daa-c1-t04",
+  "title": "Writing an Algorithm",
+  "importance": "medium",
+  "definition": "Writing an algorithm means expressing the solution steps clearly using natural language, a flowchart or pseudocode with defined inputs, outputs and control structures.",
+  "simpleExplanation": "Algorithm likhte waqt input/output pehle define karo, steps clear aur numbered likho, aur pseudocode me loops/conditions use karo. Pseudocode kisi bhi language me convert ho sakta hai.",
+  "realLifeAnalogy": "Writing a recipe card: list ingredients, then numbered steps anyone can follow.",
+  "example": "Linear search: input A[1..n], key; output index or −1. Pseudocode below. For A=[4,7,9], key=9 → returns 3.",
+  "keyPoints": [
+   "State problem, input and output first.",
+   "Use consistent notation: ← for assignment, indentation for blocks.",
+   "Control structures: sequence, if/else, for, while, repeat–until.",
+   "Use meaningful variable names and comments.",
+   "Avoid language-specific syntax in pseudocode.",
+   "Dry-run on sample input to verify."
+  ],
+  "mustKnow": [
+   "Three representation styles.",
+   "Pseudocode conventions.",
+   "Dry run."
+  ],
+  "ifYouKnow": [
+   "Write pseudocode for a simple task.",
+   "Dry-run it.",
+   "Convert to flowchart idea."
+  ],
+  "commonMistakes": [
+   "Mixing assignment and equality (← vs =).",
+   "Skipping input/output specification."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write pseudocode for linear search.",
+    "answer": "Loop through array comparing with key; return index or −1."
+   },
+   {
+    "type": "viva",
+    "question": "Why pseudocode instead of code?",
+    "answer": "It is language independent and focuses on logic."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Pseudocode is:",
+    "answer": "Language independent",
+    "explanation": "",
+    "options": [
+     "Language dependent",
+     "Language independent",
+     "Machine code",
+     "Compiled"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Algorithms need defined input and output.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Symbol used for assignment in pseudocode?",
+    "answer": "←",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Linear search of 9 in [4,7,9].",
+    "answer": "Index 3",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Verifying an algorithm on sample data is called?",
+    "answer": "Dry run",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Write: define I/O → numbered steps → pseudocode (← , indentation) → dry-run.",
+  "problemStatement": "Search for key in array A[1..n].",
+  "approach": "Check elements one by one.",
+  "algorithmSteps": [
+   "1. For i = 1 to n: if A[i] = key return i.",
+   "2. Return −1."
+  ],
+  "pseudocode": "Algorithm LinearSearch(A, n, key)\n  for i ← 1 to n do\n    if A[i] = key then return i\n  return −1",
+  "workedExample": "A=[4,7,9], key=9: i=1 (4≠9), i=2 (7≠9), i=3 (9=9) → return 3.",
+  "timeComplexity": "Best O(1), worst/average O(n)",
+  "spaceComplexity": "O(1)"
+ },
+ "daa-c1-t05": {
+  "id": "daa-c1-t05",
+  "title": "Algorithm Analysis: Parameters",
+  "importance": "high",
+  "definition": "Algorithm analysis predicts the resources an algorithm uses, mainly time complexity and space complexity as functions of input size n.",
+  "simpleExplanation": "Analysis ka matlab hai algorithm kitna time aur memory lega, input size n ke function ke roop me. Isse alag algorithms ko compare kar sakte hain.",
+  "realLifeAnalogy": "Comparing two routes by time and fuel needed for a given distance.",
+  "example": "Sum of n numbers: loop executes n times. Count ≈ n additions + constant ⇒ T(n)=n+c ⇒ O(n). Space: one variable sum ⇒ O(1).",
+  "keyPoints": [
+   "Main parameters: time complexity and space complexity.",
+   "Other criteria: correctness, simplicity, optimality, generality.",
+   "Input size n is the measure; basic operation is counted.",
+   "A priori analysis (theoretical, machine independent) vs a posteriori (experimental, machine dependent).",
+   "RAM model assumes each basic operation takes constant time.",
+   "Growth rate matters for large n, not constants."
+  ],
+  "mustKnow": [
+   "Time vs space complexity.",
+   "Priori vs posteriori.",
+   "Counting basic operations."
+  ],
+  "ifYouKnow": [
+   "Define time and space complexity.",
+   "Count operations for a loop.",
+   "Compare priori/posteriori."
+  ],
+  "commonMistakes": [
+   "Measuring only wall-clock time (machine dependent).",
+   "Ignoring space complexity."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain parameters of algorithm analysis.",
+    "answer": "Time, space, plus correctness etc.; a priori vs a posteriori."
+   },
+   {
+    "type": "difference",
+    "question": "A priori vs a posteriori analysis.",
+    "answer": "A priori: mathematical, machine independent; a posteriori: runs the code and measures."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Machine-independent analysis is:",
+    "answer": "A priori",
+    "explanation": "",
+    "options": [
+     "A priori",
+     "A posteriori",
+     "Profiling",
+     "Debugging"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Space complexity measures memory used.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is the input size n?",
+    "answer": "The quantity describing the problem size, e.g. number of elements.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Loop runs n times with 1 op each. T(n)?",
+    "answer": "n (O(n))",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Time vs space complexity.",
+    "answer": "Time: operations/time; space: memory required.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Analysis: time & space vs input size n; a priori (theory) vs a posteriori (experiment); count basic operations.",
+  "timeComplexity": "Counted as number of basic operations T(n)",
+  "spaceComplexity": "Extra memory S(n)",
+  "workedExample": "for i=1..n: sum←sum+A[i] → n additions → T(n)=n → O(n)."
+ },
+ "daa-c1-t06": {
+  "id": "daa-c1-t06",
+  "title": "Design Techniques of Algorithms",
+  "importance": "high",
+  "definition": "Design techniques are general strategies for building algorithms: brute force, divide and conquer, greedy, dynamic programming, backtracking and branch and bound.",
+  "simpleExplanation": "Design technique ek general approach hai jisse hum bahut saare problems solve karte hain. Problem ki nature dekh ke technique chunte hain.",
+  "realLifeAnalogy": "Like having a toolbox: hammer, screwdriver, wrench; choose the tool by the job.",
+  "example": "Problem: find shortest paths. Single source with nonnegative weights → greedy (Dijkstra). All pairs → dynamic programming (Floyd–Warshall). Maximum non-overlapping meetings → greedy (activity selection).",
+  "keyPoints": [
+   "Brute force: simple but slow.",
+   "Divide & conquer: sub-problems independent (merge sort).",
+   "Greedy: needs greedy-choice property + optimal substructure.",
+   "Dynamic programming: overlapping sub-problems + optimal substructure.",
+   "Backtracking: search with pruning of infeasible partial solutions.",
+   "Branch & bound: optimisation with bounds to prune.",
+   "Choice depends on problem structure."
+  ],
+  "mustKnow": [
+   "When to use each technique.",
+   "Example per technique.",
+   "Recognising overlapping sub-problems."
+  ],
+  "ifYouKnow": [
+   "Choose a technique.",
+   "Justify the choice.",
+   "Compare D&C and DP."
+  ],
+  "commonMistakes": [
+   "Using DP when sub-problems are independent (D&C fits).",
+   "Using greedy without proving the greedy choice."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain algorithm design techniques.",
+    "answer": "Each with idea and example."
+   },
+   {
+    "type": "difference",
+    "question": "Divide & conquer vs dynamic programming.",
+    "answer": "D&C: independent sub-problems; DP: overlapping sub-problems stored and reused."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Overlapping sub-problems suggest:",
+    "answer": "Dynamic programming",
+    "explanation": "",
+    "options": [
+     "Greedy",
+     "Dynamic programming",
+     "Brute force",
+     "D&C"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Greedy always gives optimal solutions.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Backtracking example.",
+    "answer": "N-Queens",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Merge two halves after solving separately. Technique?",
+    "answer": "Divide and conquer",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Backtracking vs branch & bound.",
+    "answer": "Backtracking: feasibility search; B&B: optimisation with bounds.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Techniques: brute force, D&C, greedy, DP, backtracking, B&B; choose by problem structure.",
+  "comparison": {
+   "title": "When to Use",
+   "headers": [
+    "Technique",
+    "Needs",
+    "Example"
+   ],
+   "rows": [
+    [
+     "D&C",
+     "Independent sub-problems",
+     "Merge sort"
+    ],
+    [
+     "Greedy",
+     "Greedy-choice property",
+     "Huffman"
+    ],
+    [
+     "DP",
+     "Overlapping sub-problems",
+     "LCS"
+    ],
+    [
+     "Backtracking",
+     "Constraint search",
+     "N-Queens"
+    ],
+    [
+     "Branch & bound",
+     "Optimisation",
+     "TSP"
+    ]
+   ]
+  }
+ },
+ "daa-c1-t07": {
+  "id": "daa-c1-t07",
+  "title": "Asymptotic Notations: Big Oh, Big Omega & Big Theta",
+  "importance": "high",
+  "definition": "Asymptotic notations describe the growth rate of a function for large n: Big Oh (upper bound), Big Omega (lower bound) and Big Theta (tight bound).",
+  "simpleExplanation": "Asymptotic notation batata hai n bahut bada hone par function kitni tezi se badhta hai. O = upper limit, Ω = lower limit, Θ = dono (tight).",
+  "realLifeAnalogy": "Speed limits: O = 'not faster than' a maximum, Ω = 'at least' a minimum, Θ = exactly in this range.",
+  "example": "f(n)=3n+2. O(n): 3n+2 ≤ 4n for n≥2 (c=4, n0=2). Ω(n): 3n+2 ≥ 3n for n≥1 (c=3). Hence Θ(n).",
+  "keyPoints": [
+   "f(n)=O(g(n)) if ∃ c>0, n0: f(n) ≤ c·g(n) ∀ n ≥ n0.",
+   "f(n)=Ω(g(n)) if f(n) ≥ c·g(n) ∀ n ≥ n0.",
+   "f(n)=Θ(g(n)) if c1·g(n) ≤ f(n) ≤ c2·g(n) ∀ n ≥ n0 (both O and Ω).",
+   "Growth order: 1 < log n < n < n log n < n² < n³ < 2ⁿ < n!.",
+   "Drop constants and lower-order terms.",
+   "Little-o and little-ω denote strict bounds."
+  ],
+  "mustKnow": [
+   "Three formal definitions.",
+   "Proof with c and n0.",
+   "Growth order."
+  ],
+  "ifYouKnow": [
+   "Prove f(n)=O(g(n)).",
+   "State definitions.",
+   "Order functions by growth."
+  ],
+  "commonMistakes": [
+   "Saying O is the exact complexity (that is Θ).",
+   "Forgetting to give c and n0 in proofs."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Show 3n+2 = Θ(n).",
+    "answer": "3n ≤ 3n+2 ≤ 4n for n ≥ 2 ⇒ Θ(n)."
+   },
+   {
+    "type": "definition",
+    "question": "Define Big O, Ω, Θ.",
+    "answer": "As above with c and n0."
+   },
+   {
+    "type": "viva",
+    "question": "Is n² = O(n³)?",
+    "answer": "Yes, O is an upper bound (not tight)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Tight bound notation:",
+    "answer": "Θ",
+    "explanation": "",
+    "options": [
+     "O",
+     "Ω",
+     "Θ",
+     "o"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "2n+5 = O(n).",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Find c, n0 for 5n+3 = O(n).",
+    "answer": "c=6, n0=3",
+    "explanation": "5n+3 ≤ 6n for n≥3."
+   },
+   {
+    "type": "short answer",
+    "question": "Order n log n vs n².",
+    "answer": "n log n grows slower.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "O vs Ω.",
+    "answer": "O upper bound; Ω lower bound.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "O: f≤c·g (upper); Ω: f≥c·g (lower); Θ: both (tight); drop constants; 1<log n<n<n log n<n²<2ⁿ<n!.",
+  "workedExample": "3n+2: choose c=4, n0=2 → 3n+2 ≤ 4n ✓ (O(n)); c=3 → 3n+2 ≥ 3n ✓ (Ω(n)); so Θ(n).",
+  "comparison": {
+   "title": "Notations",
+   "headers": [
+    "Notation",
+    "Meaning",
+    "Bound"
+   ],
+   "rows": [
+    [
+     "O(g)",
+     "f ≤ c g",
+     "Upper"
+    ],
+    [
+     "Ω(g)",
+     "f ≥ c g",
+     "Lower"
+    ],
+    [
+     "Θ(g)",
+     "c1 g ≤ f ≤ c2 g",
+     "Tight"
+    ]
+   ]
+  }
+ },
+ "daa-c1-t08": {
+  "id": "daa-c1-t08",
+  "title": "Lower Bound, Upper Bound and Tight Bound",
+  "importance": "high",
+  "definition": "An upper bound limits how large the running time can be (O), a lower bound limits how small it can be (Ω), and a tight bound (Θ) is both.",
+  "simpleExplanation": "Upper bound = maximum itna time lagega, lower bound = kam se kam itna lagega, tight bound = ye dono same ho. Algorithm aur problem dono ke bounds hote hain.",
+  "realLifeAnalogy": "Travel time Delhi–Jaipur: 'at most 6 hours' (upper), 'at least 3 hours' (lower), '4–5 hours typical' (tight).",
+  "example": "Insertion sort: worst case Θ(n²), best case Θ(n). Any comparison-based sorting problem needs Ω(n log n) comparisons, so merge sort (Θ(n log n)) is asymptotically optimal.",
+  "keyPoints": [
+   "Upper bound O(g): running time never exceeds g (for large n).",
+   "Lower bound Ω(g): running time is at least g.",
+   "Tight bound Θ(g): both.",
+   "Bounds can describe an algorithm or a problem.",
+   "Problem lower bound: comparison sorting is Ω(n log n).",
+   "An algorithm matching the problem's lower bound is optimal."
+  ],
+  "mustKnow": [
+   "Algorithm bound vs problem bound.",
+   "Comparison-sort lower bound.",
+   "Optimal algorithm."
+  ],
+  "ifYouKnow": [
+   "Explain three bounds.",
+   "State sorting lower bound.",
+   "Decide if an algorithm is optimal."
+  ],
+  "commonMistakes": [
+   "Confusing upper bound of an algorithm with lower bound of a problem.",
+   "Calling any O-bound tight."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain lower, upper and tight bounds with example.",
+    "answer": "Definitions plus insertion sort case bounds."
+   },
+   {
+    "type": "viva",
+    "question": "Is merge sort optimal for comparison sorting?",
+    "answer": "Yes; Θ(n log n) matches Ω(n log n)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Comparison sort lower bound:",
+    "answer": "Ω(n log n)",
+    "explanation": "",
+    "options": [
+     "Ω(n)",
+     "Ω(n log n)",
+     "Ω(n²)",
+     "Ω(log n)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "A tight bound is both O and Ω.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "When is an algorithm optimal?",
+    "answer": "When its upper bound equals the problem's lower bound.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Algorithm takes O(n²) but problem needs Ω(n log n). Optimal?",
+    "answer": "Not shown optimal",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Upper vs lower bound.",
+    "answer": "Upper: at most; lower: at least.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Upper = O (at most), lower = Ω (at least), tight = Θ; comparison sorting needs Ω(n log n).",
+  "comparison": {
+   "title": "Bounds",
+   "headers": [
+    "Bound",
+    "Symbol",
+    "Meaning"
+   ],
+   "rows": [
+    [
+     "Upper",
+     "O",
+     "At most"
+    ],
+    [
+     "Lower",
+     "Ω",
+     "At least"
+    ],
+    [
+     "Tight",
+     "Θ",
+     "Exactly (both)"
+    ]
+   ]
+  }
+ },
+ "daa-c1-t09": {
+  "id": "daa-c1-t09",
+  "title": "Best Case, Worst Case, Average Case",
+  "importance": "high",
+  "definition": "Best, worst and average case analyses give the minimum, maximum and expected running time of an algorithm over inputs of size n.",
+  "simpleExplanation": "Same size ke alag inputs par algorithm alag speed se chalta hai. Best = sabse tez input, worst = sabse dheema, average = expected.",
+  "realLifeAnalogy": "Searching for a book on a shelf: best case it's the first book; worst case it's the last or missing; average is somewhere in the middle.",
+  "example": "Linear search over n elements: best 1 comparison (key at first), worst n (last/absent), average (1+2+…+n)/n=(n+1)/2 if key present and equally likely at any position.",
+  "keyPoints": [
+   "Best case: minimum steps (often not very useful).",
+   "Worst case: maximum steps — gives a guarantee; most commonly used.",
+   "Average case: expected steps over all inputs (needs a probability assumption).",
+   "Quick sort: best/average Θ(n log n), worst Θ(n²).",
+   "Insertion sort: best Θ(n), worst Θ(n²).",
+   "Big-O usually states the worst case."
+  ],
+  "mustKnow": [
+   "Linear search three cases.",
+   "Average calculation.",
+   "Quick sort cases."
+  ],
+  "ifYouKnow": [
+   "Compute the three cases for linear search.",
+   "Explain why worst-case is used.",
+   "State cases of sorting algorithms."
+  ],
+  "commonMistakes": [
+   "Assuming average = (best+worst)/2 always.",
+   "Using best case to claim efficiency."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Average comparisons in linear search with n=10.",
+    "answer": "(10+1)/2 = 5.5"
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain best, worst and average case.",
+    "answer": "Definitions with linear search example."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Quick sort worst case:",
+    "answer": "O(n²)",
+    "explanation": "",
+    "options": [
+     "O(n)",
+     "O(n log n)",
+     "O(n²)",
+     "O(log n)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Worst case gives an upper guarantee.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Linear search best case comparisons.",
+    "answer": "1",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Average comparisons in linear search (success)?",
+    "answer": "(n+1)/2",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Best vs worst case.",
+    "answer": "Best minimal work; worst maximal work.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Best (min), worst (max, used for guarantees), average (expected); linear search 1, n, (n+1)/2.",
+  "cases": {
+   "best": "Θ(1) — key first",
+   "average": "Θ(n) — (n+1)/2 comparisons",
+   "worst": "Θ(n) — last or absent"
+  },
+  "workedExample": "A=[5,8,2,9], key=2 → 3 comparisons; key=5 → 1 (best); key=7 → 4 (worst, absent).",
+  "timeComplexity": "Linear search: best O(1), average O(n), worst O(n)"
+ },
+ "daa-c1-t10": {
+  "id": "daa-c1-t10",
+  "title": "Analyzing Control Statements",
+  "importance": "high",
+  "definition": "Analysing control statements means computing the running time of sequences, conditionals and loops (single, nested, dependent, logarithmic) by counting executions.",
+  "simpleExplanation": "Time nikalne ke liye har control statement ka cost jodte hain: sequence me add, if me max branch, loop me (iterations × body cost). Nested loops multiply.",
+  "realLifeAnalogy": "Counting laps: one loop of n laps costs n; a loop inside a loop costs n × n.",
+  "example": "for i=1..n { for j=1..n { x++ } } → n² times. for(i=1;i<n;i=i*2) → about log₂ n times. for i=1..n { for j=1..i } → 1+2+…+n = n(n+1)/2 = Θ(n²).",
+  "keyPoints": [
+   "Sequence: add costs.",
+   "if/else: cost of condition + max(branch costs) for worst case.",
+   "Single loop: n × body cost.",
+   "Nested independent loops: multiply.",
+   "Dependent inner loop: sum the series (e.g. n(n+1)/2).",
+   "Loop with i←i×2 or i←i/2 runs ⌊log₂ n⌋+1 times."
+  ],
+  "mustKnow": [
+   "Four loop patterns and counts.",
+   "n(n+1)/2.",
+   "log loops."
+  ],
+  "ifYouKnow": [
+   "Count steps of given loops.",
+   "Find Big-O.",
+   "Handle dependent loops."
+  ],
+  "commonMistakes": [
+   "Treating dependent nested loops as n×n exactly (it is n(n+1)/2, still Θ(n²)).",
+   "Missing that doubling loops are logarithmic."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Complexity of for(i=1;i<=n;i*=2) for(j=1;j<=n;j++).",
+    "answer": "log n × n = O(n log n)."
+   },
+   {
+    "type": "numerical",
+    "question": "Count: for i=1..n for j=1..i.",
+    "answer": "n(n+1)/2 = Θ(n²)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "for(i=1;i<n;i*=2) runs:",
+    "answer": "log n",
+    "explanation": "",
+    "options": [
+     "n",
+     "log n",
+     "n²",
+     "1"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Nested loops multiply iteration counts when independent.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "for i=1..n for j=1..n → count.",
+    "answer": "n²",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Sum 1+2+…+n?",
+    "answer": "n(n+1)/2",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "if-else with branches costing n and n². Worst-case cost?",
+    "answer": "O(n²)",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Control statements: sequence add; if max; loops multiply; dependent loops n(n+1)/2; i*=2 → log n.",
+  "algorithmSteps": [
+   "1. Identify each statement's cost.",
+   "2. Sequence: add; conditional: max branch; loop: iterations × body.",
+   "3. For nested loops, count the innermost executions as a sum.",
+   "4. Keep the dominant term."
+  ],
+  "workedExample": "for i=1..n { for j=1..i { print } } → Σ i = n(n+1)/2 ⇒ Θ(n²).",
+  "timeComplexity": "Computed per pattern (see above)"
+ },
+ "daa-c1-t11": {
+  "id": "daa-c1-t11",
+  "title": "Loop Invariant and Correctness of Algorithms",
+  "importance": "high",
+  "definition": "A loop invariant is a condition that is true before and after each iteration of a loop; proving initialisation, maintenance and termination shows the algorithm correct.",
+  "simpleExplanation": "Loop invariant ek aisi shart hai jo har iteration ke pehle aur baad sach rehti hai. Teen cheezein prove karte hain: shuru me sach (initialization), har iteration me sach rehti hai (maintenance), end me useful result deti hai (termination).",
+  "realLifeAnalogy": "Like a checkpoint rule on a journey: you remain on the right route after each stop, so at the end you reach the destination.",
+  "example": "Insertion sort: invariant — at the start of iteration j, A[1..j−1] is sorted and contains the original first j−1 elements. Init: j=2, one element sorted. Maintenance: inserting A[j] keeps it sorted. Termination: j=n+1, whole array sorted.",
+  "keyPoints": [
+   "Three steps: initialisation, maintenance, termination.",
+   "Similar to mathematical induction.",
+   "Partial correctness: correct if it terminates; total correctness: also terminates.",
+   "Invariant should be strong enough to imply the postcondition at termination.",
+   "Used for sorting, searching, summing loops.",
+   "Correctness is different from efficiency."
+  ],
+  "mustKnow": [
+   "Three-step proof.",
+   "Insertion sort invariant.",
+   "Partial vs total correctness."
+  ],
+  "ifYouKnow": [
+   "State and prove a loop invariant.",
+   "Explain termination.",
+   "Distinguish correctness types."
+  ],
+  "commonMistakes": [
+   "Proving only that the invariant holds initially.",
+   "Choosing a trivial invariant that doesn't imply the result."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Prove correctness of finding the maximum using a loop invariant.",
+    "answer": "Invariant: max = largest of A[1..i−1]; init i=2; maintenance by compare; termination i=n+1 ⇒ max of all."
+   },
+   {
+    "type": "viva",
+    "question": "What are the three properties of a loop invariant?",
+    "answer": "Initialisation, maintenance, termination."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Which is NOT a loop-invariant step?",
+    "answer": "Compilation",
+    "explanation": "",
+    "options": [
+     "Initialisation",
+     "Maintenance",
+     "Termination",
+     "Compilation"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "A loop invariant is true before each iteration.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Invariant of insertion sort at iteration j?",
+    "answer": "A[1..j−1] is sorted.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Loop never ends but invariant holds. Correctness type lost?",
+    "answer": "Total correctness (termination)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Partial vs total correctness.",
+    "answer": "Partial: correct if it halts; total: halts and is correct.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Loop invariant: Initialisation + Maintenance + Termination ⇒ correctness (like induction).",
+  "algorithmSteps": [
+   "1. State the invariant.",
+   "2. Show it holds before the first iteration.",
+   "3. Assume it holds before iteration k; show it holds before k+1.",
+   "4. At loop exit use invariant + exit condition to prove the result."
+  ],
+  "workedExample": "Max(A): invariant 'max = largest of A[1..i−1]'. Init: i=2, max=A[1] ✓. Maintenance: compare A[i] with max ✓. Termination: i=n+1 ⇒ max = largest of A[1..n]."
+ },
+ "daa-c1-t12": {
+  "id": "daa-c1-t12",
+  "title": "Recurrences",
+  "importance": "high",
+  "definition": "A recurrence relation expresses the running time of a recursive algorithm in terms of its running time on smaller inputs, solved by substitution, recursion tree or master method.",
+  "simpleExplanation": "Recursive algorithm ka time T(n) khud T(chhota n) se likhte hain, jaise T(n)=2T(n/2)+n. Isko solve karne ke 3 tareeke: substitution, recursion tree, master method.",
+  "realLifeAnalogy": "A pizza chain: cost of serving n customers = cost of serving two halves + time to split and merge.",
+  "example": "Merge sort: T(n)=2T(n/2)+n. Recursion tree: each level costs n and there are log n levels ⇒ Θ(n log n). Master: a=2,b=2,f=n=n^{log₂2} ⇒ case 2 ⇒ Θ(n log n).",
+  "keyPoints": [
+   "Substitution: guess the solution and prove by induction.",
+   "Recursion tree: expand levels, sum cost per level, add all levels.",
+   "Master theorem for T(n)=aT(n/b)+f(n), a≥1, b>1: compare f(n) with n^{log_b a}.",
+   "Case 1: f=O(n^{log_b a−ε}) ⇒ Θ(n^{log_b a}).",
+   "Case 2: f=Θ(n^{log_b a}) ⇒ Θ(n^{log_b a} log n).",
+   "Case 3: f=Ω(n^{log_b a+ε}) and regularity ⇒ Θ(f(n)).",
+   "Master theorem does not apply to every recurrence."
+  ],
+  "mustKnow": [
+   "Master theorem three cases.",
+   "Recursion tree for merge sort.",
+   "Substitution proof."
+  ],
+  "ifYouKnow": [
+   "Solve recurrences by all three methods.",
+   "Pick the master case.",
+   "Prove an induction bound."
+  ],
+  "commonMistakes": [
+   "Forgetting the regularity condition in case 3.",
+   "Misreading log_b a (e.g. log₂4 = 2)."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Solve T(n)=4T(n/2)+n.",
+    "answer": "a=4,b=2: n^{log₂4}=n²; f=n=O(n^{2−ε}) ⇒ Θ(n²)."
+   },
+   {
+    "type": "numerical",
+    "question": "Solve T(n)=T(n/2)+1.",
+    "answer": "a=1,b=2: n^0=1; f=1=Θ(1) ⇒ Θ(log n)."
+   },
+   {
+    "type": "numerical",
+    "question": "Solve T(n)=3T(n/2)+n².",
+    "answer": "n^{1.58}; f=n² larger ⇒ case 3 ⇒ Θ(n²)."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain substitution method for T(n)=2T(n/2)+n.",
+    "answer": "Guess T(n)≤c n log n; T(n) ≤ 2c(n/2)log(n/2)+n = c n log n − c n + n ≤ c n log n for c ≥ 1."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "T(n)=2T(n/2)+n gives:",
+    "answer": "Θ(n log n)",
+    "explanation": "",
+    "options": [
+     "Θ(n)",
+     "Θ(n log n)",
+     "Θ(n²)",
+     "Θ(log n)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Master theorem needs a ≥ 1 and b > 1.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "T(n)=2T(n/2)+1.",
+    "answer": "Θ(n)",
+    "explanation": "n^{log₂2}=n, f=1 smaller ⇒ case 1."
+   },
+   {
+    "type": "short answer",
+    "question": "Recursion tree levels for n/2 splitting?",
+    "answer": "log₂ n",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Substitution vs recursion tree.",
+    "answer": "Substitution proves a guess by induction; tree helps find the guess by summing level costs.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Recurrence T(n)=aT(n/b)+f(n): compare f with n^{log_b a} → Θ(n^{log_b a}), Θ(n^{log_b a} log n) or Θ(f).",
+  "algorithmSteps": [
+   "Master: 1. Identify a, b, f(n).",
+   "2. Compute n^{log_b a}.",
+   "3. Compare f(n) with it → choose case 1/2/3.",
+   "4. Write Θ result (check regularity for case 3)."
+  ],
+  "workedExample": "T(n)=2T(n/2)+n: tree levels cost n each, log₂ n+1 levels ⇒ n log n. Master case 2 agrees.",
+  "timeComplexity": "Result depends on recurrence",
+  "comparison": {
+   "title": "Methods to solve recurrences",
+   "headers": [
+    "Method",
+    "Idea",
+    "Best for"
+   ],
+   "rows": [
+    [
+     "Substitution",
+     "Guess + induction",
+     "Proving bounds"
+    ],
+    [
+     "Recursion tree",
+     "Sum level costs",
+     "Finding guess"
+    ],
+    [
+     "Master theorem",
+     "Direct formula",
+     "T(n)=aT(n/b)+f(n)"
+    ]
+   ]
+  }
+ },
+ "daa-c1-t13": {
+  "id": "daa-c1-t13",
+  "title": "Bubble Sort",
+  "importance": "high",
+  "definition": "Bubble sort repeatedly compares adjacent elements and swaps them if they are in the wrong order, so the largest element 'bubbles' to the end in each pass.",
+  "simpleExplanation": "Bubble sort adjacent elements ko compare karke swap karta hai. Har pass me sabse bada element end me pahunch jata hai, jaise paani me bubble upar aata hai.",
+  "realLifeAnalogy": "Bubbles rising in a glass: the biggest bubble reaches the top first.",
+  "example": "[5,1,4,2,8]. Pass 1: (5,1)→1 5 4 2 8; (5,4)→1 4 5 2 8; (5,2)→1 4 2 5 8; (5,8) ok. Pass 2: (4,2)→1 2 4 5 8. Pass 3: no swaps → sorted.",
+  "keyPoints": [
+   "Compares adjacent pairs; n−1 passes at most.",
+   "After pass i the i largest elements are in place.",
+   "Number of comparisons n(n−1)/2.",
+   "Optimised version stops when a pass has no swap.",
+   "Stable and in-place.",
+   "Simple but inefficient for large n."
+  ],
+  "mustKnow": [
+   "Pseudocode with swap flag.",
+   "Complexities.",
+   "Stable and in-place."
+  ],
+  "ifYouKnow": [
+   "Sort an array by hand.",
+   "State complexities.",
+   "Explain the optimisation."
+  ],
+  "commonMistakes": [
+   "Thinking bubble sort is always Θ(n²) — optimised best case is Θ(n).",
+   "Forgetting n−1−i limit in the inner loop."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Sort [5,1,4,2,8] with bubble sort, show passes.",
+    "answer": "As in example → [1,2,4,5,8]."
+   },
+   {
+    "type": "conceptual",
+    "question": "Write algorithm and complexity of bubble sort.",
+    "answer": "Pseudocode; best O(n) with flag, worst/avg O(n²), space O(1)."
+   },
+   {
+    "type": "viva",
+    "question": "Is bubble sort stable?",
+    "answer": "Yes (equal elements are not swapped)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Worst-case time of bubble sort:",
+    "answer": "O(n²)",
+    "explanation": "",
+    "options": [
+     "O(n)",
+     "O(n log n)",
+     "O(n²)",
+     "O(1)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Bubble sort is in-place.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Comparisons for n=5 (no optimisation).",
+    "answer": "10",
+    "explanation": "n(n−1)/2"
+   },
+   {
+    "type": "short answer",
+    "question": "Best-case time with swap flag?",
+    "answer": "O(n)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Bubble vs selection swaps.",
+    "answer": "Bubble may do many swaps; selection does at most n−1.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Bubble: swap adjacent out-of-order pairs; n(n−1)/2 comparisons; best O(n) (flag), avg/worst O(n²); stable, in-place.",
+  "problemStatement": "Sort array A[1..n] in ascending order.",
+  "approach": "Repeatedly swap adjacent out-of-order elements.",
+  "algorithmSteps": [
+   "1. For i = 1 to n−1: set swapped=false.",
+   "2. For j = 1 to n−i: if A[j] > A[j+1] swap and set swapped=true.",
+   "3. If no swap in a pass, stop."
+  ],
+  "pseudocode": "BubbleSort(A, n)\n  for i ← 1 to n−1 do\n    swapped ← false\n    for j ← 1 to n−i do\n      if A[j] > A[j+1] then\n        swap A[j], A[j+1]; swapped ← true\n    if not swapped then break",
+  "workedExample": "[5,1,4,2,8] → pass1 [1,4,2,5,8] → pass2 [1,2,4,5,8] → pass3 no swaps → done.",
+  "timeComplexity": "Best O(n), average O(n²), worst O(n²)",
+  "spaceComplexity": "O(1)",
+  "cases": {
+   "best": "O(n) already sorted (with flag)",
+   "average": "O(n²)",
+   "worst": "O(n²) reverse sorted"
+  }
+ },
+ "daa-c1-t14": {
+  "id": "daa-c1-t14",
+  "title": "Selection Sort",
+  "importance": "high",
+  "definition": "Selection sort repeatedly selects the minimum element from the unsorted part and places it at the beginning of the sorted part.",
+  "simpleExplanation": "Selection sort har baar unsorted part me se sabse chhota element dhundh ke sahi position par swap karta hai. Swaps kam hote hain par comparisons fixed.",
+  "realLifeAnalogy": "Picking the shortest student in the line and moving him to the front, then repeating for the rest.",
+  "example": "[64,25,12,22,11]: min=11 → [11,25,12,22,64]; min=12 → [11,12,25,22,64]; min=22 → [11,12,22,25,64]; 25 in place → sorted.",
+  "keyPoints": [
+   "Finds min in each pass: n−1 passes.",
+   "Always n(n−1)/2 comparisons.",
+   "At most n−1 swaps.",
+   "Not stable (swap can reorder equals).",
+   "In-place, O(1) space.",
+   "Same time in best, average and worst case."
+  ],
+  "mustKnow": [
+   "Pseudocode.",
+   "Always Θ(n²) comparisons.",
+   "Few swaps."
+  ],
+  "ifYouKnow": [
+   "Sort by hand.",
+   "State complexity.",
+   "Compare with bubble/insertion."
+  ],
+  "commonMistakes": [
+   "Thinking best case is O(n); it is always Θ(n²).",
+   "Assuming it is stable."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Sort [64,25,12,22,11] by selection sort.",
+    "answer": "[11,12,22,25,64]."
+   },
+   {
+    "type": "viva",
+    "question": "Why is selection sort not stable?",
+    "answer": "Long-distance swaps can move equal elements past each other."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Swaps in selection sort (max):",
+    "answer": "n−1",
+    "explanation": "",
+    "options": [
+     "n²",
+     "n−1",
+     "n log n",
+     "1"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Best-case time is O(n).",
+    "answer": "False",
+    "explanation": "Always Θ(n²)."
+   },
+   {
+    "type": "problem solving",
+    "question": "Comparisons for n=6.",
+    "answer": "15",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Space complexity?",
+    "answer": "O(1)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Selection vs bubble.",
+    "answer": "Selection fewer swaps; both Θ(n²) comparisons in general.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Selection: pick min each pass; n(n−1)/2 comparisons always; ≤ n−1 swaps; not stable; in-place.",
+  "problemStatement": "Sort A[1..n].",
+  "approach": "Select the minimum of the unsorted part and swap it into place.",
+  "algorithmSteps": [
+   "1. For i = 1 to n−1: min = i.",
+   "2. For j = i+1 to n: if A[j] < A[min] then min = j.",
+   "3. Swap A[i] and A[min]."
+  ],
+  "pseudocode": "SelectionSort(A, n)\n  for i ← 1 to n−1 do\n    min ← i\n    for j ← i+1 to n do\n      if A[j] < A[min] then min ← j\n    swap A[i], A[min]",
+  "workedExample": "[64,25,12,22,11] → [11,25,12,22,64] → [11,12,25,22,64] → [11,12,22,25,64].",
+  "timeComplexity": "Best/average/worst Θ(n²)",
+  "spaceComplexity": "O(1)",
+  "cases": {
+   "best": "Θ(n²)",
+   "average": "Θ(n²)",
+   "worst": "Θ(n²)"
+  }
+ },
+ "daa-c1-t15": {
+  "id": "daa-c1-t15",
+  "title": "Insertion Sort",
+  "importance": "high",
+  "definition": "Insertion sort builds the sorted array one element at a time by inserting each new element into its correct position among the already sorted elements.",
+  "simpleExplanation": "Insertion sort taash ke patte sort karne jaisa hai: ek ek card uthake apni sahi jagah par daal do. Almost sorted data par bahut tez.",
+  "realLifeAnalogy": "Sorting playing cards in your hand: pick the next card and slide it into place among the sorted ones.",
+  "example": "[12,11,13,5,6]: insert 11 → [11,12,13,5,6]; 13 stays; insert 5 → [5,11,12,13,6]; insert 6 → [5,6,11,12,13].",
+  "keyPoints": [
+   "Maintains a sorted prefix; inserts key by shifting larger elements.",
+   "Best case O(n) (already sorted); worst O(n²) (reverse).",
+   "Stable, in-place, online.",
+   "Efficient for small or nearly sorted arrays.",
+   "Loop invariant: A[1..j−1] sorted.",
+   "Used inside hybrid sorts (e.g. Timsort)."
+  ],
+  "mustKnow": [
+   "Pseudocode.",
+   "Best/worst cases.",
+   "Loop invariant."
+  ],
+  "ifYouKnow": [
+   "Sort by hand.",
+   "State cases.",
+   "Compare with other simple sorts."
+  ],
+  "commonMistakes": [
+   "Swapping repeatedly instead of shifting (inefficient).",
+   "Claiming O(n log n) average."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Sort [12,11,13,5,6] by insertion sort.",
+    "answer": "[5,6,11,12,13]."
+   },
+   {
+    "type": "difference",
+    "question": "Bubble vs selection vs insertion.",
+    "answer": "Table: all O(n²) worst; insertion best O(n), stable; selection fewest swaps."
+   },
+   {
+    "type": "viva",
+    "question": "When is insertion sort best?",
+    "answer": "Small or nearly sorted input."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Best-case time of insertion sort:",
+    "answer": "O(n)",
+    "explanation": "",
+    "options": [
+     "O(1)",
+     "O(n)",
+     "O(n log n)",
+     "O(n²)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Insertion sort is stable.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Shifts needed to sort [3,2,1].",
+    "answer": "3",
+    "explanation": "2 moves past 3 (1), 1 moves past both (2)."
+   },
+   {
+    "type": "short answer",
+    "question": "Worst-case input?",
+    "answer": "Reverse sorted.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Insertion vs selection best case.",
+    "answer": "Insertion O(n); selection Θ(n²).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Insertion: insert each key into sorted prefix; best O(n), worst/avg O(n²); stable, in-place, online.",
+  "problemStatement": "Sort A[1..n].",
+  "approach": "Insert A[j] into the sorted prefix A[1..j−1].",
+  "algorithmSteps": [
+   "1. For j = 2 to n: key = A[j]; i = j−1.",
+   "2. While i>0 and A[i] > key: A[i+1] = A[i]; i = i−1.",
+   "3. A[i+1] = key."
+  ],
+  "pseudocode": "InsertionSort(A, n)\n  for j ← 2 to n do\n    key ← A[j]; i ← j−1\n    while i > 0 and A[i] > key do\n      A[i+1] ← A[i]; i ← i−1\n    A[i+1] ← key",
+  "workedExample": "[12,11,13,5,6] → [11,12,13,5,6] → [11,12,13,5,6] → [5,11,12,13,6] → [5,6,11,12,13].",
+  "timeComplexity": "Best O(n), average O(n²), worst O(n²)",
+  "spaceComplexity": "O(1)",
+  "cases": {
+   "best": "O(n) sorted",
+   "average": "O(n²)",
+   "worst": "O(n²) reverse"
+  },
+  "comparison": {
+   "title": "Simple sorts",
+   "headers": [
+    "Feature",
+    "Bubble",
+    "Selection",
+    "Insertion"
+   ],
+   "rows": [
+    [
+     "Best",
+     "O(n)*",
+     "Θ(n²)",
+     "O(n)"
+    ],
+    [
+     "Worst",
+     "O(n²)",
+     "Θ(n²)",
+     "O(n²)"
+    ],
+    [
+     "Stable",
+     "Yes",
+     "No",
+     "Yes"
+    ],
+    [
+     "Swaps",
+     "Many",
+     "≤ n−1",
+     "Shifts"
+    ]
+   ]
+  }
+ },
+ "daa-c2-t01": {
+  "id": "daa-c2-t01",
+  "title": "Structure of Divide-and-Conquer Algorithms",
+  "importance": "high",
+  "definition": "Divide and conquer solves a problem by dividing it into smaller sub-problems of the same type, solving them recursively and combining their solutions.",
+  "simpleExplanation": "D&C me problem ko chhote hisso me todo (divide), har hissa solve karo (conquer), phir answers jodo (combine). Merge sort aur quick sort isi tarah kaam karte hain.",
+  "realLifeAnalogy": "Grading 1000 answer sheets: split among 10 teachers, each grades their share, then the head combines the results.",
+  "example": "Merge sort: divide array in two halves, sort each recursively, merge the sorted halves. T(n)=2T(n/2)+Θ(n).",
+  "keyPoints": [
+   "Three steps: Divide, Conquer, Combine.",
+   "Sub-problems are independent and of the same type.",
+   "Base case stops the recursion.",
+   "Recurrence: T(n)=aT(n/b)+D(n)+C(n).",
+   "Solved with recursion tree/master theorem.",
+   "Examples: binary search, merge sort, quick sort, Strassen, max-min."
+  ],
+  "mustKnow": [
+   "Three steps.",
+   "General recurrence.",
+   "D&C vs DP."
+  ],
+  "ifYouKnow": [
+   "Write the D&C template.",
+   "Form a recurrence.",
+   "Pick D&C vs DP."
+  ],
+  "commonMistakes": [
+   "Using D&C when sub-problems overlap heavily (DP is better).",
+   "Forgetting the base case."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain the structure of divide-and-conquer algorithms.",
+    "answer": "Divide, conquer, combine with recurrence and examples."
+   },
+   {
+    "type": "difference",
+    "question": "D&C vs DP.",
+    "answer": "D&C: independent sub-problems; DP: overlapping sub-problems reused."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Which is not a D&C step?",
+    "answer": "Backtrack",
+    "explanation": "",
+    "options": [
+     "Divide",
+     "Conquer",
+     "Combine",
+     "Backtrack"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Merge sort is D&C.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Recurrence for binary search.",
+    "answer": "T(n)=T(n/2)+1",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Solve T(n)=2T(n/2)+n.",
+    "answer": "Θ(n log n)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Combine step cost in merge sort vs quick sort.",
+    "answer": "Merge sort: merge costs Θ(n); quick sort: combine is trivial, partition costs Θ(n).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "D&C: divide → conquer (recursive) → combine; T(n)=aT(n/b)+f(n).",
+  "problemStatement": "Solve a size-n problem by solving smaller instances.",
+  "approach": "Split into independent sub-problems, recurse, merge answers.",
+  "algorithmSteps": [
+   "1. If n is small, solve directly (base case).",
+   "2. Divide the problem into a sub-problems of size n/b.",
+   "3. Recursively solve each.",
+   "4. Combine the sub-solutions."
+  ],
+  "pseudocode": "DAC(P)\n  if small(P) then return Solve(P)\n  divide P into P1..Pk\n  for each Pi: Si ← DAC(Pi)\n  return Combine(S1..Sk)",
+  "timeComplexity": "From T(n)=aT(n/b)+f(n)",
+  "comparison": {
+   "title": "D&C algorithms",
+   "headers": [
+    "Algorithm",
+    "Recurrence",
+    "Time"
+   ],
+   "rows": [
+    [
+     "Binary search",
+     "T(n/2)+1",
+     "O(log n)"
+    ],
+    [
+     "Merge sort",
+     "2T(n/2)+n",
+     "Θ(n log n)"
+    ],
+    [
+     "Strassen",
+     "7T(n/2)+n²",
+     "Θ(n^2.81)"
+    ]
+   ]
+  }
+ },
+ "daa-c2-t02": {
+  "id": "daa-c2-t02",
+  "title": "Binary Search",
+  "importance": "high",
+  "definition": "Binary search finds a key in a sorted array by repeatedly comparing it with the middle element and discarding half of the array.",
+  "simpleExplanation": "Sorted array me beech wala element dekho. Key chhota hai to left half, bada hai to right half. Har step me aadha array hat jata hai, isliye bahut tez.",
+  "realLifeAnalogy": "Finding a word in a dictionary: open the middle, decide left or right, repeat.",
+  "example": "A=[2,5,8,12,16,23,38,56,72,91], key=23. low=0, high=9 → mid=4 (16<23) → low=5; mid=7 (56>23) → high=6; mid=5 (23) found at index 5.",
+  "keyPoints": [
+   "Requires a sorted array.",
+   "Each step halves the search space.",
+   "Recurrence T(n)=T(n/2)+1 ⇒ O(log n).",
+   "Best case O(1); worst O(log n).",
+   "Iterative version uses O(1) space; recursive O(log n).",
+   "Compute mid as low+(high−low)/2 to avoid overflow."
+  ],
+  "mustKnow": [
+   "Pseudocode.",
+   "Trace.",
+   "Recurrence."
+  ],
+  "ifYouKnow": [
+   "Trace binary search.",
+   "State complexities.",
+   "Explain why sorted input is needed."
+  ],
+  "commonMistakes": [
+   "Applying it on unsorted data.",
+   "Off-by-one errors in low/high updates."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Search 23 in the sorted array above.",
+    "answer": "Index 5 after 3 comparisons."
+   },
+   {
+    "type": "conceptual",
+    "question": "Write algorithm and analyse complexity.",
+    "answer": "Pseudocode; T(n)=T(n/2)+1 ⇒ Θ(log n)."
+   },
+   {
+    "type": "viva",
+    "question": "Why log n?",
+    "answer": "Each comparison halves the remaining elements."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Binary search worst case:",
+    "answer": "O(log n)",
+    "explanation": "",
+    "options": [
+     "O(n)",
+     "O(log n)",
+     "O(1)",
+     "O(n log n)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Binary search works on unsorted arrays.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Max comparisons for n=1000.",
+    "answer": "About 10",
+    "explanation": "log₂1000≈10."
+   },
+   {
+    "type": "short answer",
+    "question": "Space of iterative binary search?",
+    "answer": "O(1)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Linear vs binary search.",
+    "answer": "Linear works unsorted, O(n); binary needs sorted, O(log n).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Binary search: sorted array, halve each step; T(n)=T(n/2)+1 ⇒ O(log n); best O(1); iterative space O(1).",
+  "problemStatement": "Given sorted A[1..n] and key, find its index.",
+  "approach": "Compare with middle and discard half.",
+  "algorithmSteps": [
+   "1. low=1, high=n.",
+   "2. While low ≤ high: mid=⌊(low+high)/2⌋.",
+   "3. If A[mid]=key return mid; if key < A[mid] high=mid−1; else low=mid+1.",
+   "4. Return not found."
+  ],
+  "pseudocode": "BinarySearch(A, n, key)\n  low ← 1; high ← n\n  while low ≤ high do\n    mid ← ⌊(low+high)/2⌋\n    if A[mid] = key then return mid\n    else if key < A[mid] then high ← mid−1\n    else low ← mid+1\n  return −1",
+  "workedExample": "[2,5,8,12,16,23,38,56,72,91], key 23: mid=4(16) → right; mid=7(56) → left; mid=5(23) ✓.",
+  "timeComplexity": "Best O(1), average/worst O(log n)",
+  "spaceComplexity": "Iterative O(1); recursive O(log n)",
+  "cases": {
+   "best": "O(1)",
+   "average": "O(log n)",
+   "worst": "O(log n)"
+  }
+ },
+ "daa-c2-t03": {
+  "id": "daa-c2-t03",
+  "title": "Quick Sort",
+  "importance": "high",
+  "definition": "Quick sort picks a pivot, partitions the array so smaller elements go left and larger go right, then sorts the two parts recursively.",
+  "simpleExplanation": "Quick sort me ek pivot chunte hain; pivot se chhote left, bade right (partition). Phir dono hisson ko recursively sort karte hain. Average me bahut tez.",
+  "realLifeAnalogy": "Sorting students by height: pick one student as reference, put shorter ones on the left and taller on the right, repeat inside each group.",
+  "example": "[10,80,30,90,40,50,70], pivot=70 (Lomuto). After partition: [10,30,40,50,70,90,80] with pivot at index 4 (0-based). Then sort [10,30,40,50] and [90,80].",
+  "keyPoints": [
+   "Divide: partition around pivot; conquer: recurse; combine: nothing.",
+   "Best/average Θ(n log n); worst Θ(n²) (already sorted with bad pivot).",
+   "In-place; space O(log n) recursion stack average.",
+   "Not stable.",
+   "Pivot choice: last, first, random, median-of-three.",
+   "Randomised pivot makes worst case unlikely."
+  ],
+  "mustKnow": [
+   "Partition procedure.",
+   "Recurrence cases.",
+   "Worst-case input."
+  ],
+  "ifYouKnow": [
+   "Partition an array by hand.",
+   "State cases.",
+   "Explain pivot strategies."
+  ],
+  "commonMistakes": [
+   "Believing worst case is rare for any pivot rule (it occurs for sorted input with first/last pivot).",
+   "Partition index off-by-one."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Partition [10,80,30,90,40,50,70] with pivot 70.",
+    "answer": "[10,30,40,50,70,90,80], pivot index 4."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain quick sort with complexity.",
+    "answer": "Partition + recursion; best/avg n log n; worst n²."
+   },
+   {
+    "type": "viva",
+    "question": "When does quick sort degrade to O(n²)?",
+    "answer": "When partitions are maximally unbalanced, e.g. sorted input with first/last pivot."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Quick sort average case:",
+    "answer": "O(n log n)",
+    "explanation": "",
+    "options": [
+     "O(n)",
+     "O(n log n)",
+     "O(n²)",
+     "O(log n)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Quick sort is stable.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Worst-case recurrence?",
+    "answer": "T(n)=T(n−1)+Θ(n)",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Sorted array with last-element pivot. Complexity?",
+    "answer": "O(n²)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Quick sort vs merge sort space.",
+    "answer": "Quick: O(log n) in-place; merge: O(n) extra.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Quick sort: partition around pivot; avg/best n log n, worst n²; in-place, not stable; random pivot.",
+  "problemStatement": "Sort A[p..r].",
+  "approach": "Partition around a pivot then sort both sides.",
+  "algorithmSteps": [
+   "1. If p<r: q = Partition(A,p,r).",
+   "2. QuickSort(A,p,q−1).",
+   "3. QuickSort(A,q+1,r).",
+   "Partition (Lomuto): pivot=A[r]; i=p−1; for j=p..r−1: if A[j] ≤ pivot: i++, swap A[i],A[j]; finally swap A[i+1],A[r]; return i+1."
+  ],
+  "pseudocode": "QuickSort(A,p,r)\n  if p < r then\n    q ← Partition(A,p,r)\n    QuickSort(A,p,q−1); QuickSort(A,q+1,r)\nPartition(A,p,r)\n  x ← A[r]; i ← p−1\n  for j ← p to r−1 do\n    if A[j] ≤ x then i ← i+1; swap A[i],A[j]\n  swap A[i+1],A[r]\n  return i+1",
+  "workedExample": "[10,80,30,90,40,50,70]: j=0 10 → swap(0,0); j=2 30 → swap(1,2); j=4 40 → swap(2,4); j=5 50 → swap(3,5); place pivot → [10,30,40,50,70,90,80].",
+  "timeComplexity": "Best/average Θ(n log n), worst Θ(n²)",
+  "spaceComplexity": "O(log n) average, O(n) worst stack",
+  "cases": {
+   "best": "Θ(n log n) balanced",
+   "average": "Θ(n log n)",
+   "worst": "Θ(n²) unbalanced"
+  },
+  "comparison": {
+   "title": "Quick vs Merge sort",
+   "headers": [
+    "Feature",
+    "Quick",
+    "Merge"
+   ],
+   "rows": [
+    [
+     "Worst",
+     "n²",
+     "n log n"
+    ],
+    [
+     "Space",
+     "O(log n)",
+     "O(n)"
+    ],
+    [
+     "Stable",
+     "No",
+     "Yes"
+    ],
+    [
+     "Practical speed",
+     "Usually faster",
+     "Consistent"
+    ]
+   ]
+  }
+ },
+ "daa-c2-t04": {
+  "id": "daa-c2-t04",
+  "title": "Merge Sort",
+  "importance": "high",
+  "definition": "Merge sort divides the array into two halves, sorts each recursively and merges the two sorted halves into one sorted array.",
+  "simpleExplanation": "Merge sort array ko beech se todta hai, dono halves sort karta hai aur phir do sorted halves ko merge karta hai. Time hamesha n log n.",
+  "realLifeAnalogy": "Two sorted piles of cards are merged by repeatedly taking the smaller top card.",
+  "example": "[38,27,43,3,9,82,10] → split to singles → merge: [27,38], [3,43], [9,82], [10] → [3,27,38,43], [9,10,82] → [3,9,10,27,38,43,82].",
+  "keyPoints": [
+   "Divide into halves, recursive sort, merge in Θ(n).",
+   "T(n)=2T(n/2)+Θ(n) ⇒ Θ(n log n) in all cases.",
+   "Needs O(n) auxiliary space.",
+   "Stable.",
+   "Not in-place for arrays; good for linked lists and external sorting.",
+   "Optimal for comparison sorting."
+  ],
+  "mustKnow": [
+   "Merge procedure.",
+   "Recurrence.",
+   "Space O(n)."
+  ],
+  "ifYouKnow": [
+   "Trace merge sort.",
+   "Write merge step.",
+   "State complexities."
+  ],
+  "commonMistakes": [
+   "Forgetting the auxiliary array cost.",
+   "Thinking best case is faster than worst (it is not)."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Show merge sort on [38,27,43,3,9,82,10].",
+    "answer": "Result [3,9,10,27,38,43,82]."
+   },
+   {
+    "type": "conceptual",
+    "question": "Write merge sort and derive its complexity.",
+    "answer": "Pseudocode; T(n)=2T(n/2)+n ⇒ n log n."
+   },
+   {
+    "type": "viva",
+    "question": "Is merge sort stable?",
+    "answer": "Yes, if the merge takes from the left half when equal."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Space of merge sort:",
+    "answer": "O(n)",
+    "explanation": "",
+    "options": [
+     "O(1)",
+     "O(log n)",
+     "O(n)",
+     "O(n²)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Merge sort worst case is O(n log n).",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Recurrence?",
+    "answer": "T(n)=2T(n/2)+n",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Merging sorted [1,4] and [2,3].",
+    "answer": "[1,2,3,4]",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Merge vs insertion sort.",
+    "answer": "Merge n log n always; insertion n² worst but n best.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Merge sort: split, sort halves, merge Θ(n); T=2T(n/2)+n ⇒ Θ(n log n) all cases; O(n) space; stable.",
+  "problemStatement": "Sort A[1..n].",
+  "approach": "Divide into halves, sort recursively, merge.",
+  "algorithmSteps": [
+   "1. If n ≤ 1 return.",
+   "2. mid=⌊(p+r)/2⌋; MergeSort left; MergeSort right.",
+   "3. Merge(A,p,mid,r): copy halves, take smaller front element repeatedly."
+  ],
+  "pseudocode": "MergeSort(A,p,r)\n  if p < r then\n    q ← ⌊(p+r)/2⌋\n    MergeSort(A,p,q); MergeSort(A,q+1,r)\n    Merge(A,p,q,r)",
+  "workedExample": "[38,27,43,3,9,82,10] → halves [38,27,43,3] & [9,82,10] → ... → [3,9,10,27,38,43,82].",
+  "timeComplexity": "Best/average/worst Θ(n log n)",
+  "spaceComplexity": "O(n)",
+  "cases": {
+   "best": "Θ(n log n)",
+   "average": "Θ(n log n)",
+   "worst": "Θ(n log n)"
+  }
+ },
+ "daa-c2-t05": {
+  "id": "daa-c2-t05",
+  "title": "Strassen Multiplication",
+  "importance": "medium",
+  "definition": "Strassen's algorithm multiplies two n×n matrices with seven recursive sub-multiplications instead of eight, giving Θ(n^{log₂7}) ≈ Θ(n^{2.81}).",
+  "simpleExplanation": "Normal matrix multiplication n³ hai. Strassen 2×2 block ke liye 8 ke jagah 7 multiplications use karta hai, isliye bade matrices par fast.",
+  "realLifeAnalogy": "Finding a shortcut that saves one of the eight expensive trips each time you cross a bridge.",
+  "example": "A=[[1,2],[3,4]], B=[[5,6],[7,8]]. M1=(1+4)(5+8)=65; M2=(3+4)5=35; M3=1(6−8)=−2; M4=4(7−5)=8; M5=(1+2)8=24; M6=(3−1)(5+6)=22; M7=(2−4)(7+8)=−30. C11=M1+M4−M5+M7=19, C12=M3+M5=22, C21=M2+M4=43, C22=M1−M2+M3+M6=50.",
+  "keyPoints": [
+   "Classical D&C: 8 multiplications ⇒ T=8T(n/2)+n² ⇒ Θ(n³).",
+   "Strassen: 7 multiplications ⇒ T=7T(n/2)+Θ(n²) ⇒ Θ(n^{log₂7}).",
+   "More additions/subtractions (18) but fewer multiplications.",
+   "Requires n to be a power of 2 (pad with zeros).",
+   "Higher constants and numerical stability issues; useful for large n.",
+   "Idea: algebraic identity reduces the multiplication count."
+  ],
+  "mustKnow": [
+   "Seven M formulas.",
+   "Recurrence and result.",
+   "Numeric check."
+  ],
+  "ifYouKnow": [
+   "Write M1–M7.",
+   "Derive complexity.",
+   "Multiply 2×2 matrices with it."
+  ],
+  "commonMistakes": [
+   "Believing Strassen is always faster in practice (constants).",
+   "Forgetting padding to a power of two."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Multiply [[1,2],[3,4]] and [[5,6],[7,8]] by Strassen.",
+    "answer": "[[19,22],[43,50]]."
+   },
+   {
+    "type": "conceptual",
+    "question": "Derive Strassen's time complexity.",
+    "answer": "T(n)=7T(n/2)+n²; a=7,b=2 ⇒ Θ(n^{log₂7})≈n^{2.81}."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Multiplications for 2×2 in Strassen:",
+    "answer": "7",
+    "explanation": "",
+    "options": [
+     "6",
+     "7",
+     "8",
+     "9"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Strassen is Θ(n³).",
+    "answer": "False",
+    "explanation": "It is Θ(n^2.81)."
+   },
+   {
+    "type": "short answer",
+    "question": "Recurrence?",
+    "answer": "T(n)=7T(n/2)+Θ(n²)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "log₂7 ≈ ?",
+    "answer": "2.807",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Classical D&C vs Strassen.",
+    "answer": "8 vs 7 recursive multiplications; n³ vs n^2.81.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Strassen: 7 mults instead of 8; T=7T(n/2)+n² ⇒ Θ(n^{2.81}); formulas M1–M7.",
+  "problemStatement": "Multiply two n×n matrices.",
+  "approach": "Use 7 clever products of sums/differences of sub-blocks.",
+  "algorithmSteps": [
+   "1. Split A,B,C into n/2×n/2 blocks.",
+   "2. Compute M1=(A11+A22)(B11+B22), M2=(A21+A22)B11, M3=A11(B12−B22), M4=A22(B21−B11), M5=(A11+A12)B22, M6=(A21−A11)(B11+B12), M7=(A12−A22)(B21+B22) recursively.",
+   "3. C11=M1+M4−M5+M7; C12=M3+M5; C21=M2+M4; C22=M1−M2+M3+M6."
+  ],
+  "workedExample": "A=[[1,2],[3,4]], B=[[5,6],[7,8]] ⇒ C=[[19,22],[43,50]] (checked against normal multiplication).",
+  "timeComplexity": "Θ(n^{log₂7}) ≈ Θ(n^{2.81})",
+  "spaceComplexity": "O(n²)",
+  "comparison": {
+   "title": "Matrix multiplication",
+   "headers": [
+    "Method",
+    "Mults (2×2)",
+    "Time"
+   ],
+   "rows": [
+    [
+     "Classical",
+     "8",
+     "Θ(n³)"
+    ],
+    [
+     "Strassen",
+     "7",
+     "Θ(n^2.81)"
+    ]
+   ]
+  }
+ },
+ "daa-c2-t06": {
+  "id": "daa-c2-t06",
+  "title": "Max-Min Problem",
+  "importance": "medium",
+  "definition": "The Max-Min problem finds the maximum and minimum of n elements; divide and conquer solves it using about 3n/2 − 2 comparisons instead of 2(n−1).",
+  "simpleExplanation": "Max aur min dono nikalne hain. Normal tareeke se 2(n−1) comparisons lagte hain. D&C me array ko do hisson me baant ke har hisse ke max-min nikalte hain, comparisons ~3n/2 − 2.",
+  "realLifeAnalogy": "Finding the tallest and shortest in a class by splitting into groups, finding each group's tallest and shortest, then comparing group winners.",
+  "example": "A=[3,9,1,7]. Split [3,9],[1,7]. (3,9): max 9, min 3; (1,7): max 7, min 1. Combine: max(9,7)=9; min(3,1)=1. Comparisons = 1+1+2 = 4 = 3·4/2−2.",
+  "keyPoints": [
+   "Naive: 2(n−1) comparisons.",
+   "D&C recurrence: T(n)=2T(n/2)+2, T(2)=1, T(1)=0.",
+   "Solution: T(n)=3n/2 − 2 (n power of 2).",
+   "Time Θ(n); this is optimal in the number of comparisons.",
+   "Base cases: one element, or two elements (1 comparison).",
+   "Combine step: 2 comparisons."
+  ],
+  "mustKnow": [
+   "Recurrence solution.",
+   "Trace example.",
+   "Naive vs D&C comparison count."
+  ],
+  "ifYouKnow": [
+   "Trace on small input.",
+   "Derive 3n/2−2.",
+   "Compare with naive."
+  ],
+  "commonMistakes": [
+   "Forgetting the two comparisons in combine.",
+   "Applying formula when n is not a power of 2 without adjusting."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Find max/min of [3,9,1,7] by D&C; count comparisons.",
+    "answer": "max 9, min 1; 4 comparisons."
+   },
+   {
+    "type": "conceptual",
+    "question": "Derive comparisons for Max-Min.",
+    "answer": "T(n)=2T(n/2)+2 ⇒ 3n/2−2."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "D&C comparisons for n=8:",
+    "answer": "10",
+    "explanation": "3·8/2−2=10",
+    "options": [
+     "14",
+     "10",
+     "16",
+     "7"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Naive method uses 2(n−1) comparisons.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Recurrence for Max-Min?",
+    "answer": "T(n)=2T(n/2)+2",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Naive comparisons for n=8.",
+    "answer": "14",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Time complexity naive vs D&C.",
+    "answer": "Both Θ(n); D&C uses fewer comparisons.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Max-Min D&C: T(n)=2T(n/2)+2 ⇒ 3n/2−2 comparisons (vs 2n−2); Θ(n).",
+  "problemStatement": "Find max and min of A[1..n].",
+  "approach": "Split, find max/min in halves, combine with 2 comparisons.",
+  "algorithmSteps": [
+   "1. If n=1: max=min=A[i]. If n=2: one comparison.",
+   "2. Else split; solve both halves.",
+   "3. max=larger of the two maxes; min=smaller of the two mins."
+  ],
+  "pseudocode": "MaxMin(i,j,max,min)\n  if i=j then max←min←A[i]\n  else if j=i+1 then\n    if A[i]<A[j] then max←A[j]; min←A[i] else max←A[i]; min←A[j]\n  else\n    mid←⌊(i+j)/2⌋\n    MaxMin(i,mid,max1,min1); MaxMin(mid+1,j,max2,min2)\n    max←MAX(max1,max2); min←MIN(min1,min2)",
+  "workedExample": "[3,9,1,7]: halves → (9,3) and (7,1) → max 9, min 1; total 4 comparisons.",
+  "timeComplexity": "Θ(n); comparisons 3n/2−2",
+  "spaceComplexity": "O(log n) recursion"
+ },
+ "daa-c3-t01": {
+  "id": "daa-c3-t01",
+  "title": "Introduction to Greedy Algorithms",
+  "importance": "high",
+  "definition": "A greedy algorithm builds a solution step by step, always choosing the option that looks best at the moment, hoping to reach a global optimum.",
+  "simpleExplanation": "Greedy me har step par sabse achha lagne wala choice le lete hain aur use badalte nahi. Kuch problems me ye optimal deta hai, kuch me nahi.",
+  "realLifeAnalogy": "Giving change by always handing the biggest coin that fits.",
+  "example": "Coins {25,10,5,1}, amount 41 → 25+10+5+1 (4 coins) optimal. But coins {1,3,4}, amount 6: greedy 4+1+1 (3 coins) while optimal 3+3 (2 coins) — greedy fails.",
+  "keyPoints": [
+   "Make locally optimal choice at each step; never backtrack.",
+   "Works if greedy-choice property and optimal substructure hold.",
+   "Typically sort + select; fast and simple.",
+   "Examples: Kruskal, Prim, Dijkstra, Huffman, activity selection, fractional knapsack.",
+   "Not guaranteed optimal for all problems (0/1 knapsack, arbitrary coins).",
+   "Proof via exchange argument."
+  ],
+  "mustKnow": [
+   "Greedy template.",
+   "Counterexample.",
+   "When it works."
+  ],
+  "ifYouKnow": [
+   "Explain greedy strategy.",
+   "Give a failing case.",
+   "List greedy algorithms."
+  ],
+  "commonMistakes": [
+   "Assuming greedy is always optimal.",
+   "Not proving the greedy-choice property."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain greedy strategy with a counterexample.",
+    "answer": "Local best choices; coin change {1,3,4} for 6."
+   },
+   {
+    "type": "difference",
+    "question": "Greedy vs DP.",
+    "answer": "Greedy makes one irrevocable choice; DP evaluates all sub-problems."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Greedy is NOT guaranteed optimal for:",
+    "answer": "0/1 knapsack",
+    "explanation": "",
+    "options": [
+     "Huffman",
+     "Kruskal",
+     "0/1 knapsack",
+     "Activity selection"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Greedy never backtracks.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Greedy for coins {1,3,4}, amount 6?",
+    "answer": "4+1+1 (3 coins); optimal is 3+3.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Choosing the earliest finishing activity first is…",
+    "answer": "Greedy",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Greedy vs brute force.",
+    "answer": "Greedy is fast but may be suboptimal; brute force is exhaustive.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Greedy: best local choice, no backtracking; needs greedy-choice + optimal substructure; fails for 0/1 knapsack.",
+  "problemStatement": "Optimise an objective by sequential choices.",
+  "approach": "Pick the locally best feasible candidate each step.",
+  "algorithmSteps": [
+   "1. Initialise solution as empty.",
+   "2. Select the best candidate by the greedy rule.",
+   "3. If feasible add it; else discard.",
+   "4. Repeat until a complete solution."
+  ],
+  "pseudocode": "Greedy(C)\n  S ← ∅\n  while C not empty and S not complete do\n    x ← Select(C); C ← C − {x}\n    if Feasible(S ∪ {x}) then S ← S ∪ {x}\n  return S",
+  "timeComplexity": "Usually O(n log n) due to sorting"
+ },
+ "daa-c3-t02": {
+  "id": "daa-c3-t02",
+  "title": "Elements of Greedy Strategy",
+  "importance": "high",
+  "definition": "The elements of a greedy strategy are a candidate set, selection function, feasibility function, objective function and solution function, justified by the greedy-choice property and optimal substructure.",
+  "simpleExplanation": "Greedy algorithm ke 5 hisse: candidates ka set, selection function (best kaun), feasibility (add kar sakte hain?), objective (kya maximize/minimize), solution (complete hua?). Sahi hone ke liye greedy-choice property aur optimal substructure chahiye.",
+  "realLifeAnalogy": "Packing a bag: items to choose from (candidates), your preference (selection), weight limit (feasibility), total value (objective), bag full (solution).",
+  "example": "Activity selection: candidates = activities; selection = earliest finish time; feasibility = no overlap with chosen; objective = maximise count; solution = no more feasible activity.",
+  "keyPoints": [
+   "Candidate set, selection function, feasibility function, objective function, solution function.",
+   "Greedy-choice property: a locally optimal choice is part of some globally optimal solution.",
+   "Optimal substructure: optimal solution contains optimal solutions of sub-problems.",
+   "Proof technique: exchange argument.",
+   "Matroid structure guarantees greedy optimality for certain problems.",
+   "Without these properties greedy can fail."
+  ],
+  "mustKnow": [
+   "Five elements.",
+   "Two properties.",
+   "Exchange argument."
+  ],
+  "ifYouKnow": [
+   "Name and explain elements.",
+   "Map them to a problem.",
+   "Explain exchange argument."
+  ],
+  "commonMistakes": [
+   "Confusing greedy-choice property with optimal substructure.",
+   "Skipping the proof of correctness."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain elements of greedy strategy.",
+    "answer": "Five functions + two properties with activity selection mapping."
+   },
+   {
+    "type": "viva",
+    "question": "What is the greedy-choice property?",
+    "answer": "A globally optimal solution can be built from locally optimal choices."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Checks whether a candidate can be added:",
+    "answer": "Feasibility function",
+    "explanation": "",
+    "options": [
+     "Selection function",
+     "Feasibility function",
+     "Objective function",
+     "Solution function"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Exchange argument proves greedy correctness.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Define optimal substructure.",
+    "answer": "Optimal solution contains optimal solutions to sub-problems.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Activity selection selection function?",
+    "answer": "Earliest finish time",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Selection vs feasibility function.",
+    "answer": "Selection chooses the best candidate; feasibility checks if it keeps a valid solution.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Greedy elements: candidates, selection, feasibility, objective, solution; properties: greedy-choice + optimal substructure.",
+  "comparison": {
+   "title": "Mapping to Activity Selection",
+   "headers": [
+    "Element",
+    "Meaning"
+   ],
+   "rows": [
+    [
+     "Candidates",
+     "All activities"
+    ],
+    [
+     "Selection",
+     "Earliest finish"
+    ],
+    [
+     "Feasibility",
+     "No overlap"
+    ],
+    [
+     "Objective",
+     "Max number"
+    ]
+   ]
+  }
+ },
+ "daa-c3-t03": {
+  "id": "daa-c3-t03",
+  "title": "Minimum Spanning Tree",
+  "importance": "high",
+  "definition": "A minimum spanning tree (MST) of a connected weighted graph is a spanning tree with the least total edge weight; Kruskal's and Prim's greedy algorithms find it.",
+  "simpleExplanation": "MST graph ke saare vertices ko sabse kam total weight me jodta hai bina cycle ke. Kruskal edges ko sort karke cycle na banne wali edges leta hai; Prim ek vertex se shuru karke sabse sasti edge se tree badhata hai.",
+  "realLifeAnalogy": "Laying the cheapest cable to connect all villages without wasting wire.",
+  "example": "Edges: AB1, BC2, AC3, BD4, CD5, CE6, DE7. Kruskal: AB1 ✓, BC2 ✓, AC3 ✗(cycle), BD4 ✓, CD5 ✗, CE6 ✓ → MST weight 1+2+4+6=13. Prim from A gives the same weight 13.",
+  "keyPoints": [
+   "Spanning tree has V−1 edges, no cycles.",
+   "Cut property: the lightest edge crossing a cut is in some MST.",
+   "Kruskal: sort edges; add if no cycle (union-find). Time O(E log E).",
+   "Prim: grow tree from a start vertex using min edge to a new vertex. O(V²) array, O(E log V) heap.",
+   "Kruskal is edge-based; Prim vertex-based.",
+   "MST is not necessarily unique when weights tie."
+  ],
+  "mustKnow": [
+   "Kruskal vs Prim.",
+   "Trace example.",
+   "Complexities."
+  ],
+  "ifYouKnow": [
+   "Run both algorithms.",
+   "State complexity.",
+   "Compare them."
+  ],
+  "commonMistakes": [
+   "Adding edges that form a cycle.",
+   "Using Prim's with disconnected graph without care."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Find MST of the given graph by Kruskal.",
+    "answer": "Edges AB, BC, BD, CE; weight 13."
+   },
+   {
+    "type": "difference",
+    "question": "Kruskal vs Prim.",
+    "answer": "Kruskal: global sorted edges, union-find, good for sparse; Prim: grows one tree, good for dense."
+   },
+   {
+    "type": "viva",
+    "question": "How many edges in an MST of V vertices?",
+    "answer": "V−1."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Kruskal uses:",
+    "answer": "Union-Find to detect cycles",
+    "explanation": "",
+    "options": [
+     "BFS",
+     "Union-Find to detect cycles",
+     "DP",
+     "Backtracking"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "MST has V−1 edges.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Prim complexity with heap?",
+    "answer": "O(E log V)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "MST weight for the example.",
+    "answer": "13",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Dense graph better algorithm?",
+    "answer": "Prim (array O(V²))",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "MST: V−1 edges, min weight; Kruskal (sort edges + union-find, O(E log E)); Prim (grow tree, O(E log V)).",
+  "problemStatement": "Connect all vertices of a weighted graph with minimum total weight.",
+  "approach": "Greedily add the cheapest safe edge (cut property).",
+  "algorithmSteps": [
+   "Kruskal: 1. Sort edges by weight.",
+   "2. For each edge (u,v): if Find(u)≠Find(v) add edge and Union(u,v).",
+   "3. Stop at V−1 edges.",
+   "Prim: 1. Pick start s, key[s]=0.",
+   "2. Repeatedly add the vertex with minimum key (edge to tree).",
+   "3. Update keys of its neighbours."
+  ],
+  "pseudocode": "Kruskal(G)\n  A ← ∅; sort edges by weight\n  for each edge (u,v) in order do\n    if Find(u) ≠ Find(v) then A ← A ∪ {(u,v)}; Union(u,v)\n  return A",
+  "workedExample": "Graph AB1, BC2, AC3, BD4, CD5, CE6, DE7: Kruskal picks AB, BC, BD, CE; total 13.",
+  "timeComplexity": "Kruskal O(E log E); Prim O(E log V) heap / O(V²) array",
+  "spaceComplexity": "O(V+E)",
+  "comparison": {
+   "title": "Kruskal vs Prim",
+   "headers": [
+    "Feature",
+    "Kruskal",
+    "Prim"
+   ],
+   "rows": [
+    [
+     "Approach",
+     "Add global cheapest safe edge",
+     "Grow one tree"
+    ],
+    [
+     "Data structure",
+     "Union-Find",
+     "Priority queue"
+    ],
+    [
+     "Best for",
+     "Sparse",
+     "Dense"
+    ],
+    [
+     "Time",
+     "O(E log E)",
+     "O(E log V)"
+    ]
+   ]
+  }
+ },
+ "daa-c3-t04": {
+  "id": "daa-c3-t04",
+  "title": "Dijkstra's Algorithm",
+  "importance": "high",
+  "definition": "Dijkstra's algorithm finds shortest paths from a source vertex to all other vertices in a graph with non-negative edge weights by greedily settling the nearest unvisited vertex.",
+  "simpleExplanation": "Dijkstra source se sabhi vertices tak sabse chhota raasta nikalta hai. Har baar sabse kam distance wala vertex finalize karta hai aur uske neighbours ki distance relax karta hai. Negative edges par kaam nahi karta.",
+  "realLifeAnalogy": "Google Maps finding the fastest route: expand from your location to the nearest places first.",
+  "example": "Edges: A→B 4, A→C 1, C→B 2, B→D 1, C→D 5. From A: dist A=0, C=1, B=min(4,1+2)=3, D=min(3+1,1+5)=4. Shortest A→D = 4 via A–C–B–D.",
+  "keyPoints": [
+   "Single-source shortest path; weights ≥ 0.",
+   "Greedy: pick unvisited vertex with the smallest distance.",
+   "Relaxation: if d[u]+w < d[v] update d[v].",
+   "O(V²) with array; O((V+E) log V) with min-heap.",
+   "Fails with negative edges (use Bellman–Ford).",
+   "Path recovered via parent pointers."
+  ],
+  "mustKnow": [
+   "Relaxation step.",
+   "Trace.",
+   "Negative edge limitation."
+  ],
+  "ifYouKnow": [
+   "Run Dijkstra on a graph.",
+   "State complexity.",
+   "Explain why not with negative edges."
+  ],
+  "commonMistakes": [
+   "Using Dijkstra with negative weights.",
+   "Forgetting to update after relaxing."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Run Dijkstra on A→B4, A→C1, C→B2, B→D1, C→D5 from A.",
+    "answer": "A0, C1, B3, D4."
+   },
+   {
+    "type": "viva",
+    "question": "Why does Dijkstra fail for negative edges?",
+    "answer": "A settled vertex's distance may later improve through a negative edge, breaking the greedy assumption."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Dijkstra requires:",
+    "answer": "Non-negative weights",
+    "explanation": "",
+    "options": [
+     "Negative weights",
+     "Non-negative weights",
+     "Unweighted only",
+     "DAG only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Dijkstra is greedy.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Heap-based complexity?",
+    "answer": "O((V+E) log V)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Shortest A→B in the example.",
+    "answer": "3 (via C)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Dijkstra vs Bellman–Ford.",
+    "answer": "Dijkstra faster, non-negative only; Bellman–Ford handles negative edges.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Dijkstra: single-source, w≥0; pick min-dist vertex, relax; O((V+E)log V); fails with negative edges.",
+  "problemStatement": "Shortest paths from source s to all vertices.",
+  "approach": "Repeatedly finalise the closest unvisited vertex and relax its edges.",
+  "algorithmSteps": [
+   "1. d[s]=0, d[v]=∞.",
+   "2. Insert all vertices in a min-priority queue.",
+   "3. Extract u with min d[u].",
+   "4. For each edge (u,v): if d[u]+w(u,v) < d[v] then d[v]=d[u]+w.",
+   "5. Repeat until the queue is empty."
+  ],
+  "pseudocode": "Dijkstra(G,s)\n  for each v: d[v]←∞; d[s]←0\n  Q ← all vertices\n  while Q not empty do\n    u ← ExtractMin(Q)\n    for each edge (u,v) do\n      if d[u]+w(u,v) < d[v] then d[v] ← d[u]+w(u,v)",
+  "workedExample": "Start A: relax B=4, C=1. Take C: B=3, D=6. Take B(3): D=4. Take D. Final: A0,C1,B3,D4.",
+  "timeComplexity": "O(V²) array; O((V+E) log V) heap",
+  "spaceComplexity": "O(V)"
+ },
+ "daa-c3-t05": {
+  "id": "daa-c3-t05",
+  "title": "Knapsack Problem",
+  "importance": "high",
+  "definition": "The (fractional) knapsack problem selects items, possibly fractions of them, to maximise total value within a weight capacity; the greedy choice by value-to-weight ratio is optimal.",
+  "simpleExplanation": "Bag ki capacity limited hai, items ka value aur weight hai. Fractional knapsack me item ka hissa le sakte ho, isliye value/weight ratio ke hisaab se sabse zyada ratio wala pehle lo — greedy optimal.",
+  "realLifeAnalogy": "Filling a jar with gold dust, silver and copper: take the most valuable per gram first.",
+  "example": "W=50. Items (value,weight): (60,10), (100,20), (120,30). Ratios 6, 5, 4. Take item1 (10), item2 (20), then 20 of item3 (20/30 of 120=80). Total = 60+100+80 = 240.",
+  "keyPoints": [
+   "Fractional: items divisible ⇒ greedy by v/w ratio is optimal.",
+   "0/1 knapsack: items indivisible ⇒ greedy may fail (use DP).",
+   "Steps: compute ratios, sort descending, fill.",
+   "Time O(n log n) due to sorting.",
+   "Example 0/1 optimum for above is 220 (items 2+3), greedy 0/1 would give 160.",
+   "Takes whole items first and a fraction of the last."
+  ],
+  "mustKnow": [
+   "Greedy by ratio.",
+   "Fractional vs 0/1.",
+   "Example 240 vs 220."
+  ],
+  "ifYouKnow": [
+   "Solve fractional knapsack.",
+   "Explain why 0/1 differs.",
+   "State complexity."
+  ],
+  "commonMistakes": [
+   "Applying ratio-greedy to 0/1 and claiming optimality.",
+   "Forgetting to take the fractional part."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Fractional knapsack: W=50, (60,10),(100,20),(120,30).",
+    "answer": "240."
+   },
+   {
+    "type": "difference",
+    "question": "Fractional vs 0/1 knapsack.",
+    "answer": "Fractional: greedy optimal, O(n log n); 0/1: needs DP, O(nW)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Greedy criterion for fractional knapsack:",
+    "answer": "Value/weight ratio",
+    "explanation": "",
+    "options": [
+     "Value",
+     "Weight",
+     "Value/weight ratio",
+     "Index"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Greedy is optimal for 0/1 knapsack.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Item (60,10) ratio?",
+    "answer": "6",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Time complexity?",
+    "answer": "O(n log n)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "0/1 optimum for the example?",
+    "answer": "220 (items 2 and 3 = 100+120).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Fractional knapsack: sort by v/w desc, take whole items then a fraction; O(n log n); example 240 (0/1 optimum 220).",
+  "problemStatement": "Maximise total value of items in capacity W; fractions allowed.",
+  "approach": "Take items in decreasing value/weight order.",
+  "algorithmSteps": [
+   "1. Compute v_i/w_i for all items.",
+   "2. Sort descending by ratio.",
+   "3. For each item: if it fits take it all, else take the fitting fraction and stop."
+  ],
+  "pseudocode": "FractionalKnapsack(v,w,W,n)\n  sort items by v[i]/w[i] descending\n  total ← 0\n  for i ← 1 to n do\n    if w[i] ≤ W then total += v[i]; W −= w[i]\n    else total += v[i]·(W/w[i]); break\n  return total",
+  "workedExample": "W=50: take 10 (60) → W=40; take 20 (100) → W=20; take 20/30 of item3 → 80. Total 240.",
+  "timeComplexity": "O(n log n)",
+  "spaceComplexity": "O(1) extra"
+ },
+ "daa-c3-t06": {
+  "id": "daa-c3-t06",
+  "title": "Activity Selection Problem",
+  "importance": "high",
+  "definition": "The activity selection problem chooses the maximum number of mutually compatible (non-overlapping) activities; greedily selecting the earliest finishing activity is optimal.",
+  "simpleExplanation": "Ek room me zyada se zyada activities fit karni hain jo overlap na karein. Activities ko finish time ke hisaab se sort karo, sabse jaldi khatam hone wali lo, phir agli jo uske baad start ho.",
+  "realLifeAnalogy": "Booking the most meetings in one room: always pick the meeting that ends earliest.",
+  "example": "Activities (start,finish) sorted by finish: (1,4),(3,5),(0,6),(5,7),(3,9),(5,9),(6,10),(8,11),(8,12),(2,14),(12,16). Pick (1,4); next start ≥4: (5,7); next ≥7: (8,11); next ≥11: (12,16). Total 4 activities.",
+  "keyPoints": [
+   "Sort by finish time.",
+   "Pick first; then each next with start ≥ last finish.",
+   "Greedy-choice property proven by exchange argument.",
+   "Time O(n log n) (sorting), O(n) after.",
+   "Maximises count, not total time.",
+   "Used in scheduling."
+  ],
+  "mustKnow": [
+   "Sort by finish time.",
+   "Trace.",
+   "Proof idea."
+  ],
+  "ifYouKnow": [
+   "Solve an instance.",
+   "State complexity.",
+   "Explain greedy choice."
+  ],
+  "commonMistakes": [
+   "Sorting by start time or duration (not optimal).",
+   "Allowing start < last finish."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Select max activities from the given list.",
+    "answer": "(1,4),(5,7),(8,11),(12,16) → 4."
+   },
+   {
+    "type": "viva",
+    "question": "Why earliest finish time?",
+    "answer": "It leaves the most room for remaining activities."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Sort activities by:",
+    "answer": "Finish time",
+    "explanation": "",
+    "options": [
+     "Start",
+     "Finish time",
+     "Duration",
+     "Index"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Activity selection greedy is optimal.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Time complexity?",
+    "answer": "O(n log n)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "(1,3),(2,4),(3,5): max compatible?",
+    "answer": "2 : (1,3),(3,5)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Earliest start vs earliest finish.",
+    "answer": "Earliest start can pick a long activity blocking others; earliest finish is optimal.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Activity selection: sort by finish, take compatible (start ≥ last finish); O(n log n).",
+  "problemStatement": "Pick the maximum number of non-overlapping activities.",
+  "approach": "Always choose the activity that finishes earliest.",
+  "algorithmSteps": [
+   "1. Sort by finish time.",
+   "2. Select the first activity.",
+   "3. For each next activity: if start ≥ finish of last selected, select it."
+  ],
+  "pseudocode": "ActivitySelection(s,f,n)\n  sort by f\n  A ← {1}; last ← 1\n  for i ← 2 to n do\n    if s[i] ≥ f[last] then A ← A ∪ {i}; last ← i\n  return A",
+  "workedExample": "Pick (1,4) → (5,7) → (8,11) → (12,16): 4 activities.",
+  "timeComplexity": "O(n log n)",
+  "spaceComplexity": "O(1) extra"
+ },
+ "daa-c3-t07": {
+  "id": "daa-c3-t07",
+  "title": "Huffman Codes",
+  "importance": "high",
+  "definition": "Huffman coding is a greedy algorithm that builds an optimal prefix-free binary code, giving shorter codes to more frequent characters to compress data.",
+  "simpleExplanation": "Huffman me jo character zyada aata hai usko chhota code, kam aane wale ko lamba code dete hain. Prefix-free hota hai, isliye decode me confusion nahi. Greedy tarike se do sabse kam frequency wale nodes ko merge karte jaate hain.",
+  "realLifeAnalogy": "Morse code idea: frequent letters like E get short signals, rare ones get long.",
+  "example": "Frequencies a:45, b:13, c:12, d:16, e:9, f:5. Merge f+e=14; c+b=25; 14+d=30; 25+30=55; a+55=100. Codes: a=0, c=100, b=101, f=1100, e=1101, d=111. Cost = 45·1+12·3+13·3+16·3+5·4+9·4 = 224 bits per 100 chars vs 300 for fixed 3-bit.",
+  "keyPoints": [
+   "Prefix code: no code is a prefix of another.",
+   "Greedy: repeatedly merge the two lowest-frequency nodes using a min-heap.",
+   "Left edge = 0, right edge = 1.",
+   "Optimal among prefix codes.",
+   "Time O(n log n) with heap.",
+   "Used in compression (e.g. JPEG, ZIP stages)."
+  ],
+  "mustKnow": [
+   "Tree building steps.",
+   "Code assignment.",
+   "Cost calculation."
+  ],
+  "ifYouKnow": [
+   "Build the Huffman tree.",
+   "Write codes.",
+   "Compute total bits."
+  ],
+  "commonMistakes": [
+   "Not keeping the code prefix-free.",
+   "Mis-merging: always pick the two smallest."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Build Huffman codes for a:45,b:13,c:12,d:16,e:9,f:5.",
+    "answer": "a=0,c=100,b=101,f=1100,e=1101,d=111; 224 bits."
+   },
+   {
+    "type": "viva",
+    "question": "What is a prefix code?",
+    "answer": "A code in which no codeword is a prefix of another."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Huffman uses:",
+    "answer": "Min-heap of frequencies",
+    "explanation": "",
+    "options": [
+     "Stack",
+     "Min-heap of frequencies",
+     "Queue only",
+     "Hash table"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Higher frequency gets shorter code.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Complexity?",
+    "answer": "O(n log n)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Frequencies 5,9: merged node frequency?",
+    "answer": "14",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Fixed vs Huffman coding.",
+    "answer": "Fixed uses equal length codes; Huffman uses variable length by frequency (fewer bits overall).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Huffman: merge two smallest freq repeatedly (min-heap); prefix-free; O(n log n); example total 224 bits.",
+  "problemStatement": "Assign binary codes to characters minimising total encoded length.",
+  "approach": "Greedily merge the two least frequent nodes.",
+  "algorithmSteps": [
+   "1. Create a leaf per character; build a min-heap by frequency.",
+   "2. Repeat n−1 times: extract two minimum nodes; create parent with sum frequency; insert.",
+   "3. Assign 0 to left, 1 to right; read codes from root to leaves."
+  ],
+  "pseudocode": "Huffman(C)\n  n ← |C|; Q ← C (min-heap by freq)\n  for i ← 1 to n−1 do\n    z ← new node\n    z.left ← ExtractMin(Q); z.right ← ExtractMin(Q)\n    z.freq ← z.left.freq + z.right.freq\n    Insert(Q, z)\n  return ExtractMin(Q)",
+  "workedExample": "f5+e9=14; c12+b13=25; 14+d16=30; 25+30=55; a45+55=100.",
+  "timeComplexity": "O(n log n)",
+  "spaceComplexity": "O(n)"
+ },
+ "daa-c4-t01": {
+  "id": "daa-c4-t01",
+  "title": "Principle of Optimality",
+  "importance": "high",
+  "definition": "The principle of optimality states that an optimal solution to a problem contains optimal solutions to its sub-problems; dynamic programming exploits this together with overlapping sub-problems.",
+  "simpleExplanation": "Dynamic programming me bade problem ka optimal answer chhote problems ke optimal answers se banta hai. Sub-problems repeat hote hain, isliye unka answer store karke dobara compute nahi karte.",
+  "realLifeAnalogy": "Planning the cheapest route Delhi→Mumbai via Jaipur: the Jaipur→Mumbai part must itself be the cheapest from Jaipur.",
+  "example": "Fibonacci: naive recursion recomputes F(k) many times (O(2ⁿ)). DP stores F(0..n) in a table: F(n)=F(n−1)+F(n−2) computed once each ⇒ O(n).",
+  "keyPoints": [
+   "Needs optimal substructure and overlapping sub-problems.",
+   "Top-down (memoization) vs bottom-up (tabulation).",
+   "Steps: define sub-problem, recurrence, base case, fill table, reconstruct answer.",
+   "Trades memory for time.",
+   "Examples: 0/1 knapsack, LCS, chain matrix, Floyd–Warshall, making change.",
+   "Different from greedy: tries all sub-problem options."
+  ],
+  "mustKnow": [
+   "Principle statement.",
+   "Memoization vs tabulation.",
+   "Fibonacci example."
+  ],
+  "ifYouKnow": [
+   "State the principle.",
+   "Identify DP suitability.",
+   "Convert recursion to DP."
+  ],
+  "commonMistakes": [
+   "Using DP without overlapping sub-problems (no benefit).",
+   "Assuming greedy and DP are the same."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain principle of optimality with an example.",
+    "answer": "Optimal substructure; shortest path via an intermediate vertex."
+   },
+   {
+    "type": "difference",
+    "question": "Memoization vs tabulation.",
+    "answer": "Top-down recursion with cache vs bottom-up table filling."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "DP needs:",
+    "answer": "Optimal substructure + overlapping sub-problems",
+    "explanation": "",
+    "options": [
+     "Only greedy choice",
+     "Optimal substructure + overlapping sub-problems",
+     "Random choice",
+     "Sorting"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Memoization is top-down.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "DP time for Fibonacci(n).",
+    "answer": "O(n)",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two DP problems.",
+    "answer": "0/1 knapsack and LCS.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "DP vs D&C.",
+    "answer": "DP reuses overlapping sub-problems; D&C sub-problems are independent.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Optimality: optimal solution built from optimal sub-solutions; DP = optimal substructure + overlapping sub-problems; memoize or tabulate.",
+  "problemStatement": "Solve problems with optimal substructure and repeating sub-problems efficiently.",
+  "approach": "Store each sub-problem's answer once and reuse it.",
+  "algorithmSteps": [
+   "1. Characterise the optimal structure.",
+   "2. Write a recurrence with base cases.",
+   "3. Fill the table bottom-up (or memoise top-down).",
+   "4. Reconstruct the solution from the table."
+  ],
+  "pseudocode": "Fib(n)\n  F[0]←0; F[1]←1\n  for i ← 2 to n do F[i] ← F[i−1] + F[i−2]\n  return F[n]",
+  "workedExample": "F: 0,1,1,2,3,5,8 … each computed once; naive recursion for F(5) recomputes F(2) three times.",
+  "timeComplexity": "Table size × cost per entry",
+  "spaceComplexity": "Table size (often reducible)"
+ },
+ "daa-c4-t02": {
+  "id": "daa-c4-t02",
+  "title": "0/1 Knapsack Problem",
+  "importance": "high",
+  "definition": "The 0/1 knapsack problem chooses a subset of indivisible items maximising total value without exceeding capacity W; it is solved by dynamic programming in O(nW).",
+  "simpleExplanation": "0/1 knapsack me item ya to poora lo ya bilkul nahi. Greedy yahan fail ho sakta hai, isliye DP table V[i][w] banate hain: i items aur w capacity me best value.",
+  "realLifeAnalogy": "Packing a suitcase with fixed-size items: you can't cut a laptop in half.",
+  "example": "W=7; items (weight,value): (1,1),(3,4),(4,5),(5,7). Final table row 4: [0,1,1,4,5,7,8,9]. Best value 9 using items 2 and 3 (weights 3+4=7).",
+  "keyPoints": [
+   "Recurrence: V[i,w]=V[i−1,w] if wᵢ>w, else max(V[i−1,w], vᵢ+V[i−1,w−wᵢ]).",
+   "Base: V[0,w]=0, V[i,0]=0.",
+   "Time O(nW), space O(nW) (O(W) with 1-D array) — pseudo-polynomial.",
+   "Trace back the table to find chosen items.",
+   "Greedy by ratio is not optimal here.",
+   "NP-hard in general."
+  ],
+  "mustKnow": [
+   "Recurrence.",
+   "Table filling.",
+   "Trace-back."
+  ],
+  "ifYouKnow": [
+   "Fill the DP table.",
+   "Find chosen items.",
+   "Explain pseudo-polynomial."
+  ],
+  "commonMistakes": [
+   "Using greedy ratio for 0/1.",
+   "Wrong index when item doesn't fit."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Solve W=7 with items (1,1),(3,4),(4,5),(5,7).",
+    "answer": "Max value 9, items 2 and 3."
+   },
+   {
+    "type": "conceptual",
+    "question": "Write recurrence and complexity.",
+    "answer": "As above; O(nW)."
+   },
+   {
+    "type": "viva",
+    "question": "Why is O(nW) pseudo-polynomial?",
+    "answer": "W is a numeric value, not input length."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "0/1 knapsack DP time:",
+    "answer": "O(nW)",
+    "explanation": "",
+    "options": [
+     "O(n)",
+     "O(nW)",
+     "O(2ⁿ)",
+     "O(W)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Greedy ratio is always optimal for 0/1.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "V[2][3] in the example.",
+    "answer": "4",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Base case?",
+    "answer": "V[0,w]=0 and V[i,0]=0.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Fractional vs 0/1.",
+    "answer": "Fractional greedy; 0/1 DP.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "0/1 Knapsack: V[i,w]=max(V[i−1,w], vᵢ+V[i−1,w−wᵢ]); O(nW) time/space; trace back chosen items.",
+  "problemStatement": "Maximise value of items in capacity W; each item taken whole or not.",
+  "approach": "Table of best values for first i items and capacity w.",
+  "algorithmSteps": [
+   "1. V[0..n][0]=0, V[0][0..W]=0.",
+   "2. For i=1..n, w=1..W: if wᵢ>w V[i][w]=V[i−1][w] else V[i][w]=max(V[i−1][w], vᵢ+V[i−1][w−wᵢ]).",
+   "3. Answer V[n][W]; trace back."
+  ],
+  "pseudocode": "Knapsack(v,w,n,W)\n  for i ← 0 to n: V[i][0] ← 0\n  for j ← 0 to W: V[0][j] ← 0\n  for i ← 1 to n do\n    for j ← 1 to W do\n      if w[i] > j then V[i][j] ← V[i−1][j]\n      else V[i][j] ← max(V[i−1][j], v[i]+V[i−1][j−w[i]])\n  return V[n][W]",
+  "workedExample": "Row1 [0,1,1,1,1,1,1,1]; Row2 [0,1,1,4,5,5,5,5]; Row3 [0,1,1,4,5,6,6,9]; Row4 [0,1,1,4,5,7,8,9] ⇒ 9.",
+  "timeComplexity": "Θ(nW)",
+  "spaceComplexity": "Θ(nW), reducible to Θ(W)"
+ },
+ "daa-c4-t03": {
+  "id": "daa-c4-t03",
+  "title": "Making Change Problem",
+  "importance": "medium",
+  "definition": "The making change problem finds the minimum number of coins needed to form a given amount from given denominations; dynamic programming guarantees the optimum where greedy may fail.",
+  "simpleExplanation": "Amount N banane ke liye kam se kam coins chahiye. Greedy kabhi galat ho sakta hai, isliye C[j] = min(C[j−coin]+1) wali DP table banate hain.",
+  "realLifeAnalogy": "Paying exact change at a shop using the fewest coins from a mixed set of denominations.",
+  "example": "Coins {1,3,4}, amount 6: C[0..6] = 0,1,2,1,1,2,2. C[6]=min(C[5]+1, C[3]+1, C[2]+1)=2 ⇒ 3+3. Greedy would give 4+1+1 (3 coins).",
+  "keyPoints": [
+   "Recurrence: C[0]=0; C[j]=min over coins d≤j of (C[j−d]+1).",
+   "Time O(n·N) for n coins and amount N.",
+   "Space O(N).",
+   "Greedy works only for canonical coin systems (e.g. 1,5,10,25).",
+   "Counting ways variant uses addition instead of min.",
+   "Trace back with a 'last coin' array."
+  ],
+  "mustKnow": [
+   "Recurrence.",
+   "Greedy failure.",
+   "Table for {1,3,4}."
+  ],
+  "ifYouKnow": [
+   "Fill the table.",
+   "Show greedy fails.",
+   "State complexity."
+  ],
+  "commonMistakes": [
+   "Initialising C[j] to 0 instead of ∞.",
+   "Assuming greedy is always valid."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Minimum coins for 6 with {1,3,4}.",
+    "answer": "2 coins (3+3)."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain DP for making change.",
+    "answer": "Recurrence, table, complexity."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "C[0] equals:",
+    "answer": "0",
+    "explanation": "",
+    "options": [
+     "0",
+     "1",
+     "∞",
+     "N"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Greedy always gives minimum coins.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "C[5] for coins {1,3,4}.",
+    "answer": "2 (4+1)",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Time complexity?",
+    "answer": "O(nN)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Min-coins vs count-ways.",
+    "answer": "Min uses min(); count-ways sums combinations.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Making change: C[j]=min(C[j−d]+1); O(nN); greedy fails for {1,3,4}.",
+  "problemStatement": "Minimise coins to make amount N.",
+  "approach": "Build answers for amounts 0..N using smaller amounts.",
+  "algorithmSteps": [
+   "1. C[0]=0; C[j]=∞ for j>0.",
+   "2. For j=1..N: for each coin d≤j: C[j]=min(C[j], C[j−d]+1).",
+   "3. Return C[N]."
+  ],
+  "pseudocode": "MakeChange(d,n,N)\n  C[0] ← 0\n  for j ← 1 to N do\n    C[j] ← ∞\n    for i ← 1 to n do\n      if d[i] ≤ j and C[j−d[i]]+1 < C[j] then C[j] ← C[j−d[i]]+1\n  return C[N]",
+  "workedExample": "{1,3,4}: C=[0,1,2,1,1,2,2] ⇒ C[6]=2.",
+  "timeComplexity": "O(nN)",
+  "spaceComplexity": "O(N)"
+ },
+ "daa-c4-t04": {
+  "id": "daa-c4-t04",
+  "title": "Chain Matrix Multiplication",
+  "importance": "high",
+  "definition": "Chain matrix multiplication finds the parenthesisation of a matrix product A₁A₂…Aₙ that minimises the number of scalar multiplications, using dynamic programming.",
+  "simpleExplanation": "Matrices ko multiply karne ka order alag ho sakta hai aur cost bhi badal jata hai. DP se pata lagate hain kaunsa bracket order sabse kam multiplications deta hai.",
+  "realLifeAnalogy": "Choosing which pairs of boxes to combine first so total packing effort is least.",
+  "example": "Dimensions p=[10,30,5,60] (A1:10×30, A2:30×5, A3:5×60). (A1A2)A3 = 10·30·5 + 10·5·60 = 1500+3000 = 4500. A1(A2A3) = 30·5·60 + 10·30·60 = 9000+18000 = 27000. Minimum 4500.",
+  "keyPoints": [
+   "Multiplying p×q by q×r costs p·q·r.",
+   "m[i,j]=min over k of m[i,k]+m[k+1,j]+p_{i−1}p_k p_j; m[i,i]=0.",
+   "Compute by increasing chain length.",
+   "Time O(n³), space O(n²).",
+   "Number of parenthesisations is a Catalan number (exponential).",
+   "Store split points s[i,j] to print the order."
+  ],
+  "mustKnow": [
+   "Recurrence.",
+   "Cost formula.",
+   "Example."
+  ],
+  "ifYouKnow": [
+   "Compute minimum multiplications.",
+   "Give parenthesisation.",
+   "State complexity."
+  ],
+  "commonMistakes": [
+   "Forgetting matrix multiplication is associative but cost differs.",
+   "Using wrong dimension index p_{i−1}."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Dimensions 10×30, 30×5, 5×60: minimum cost and order.",
+    "answer": "4500 with (A1A2)A3."
+   },
+   {
+    "type": "conceptual",
+    "question": "Write the recurrence and complexity.",
+    "answer": "As above; O(n³)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Cost of multiplying 10×30 by 30×5:",
+    "answer": "1500",
+    "explanation": "10·30·5",
+    "options": [
+     "300",
+     "1500",
+     "150",
+     "3000"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Order of parenthesisation changes the result.",
+    "answer": "False",
+    "explanation": "It changes cost, not the result."
+   },
+   {
+    "type": "short answer",
+    "question": "DP complexity?",
+    "answer": "O(n³)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "m[2,3] for p=[10,30,5,60].",
+    "answer": "9000",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Brute force vs DP.",
+    "answer": "Brute force Catalan exponential; DP O(n³).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Chain matrix: m[i,j]=min(m[i,k]+m[k+1,j]+p_{i−1}p_k p_j); O(n³); example 4500 vs 27000.",
+  "problemStatement": "Minimise scalar multiplications to compute A₁…Aₙ.",
+  "approach": "Try every split point k and store best costs for sub-chains.",
+  "algorithmSteps": [
+   "1. m[i,i]=0.",
+   "2. For chain length L=2..n, for i, j=i+L−1: m[i,j]=∞.",
+   "3. For k=i..j−1: q=m[i,k]+m[k+1,j]+p_{i−1}p_kp_j; keep the minimum and split k.",
+   "4. m[1,n] is the answer."
+  ],
+  "pseudocode": "MatrixChain(p,n)\n  for i ← 1 to n: m[i][i] ← 0\n  for L ← 2 to n do\n    for i ← 1 to n−L+1 do\n      j ← i+L−1; m[i][j] ← ∞\n      for k ← i to j−1 do\n        q ← m[i][k]+m[k+1][j]+p[i−1]·p[k]·p[j]\n        if q < m[i][j] then m[i][j] ← q; s[i][j] ← k",
+  "workedExample": "p=[10,30,5,60]: m[1,2]=1500; m[2,3]=9000; m[1,3]=min(0+9000+18000, 1500+0+3000)=4500.",
+  "timeComplexity": "Θ(n³)",
+  "spaceComplexity": "Θ(n²)"
+ },
+ "daa-c4-t05": {
+  "id": "daa-c4-t05",
+  "title": "Longest Common Subsequence",
+  "importance": "high",
+  "definition": "The longest common subsequence (LCS) of two sequences is the longest sequence appearing in both in the same order (not necessarily contiguous).",
+  "simpleExplanation": "LCS do strings me common letters ka sabse lamba sequence hai jo order me ho par saath-saath hona zaroori nahi. DP table c[i][j] se nikalte hain.",
+  "realLifeAnalogy": "Finding the longest list of songs that appear in the same order in two playlists, even with other songs between.",
+  "example": "X=ABCD, Y=ACBD. LCS length 3 (e.g. ABD). Table rows: A:[1,1,1,1], B:[1,1,2,2], C:[1,2,2,2], D:[1,2,2,3].",
+  "keyPoints": [
+   "Recurrence: c[i][j]=c[i−1][j−1]+1 if X[i]=Y[j]; else max(c[i−1][j], c[i][j−1]); c[0][·]=c[·][0]=0.",
+   "Time O(mn), space O(mn).",
+   "Trace back from c[m][n] to print the subsequence.",
+   "Subsequence ≠ substring.",
+   "LCS may not be unique.",
+   "Used in diff tools, DNA comparison."
+  ],
+  "mustKnow": [
+   "Recurrence.",
+   "Table fill.",
+   "Trace back."
+  ],
+  "ifYouKnow": [
+   "Fill the LCS table.",
+   "Print one LCS.",
+   "State complexity."
+  ],
+  "commonMistakes": [
+   "Confusing subsequence with substring.",
+   "Wrong tie handling in trace back."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "LCS length of ABCD and ACBD.",
+    "answer": "3."
+   },
+   {
+    "type": "conceptual",
+    "question": "Write algorithm and complexity.",
+    "answer": "Recurrence; O(mn)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "LCS time:",
+    "answer": "O(mn)",
+    "explanation": "",
+    "options": [
+     "O(m+n)",
+     "O(mn)",
+     "O(2ᵐ)",
+     "O(n)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Subsequence must be contiguous.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "LCS length of 'ABC' and 'AC'.",
+    "answer": "2",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Base value of table?",
+    "answer": "0",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "LCS vs longest common substring.",
+    "answer": "Substring must be contiguous; subsequence need not.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "LCS: c[i][j]=c[i−1][j−1]+1 if match else max(up,left); O(mn); trace back to read sequence.",
+  "problemStatement": "Find the longest common subsequence of X[1..m] and Y[1..n].",
+  "approach": "Table of LCS lengths of prefixes.",
+  "algorithmSteps": [
+   "1. c[i][0]=c[0][j]=0.",
+   "2. For i,j: if X[i]=Y[j] c[i][j]=c[i−1][j−1]+1 else c[i][j]=max(c[i−1][j], c[i][j−1]).",
+   "3. Trace back from c[m][n]."
+  ],
+  "pseudocode": "LCS(X,Y,m,n)\n  for i ← 0 to m: c[i][0] ← 0\n  for j ← 0 to n: c[0][j] ← 0\n  for i ← 1 to m do\n    for j ← 1 to n do\n      if X[i]=Y[j] then c[i][j] ← c[i−1][j−1]+1\n      else c[i][j] ← max(c[i−1][j], c[i][j−1])\n  return c[m][n]",
+  "workedExample": "X=ABCD, Y=ACBD → last cell c[4][4]=3 → e.g. A,B,D.",
+  "timeComplexity": "Θ(mn)",
+  "spaceComplexity": "Θ(mn), Θ(min(m,n)) for length only"
+ },
+ "daa-c4-t06": {
+  "id": "daa-c4-t06",
+  "title": "All Pair Shortest Paths: Warshall's and Floyd's Algorithms",
+  "importance": "high",
+  "definition": "Floyd's algorithm computes shortest distances between all vertex pairs by allowing vertices as intermediates one at a time, and Warshall's algorithm computes reachability (transitive closure) in the same way.",
+  "simpleExplanation": "Floyd–Warshall har pair (i,j) ka shortest path nikalta hai, ek ek vertex k ko intermediate maan ke: d[i][j]=min(d[i][j], d[i][k]+d[k][j]). Warshall wahi idea reachability (0/1) ke liye.",
+  "realLifeAnalogy": "Checking whether going via city k shortens every trip between every pair of cities, for each city k in turn.",
+  "example": "D0=[[0,4,11],[6,0,2],[3,∞,0]]. k=1: d32=7. k=2: d13=6. k=3: d21=5. Final D=[[0,4,6],[5,0,2],[3,7,0]].",
+  "keyPoints": [
+   "Floyd: d^(k)[i][j]=min(d^(k−1)[i][j], d^(k−1)[i][k]+d^(k−1)[k][j]).",
+   "Warshall: R^(k)[i][j]=R^(k−1)[i][j] OR (R^(k−1)[i][k] AND R^(k−1)[k][j]).",
+   "Time Θ(V³), space Θ(V²) (in-place).",
+   "Handles negative edges but not negative cycles.",
+   "Dynamic programming over intermediate vertices.",
+   "Dense graphs: better than running Dijkstra V times with arrays."
+  ],
+  "mustKnow": [
+   "Floyd recurrence.",
+   "Warshall closure.",
+   "Trace of 3-vertex example."
+  ],
+  "ifYouKnow": [
+   "Compute APSP matrix.",
+   "Compute transitive closure.",
+   "State complexity."
+  ],
+  "commonMistakes": [
+   "Wrong loop order (k must be the outermost loop).",
+   "Using it with negative cycles."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Run Floyd on D0=[[0,4,11],[6,0,2],[3,∞,0]].",
+    "answer": "[[0,4,6],[5,0,2],[3,7,0]]."
+   },
+   {
+    "type": "difference",
+    "question": "Floyd vs Warshall.",
+    "answer": "Floyd: shortest distances; Warshall: reachability (boolean)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Floyd–Warshall time:",
+    "answer": "Θ(V³)",
+    "explanation": "",
+    "options": [
+     "Θ(V)",
+     "Θ(V²)",
+     "Θ(V³)",
+     "Θ(E)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "k is the outermost loop.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Warshall computes?",
+    "answer": "Transitive closure.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "d13 after k=2 in the example.",
+    "answer": "6",
+    "explanation": "4+2"
+   },
+   {
+    "type": "comparison",
+    "question": "Floyd vs Dijkstra for all pairs.",
+    "answer": "Floyd Θ(V³) simple; Dijkstra×V is O(V(V+E)logV) for non-negative sparse graphs.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Floyd: d[i][j]=min(d[i][j], d[i][k]+d[k][j]), k outermost, Θ(V³); Warshall: reachability with OR/AND.",
+  "problemStatement": "Shortest distance between every pair of vertices.",
+  "approach": "Allow vertices 1..k as intermediates, increasing k.",
+  "algorithmSteps": [
+   "1. D = weight matrix (∞ if no edge, 0 diagonal).",
+   "2. For k=1..n: for i=1..n: for j=1..n: D[i][j]=min(D[i][j], D[i][k]+D[k][j]).",
+   "3. D holds all-pairs shortest distances."
+  ],
+  "pseudocode": "Floyd(W,n)\n  D ← W\n  for k ← 1 to n do\n    for i ← 1 to n do\n      for j ← 1 to n do\n        D[i][j] ← min(D[i][j], D[i][k]+D[k][j])\n  return D",
+  "workedExample": "D0 → D1: d32=7 → D2: d13=6 → D3: d21=5 ⇒ [[0,4,6],[5,0,2],[3,7,0]].",
+  "timeComplexity": "Θ(V³)",
+  "spaceComplexity": "Θ(V²)",
+  "comparison": {
+   "title": "Floyd vs Warshall",
+   "headers": [
+    "Feature",
+    "Floyd",
+    "Warshall"
+   ],
+   "rows": [
+    [
+     "Output",
+     "Shortest distances",
+     "Reachability"
+    ],
+    [
+     "Update",
+     "min(+)",
+     "OR(AND)"
+    ],
+    [
+     "Time",
+     "Θ(V³)",
+     "Θ(V³)"
+    ]
+   ]
+  }
+ },
+ "daa-c5-t01": {
+  "id": "daa-c5-t01",
+  "title": "An Introduction using Graphs and Games",
+  "importance": "medium",
+  "definition": "Many games and puzzles can be modelled as graphs where vertices are game positions and edges are legal moves, so solving the game becomes analysing the graph.",
+  "simpleExplanation": "Game ko graph samjho: har position ek vertex, har legal move ek edge. Phir graph search se pata chalta hai kaunsi position jeetne wali hai aur kaunsi harne wali.",
+  "realLifeAnalogy": "A board game map: each square is a position and arrows show where a move can take you.",
+  "example": "Game: pile of n coins; a move removes 1 or 2; the player who takes the last coin wins. Positions n=0 (player to move has lost), 1 and 2 are winning, 3 is losing, 4 and 5 winning, 6 losing… Losing positions are multiples of 3.",
+  "keyPoints": [
+   "Vertex = position/state; edge = legal move.",
+   "Directed graph for games (moves are one-way).",
+   "Terminal positions decide win/lose; label backwards.",
+   "A position is winning if some move leads to a losing position.",
+   "Same modelling for puzzles: 8-puzzle, maze, Nim.",
+   "Graph traversal (BFS/DFS) explores the state space."
+  ],
+  "mustKnow": [
+   "Positions as vertices.",
+   "Winning/losing labelling.",
+   "Coin-removal game."
+  ],
+  "ifYouKnow": [
+   "Model a game as a graph.",
+   "Label winning/losing positions.",
+   "Link to traversal."
+  ],
+  "commonMistakes": [
+   "Forgetting direction of moves.",
+   "Labelling forward instead of from terminal positions backward."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Coin game with moves 1 or 2: which n are losing?",
+    "answer": "Multiples of 3."
+   },
+   {
+    "type": "conceptual",
+    "question": "How are graphs used to model games?",
+    "answer": "Positions as vertices, moves as edges; backward labelling."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "In a game graph an edge represents:",
+    "answer": "A legal move",
+    "explanation": "",
+    "options": [
+     "A player",
+     "A legal move",
+     "A score",
+     "A winner"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "A position is winning if some move reaches a losing position.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Is n=3 winning in the 1-or-2 coin game?",
+    "answer": "No, losing.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Maze solving as graph. Vertices?",
+    "answer": "Cells/junctions",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Graph vs tree for games.",
+    "answer": "Graph allows repeated positions; tree duplicates them.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Games as graphs: positions=vertices, moves=edges; winning if a move reaches a losing position; coin game losing at multiples of 3.",
+  "problemStatement": "Decide whether a position is winning.",
+  "approach": "Label terminal positions then work backwards.",
+  "algorithmSteps": [
+   "1. Build graph of positions/moves.",
+   "2. Mark terminal positions (lose for player to move).",
+   "3. A position is winning if any successor is losing; losing if all successors are winning.",
+   "4. Repeat backwards."
+  ],
+  "workedExample": "n=0 L; n=1 W (→0); n=2 W (→0); n=3: moves →2(W),1(W) ⇒ L; n=4 → 3(L) ⇒ W."
+ },
+ "daa-c5-t02": {
+  "id": "daa-c5-t02",
+  "title": "Undirected Graph",
+  "importance": "high",
+  "definition": "An undirected graph G=(V,E) is a set of vertices and a set of unordered pairs of vertices (edges) where an edge connects two vertices in both directions.",
+  "simpleExplanation": "Undirected graph me edge dono taraf jaati hai (A–B matlab B–A bhi). Degree, path, cycle, connectivity jaise concepts hote hain.",
+  "realLifeAnalogy": "A road network with two-way roads.",
+  "example": "V={A,B,C,D}, E={AB,AC,BD}. deg(A)=2, deg(B)=2, deg(C)=1, deg(D)=1; sum degrees = 6 = 2|E|.",
+  "keyPoints": [
+   "Edge {u,v} unordered; degree = number of incident edges.",
+   "Handshake lemma: Σ deg(v)=2|E|.",
+   "Complete graph Kₙ has n(n−1)/2 edges.",
+   "Connected if a path exists between every pair; tree = connected acyclic.",
+   "Representations: adjacency matrix O(V²) space; adjacency list O(V+E).",
+   "Path, cycle, connected component."
+  ],
+  "mustKnow": [
+   "Handshake lemma.",
+   "Representations.",
+   "Complete graph edges."
+  ],
+  "ifYouKnow": [
+   "Compute degrees.",
+   "Choose representation.",
+   "Count edges of Kₙ."
+  ],
+  "commonMistakes": [
+   "Counting an undirected edge twice in |E|.",
+   "Using matrix for sparse graphs."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Edges in K₅.",
+    "answer": "10."
+   },
+   {
+    "type": "difference",
+    "question": "Adjacency matrix vs list.",
+    "answer": "Matrix O(V²) space, O(1) edge check; list O(V+E) space, efficient traversal."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Σ degrees equals:",
+    "answer": "2|E|",
+    "explanation": "",
+    "options": [
+     "|E|",
+     "2|E|",
+     "|V|",
+     "|V|²"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Tree is connected and acyclic.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "K₄ edges.",
+    "answer": "6",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Space of adjacency list?",
+    "answer": "O(V+E)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Path vs cycle.",
+    "answer": "Path: sequence of vertices via edges; cycle: path starting and ending at same vertex.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Undirected graph: unordered edges; Σdeg=2|E|; Kₙ has n(n−1)/2 edges; matrix O(V²) vs list O(V+E).",
+  "comparison": {
+   "title": "Representations",
+   "headers": [
+    "Feature",
+    "Matrix",
+    "List"
+   ],
+   "rows": [
+    [
+     "Space",
+     "O(V²)",
+     "O(V+E)"
+    ],
+    [
+     "Edge test",
+     "O(1)",
+     "O(deg)"
+    ],
+    [
+     "Best for",
+     "Dense",
+     "Sparse"
+    ]
+   ]
+  }
+ },
+ "daa-c5-t03": {
+  "id": "daa-c5-t03",
+  "title": "Directed Graph",
+  "importance": "high",
+  "definition": "A directed graph (digraph) has edges with direction, each edge (u,v) going from u to v only.",
+  "simpleExplanation": "Directed graph me edge ka direction hota hai (A→B alag hai B→A se). In-degree, out-degree, strongly connected, DAG jaise concepts important hain.",
+  "realLifeAnalogy": "One-way streets: you can go from A to B but not back.",
+  "example": "V={1,2,3}, E={(1,2),(2,3),(3,1)}: a directed cycle; each vertex has in-degree 1 and out-degree 1; strongly connected.",
+  "keyPoints": [
+   "Edge (u,v) ≠ (v,u).",
+   "Σ in-degree = Σ out-degree = |E|.",
+   "Max edges n(n−1) without self loops.",
+   "Strongly connected: every vertex reachable from every other.",
+   "DAG: directed acyclic graph (topological ordering exists).",
+   "Adjacency list stores only out-neighbours."
+  ],
+  "mustKnow": [
+   "In/out degree.",
+   "DAG.",
+   "Strongly connected."
+  ],
+  "ifYouKnow": [
+   "Compute in/out-degree.",
+   "Identify DAG.",
+   "Represent a digraph."
+  ],
+  "commonMistakes": [
+   "Treating directed edges as undirected.",
+   "Assuming every digraph has a topological order (only DAGs)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain directed graphs and their terms.",
+    "answer": "Direction, in/out degree, strongly connected, DAG."
+   },
+   {
+    "type": "viva",
+    "question": "Max edges in a digraph of n vertices?",
+    "answer": "n(n−1) (no self-loops)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "DAG stands for:",
+    "answer": "Directed acyclic graph",
+    "explanation": "",
+    "options": [
+     "Directed acyclic graph",
+     "Dense acyclic graph",
+     "Double arc graph",
+     "None"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Σ in-degree equals Σ out-degree.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Max edges for n=4.",
+    "answer": "12",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Strongly connected means?",
+    "answer": "Path between every ordered pair.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Undirected vs directed edge count.",
+    "answer": "Undirected max n(n−1)/2; directed n(n−1).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Digraph: ordered edges; Σin=Σout=|E|; DAG has topological order; max n(n−1) edges."
+ },
+ "daa-c5-t04": {
+  "id": "daa-c5-t04",
+  "title": "Traversing Graphs",
+  "importance": "high",
+  "definition": "Graph traversal visits every vertex (and edge) of a graph exactly once in a systematic order, using DFS or BFS with a visited marker.",
+  "simpleExplanation": "Traversal matlab graph ke saare vertices ko ek baar visit karna. Visited array rakhte hain taaki cycle me phase na. Do tareeke: DFS (stack/recursion) aur BFS (queue).",
+  "realLifeAnalogy": "Exploring a city: either go as deep as possible down one street before returning (DFS) or visit all nearby streets first (BFS).",
+  "example": "Graph A–B, A–C, B–D, C–E. DFS from A: A,B,D,C,E. BFS from A: A,B,C,D,E.",
+  "keyPoints": [
+   "Mark visited to avoid infinite loops.",
+   "Start vertex; for disconnected graphs, restart from unvisited vertices (components).",
+   "DFS uses stack/recursion; BFS uses queue.",
+   "Time O(V+E) with adjacency list; O(V²) with matrix.",
+   "Produces a traversal tree/forest.",
+   "Foundation for connectivity, cycle detection, shortest paths."
+  ],
+  "mustKnow": [
+   "Visited array.",
+   "Components.",
+   "Complexity."
+  ],
+  "ifYouKnow": [
+   "Traverse a graph.",
+   "Count components.",
+   "Choose DFS or BFS."
+  ],
+  "commonMistakes": [
+   "Forgetting the visited check.",
+   "Not handling disconnected graphs."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain graph traversal and its types.",
+    "answer": "DFS and BFS with visited marking and complexity."
+   },
+   {
+    "type": "viva",
+    "question": "How count connected components?",
+    "answer": "Run traversal from each unvisited vertex; count starts."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Traversal time with adjacency list:",
+    "answer": "O(V+E)",
+    "explanation": "",
+    "options": [
+     "O(V)",
+     "O(V+E)",
+     "O(V²)",
+     "O(E²)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "BFS uses a queue.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Why mark visited?",
+    "answer": "To avoid revisiting and infinite loops.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Disconnected graph traversal needs?",
+    "answer": "Repeat from unvisited vertices",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "DFS vs BFS data structure.",
+    "answer": "DFS stack; BFS queue.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Traversal: visit all vertices once with visited[]; DFS (stack) / BFS (queue); O(V+E); restart for components.",
+  "algorithmSteps": [
+   "1. Mark all vertices unvisited.",
+   "2. For each unvisited vertex v: traverse from v.",
+   "3. Mark v visited; explore neighbours not yet visited."
+  ],
+  "timeComplexity": "O(V+E) list; O(V²) matrix",
+  "spaceComplexity": "O(V)"
+ },
+ "daa-c5-t05": {
+  "id": "daa-c5-t05",
+  "title": "Depth First Search",
+  "importance": "high",
+  "definition": "Depth First Search (DFS) explores a graph by going as deep as possible along each branch before backtracking, using recursion or a stack.",
+  "simpleExplanation": "DFS ek raste pe jitna ho sake andar tak jaata hai, phir wapas aake dusra raasta try karta hai. Stack ya recursion use hota hai.",
+  "realLifeAnalogy": "Exploring a maze by following one corridor until a dead end, then backing up to try another.",
+  "example": "Graph edges A–B, A–C, B–D, C–E. DFS(A): visit A → B → D (dead end) → back to A → C → E. Order: A,B,D,C,E.",
+  "keyPoints": [
+   "Uses stack/recursion; discovery and finish times.",
+   "Edge types in digraph: tree, back, forward, cross; back edge ⇒ cycle.",
+   "Time O(V+E); space O(V).",
+   "Applications: cycle detection, topological sort, strongly connected components, maze solving.",
+   "Does not guarantee shortest paths.",
+   "DFS tree/forest."
+  ],
+  "mustKnow": [
+   "Pseudocode.",
+   "Order for example.",
+   "Back edge = cycle."
+  ],
+  "ifYouKnow": [
+   "Trace DFS.",
+   "State complexity.",
+   "Name applications."
+  ],
+  "commonMistakes": [
+   "Using DFS for shortest paths in unweighted graphs (BFS is right).",
+   "Forgetting recursion depth limits."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "DFS order from A for A–B, A–C, B–D, C–E.",
+    "answer": "A,B,D,C,E."
+   },
+   {
+    "type": "conceptual",
+    "question": "Write DFS and applications.",
+    "answer": "Pseudocode, O(V+E), cycle detection, topological sort."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "DFS uses:",
+    "answer": "Stack",
+    "explanation": "",
+    "options": [
+     "Queue",
+     "Stack",
+     "Heap",
+     "Array only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "A back edge indicates a cycle.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "DFS time complexity?",
+    "answer": "O(V+E)",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Detect cycle in a directed graph. Method?",
+    "answer": "DFS with back-edge detection",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "DFS vs BFS shortest path.",
+    "answer": "BFS gives shortest unweighted paths; DFS does not.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "DFS: go deep, backtrack; stack/recursion; O(V+E); back edge ⇒ cycle; used in topological sort, SCC.",
+  "problemStatement": "Visit all vertices reachable from a source.",
+  "approach": "Recursively explore each unvisited neighbour.",
+  "algorithmSteps": [
+   "1. Mark v visited.",
+   "2. For each neighbour w of v: if not visited, DFS(w).",
+   "3. Record finish time."
+  ],
+  "pseudocode": "DFS(G)\n  for each v: visited[v] ← false\n  for each v: if not visited[v] then DFSVisit(v)\nDFSVisit(u)\n  visited[u] ← true\n  for each w in Adj[u] do\n    if not visited[w] then DFSVisit(w)",
+  "workedExample": "A:[B,C], B:[A,D], C:[A,E] → A, B, D, C, E.",
+  "timeComplexity": "O(V+E)",
+  "spaceComplexity": "O(V)"
+ },
+ "daa-c5-t06": {
+  "id": "daa-c5-t06",
+  "title": "Breadth First Search",
+  "importance": "high",
+  "definition": "Breadth First Search (BFS) explores a graph level by level from a source using a queue, finding shortest paths in unweighted graphs.",
+  "simpleExplanation": "BFS pehle source ke saare nazdeeki neighbours, phir unke neighbours, aise level-by-level visit karta hai. Queue use hoti hai. Unweighted graph me shortest path deta hai.",
+  "realLifeAnalogy": "Ripples in a pond: the wave reaches near points first, then farther ones.",
+  "example": "Graph A–B, A–C, B–D, C–E. BFS(A): queue [A] → visit A, enqueue B,C → B (enqueue D) → C (enqueue E) → D → E. Order A,B,C,D,E; distances A0,B1,C1,D2,E2.",
+  "keyPoints": [
+   "Queue-based; level order.",
+   "Shortest path (fewest edges) in unweighted graphs.",
+   "Time O(V+E); space O(V).",
+   "Applications: shortest path, connectivity, bipartite check, level-order.",
+   "BFS tree stores parents.",
+   "Memory heavy for wide graphs."
+  ],
+  "mustKnow": [
+   "Queue algorithm.",
+   "Distances.",
+   "DFS vs BFS table."
+  ],
+  "ifYouKnow": [
+   "Trace BFS.",
+   "Compute distances.",
+   "Compare with DFS."
+  ],
+  "commonMistakes": [
+   "Marking visited when dequeued instead of when enqueued (duplicates).",
+   "Using BFS for weighted shortest paths."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "BFS order and distances from A.",
+    "answer": "A,B,C,D,E; 0,1,1,2,2."
+   },
+   {
+    "type": "difference",
+    "question": "DFS vs BFS.",
+    "answer": "Stack/deep vs queue/level; BFS gives shortest unweighted paths."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "BFS uses:",
+    "answer": "Queue",
+    "explanation": "",
+    "options": [
+     "Stack",
+     "Queue",
+     "Heap",
+     "Tree"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "BFS finds shortest paths in unweighted graphs.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Complexity?",
+    "answer": "O(V+E)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Distance of D from A in the example.",
+    "answer": "2",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "BFS vs Dijkstra.",
+    "answer": "BFS for unweighted; Dijkstra for non-negative weights.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "BFS: queue, level order, shortest unweighted paths, O(V+E).",
+  "problemStatement": "Visit vertices in increasing distance from source.",
+  "approach": "Process vertices from a FIFO queue.",
+  "algorithmSteps": [
+   "1. Mark s visited; enqueue s; dist[s]=0.",
+   "2. While queue not empty: u=dequeue.",
+   "3. For each unvisited neighbour w: mark, dist[w]=dist[u]+1, enqueue."
+  ],
+  "pseudocode": "BFS(G,s)\n  visited[s] ← true; dist[s] ← 0; Enqueue(Q,s)\n  while Q not empty do\n    u ← Dequeue(Q)\n    for each w in Adj[u] do\n      if not visited[w] then visited[w] ← true; dist[w] ← dist[u]+1; Enqueue(Q,w)",
+  "workedExample": "From A: A(0) → B(1),C(1) → D(2),E(2).",
+  "timeComplexity": "O(V+E)",
+  "spaceComplexity": "O(V)",
+  "comparison": {
+   "title": "DFS vs BFS",
+   "headers": [
+    "Feature",
+    "DFS",
+    "BFS"
+   ],
+   "rows": [
+    [
+     "Structure",
+     "Stack/recursion",
+     "Queue"
+    ],
+    [
+     "Order",
+     "Deep first",
+     "Level by level"
+    ],
+    [
+     "Shortest path",
+     "No",
+     "Yes (unweighted)"
+    ],
+    [
+     "Use",
+     "Cycles, topo sort",
+     "Shortest path, levels"
+    ]
+   ]
+  }
+ },
+ "daa-c5-t07": {
+  "id": "daa-c5-t07",
+  "title": "Topological Sort",
+  "importance": "high",
+  "definition": "A topological sort of a directed acyclic graph is a linear ordering of its vertices such that for every edge u→v, u appears before v.",
+  "simpleExplanation": "Topological sort DAG ke vertices ko aise line me lagata hai ki har edge u→v me u pehle aaye. Jaise courses ka prerequisite order. Kahn's algorithm (in-degree) ya DFS finish time se karte hain.",
+  "realLifeAnalogy": "Getting dressed: socks before shoes, shirt before tie.",
+  "example": "Edges 5→2, 5→0, 4→0, 4→1, 2→3, 3→1. In-degrees: 0:2, 1:2, 2:1, 3:1, 4:0, 5:0. Kahn: 4, 5, 2, 0, 3, 1 (valid ordering).",
+  "keyPoints": [
+   "Exists only for DAGs.",
+   "Kahn's algorithm: repeatedly remove vertices with in-degree 0.",
+   "DFS method: order by decreasing finish time.",
+   "Time O(V+E).",
+   "Ordering may not be unique.",
+   "If Kahn's cannot remove all vertices, there is a cycle."
+  ],
+  "mustKnow": [
+   "Kahn's steps.",
+   "DFS method.",
+   "Cycle detection."
+  ],
+  "ifYouKnow": [
+   "Produce a topological order.",
+   "Explain uniqueness.",
+   "Detect a cycle."
+  ],
+  "commonMistakes": [
+   "Applying to graphs with cycles.",
+   "Thinking the order is unique."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Topological order of 5→2,5→0,4→0,4→1,2→3,3→1.",
+    "answer": "4,5,2,0,3,1 (one valid answer)."
+   },
+   {
+    "type": "viva",
+    "question": "How does Kahn's algorithm detect cycles?",
+    "answer": "If some vertices remain with in-degree >0 when the queue empties."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Topological sort applies to:",
+    "answer": "DAGs",
+    "explanation": "",
+    "options": [
+     "Any graph",
+     "DAGs",
+     "Undirected graphs",
+     "Trees only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Topological order is always unique.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Time complexity?",
+    "answer": "O(V+E)",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Course prerequisites order. Algorithm?",
+    "answer": "Topological sort",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Kahn vs DFS method.",
+    "answer": "Kahn uses in-degrees/queue; DFS uses reverse finishing times.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Topological sort: DAG ordering; Kahn (in-degree 0 queue) or DFS reverse finish; O(V+E); cycle ⇒ impossible.",
+  "problemStatement": "Order vertices of a DAG so all edges go forward.",
+  "approach": "Repeatedly output a vertex with no remaining incoming edges.",
+  "algorithmSteps": [
+   "1. Compute in-degree of every vertex.",
+   "2. Enqueue vertices with in-degree 0.",
+   "3. Dequeue u, output it; reduce in-degree of its neighbours; enqueue those reaching 0.",
+   "4. If output count < V, a cycle exists."
+  ],
+  "pseudocode": "TopoSort(G)\n  compute indeg[v]; Q ← vertices with indeg 0\n  while Q not empty do\n    u ← Dequeue(Q); output u\n    for each v in Adj[u] do\n      indeg[v] ← indeg[v]−1\n      if indeg[v] = 0 then Enqueue(Q,v)",
+  "workedExample": "Queue [4,5] → output 4 (0:1,1:1) → 5 (2:0,0:0) → 2 (3:0) → 0 → 3 (1:0) → 1.",
+  "timeComplexity": "O(V+E)",
+  "spaceComplexity": "O(V)"
+ },
+ "daa-c6-t01": {
+  "id": "daa-c6-t01",
+  "title": "Introduction to Backtracking",
+  "importance": "high",
+  "definition": "Backtracking builds a solution incrementally, exploring a state-space tree depth-first and abandoning (backtracking from) any partial solution that cannot lead to a valid complete solution.",
+  "simpleExplanation": "Backtracking me hum step by step solution banate hain. Agar koi partial solution galat nikle to wahi se wapas aake dusra option try karte hain. Ye smart brute force hai jo bekar branches kaat deta hai.",
+  "realLifeAnalogy": "Solving a maze: take a path; at a dead end return to the last junction and try another turn.",
+  "example": "Subset-sum: choose numbers from {3,5,7} to reach 8: include 3, include 5 → sum 8 ✓. If sum exceeds 8, stop that branch (prune) and backtrack.",
+  "keyPoints": [
+   "Depth-first search of the state-space tree.",
+   "Constraints (explicit and implicit) decide validity.",
+   "Bounding/pruning function kills non-promising nodes.",
+   "Promising node: may lead to a solution.",
+   "Typical problems: N-Queens, subset sum, graph colouring, Hamiltonian cycle, Sudoku.",
+   "Worst case still exponential."
+  ],
+  "mustKnow": [
+   "General template.",
+   "Promising vs non-promising.",
+   "Brute force vs backtracking."
+  ],
+  "ifYouKnow": [
+   "Explain backtracking.",
+   "Draw a state-space tree.",
+   "Write the template."
+  ],
+  "commonMistakes": [
+   "Not undoing the choice before trying the next option.",
+   "Missing a pruning condition so it behaves like brute force."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain backtracking with an example.",
+    "answer": "DFS on state-space tree with pruning; N-Queens or subset sum."
+   },
+   {
+    "type": "difference",
+    "question": "Backtracking vs brute force.",
+    "answer": "Backtracking prunes partial solutions early; brute force generates all complete candidates."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Backtracking explores the tree using:",
+    "answer": "DFS",
+    "explanation": "",
+    "options": [
+     "BFS",
+     "DFS",
+     "Heap",
+     "Sorting"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Backtracking prunes invalid partial solutions.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two backtracking problems.",
+    "answer": "N-Queens and graph colouring.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Sum exceeds target in subset-sum. Action?",
+    "answer": "Prune/backtrack",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Backtracking vs branch & bound.",
+    "answer": "Backtracking for feasibility; B&B for optimisation using bounds.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Backtracking: DFS on state-space tree, prune non-promising nodes, undo and try next; exponential worst case.",
+  "problemStatement": "Find solutions satisfying constraints among many candidates.",
+  "approach": "Extend partial solutions; abandon when constraints fail.",
+  "algorithmSteps": [
+   "1. Start with an empty partial solution.",
+   "2. Try each option for the next component.",
+   "3. If the partial solution is promising → recurse.",
+   "4. If complete and valid → record; otherwise undo and try the next option."
+  ],
+  "pseudocode": "Backtrack(k)\n  for each choice x for position k do\n    if Promising(k, x) then\n      X[k] ← x\n      if k = n then output X else Backtrack(k+1)",
+  "timeComplexity": "Exponential worst case (e.g. O(n!), O(2ⁿ))",
+  "spaceComplexity": "O(n) recursion depth"
+ },
+ "daa-c6-t02": {
+  "id": "daa-c6-t02",
+  "title": "Introduction to Branch & Bound",
+  "importance": "high",
+  "definition": "Branch and bound solves optimisation problems by branching into sub-problems and using bounds on the best possible value in each branch to discard branches that cannot beat the best solution found so far.",
+  "simpleExplanation": "Branch & bound optimization problems ke liye hai. Har node ke liye ek bound nikalte hain (best kitna mil sakta hai). Agar bound abhi tak ke best se kharab hai to us branch ko kaat dete hain.",
+  "realLifeAnalogy": "Shopping with a budget: if even the best-case total of a basket already exceeds your best deal, stop exploring that basket.",
+  "example": "0/1 knapsack: at each node compute an upper bound using the fractional knapsack; if bound ≤ best known value, prune the node.",
+  "keyPoints": [
+   "Branching: split into smaller sub-problems; bounding: estimate best value reachable.",
+   "Live node, E-node (being expanded), dead node.",
+   "Search strategies: FIFO (BFS), LIFO (DFS), least-cost / best-first with priority queue.",
+   "Prune if bound is not better than the incumbent best.",
+   "Used for knapsack, TSP, job assignment.",
+   "Worst case still exponential, but practical savings are large."
+  ],
+  "mustKnow": [
+   "Branch, bound, prune.",
+   "Strategies.",
+   "Vs backtracking."
+  ],
+  "ifYouKnow": [
+   "Explain B&B.",
+   "Pick a bounding function.",
+   "Compare with backtracking."
+  ],
+  "commonMistakes": [
+   "Using weak bounds that prune nothing.",
+   "Pruning with an optimistic bound in the wrong direction."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain branch and bound.",
+    "answer": "Branch, bound, prune using incumbent; strategies."
+   },
+   {
+    "type": "difference",
+    "question": "Backtracking vs branch & bound.",
+    "answer": "Backtracking: any feasible solution(s), DFS; B&B: optimal solution with bounds and various search orders."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "B&B is mainly used for:",
+    "answer": "Optimisation",
+    "explanation": "",
+    "options": [
+     "Sorting",
+     "Optimisation",
+     "Searching text",
+     "Hashing"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "B&B can use best-first search.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is the incumbent?",
+    "answer": "Best complete solution found so far.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Node bound worse than incumbent. Action?",
+    "answer": "Prune it",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "FIFO vs LIFO B&B.",
+    "answer": "FIFO uses a queue (BFS-like); LIFO uses a stack (DFS-like).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "B&B: branch + bound + prune against incumbent; FIFO/LIFO/least-cost; for optimisation.",
+  "problemStatement": "Find an optimal solution among many feasible ones.",
+  "approach": "Compute bounds per node; prune branches that cannot beat the best.",
+  "algorithmSteps": [
+   "1. Create root; compute its bound.",
+   "2. Choose a live node (queue/stack/priority).",
+   "3. Branch into children; compute bounds.",
+   "4. Prune children whose bound ≤ best (max problem).",
+   "5. Update best at feasible leaves; repeat until no live nodes."
+  ],
+  "comparison": {
+   "title": "Backtracking vs Branch & Bound",
+   "headers": [
+    "Aspect",
+    "Backtracking",
+    "Branch & Bound"
+   ],
+   "rows": [
+    [
+     "Goal",
+     "Feasible solutions",
+     "Optimal solution"
+    ],
+    [
+     "Search",
+     "DFS",
+     "DFS/BFS/best-first"
+    ],
+    [
+     "Pruning",
+     "Constraint violation",
+     "Bound vs incumbent"
+    ]
+   ]
+  }
+ },
+ "daa-c6-t03": {
+  "id": "daa-c6-t03",
+  "title": "0/1 Knapsack Problem (Backtracking / Branch & Bound)",
+  "importance": "high",
+  "definition": "Solving 0/1 knapsack with backtracking or branch and bound explores include/exclude decisions in a state-space tree and prunes nodes whose upper bound cannot beat the best value found.",
+  "simpleExplanation": "Yahan 0/1 knapsack ko backtracking / branch & bound se solve karte hain: har item ko include ya exclude, aur fractional-knapsack bound se bekar branches kaat dete hain.",
+  "realLifeAnalogy": "Packing a suitcase item by item: if even with the best possible remaining items you can't beat your best packing so far, stop that attempt.",
+  "example": "W=10; items (value,weight) sorted by ratio: (40,4),(42,7),(25,5),(12,3). Root bound: 40 + (6/7)·42 = 76. Best complete: items 1+3 → value 65, weight 9. Branch 'exclude item 1' has bound 42+15 = 57 < 65 ⇒ pruned.",
+  "keyPoints": [
+   "Sort items by value/weight descending.",
+   "State-space tree: left = include, right = exclude.",
+   "Upper bound: fill remaining capacity with fractional items.",
+   "Prune if weight > W or bound ≤ best.",
+   "Optimal for the example is 65 (items 1 and 3).",
+   "Compare with DP O(nW)."
+  ],
+  "mustKnow": [
+   "Bound calculation.",
+   "Pruning rule.",
+   "Example result."
+  ],
+  "ifYouKnow": [
+   "Compute node bounds.",
+   "Find the optimum with pruning.",
+   "Compare with DP."
+  ],
+  "commonMistakes": [
+   "Not sorting by ratio (weak bounds).",
+   "Using the bound as the node's value."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Solve W=10, items (40,4),(42,7),(25,5),(12,3) by B&B.",
+    "answer": "Optimal 65 with items 1 and 3."
+   },
+   {
+    "type": "viva",
+    "question": "How is the upper bound computed?",
+    "answer": "Greedy fractional knapsack on remaining items."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Upper bound uses:",
+    "answer": "Fractional knapsack",
+    "explanation": "",
+    "options": [
+     "DP",
+     "Fractional knapsack",
+     "Sorting only",
+     "Hashing"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Items should be sorted by value/weight ratio.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Weight of items 1 and 3.",
+    "answer": "9",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Prune when?",
+    "answer": "Bound ≤ best known value or weight exceeds capacity.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "B&B vs DP for knapsack.",
+    "answer": "B&B prunes tree; DP fills O(nW) table.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "0/1 knapsack B&B: sort by ratio, include/exclude tree, fractional upper bound, prune; example optimum 65.",
+  "problemStatement": "Maximise value with capacity W, whole items only.",
+  "approach": "Search include/exclude tree with fractional upper bounds.",
+  "algorithmSteps": [
+   "1. Sort by v/w descending.",
+   "2. At each node compute weight, value and upper bound.",
+   "3. If weight>W or bound ≤ best → prune.",
+   "4. Branch include/exclude; update best at leaves."
+  ],
+  "workedExample": "Root ub=76. Include 1 (w4,v40) ub=76. Include 3 → w9,v65 (best=65). Exclude 1: ub=57 <65 pruned.",
+  "timeComplexity": "Exponential worst case; typically far fewer nodes",
+  "spaceComplexity": "O(n)"
+ },
+ "daa-c6-t04": {
+  "id": "daa-c6-t04",
+  "title": "N-Queens Problem",
+  "importance": "high",
+  "definition": "The N-Queens problem places N queens on an N×N chessboard so that no two queens attack each other (same row, column or diagonal), solved by backtracking.",
+  "simpleExplanation": "N×N board par N queens aise rakhni hain ki koi ek doosre ko attack na kare. Row by row queen rakhte hain; conflict aaye to piche jaake position badalte hain.",
+  "realLifeAnalogy": "Seating guests who dislike sitting in line of sight with each other: place one, check conflicts, move if needed.",
+  "example": "4-Queens: row1 col2, row2 col4, row3 col1, row4 col3 → solution (2,4,1,3). Another is (3,1,4,2).",
+  "keyPoints": [
+   "One queen per row; track column of each queen X[i].",
+   "Conflict if same column or |X[i]−X[j]| = |i−j| (diagonal).",
+   "Backtrack when no safe column in a row.",
+   "4-Queens has 2 solutions; 8-Queens has 92 (12 distinct).",
+   "Worst-case O(n!) but pruning cuts it hugely.",
+   "Symmetry can halve the work."
+  ],
+  "mustKnow": [
+   "Safe-check formula.",
+   "Trace for N=4.",
+   "Number of solutions."
+  ],
+  "ifYouKnow": [
+   "Solve 4-Queens by hand.",
+   "Write Place(k,i).",
+   "State complexity."
+  ],
+  "commonMistakes": [
+   "Forgetting diagonal check.",
+   "Not undoing a placement on backtrack."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Find a solution for 4-Queens.",
+    "answer": "(2,4,1,3) or (3,1,4,2)."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain N-Queens using backtracking.",
+    "answer": "Row-wise placement, safe check, backtrack on failure."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Diagonal attack condition:",
+    "answer": "|xᵢ−xⱼ| = |i−j|",
+    "explanation": "",
+    "options": [
+     "xᵢ=xⱼ",
+     "|xᵢ−xⱼ| = |i−j|",
+     "i=j",
+     "None"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "4-Queens has 2 solutions.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Number of solutions of 8-Queens?",
+    "answer": "92",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Row has no safe column. Action?",
+    "answer": "Backtrack to previous row",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Brute force vs backtracking for N-Queens.",
+    "answer": "Brute force tries all placements; backtracking prunes unsafe partial placements.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "N-Queens: place row by row; safe if different column and |Δcol|≠|Δrow|; backtrack; 4-Queens (2,4,1,3).",
+  "problemStatement": "Place N non-attacking queens on an N×N board.",
+  "approach": "Place one queen per row, pruning conflicting columns/diagonals.",
+  "algorithmSteps": [
+   "1. For row k=1..N try each column i.",
+   "2. If Place(k,i) is safe set X[k]=i.",
+   "3. If k=N print solution else recurse on k+1.",
+   "4. If no column works, backtrack."
+  ],
+  "pseudocode": "Place(k,i)\n  for j ← 1 to k−1 do\n    if X[j]=i or |X[j]−i| = |j−k| then return false\n  return true\nNQueens(k,n)\n  for i ← 1 to n do\n    if Place(k,i) then\n      X[k] ← i\n      if k=n then print X else NQueens(k+1,n)",
+  "workedExample": "N=4: (1,1)→(2,3) dead end; (2,4)→(3,2)→ row4 dead end; backtrack to row1 col2: (2,4),(3,1),(4,3) ⇒ (2,4,1,3).",
+  "timeComplexity": "O(n!) worst case",
+  "spaceComplexity": "O(n)"
+ },
+ "daa-c6-t05": {
+  "id": "daa-c6-t05",
+  "title": "Travelling Salesman Problem",
+  "importance": "high",
+  "definition": "The travelling salesman problem (TSP) asks for the shortest tour that visits every city exactly once and returns to the start; it is NP-hard and can be solved exactly by dynamic programming (Held–Karp) or branch and bound.",
+  "simpleExplanation": "TSP me salesman ko saare cities ek baar visit karke wapas start par aana hai, sabse kam distance me. Brute force (n−1)! hai; DP O(n²2ⁿ); branch & bound me reduced cost matrix se lower bound nikalte hain.",
+  "realLifeAnalogy": "A delivery rider planning the shortest loop through all customers' homes and back to the shop.",
+  "example": "Distances A–B 10, A–C 15, A–D 20, B–C 35, B–D 25, C–D 30. Best tour A→B→D→C→A = 10+25+30+15 = 80. Row/column reduction gives root lower bound 70 ≤ 80.",
+  "keyPoints": [
+   "NP-hard; decision version is NP-complete.",
+   "Brute force: (n−1)! tours.",
+   "Held–Karp DP: O(n²·2ⁿ) time, O(n·2ⁿ) space.",
+   "Branch & bound: reduce cost matrix (subtract row/column minima) to get a lower bound.",
+   "Approximation: nearest neighbour, 2-approx for metric TSP via MST.",
+   "Applications: logistics, circuit drilling, DNA sequencing."
+  ],
+  "mustKnow": [
+   "Brute-force count.",
+   "Reduced-matrix bound.",
+   "Example optimum."
+  ],
+  "ifYouKnow": [
+   "Compute the optimal tour for 4 cities.",
+   "Compute a lower bound by reduction.",
+   "State complexities."
+  ],
+  "commonMistakes": [
+   "Forgetting to return to the start city.",
+   "Assuming greedy nearest neighbour is optimal."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Optimal tour for the 4-city matrix.",
+    "answer": "A-B-D-C-A (or reverse), length 80."
+   },
+   {
+    "type": "numerical",
+    "question": "Root lower bound by matrix reduction.",
+    "answer": "Row minima 10+10+15+20=55, column reductions 0+0+5+10 = 15 ⇒ 70."
+   },
+   {
+    "type": "viva",
+    "question": "Why is TSP hard?",
+    "answer": "Number of tours grows factorially; NP-hard."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Brute-force tours for n cities:",
+    "answer": "(n−1)!",
+    "explanation": "",
+    "options": [
+     "n",
+     "n²",
+     "(n−1)!",
+     "2ⁿ"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "TSP is NP-hard.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Held–Karp complexity?",
+    "answer": "O(n²2ⁿ)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Tour A-B-C-D-A length for the example.",
+    "answer": "95",
+    "explanation": "10+35+30+20"
+   },
+   {
+    "type": "comparison",
+    "question": "DP vs B&B for TSP.",
+    "answer": "DP exact with exponential table; B&B prunes using lower bounds.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "TSP: shortest Hamiltonian tour; brute force (n−1)!; Held–Karp O(n²2ⁿ); B&B with reduced matrix; example 80 (LB 70).",
+  "problemStatement": "Find the minimum-cost tour visiting all cities once and returning to start.",
+  "approach": "Branch & bound using a reduced cost matrix as lower bound (or DP over subsets).",
+  "algorithmSteps": [
+   "1. Reduce the cost matrix: subtract row minima then column minima; sum = lower bound.",
+   "2. Branch on including/excluding an edge; set the corresponding row/column to ∞ and re-reduce.",
+   "3. Bound = parent bound + reduction cost.",
+   "4. Expand the least-bound live node; prune if bound ≥ best tour.",
+   "5. Stop when a complete tour with minimum bound is found."
+  ],
+  "workedExample": "Reduced matrix rows: A[∞,0,5,10], B[0,∞,25,15], C[0,20,∞,15], D[0,5,10,∞]; column reductions C:5, D:10; LB=55+15=70; optimal tour 80.",
+  "timeComplexity": "Brute force O(n!); DP O(n²2ⁿ)",
+  "spaceComplexity": "O(n2ⁿ) for DP"
+ },
+ "daa-c7-t01": {
+  "id": "daa-c7-t01",
+  "title": "Introduction to String Matching",
+  "importance": "high",
+  "definition": "String matching finds all occurrences (valid shifts) of a pattern P of length m inside a text T of length n.",
+  "simpleExplanation": "Text me pattern kahan kahan aata hai ye dhundna string matching hai. Algorithms: naive, Rabin–Karp, KMP, finite automata — sabka time/preprocessing alag hota hai.",
+  "realLifeAnalogy": "Ctrl+F in a document: finding every place where a word appears.",
+  "example": "T=ABABCABAB, P=ABAB: P occurs with shifts s=0 and s=5.",
+  "keyPoints": [
+   "Text T[1..n], pattern P[1..m], alphabet Σ.",
+   "Shift s valid if T[s+1..s+m]=P.",
+   "Naive: O((n−m+1)m).",
+   "Rabin–Karp: hashing, average O(n+m).",
+   "KMP: prefix function, O(n+m).",
+   "Finite automaton: preprocessing O(m|Σ|), matching O(n)."
+  ],
+  "mustKnow": [
+   "Valid shift definition.",
+   "Algorithms comparison table.",
+   "Terms: prefix, suffix."
+  ],
+  "ifYouKnow": [
+   "Define the problem.",
+   "List algorithms with complexities.",
+   "Find valid shifts by hand."
+  ],
+  "commonMistakes": [
+   "Confusing shift with index of last matching char.",
+   "Ignoring preprocessing cost."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain string matching problem and algorithms.",
+    "answer": "Definition, shifts, algorithms and complexities."
+   },
+   {
+    "type": "numerical",
+    "question": "Valid shifts of ABAB in ABABCABAB.",
+    "answer": "0 and 5."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Pattern length is usually denoted:",
+    "answer": "m",
+    "explanation": "",
+    "options": [
+     "n",
+     "m",
+     "k",
+     "p"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "KMP runs in O(n+m).",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Naive matching worst case?",
+    "answer": "O((n−m+1)m)",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Number of shifts to try naively for n=9, m=4.",
+    "answer": "6",
+    "explanation": "n−m+1"
+   },
+   {
+    "type": "comparison",
+    "question": "Naive vs KMP.",
+    "answer": "Naive rechecks characters; KMP uses prefix function to avoid backtracking.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "String matching: find valid shifts of P in T; naive O(nm), Rabin–Karp avg O(n+m), KMP O(n+m), automaton O(n).",
+  "problemStatement": "Find all shifts s where P occurs in T.",
+  "approach": "Compare pattern at each shift, optimising with hashing/prefix information.",
+  "comparison": {
+   "title": "Algorithms",
+   "headers": [
+    "Algorithm",
+    "Preprocessing",
+    "Matching"
+   ],
+   "rows": [
+    [
+     "Naive",
+     "0",
+     "O((n−m+1)m)"
+    ],
+    [
+     "Rabin–Karp",
+     "Θ(m)",
+     "avg O(n+m), worst O(nm)"
+    ],
+    [
+     "Finite automaton",
+     "O(m|Σ|)",
+     "Θ(n)"
+    ],
+    [
+     "KMP",
+     "Θ(m)",
+     "Θ(n)"
+    ]
+   ]
+  }
+ },
+ "daa-c7-t02": {
+  "id": "daa-c7-t02",
+  "title": "Naive String Matching",
+  "importance": "high",
+  "definition": "The naive algorithm checks, for every possible shift of the pattern, whether the pattern matches the text there by comparing character by character.",
+  "simpleExplanation": "Naive method me pattern ko text par har position par rakh ke compare karte hain. Simple hai par worst case me slow (O(nm)).",
+  "realLifeAnalogy": "Sliding a stencil across a page and checking at each position whether the letters fit.",
+  "example": "T=ABABCABAB, P=ABAB: shift 0 matches; shifts 1–4 fail early; shift 5 matches ⇒ shifts {0,5}.",
+  "keyPoints": [
+   "Tries all n−m+1 shifts.",
+   "Worst case O((n−m+1)·m) e.g. T=AAAA…A, P=AAAB.",
+   "Best case O(n) when the first characters mismatch quickly.",
+   "No preprocessing; O(1) extra space.",
+   "Simple but wastes information from previous comparisons.",
+   "Basis for improved algorithms."
+  ],
+  "mustKnow": [
+   "Pseudocode.",
+   "Worst-case input.",
+   "Shift count."
+  ],
+  "ifYouKnow": [
+   "Trace the algorithm.",
+   "Give a worst-case input.",
+   "State complexities."
+  ],
+  "commonMistakes": [
+   "Thinking naive is always O(n).",
+   "Off-by-one in the shift range."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Run naive matching for P=ABAB in T=ABABCABAB.",
+    "answer": "Matches at shifts 0 and 5."
+   },
+   {
+    "type": "conceptual",
+    "question": "Write algorithm and complexity.",
+    "answer": "Loop shifts, compare; O((n−m+1)m)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Worst case for naive:",
+    "answer": "O(nm)",
+    "explanation": "",
+    "options": [
+     "O(n)",
+     "O(nm)",
+     "O(m)",
+     "O(log n)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Naive needs preprocessing.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Worst-case input type?",
+    "answer": "Repetitive text and pattern like AAAA… and AAAB.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Shifts tried for n=10,m=3.",
+    "answer": "8",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Naive vs Rabin–Karp.",
+    "answer": "Naive compares characters directly; Rabin–Karp compares hashes first.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Naive: try all n−m+1 shifts comparing chars; worst O((n−m+1)m); no preprocessing.",
+  "problemStatement": "Find all occurrences of P in T.",
+  "approach": "Check every shift directly.",
+  "algorithmSteps": [
+   "1. For s = 0 to n−m.",
+   "2. Compare P[1..m] with T[s+1..s+m].",
+   "3. If all match, report shift s."
+  ],
+  "pseudocode": "NaiveMatch(T,P)\n  n ← |T|; m ← |P|\n  for s ← 0 to n−m do\n    if T[s+1..s+m] = P then print \"shift\" s",
+  "workedExample": "T=ABABCABAB,P=ABAB: s=0 ✓; s=1 B≠A; s=2 ABC≠ABA B? mismatch at 4th char; s=3 ✗; s=4 ✗; s=5 ✓.",
+  "timeComplexity": "Best O(n), worst O((n−m+1)m)",
+  "spaceComplexity": "O(1)"
+ },
+ "daa-c7-t03": {
+  "id": "daa-c7-t03",
+  "title": "Rabin-Karp Algorithm",
+  "importance": "high",
+  "definition": "Rabin–Karp compares a hash of the pattern with rolling hashes of text windows and checks characters only when hashes match.",
+  "simpleExplanation": "Rabin–Karp me pattern ka hash nikalte hain aur text ki har window ka hash 'rolling' tareeke se update karte hain. Hash match ho tabhi characters compare karte hain. Kabhi kabhi spurious hit bhi hota hai.",
+  "realLifeAnalogy": "Comparing fingerprints first, and only comparing faces when the fingerprints match.",
+  "example": "T=3141592653, P=26, base 10, modulus q=11. hash(P)=26 mod 11=4. Windows: 31→9, 14→3, 41→8, 15→4 (spurious), 59→4 (spurious), 92→4 (spurious), 26→4 (real match at shift 6), 65→10, 53→9.",
+  "keyPoints": [
+   "Rolling hash: t_{s+1}=(d·(t_s − T[s+1]·h) + T[s+m+1]) mod q, h=d^{m−1} mod q.",
+   "Hash equal ⇒ verify characters (spurious hits possible).",
+   "Average/expected O(n+m); worst O(nm) with many spurious hits.",
+   "Good for multiple pattern search.",
+   "Choose a large prime q.",
+   "Preprocessing Θ(m)."
+  ],
+  "mustKnow": [
+   "Rolling update.",
+   "Spurious hit.",
+   "Complexities."
+  ],
+  "ifYouKnow": [
+   "Compute hashes.",
+   "Identify spurious hits.",
+   "State complexity."
+  ],
+  "commonMistakes": [
+   "Skipping the verification step on a hash match.",
+   "Using a small modulus causing many spurious hits."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "T=3141592653, P=26, q=11: find the match and spurious hits.",
+    "answer": "Spurious at shifts 3,4,5; true match at shift 6."
+   },
+   {
+    "type": "viva",
+    "question": "What is a spurious hit?",
+    "answer": "Hash equal but strings differ."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Rabin–Karp average time:",
+    "answer": "O(n+m)",
+    "explanation": "",
+    "options": [
+     "O(nm)",
+     "O(n+m)",
+     "O(log n)",
+     "O(n²)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Hash match guarantees a pattern match.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "26 mod 11.",
+    "answer": "4",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Worst-case complexity?",
+    "answer": "O(nm)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Rabin–Karp vs naive.",
+    "answer": "Rabin–Karp filters with hashes; naive compares directly.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Rabin–Karp: rolling hash mod q; verify on hash match; avg O(n+m), worst O(nm); spurious hits.",
+  "problemStatement": "Find P in T using hashing.",
+  "approach": "Compare window hashes with the pattern hash; verify on equality.",
+  "algorithmSteps": [
+   "1. Compute h=d^{m−1} mod q, hash of P and first window.",
+   "2. For each shift: if hash equal, verify characters.",
+   "3. Update the hash for the next window with the rolling formula."
+  ],
+  "pseudocode": "RabinKarp(T,P,d,q)\n  h ← d^(m−1) mod q; p ← 0; t ← 0\n  for i ← 1 to m do p ← (d·p+P[i]) mod q; t ← (d·t+T[i]) mod q\n  for s ← 0 to n−m do\n    if p = t and T[s+1..s+m] = P then print s\n    if s < n−m then t ← (d·(t − T[s+1]·h) + T[s+m+1]) mod q",
+  "workedExample": "Windows of 3141592653 (length 2) mod 11: 9,3,8,4,4,4,4,10,9; hash(P)=4 → verify at 3,4,5 (fail) and 6 (match).",
+  "timeComplexity": "Average O(n+m), worst O(nm)",
+  "spaceComplexity": "O(1)"
+ },
+ "daa-c7-t04": {
+  "id": "daa-c7-t04",
+  "title": "Knuth-Morris-Pratt Algorithm",
+  "importance": "high",
+  "definition": "The Knuth–Morris–Pratt (KMP) algorithm matches a pattern in O(n+m) time by using a prefix (failure) function to avoid re-examining text characters after a mismatch.",
+  "simpleExplanation": "KMP mismatch hone par text me peeche nahi jaata. Pattern ka prefix function π batata hai ki pattern ke andar kitna prefix pehle se match ho chuka hai, isliye pattern ko smartly shift karta hai.",
+  "realLifeAnalogy": "When you misread a word while reading aloud, you don't start the sentence over; you resume from the part you already know matches.",
+  "example": "P=ABABAC: π=[0,0,1,2,3,0]. T=ABABABAC: after matching ABABA, mismatch at B vs C → q=π[4]=3; then B matches, A, C ⇒ full match at shift 2.",
+  "keyPoints": [
+   "Prefix function π[q]: length of the longest proper prefix of P[1..q] that is also a suffix.",
+   "Preprocessing Θ(m); matching Θ(n).",
+   "Text pointer never moves backward.",
+   "On mismatch set q ← π[q−1].",
+   "Total Θ(n+m).",
+   "Good for long patterns and streaming text."
+  ],
+  "mustKnow": [
+   "Computing π.",
+   "Trace on text.",
+   "Complexity."
+  ],
+  "ifYouKnow": [
+   "Compute the prefix function.",
+   "Run KMP.",
+   "Explain why it is linear."
+  ],
+  "commonMistakes": [
+   "Setting wrong fallback index (off-by-one).",
+   "Thinking π stores positions in the text."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Compute π for ABABAC.",
+    "answer": "[0,0,1,2,3,0]."
+   },
+   {
+    "type": "numerical",
+    "question": "Run KMP on T=ABABABAC with P=ABABAC.",
+    "answer": "Match at shift 2."
+   },
+   {
+    "type": "viva",
+    "question": "Why is KMP O(n+m)?",
+    "answer": "Text pointer never decreases and q decreases at most as often as it increases."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "KMP time:",
+    "answer": "O(n+m)",
+    "explanation": "",
+    "options": [
+     "O(nm)",
+     "O(n+m)",
+     "O(n²)",
+     "O(m²)"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "KMP moves the text pointer backwards.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is the prefix function?",
+    "answer": "Longest proper prefix that is also a suffix for each prefix of P.",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "π of ABAB.",
+    "answer": "[0,0,1,2]",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "KMP vs naive.",
+    "answer": "KMP avoids re-comparing; naive restarts from the next shift.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "KMP: prefix function π (longest proper prefix=suffix), mismatch → q=π[q−1]; Θ(n+m).",
+  "problemStatement": "Find P in T without backing up the text pointer.",
+  "approach": "Precompute π; on mismatch fall back using π.",
+  "algorithmSteps": [
+   "1. Compute π for P.",
+   "2. q=0; for i in T: while q>0 and P[q+1]≠T[i]: q=π[q].",
+   "3. If P[q+1]=T[i] q++.",
+   "4. If q=m: report match at i−m; q=π[q]."
+  ],
+  "pseudocode": "ComputePrefix(P)\n  π[1] ← 0; k ← 0\n  for q ← 2 to m do\n    while k>0 and P[k+1]≠P[q] do k ← π[k]\n    if P[k+1]=P[q] then k ← k+1\n    π[q] ← k\nKMP(T,P)\n  q ← 0\n  for i ← 1 to n do\n    while q>0 and P[q+1]≠T[i] do q ← π[q]\n    if P[q+1]=T[i] then q ← q+1\n    if q=m then print i−m; q ← π[q]",
+  "workedExample": "P=ABABAC π=[0,0,1,2,3,0]. T=ABABABAC: q:1,2,3,4,5 → mismatch → q=3 → 4 → 5 → 6=m ⇒ shift 2.",
+  "timeComplexity": "Θ(n+m)",
+  "spaceComplexity": "Θ(m)"
+ },
+ "daa-c7-t05": {
+  "id": "daa-c7-t05",
+  "title": "String Matching using Finite Automata",
+  "importance": "medium",
+  "definition": "A string-matching automaton is a DFA that reads the text one character at a time and enters its accepting state exactly when a pattern occurrence ends.",
+  "simpleExplanation": "Pattern ke liye ek DFA banate hain jisme state i matlab 'pattern ke pehle i chars match ho chuke'. Text ek baar padhte hain; accepting state m aaye to match mil gaya. Matching O(n).",
+  "realLifeAnalogy": "A turnstile that moves forward one step for each correct letter and resets or falls back for wrong ones.",
+  "example": "P=ABA over {A,B}: δ(0,A)=1, δ(0,B)=0; δ(1,A)=1, δ(1,B)=2; δ(2,A)=3, δ(2,B)=0; δ(3,A)=1, δ(3,B)=2. Text ABABA: states 0→1→2→3 (match ends at 3rd char) →2→3 (match). Shifts 0 and 2.",
+  "keyPoints": [
+   "States 0..m; accepting state m.",
+   "δ(q,a)=length of the longest prefix of P that is a suffix of P_q a.",
+   "Matching takes Θ(n) after building the automaton.",
+   "Preprocessing O(m|Σ|) (efficient) or O(m³|Σ|) naive.",
+   "Transition table size (m+1)|Σ|.",
+   "KMP is a space-efficient version of this idea."
+  ],
+  "mustKnow": [
+   "δ definition.",
+   "Build for ABA.",
+   "Matching trace."
+  ],
+  "ifYouKnow": [
+   "Construct the automaton.",
+   "Run on text.",
+   "Compare with KMP."
+  ],
+  "commonMistakes": [
+   "Forgetting transitions from the accepting state.",
+   "Wrong fallback in δ."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Build the automaton for P=ABA over {A,B} and run on ABABA.",
+    "answer": "Table as above; matches end at positions 3 and 5."
+   },
+   {
+    "type": "difference",
+    "question": "Automaton vs KMP.",
+    "answer": "Automaton stores a full transition table (O(m|Σ|)); KMP stores only π (O(m))."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Accepting state is:",
+    "answer": "m",
+    "explanation": "",
+    "options": [
+     "0",
+     "1",
+     "m",
+     "m+1"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Matching time is Θ(n).",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Number of states?",
+    "answer": "m+1",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "δ(2,B) for P=ABA.",
+    "answer": "0",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Preprocessing cost?",
+    "answer": "O(m|Σ|)",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "String-matching DFA: states 0..m, δ(q,a)=longest prefix of P that is suffix of P_q a; match at state m; Θ(n).",
+  "problemStatement": "Find P in T using a DFA.",
+  "approach": "Precompute transitions; scan text once.",
+  "algorithmSteps": [
+   "1. Build δ for states 0..m and each symbol a.",
+   "2. q=0; for each text char T[i]: q=δ(q,T[i]).",
+   "3. If q=m, report match ending at i."
+  ],
+  "pseudocode": "FA-Matcher(T,δ,m)\n  q ← 0\n  for i ← 1 to n do\n    q ← δ(q, T[i])\n    if q = m then print i−m",
+  "workedExample": "ABA over {A,B}: ABABA ⇒ states 1,2,3(match),2,3(match).",
+  "timeComplexity": "Matching Θ(n); preprocessing O(m|Σ|)",
+  "spaceComplexity": "O(m|Σ|)"
+ },
+ "daa-c7-t06": {
+  "id": "daa-c7-t06",
+  "title": "Introduction to NP Completeness",
+  "importance": "high",
+  "definition": "NP-completeness classifies decision problems that are in NP and at least as hard as every problem in NP (via polynomial-time reductions), so a fast algorithm for one would give fast algorithms for all.",
+  "simpleExplanation": "Kuch problems ke liye aaj tak koi fast (polynomial) algorithm nahi mila. NP-complete woh hard problems hain jo NP me hote hain aur har NP problem unme reduce ho sakta hai. Ek ka fast solution mil jaye to sab ka mil jayega.",
+  "realLifeAnalogy": "A set of locks that are all opened by one master key: if you find it for one, you have it for all.",
+  "example": "SAT was the first proven NP-complete problem (Cook–Levin). 3-SAT ≤p Clique ≤p Vertex Cover; Hamiltonian cycle and TSP (decision) are NP-complete.",
+  "keyPoints": [
+   "Decision problem: answer yes/no.",
+   "Reduction A ≤p B: transform instances of A to B in polynomial time.",
+   "NP-hard: every NP problem reduces to it (need not be in NP).",
+   "NP-complete = NP ∩ NP-hard.",
+   "Cook–Levin: SAT is NP-complete.",
+   "Proving NP-completeness: show in NP + reduce a known NP-complete problem to it."
+  ],
+  "mustKnow": [
+   "Definitions.",
+   "Reduction direction.",
+   "Examples."
+  ],
+  "ifYouKnow": [
+   "Define NP-complete.",
+   "Explain reduction.",
+   "List NP-complete problems."
+  ],
+  "commonMistakes": [
+   "Reducing in the wrong direction.",
+   "Confusing NP-hard with NP-complete."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain NP-completeness.",
+    "answer": "NP, reductions, NP-hard, NP-complete, Cook–Levin."
+   },
+   {
+    "type": "difference",
+    "question": "NP-hard vs NP-complete.",
+    "answer": "NP-complete is NP-hard and in NP; NP-hard need not be in NP."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "First NP-complete problem:",
+    "answer": "SAT",
+    "explanation": "",
+    "options": [
+     "TSP",
+     "SAT",
+     "Clique",
+     "Knapsack"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "NP-complete problems are in NP.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is a polynomial-time reduction?",
+    "answer": "Polynomial transformation of instances of A into instances of B preserving answers.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Fast algorithm for one NP-complete problem implies?",
+    "answer": "P = NP",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "NP vs NP-hard.",
+    "answer": "NP: verifiable in poly time; NP-hard: at least as hard as all NP problems.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "NP-complete = in NP + NP-hard; via polynomial reductions; SAT first (Cook–Levin).",
+  "comparison": {
+   "title": "Classes",
+   "headers": [
+    "Class",
+    "Meaning"
+   ],
+   "rows": [
+    [
+     "P",
+     "Solvable in poly time"
+    ],
+    [
+     "NP",
+     "Verifiable in poly time"
+    ],
+    [
+     "NP-hard",
+     "At least as hard as all of NP"
+    ],
+    [
+     "NP-complete",
+     "NP and NP-hard"
+    ]
+   ]
+  }
+ },
+ "daa-c7-t07": {
+  "id": "daa-c7-t07",
+  "title": "P Class Problems",
+  "importance": "high",
+  "definition": "The class P contains decision problems that can be solved by a deterministic algorithm in polynomial time.",
+  "simpleExplanation": "P class me wo problems aate hain jinhe normal (deterministic) algorithm polynomial time me solve kar leta hai, jaise sorting, shortest path, MST. Inhe efficiently solvable maana jata hai.",
+  "realLifeAnalogy": "Tasks you can finish in reasonable time as the problem grows, like sorting a bigger list.",
+  "example": "Shortest path (Dijkstra), MST (Kruskal), sorting, GCD, checking if a graph is connected, and primality testing (AKS) are in P.",
+  "keyPoints": [
+   "Polynomial time: O(nᵏ) for some constant k.",
+   "P is closed under union, intersection, complement and concatenation.",
+   "P ⊆ NP.",
+   "Considered 'tractable' or efficiently solvable.",
+   "Examples: sorting, searching, BFS/DFS, MST, shortest paths, matching.",
+   "Polynomial in input length (not value): knapsack DP is pseudo-polynomial."
+  ],
+  "mustKnow": [
+   "Definition.",
+   "Examples.",
+   "P ⊆ NP."
+  ],
+  "ifYouKnow": [
+   "Define P.",
+   "Give examples.",
+   "Distinguish from NP."
+  ],
+  "commonMistakes": [
+   "Calling O(2ⁿ) polynomial.",
+   "Assuming pseudo-polynomial means polynomial."
+  ],
+  "examQuestions": [
+   {
+    "type": "definition",
+    "question": "Define class P with examples.",
+    "answer": "Deterministic polynomial-time decidable problems."
+   },
+   {
+    "type": "viva",
+    "question": "Is sorting in P?",
+    "answer": "Yes, O(n log n)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Which is in P?",
+    "answer": "Shortest path",
+    "explanation": "",
+    "options": [
+     "TSP (decision)",
+     "Shortest path",
+     "Hamiltonian cycle",
+     "SAT"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "P ⊆ NP.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Define polynomial time.",
+    "answer": "Running time bounded by nᵏ for a constant k.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Algorithm O(n¹⁰⁰). In P?",
+    "answer": "Yes (still polynomial)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "P vs NP.",
+    "answer": "P: solve in poly time; NP: verify in poly time.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "P: deterministic polynomial-time solvable decision problems; examples sorting, shortest path, MST; P ⊆ NP."
+ },
+ "daa-c7-t08": {
+  "id": "daa-c7-t08",
+  "title": "NP Class Problems",
+  "importance": "high",
+  "definition": "The class NP contains decision problems whose 'yes' answers can be verified in polynomial time given a certificate (equivalently, solvable in polynomial time by a non-deterministic machine).",
+  "simpleExplanation": "NP me wo problems hain jinka answer (certificate) mil jaye to uski sahi hona polynomial time me check ho sakta hai. Solve karna hard ho sakta hai par verify easy.",
+  "realLifeAnalogy": "A Sudoku: finding the solution is hard, but checking a filled grid is easy.",
+  "example": "Hamiltonian cycle: given a proposed cycle (certificate), check in O(n) that it visits every vertex once. Subset sum: given a subset, add numbers and compare with target.",
+  "keyPoints": [
+   "Certificate/witness verified in polynomial time.",
+   "Non-deterministic polynomial time (NP).",
+   "P ⊆ NP; whether P = NP is open.",
+   "Examples: SAT, subset sum, clique, vertex cover, Hamiltonian cycle, TSP (decision).",
+   "NP-complete problems are the hardest in NP.",
+   "Co-NP: complements of NP problems."
+  ],
+  "mustKnow": [
+   "Certificate idea.",
+   "P vs NP question.",
+   "Examples."
+  ],
+  "ifYouKnow": [
+   "Explain NP using verification.",
+   "Give certificates.",
+   "State the P vs NP problem."
+  ],
+  "commonMistakes": [
+   "Thinking NP means 'not polynomial'; it means non-deterministic polynomial.",
+   "Confusing finding with verifying."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain NP class with an example.",
+    "answer": "Certificate verification in poly time; Hamiltonian cycle."
+   },
+   {
+    "type": "viva",
+    "question": "What does NP stand for?",
+    "answer": "Non-deterministic Polynomial time."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "NP means:",
+    "answer": "Non-deterministic polynomial",
+    "explanation": "",
+    "options": [
+     "Not polynomial",
+     "Non-deterministic polynomial",
+     "New problem",
+     "None"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Every NP problem is verifiable in polynomial time.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Certificate for SAT?",
+    "answer": "A satisfying truth assignment.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Verify a proposed Hamiltonian cycle. Time?",
+    "answer": "O(n)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Solving vs verifying.",
+    "answer": "Solving may be exponential; verifying is polynomial for NP.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "NP: yes-answers verifiable in poly time via certificate; P ⊆ NP; P vs NP open; SAT, clique, HC ∈ NP.",
+  "comparison": {
+   "title": "Certificates",
+   "headers": [
+    "Problem",
+    "Certificate",
+    "Verify"
+   ],
+   "rows": [
+    [
+     "SAT",
+     "Assignment",
+     "Evaluate formula"
+    ],
+    [
+     "Hamiltonian cycle",
+     "Vertex sequence",
+     "Check edges, no repeats"
+    ],
+    [
+     "Subset sum",
+     "Subset",
+     "Sum and compare"
+    ]
+   ]
+  }
+ },
+ "daa-c7-t09": {
+  "id": "daa-c7-t09",
+  "title": "Hamiltonian Cycle",
+  "importance": "high",
+  "definition": "A Hamiltonian cycle in a graph is a cycle that visits every vertex exactly once and returns to the start; deciding whether one exists is NP-complete.",
+  "simpleExplanation": "Hamiltonian cycle me har vertex ko ek hi baar visit karke start par wapas aana hota hai. Existence check NP-complete hai; backtracking se try karte hain.",
+  "realLifeAnalogy": "A postman who must visit every house exactly once and end where he started (houses, not roads — unlike Euler).",
+  "example": "Graph 4-cycle A–B–C–D–A has a Hamiltonian cycle A→B→C→D→A. A star graph (center with three leaves) has none.",
+  "keyPoints": [
+   "NP-complete decision problem.",
+   "Verifying a given cycle takes O(n).",
+   "Backtracking: build path, check edge and not-visited, close the cycle: O(n!) worst.",
+   "Held–Karp DP: O(n²2ⁿ).",
+   "Reduces to TSP: HC ≤p TSP (weights 1 for edges, 2 for non-edges).",
+   "Euler cycle (every edge once) is in P — different problem."
+  ],
+  "mustKnow": [
+   "Definition and NP-completeness.",
+   "Backtracking idea.",
+   "HC vs Euler."
+  ],
+  "ifYouKnow": [
+   "Check a graph for HC by backtracking.",
+   "Explain why verification is easy.",
+   "Reduce HC to TSP."
+  ],
+  "commonMistakes": [
+   "Confusing Hamiltonian (vertices) with Eulerian (edges).",
+   "Assuming a simple degree rule decides it."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Hamiltonian cycle and its complexity.",
+    "answer": "Definition, NP-complete, backtracking, DP."
+   },
+   {
+    "type": "viva",
+    "question": "Why is HC in NP?",
+    "answer": "A proposed cycle can be verified in O(n)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Hamiltonian cycle visits each:",
+    "answer": "Vertex exactly once",
+    "explanation": "",
+    "options": [
+     "Edge once",
+     "Vertex exactly once",
+     "Vertex twice",
+     "Edge twice"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "HC decision is NP-complete.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Verification time?",
+    "answer": "O(n)",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Star graph K₁,₃ has HC?",
+    "answer": "No",
+    "explanation": "Leaves have degree 1."
+   },
+   {
+    "type": "comparison",
+    "question": "Hamiltonian vs Eulerian.",
+    "answer": "Hamiltonian: vertices once (NP-complete); Eulerian: edges once (polynomial).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Hamiltonian cycle: visit every vertex once & return; NP-complete; verify O(n); backtracking O(n!); reduces to TSP.",
+  "problemStatement": "Does graph G have a cycle visiting every vertex exactly once?",
+  "approach": "Backtracking path construction with visited checks.",
+  "algorithmSteps": [
+   "1. Fix start vertex v0; path=[v0].",
+   "2. For position k try a vertex adjacent to the previous one and not yet used.",
+   "3. If k=n and last vertex is adjacent to v0 → cycle found.",
+   "4. Otherwise backtrack."
+  ],
+  "pseudocode": "HamCycle(k)\n  repeat\n    NextVertex(k)\n    if x[k]=0 then return\n    if k=n then print x\n    else HamCycle(k+1)\n  until false",
+  "workedExample": "4-cycle A–B–C–D–A: path A,B,C,D and edge D–A closes it ⇒ Hamiltonian cycle.",
+  "timeComplexity": "Backtracking O(n!); DP O(n²2ⁿ)",
+  "spaceComplexity": "O(n)"
+ }
+}

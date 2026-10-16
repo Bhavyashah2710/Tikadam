@@ -1,0 +1,390 @@
+{
+  "id": "daa",
+  "name": "Design and Analysis of Algorithms",
+  "code": "303105218",
+  "chapters": [
+    {
+      "id": "daa-c1",
+      "number": 1,
+      "title": "Introduction and Analysis of Algorithms",
+      "weightage": 20,
+      "teachingHours": 10,
+      "topics": [
+        {
+          "id": "daa-c1-t01",
+          "title": "Algorithm: Definition",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t02",
+          "title": "Properties of Algorithms",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t03",
+          "title": "Types of Algorithms",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t04",
+          "title": "Writing an Algorithm",
+          "subtopics": [],
+          "syllabusNote": "Syllabus text is garbled ('Writing an AlgoritAlgorithm Analysis'); read as 'Writing an Algorithm' + 'Algorithm Analysis'."
+        },
+        {
+          "id": "daa-c1-t05",
+          "title": "Algorithm Analysis: Parameters",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t06",
+          "title": "Design Techniques of Algorithms",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t07",
+          "title": "Asymptotic Notations: Big Oh, Big Omega & Big Theta",
+          "subtopics": [
+            {
+              "id": "daa-c1-t07-s01",
+              "title": "Big Oh (O)"
+            },
+            {
+              "id": "daa-c1-t07-s02",
+              "title": "Big Omega (Ω)"
+            },
+            {
+              "id": "daa-c1-t07-s03",
+              "title": "Big Theta (Θ)"
+            }
+          ]
+        },
+        {
+          "id": "daa-c1-t08",
+          "title": "Lower Bound, Upper Bound and Tight Bound",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t09",
+          "title": "Best Case, Worst Case, Average Case",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t10",
+          "title": "Analyzing Control Statements",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t11",
+          "title": "Loop Invariant and Correctness of Algorithms",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t12",
+          "title": "Recurrences",
+          "subtopics": [
+            {
+              "id": "daa-c1-t12-s01",
+              "title": "Substitution Method"
+            },
+            {
+              "id": "daa-c1-t12-s02",
+              "title": "Recursion Tree Method"
+            },
+            {
+              "id": "daa-c1-t12-s03",
+              "title": "Master Method"
+            }
+          ]
+        },
+        {
+          "id": "daa-c1-t13",
+          "title": "Bubble Sort",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t14",
+          "title": "Selection Sort",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c1-t15",
+          "title": "Insertion Sort",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "daa-c2",
+      "number": 2,
+      "title": "Divide & Conquer Algorithms",
+      "weightage": 20,
+      "teachingHours": 6,
+      "topics": [
+        {
+          "id": "daa-c2-t01",
+          "title": "Structure of Divide-and-Conquer Algorithms",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c2-t02",
+          "title": "Binary Search",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c2-t03",
+          "title": "Quick Sort",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c2-t04",
+          "title": "Merge Sort",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c2-t05",
+          "title": "Strassen Multiplication",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c2-t06",
+          "title": "Max-Min Problem",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "daa-c3",
+      "number": 3,
+      "title": "Greedy Algorithms",
+      "weightage": 20,
+      "teachingHours": 8,
+      "topics": [
+        {
+          "id": "daa-c3-t01",
+          "title": "Introduction to Greedy Algorithms",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c3-t02",
+          "title": "Elements of Greedy Strategy",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c3-t03",
+          "title": "Minimum Spanning Tree",
+          "subtopics": [
+            {
+              "id": "daa-c3-t03-s01",
+              "title": "Kruskal's Algorithm"
+            },
+            {
+              "id": "daa-c3-t03-s02",
+              "title": "Prim's Algorithm"
+            }
+          ]
+        },
+        {
+          "id": "daa-c3-t04",
+          "title": "Dijkstra's Algorithm",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c3-t05",
+          "title": "Knapsack Problem",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c3-t06",
+          "title": "Activity Selection Problem",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c3-t07",
+          "title": "Huffman Codes",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "daa-c4",
+      "number": 4,
+      "title": "Dynamic Programming",
+      "weightage": 20,
+      "teachingHours": 8,
+      "topics": [
+        {
+          "id": "daa-c4-t01",
+          "title": "Principle of Optimality",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c4-t02",
+          "title": "0/1 Knapsack Problem",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c4-t03",
+          "title": "Making Change Problem",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c4-t04",
+          "title": "Chain Matrix Multiplication",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c4-t05",
+          "title": "Longest Common Subsequence",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c4-t06",
+          "title": "All Pair Shortest Paths",
+          "subtopics": [
+            {
+              "id": "daa-c4-t06-s01",
+              "title": "Warshall's Algorithm"
+            },
+            {
+              "id": "daa-c4-t06-s02",
+              "title": "Floyd's Algorithm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daa-c5",
+      "number": 5,
+      "title": "Exploring Graphs",
+      "weightage": 5,
+      "teachingHours": 3,
+      "topics": [
+        {
+          "id": "daa-c5-t01",
+          "title": "An Introduction using Graphs and Games",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c5-t02",
+          "title": "Undirected Graph",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c5-t03",
+          "title": "Directed Graph",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c5-t04",
+          "title": "Traversing Graphs",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c5-t05",
+          "title": "Depth First Search",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c5-t06",
+          "title": "Breadth First Search",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c5-t07",
+          "title": "Topological Sort",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "daa-c6",
+      "number": 6,
+      "title": "Backtracking and Branch & Bound",
+      "weightage": 5,
+      "teachingHours": 4,
+      "topics": [
+        {
+          "id": "daa-c6-t01",
+          "title": "Introduction to Backtracking",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c6-t02",
+          "title": "Introduction to Branch & Bound",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c6-t03",
+          "title": "0/1 Knapsack Problem (Backtracking / Branch & Bound)",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c6-t04",
+          "title": "N-Queens Problem",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c6-t05",
+          "title": "Travelling Salesman Problem",
+          "subtopics": []
+        }
+      ]
+    },
+    {
+      "id": "daa-c7",
+      "number": 7,
+      "title": "String Matching & NP Completeness",
+      "weightage": 10,
+      "teachingHours": 6,
+      "topics": [
+        {
+          "id": "daa-c7-t01",
+          "title": "Introduction to String Matching",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c7-t02",
+          "title": "Naive String Matching",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c7-t03",
+          "title": "Rabin-Karp Algorithm",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c7-t04",
+          "title": "Knuth-Morris-Pratt Algorithm",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c7-t05",
+          "title": "String Matching using Finite Automata",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c7-t06",
+          "title": "Introduction to NP Completeness",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c7-t07",
+          "title": "P Class Problems",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c7-t08",
+          "title": "NP Class Problems",
+          "subtopics": []
+        },
+        {
+          "id": "daa-c7-t09",
+          "title": "Hamiltonian Cycle",
+          "subtopics": []
+        }
+      ]
+    }
+  ]
+}

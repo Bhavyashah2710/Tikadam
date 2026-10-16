@@ -1,0 +1,5202 @@
+{
+ "aws-c1-t01": {
+  "id": "aws-c1-t01",
+  "title": "What is Cloud Computing?",
+  "importance": "high",
+  "definition": "Cloud computing is on-demand delivery of computing resources (servers, storage, databases, networking, software) over the internet with pay-as-you-go pricing.",
+  "simpleExplanation": "Apna server khareedne ki jagah internet par kiraye par computing lete hain, jitna use karo utna paisa do. Jab chahiye tab le lo, jab na chahiye chhod do.",
+  "realLifeAnalogy": "Electricity from the grid instead of running your own generator: you use it on demand and pay for what you consume.",
+  "example": "A startup launches a website on Amazon EC2 in minutes, handles a sale-day traffic spike by adding servers, and shuts them down afterwards — no hardware purchase.",
+  "keyPoints": [
+   "NIST essential characteristics: on-demand self-service, broad network access, resource pooling, rapid elasticity, measured service.",
+   "Resources are shared (multi-tenant) and virtualised.",
+   "Pay-as-you-go instead of upfront capital cost.",
+   "Provider manages the physical infrastructure.",
+   "Scales up and down quickly.",
+   "Service models: IaaS, PaaS, SaaS."
+  ],
+  "mustKnow": [
+   "Five NIST characteristics.",
+   "On-premises vs cloud.",
+   "Pay-as-you-go idea."
+  ],
+  "ifYouKnow": [
+   "Define cloud computing.",
+   "List its characteristics.",
+   "Compare with on-premises."
+  ],
+  "commonMistakes": [
+   "Believing cloud means 'someone else's computer, no responsibility for you' — security is shared.",
+   "Thinking cloud always costs less regardless of usage."
+  ],
+  "examQuestions": [
+   {
+    "type": "definition",
+    "question": "Define cloud computing and its characteristics.",
+    "answer": "On-demand delivery of IT resources over the internet; five NIST characteristics."
+   },
+   {
+    "type": "difference",
+    "question": "On-premises vs cloud.",
+    "answer": "On-prem: buy/maintain hardware, fixed capacity; cloud: rent, elastic, pay per use."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Which is a cloud characteristic?",
+    "answer": "Rapid elasticity",
+    "explanation": "",
+    "options": [
+     "Fixed capacity",
+     "Rapid elasticity",
+     "Upfront hardware",
+     "Manual provisioning"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Cloud resources are billed per use.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two NIST characteristics.",
+    "answer": "On-demand self-service and measured service.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "A shop needs 10× servers only during Diwali. Cloud feature?",
+    "answer": "Elasticity",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Capex vs opex.",
+    "answer": "Capex = upfront purchase; opex = ongoing pay-as-you-go.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Cloud = on-demand IT over the internet, pay-as-you-go; 5 NIST traits (self-service, network, pooling, elasticity, measured).",
+  "purpose": "Remove the need to buy and maintain own infrastructure; give elastic, pay-per-use IT.",
+  "features": [
+   "On-demand self-service",
+   "Elasticity",
+   "Resource pooling",
+   "Measured service",
+   "Broad network access"
+  ],
+  "scenario": "E-commerce site scales servers up for a sale and down after, paying only for hours used.",
+  "comparison": {
+   "title": "On-premises vs Cloud",
+   "headers": [
+    "Aspect",
+    "On-premises",
+    "Cloud"
+   ],
+   "rows": [
+    [
+     "Cost model",
+     "Upfront capex",
+     "Pay-as-you-go opex"
+    ],
+    [
+     "Capacity",
+     "Fixed",
+     "Elastic"
+    ],
+    [
+     "Maintenance",
+     "You",
+     "Provider (infrastructure)"
+    ],
+    [
+     "Time to start",
+     "Weeks",
+     "Minutes"
+    ]
+   ]
+  }
+ },
+ "aws-c1-t02": {
+  "id": "aws-c1-t02",
+  "title": "Key Benefits of Cloud Computing",
+  "importance": "high",
+  "definition": "The key benefits of cloud computing are trading upfront cost for variable cost, economies of scale, no capacity guessing, speed and agility, no data-centre maintenance and going global in minutes.",
+  "simpleExplanation": "Cloud ke fayde: kam upfront paisa, zyada scale par sasta, capacity ka andaza nahi lagana, jaldi launch, data centre ka jhanjhat nahi, aur duniya bhar me jaldi pahunchna.",
+  "realLifeAnalogy": "Renting a taxi when needed vs buying and maintaining your own car.",
+  "example": "A mobile app launches in 5 countries by deploying to five AWS Regions in a day, instead of building data centres.",
+  "keyPoints": [
+   "Trade capital expense for variable expense.",
+   "Benefit from massive economies of scale (lower per-unit prices).",
+   "Stop guessing capacity: scale on demand.",
+   "Increase speed and agility: resources in minutes.",
+   "Stop spending on running and maintaining data centres.",
+   "Go global in minutes.",
+   "Also: high availability, reliability and security tools."
+  ],
+  "mustKnow": [
+   "The six advantages (AWS list).",
+   "Example per benefit."
+  ],
+  "ifYouKnow": [
+   "List and explain benefits.",
+   "Choose a benefit for a scenario.",
+   "Contrast with on-prem."
+  ],
+  "commonMistakes": [
+   "Assuming cloud removes all security duties.",
+   "Forgetting that poor cost control can make cloud expensive."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain key benefits of cloud computing.",
+    "answer": "Six advantages with examples."
+   },
+   {
+    "type": "viva",
+    "question": "What is economy of scale in cloud?",
+    "answer": "Large providers get lower costs and pass savings through lower prices."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Cloud converts capex into:",
+    "answer": "Variable (operational) expense",
+    "explanation": "",
+    "options": [
+     "Fixed cost",
+     "Variable (operational) expense",
+     "Tax",
+     "Debt"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Cloud needs you to guess capacity in advance.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two benefits.",
+    "answer": "Agility and global reach.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Launching in a new country in a day. Benefit?",
+    "answer": "Go global in minutes",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Agility vs elasticity.",
+    "answer": "Agility = speed of provisioning; elasticity = scaling with demand.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Benefits: variable cost, economies of scale, no capacity guessing, agility, no DC upkeep, global in minutes.",
+  "purpose": "Explain why organisations migrate to the cloud.",
+  "features": [
+   "Variable expense",
+   "Economies of scale",
+   "Elasticity",
+   "Agility",
+   "Global reach"
+  ]
+ },
+ "aws-c1-t03": {
+  "id": "aws-c1-t03",
+  "title": "Cloud Service Models",
+  "importance": "high",
+  "definition": "Cloud service models define how much the provider manages: IaaS (infrastructure), PaaS (platform) and SaaS (software).",
+  "simpleExplanation": "IaaS me tum servers/OS khud sambhalte ho (EC2). PaaS me sirf apna code deploy karte ho (Elastic Beanstalk). SaaS me ready software use karte ho (Gmail).",
+  "realLifeAnalogy": "Pizza as a service: IaaS = you get kitchen and make pizza yourself; PaaS = ready dough, you add toppings; SaaS = ordering a finished pizza.",
+  "example": "EC2 (IaaS): you choose OS and install software. Elastic Beanstalk (PaaS): you upload code, AWS handles servers. Gmail/Salesforce (SaaS): you just use the app.",
+  "keyPoints": [
+   "IaaS: virtual machines, storage, networking; you manage OS, runtime, apps (EC2, EBS, VPC).",
+   "PaaS: managed runtime; you manage code and data (Elastic Beanstalk, RDS-style platforms).",
+   "SaaS: complete application delivered over the internet (Gmail, Office 365).",
+   "Control decreases from IaaS → PaaS → SaaS; convenience increases.",
+   "FaaS/serverless (Lambda) is an extension of PaaS.",
+   "Responsibility split follows the model."
+  ],
+  "mustKnow": [
+   "Responsibility matrix.",
+   "Examples of each.",
+   "IaaS vs PaaS vs SaaS table."
+  ],
+  "ifYouKnow": [
+   "Classify a service.",
+   "Explain the responsibilities.",
+   "Choose a model for a scenario."
+  ],
+  "commonMistakes": [
+   "Calling RDS or Lambda IaaS — they are managed (PaaS-like).",
+   "Thinking SaaS needs you to manage servers."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "IaaS vs PaaS vs SaaS.",
+    "answer": "Compare control, who manages OS/runtime/app, examples."
+   },
+   {
+    "type": "viva",
+    "question": "Is AWS Lambda IaaS?",
+    "answer": "No; it is serverless/FaaS, a managed compute (PaaS-like)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Amazon EC2 is:",
+    "answer": "IaaS",
+    "explanation": "",
+    "options": [
+     "IaaS",
+     "PaaS",
+     "SaaS",
+     "DaaS"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "In SaaS the user manages the OS.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Example of PaaS on AWS?",
+    "answer": "Elastic Beanstalk",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "A team only wants to upload code and not manage servers. Model?",
+    "answer": "PaaS",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Most control among the three?",
+    "answer": "IaaS",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "IaaS (EC2) > control; PaaS (Beanstalk) deploy code; SaaS (Gmail) use app.",
+  "purpose": "Decide how much of the stack the customer vs provider manages.",
+  "comparison": {
+   "title": "IaaS vs PaaS vs SaaS",
+   "headers": [
+    "Layer",
+    "IaaS",
+    "PaaS",
+    "SaaS"
+   ],
+   "rows": [
+    [
+     "Application",
+     "You",
+     "You",
+     "Provider"
+    ],
+    [
+     "Runtime/OS",
+     "You",
+     "Provider",
+     "Provider"
+    ],
+    [
+     "Hardware",
+     "Provider",
+     "Provider",
+     "Provider"
+    ],
+    [
+     "AWS example",
+     "EC2",
+     "Elastic Beanstalk",
+     "WorkMail/ Gmail (Google)"
+    ]
+   ]
+  }
+ },
+ "aws-c1-t04": {
+  "id": "aws-c1-t04",
+  "title": "Cloud Deployment Models",
+  "importance": "high",
+  "definition": "Cloud deployment models describe where the cloud infrastructure is hosted and who uses it: public, private, hybrid (and community).",
+  "simpleExplanation": "Public cloud sabke liye shared (AWS). Private cloud sirf ek organisation ke liye. Hybrid = dono ka mix. Community = kuch similar organisations ka shared.",
+  "realLifeAnalogy": "Public cloud is a public bus, private cloud is your own car, hybrid is using your car daily and a bus for rush days.",
+  "example": "A bank keeps sensitive customer data in its private data centre but runs analytics on AWS public cloud, connected by AWS Direct Connect (hybrid).",
+  "keyPoints": [
+   "Public: owned by a provider, shared among customers (AWS, Azure, GCP).",
+   "Private: dedicated to one organisation (on-prem or hosted).",
+   "Hybrid: public + private connected (e.g. VPN/Direct Connect, AWS Outposts).",
+   "Community: shared among organisations with common needs.",
+   "Trade-offs: cost, control, compliance, scalability.",
+   "AWS also supports 'cloud-native' all-in deployments."
+  ],
+  "mustKnow": [
+   "Four models with an example each.",
+   "Hybrid benefits."
+  ],
+  "ifYouKnow": [
+   "Compare models.",
+   "Choose one for compliance needs.",
+   "Explain hybrid."
+  ],
+  "commonMistakes": [
+   "Thinking private cloud means 'a VPC' — a VPC is private networking inside the public cloud.",
+   "Believing hybrid is only for big firms."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "Public vs private vs hybrid cloud.",
+    "answer": "Ownership, cost, control, compliance, scalability."
+   },
+   {
+    "type": "explain with example",
+    "question": "Describe hybrid cloud with an example.",
+    "answer": "On-prem data + AWS compute via Direct Connect."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Public + private connected is:",
+    "answer": "Hybrid",
+    "explanation": "",
+    "options": [
+     "Public",
+     "Private",
+     "Hybrid",
+     "Community"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "AWS is a public cloud.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name a hybrid connectivity service.",
+    "answer": "AWS Direct Connect or Site-to-Site VPN.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Strict data residency, but needs burst capacity. Model?",
+    "answer": "Hybrid",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Private vs public cost.",
+    "answer": "Private has higher upfront cost; public is pay-per-use.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Deployment: public (shared), private (dedicated), hybrid (mix), community.",
+  "purpose": "Choose hosting location based on control, compliance and cost.",
+  "comparison": {
+   "title": "Deployment Models",
+   "headers": [
+    "Model",
+    "Owner",
+    "Cost",
+    "Control"
+   ],
+   "rows": [
+    [
+     "Public",
+     "Provider",
+     "Low, pay-per-use",
+     "Lower"
+    ],
+    [
+     "Private",
+     "One organisation",
+     "High",
+     "High"
+    ],
+    [
+     "Hybrid",
+     "Both",
+     "Medium",
+     "Flexible"
+    ]
+   ]
+  }
+ },
+ "aws-c1-t05": {
+  "id": "aws-c1-t05",
+  "title": "What is AWS?",
+  "importance": "high",
+  "definition": "Amazon Web Services (AWS) is Amazon's cloud platform offering over 200 services for compute, storage, databases, networking, security and more, billed pay-as-you-go.",
+  "simpleExplanation": "AWS Amazon ka cloud platform hai jaha se tum server, storage, database, AI sab kiraye par le sakte ho. Isko 2006 me launch kiya gaya tha (S3, EC2).",
+  "realLifeAnalogy": "A huge supermarket of IT building blocks: pick what you need, pay per item used.",
+  "example": "A student hosts a static website: store files in S3, serve via CloudFront, DNS with Route 53 — all AWS services combined.",
+  "keyPoints": [
+   "Launched publicly in 2006 with S3 and EC2.",
+   "Services grouped: compute, storage, database, networking, security, analytics, ML, management.",
+   "Pay-as-you-go; Free Tier for beginners.",
+   "Accessible via console, CLI, SDKs and APIs.",
+   "Shared responsibility model: AWS secures the cloud; customer secures what is in the cloud.",
+   "Largest cloud provider by market share (check current reports)."
+  ],
+  "mustKnow": [
+   "Service categories with examples.",
+   "Shared responsibility model.",
+   "Ways to access AWS."
+  ],
+  "ifYouKnow": [
+   "Define AWS.",
+   "Give services per category.",
+   "Explain shared responsibility."
+  ],
+  "commonMistakes": [
+   "Thinking AWS is only EC2.",
+   "Believing AWS manages your data's security completely."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "What is AWS? Explain main services.",
+    "answer": "Definition, categories, examples EC2, S3, RDS, VPC, IAM."
+   },
+   {
+    "type": "viva",
+    "question": "Explain the shared responsibility model.",
+    "answer": "AWS: security OF the cloud; customer: security IN the cloud."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "S3 is a ___ service.",
+    "answer": "Storage",
+    "explanation": "",
+    "options": [
+     "Compute",
+     "Storage",
+     "Network",
+     "Billing"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "AWS provides a free tier.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Three ways to access AWS.",
+    "answer": "Console, CLI, SDK/API.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Who patches the guest OS of an EC2 instance?",
+    "answer": "The customer",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Security OF vs IN the cloud.",
+    "answer": "OF = AWS hardware/facilities; IN = customer data/config.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "AWS: Amazon's cloud (2006), 200+ services, pay-as-you-go, shared responsibility.",
+  "purpose": "Provide on-demand IT building blocks globally.",
+  "features": [
+   "Broad service catalogue",
+   "Pay-as-you-go",
+   "Global infrastructure",
+   "Security tooling",
+   "Console/CLI/SDK access"
+  ],
+  "components": [
+   "Compute (EC2, Lambda)",
+   "Storage (S3, EBS, EFS)",
+   "Database (RDS, DynamoDB)",
+   "Networking (VPC, Route 53)",
+   "Security (IAM)"
+  ]
+ },
+ "aws-c1-t06": {
+  "id": "aws-c1-t06",
+  "title": "The AWS Global Infrastructure",
+  "importance": "high",
+  "definition": "The AWS Global Infrastructure is built from Regions, Availability Zones (AZs) and edge locations to provide low latency, high availability and fault tolerance.",
+  "simpleExplanation": "AWS duniya bhar me Regions me baata hai. Har Region me kai Availability Zones (alag data centres) hote hain. Edge locations content ko users ke paas cache karte hain (CloudFront).",
+  "realLifeAnalogy": "A courier company with country hubs (Regions), several warehouses in each hub (AZs) and local pickup points (edge locations).",
+  "example": "An app is deployed in the Mumbai Region across two AZs behind a load balancer; if one AZ fails, traffic goes to the other.",
+  "keyPoints": [
+   "Region: geographic area with multiple AZs (e.g. ap-south-1 Mumbai).",
+   "AZ: one or more isolated data centres with separate power/network, connected by low-latency links.",
+   "Edge locations/PoPs: used by CloudFront and Route 53 for caching/DNS.",
+   "Choose a Region by latency, compliance/data residency, service availability and price.",
+   "Multi-AZ deployment gives high availability; multi-Region gives disaster recovery.",
+   "Also Local Zones and Wavelength for ultra-low latency."
+  ],
+  "mustKnow": [
+   "Region vs AZ vs edge.",
+   "How to choose a Region.",
+   "Multi-AZ."
+  ],
+  "ifYouKnow": [
+   "Explain Region, AZ, edge location.",
+   "Choose a Region.",
+   "Design for AZ failure."
+  ],
+  "commonMistakes": [
+   "Believing an AZ is a single building only — it can be several data centres.",
+   "Thinking all services are available in every Region."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain AWS global infrastructure.",
+    "answer": "Regions, AZs, edge locations; benefits; Region selection."
+   },
+   {
+    "type": "difference",
+    "question": "Region vs AZ.",
+    "answer": "Region = geography with several AZs; AZ = isolated data-centre group inside a Region."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "CloudFront uses:",
+    "answer": "Edge locations",
+    "explanation": "",
+    "options": [
+     "AZs only",
+     "Edge locations",
+     "Regions only",
+     "VPC"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "A Region has multiple AZs.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name one factor for choosing a Region.",
+    "answer": "Latency, compliance, cost or service availability.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Data must stay in India. Choice?",
+    "answer": "An Indian Region (e.g. Mumbai)",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Multi-AZ vs multi-Region.",
+    "answer": "Multi-AZ = high availability within a Region; multi-Region = disaster recovery across geographies.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Infra: Region ⊃ AZs; edge locations for CloudFront; choose Region by latency/compliance/cost/services.",
+  "purpose": "Give resilient, low-latency global hosting.",
+  "components": [
+   "Regions",
+   "Availability Zones",
+   "Edge locations",
+   "Local Zones"
+  ],
+  "working": "Each Region is isolated; AZs inside it connect by high-speed links; edge locations cache content near users.",
+  "scenario": "Deploy across 2 AZs; when AZ-a fails, AZ-b serves traffic."
+ },
+ "aws-c2-t01": {
+  "id": "aws-c2-t01",
+  "title": "Networking Basics",
+  "importance": "high",
+  "definition": "Networking basics cover how devices communicate using IP addresses, CIDR blocks, ports, protocols (TCP/UDP), DNS, routers and switches.",
+  "simpleExplanation": "Network me har device ka IP address hota hai. CIDR (jaise 10.0.0.0/16) batata hai kitne addresses hain. Ports batate hain kaunsi service (80=HTTP, 443=HTTPS, 22=SSH).",
+  "realLifeAnalogy": "IP is a house address, port is the room number, router is the post office that decides the route.",
+  "example": "10.0.0.0/16 has 2^(32−16)=65,536 addresses; 10.0.1.0/24 has 256. HTTP uses port 80, HTTPS 443, SSH 22.",
+  "keyPoints": [
+   "IPv4 address = 32 bits; IPv6 = 128 bits.",
+   "CIDR /n: first n bits are network; addresses = 2^(32−n).",
+   "Private ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.",
+   "TCP reliable, connection-oriented; UDP fast, connectionless.",
+   "Common ports: 80 HTTP, 443 HTTPS, 22 SSH, 3389 RDP, 3306 MySQL.",
+   "Router connects networks; switch connects devices in one network."
+  ],
+  "mustKnow": [
+   "CIDR calculation.",
+   "Private IP ranges.",
+   "Common ports."
+  ],
+  "ifYouKnow": [
+   "Compute addresses in a CIDR.",
+   "Name ports.",
+   "Explain TCP vs UDP."
+  ],
+  "commonMistakes": [
+   "Mixing up /16 (large) and /24 (small).",
+   "Using public IP ranges in private VPCs."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "How many addresses in /24 and /16?",
+    "answer": "256 and 65,536."
+   },
+   {
+    "type": "difference",
+    "question": "TCP vs UDP.",
+    "answer": "TCP reliable/ordered; UDP fast/no guarantee."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "HTTPS port:",
+    "answer": "443",
+    "explanation": "",
+    "options": [
+     "80",
+     "443",
+     "22",
+     "25"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "/16 has more addresses than /24.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "Addresses in a /28.",
+    "answer": "16",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "One private IP range.",
+    "answer": "10.0.0.0/8",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Router vs switch.",
+    "answer": "Router connects different networks; switch connects devices inside a network.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "IP+port; CIDR /n → 2^(32−n) addresses; ports 80/443/22; TCP reliable, UDP fast.",
+  "purpose": "Foundation for understanding VPC design.",
+  "features": [
+   "IPv4/IPv6",
+   "CIDR",
+   "Ports",
+   "TCP/UDP"
+  ]
+ },
+ "aws-c2-t02": {
+  "id": "aws-c2-t02",
+  "title": "Virtual Private Cloud (VPC)",
+  "importance": "high",
+  "definition": "Amazon VPC is a logically isolated virtual network in an AWS Region where you define the IP range, subnets, routing and security for your resources.",
+  "simpleExplanation": "VPC AWS cloud me tumhara apna private network hai. Tum IP range, subnets, route tables, gateways aur security khud decide karte ho.",
+  "realLifeAnalogy": "Your own fenced campus inside a huge city: you decide the buildings (subnets), gates (gateways) and guards (security).",
+  "example": "Create VPC 10.0.0.0/16 with a public subnet 10.0.1.0/24 (web server) and a private subnet 10.0.2.0/24 (database). Internet gateway attached to the VPC.",
+  "keyPoints": [
+   "Spans all AZs of one Region; subnets are tied to one AZ.",
+   "Components: CIDR block, subnets, route tables, Internet Gateway (IGW), NAT gateway, security groups, NACLs, VPC endpoints.",
+   "Default VPC exists in each Region for quick start.",
+   "VPC peering / Transit Gateway connect VPCs.",
+   "VPN or Direct Connect link to on-prem.",
+   "Total CIDR size between /16 and /28."
+  ],
+  "mustKnow": [
+   "VPC component list.",
+   "Public vs private subnet in a VPC.",
+   "Default VPC."
+  ],
+  "ifYouKnow": [
+   "Describe a VPC.",
+   "Draw a simple VPC design.",
+   "Explain IGW vs NAT."
+  ],
+  "commonMistakes": [
+   "Thinking a VPC spans Regions (it is Region-scoped).",
+   "Forgetting to attach an IGW for internet access."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain VPC and its components.",
+    "answer": "CIDR, subnets, route tables, IGW, NAT, SG, NACL."
+   },
+   {
+    "type": "viva",
+    "question": "Is a VPC regional or zonal?",
+    "answer": "Regional; subnets are zonal."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "A VPC is scoped to a:",
+    "answer": "Region",
+    "explanation": "",
+    "options": [
+     "Region",
+     "AZ",
+     "Country",
+     "Account only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Subnets span multiple AZs.",
+    "answer": "False",
+    "explanation": "One subnet = one AZ."
+   },
+   {
+    "type": "short answer",
+    "question": "What gives a public subnet internet access?",
+    "answer": "Route to an Internet Gateway.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Private DB needs outbound internet for updates. Component?",
+    "answer": "NAT gateway",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "IGW vs NAT gateway.",
+    "answer": "IGW gives two-way internet for public resources; NAT gives outbound-only for private resources.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "VPC: isolated network per Region; subnets per AZ; IGW, NAT, route tables, SG, NACL.",
+  "purpose": "Provide isolated, controllable networking for AWS resources.",
+  "components": [
+   "CIDR block",
+   "Subnets",
+   "Route tables",
+   "Internet Gateway",
+   "NAT Gateway",
+   "Security groups / NACLs"
+  ],
+  "working": "Traffic leaves a subnet by its route table; routes to the IGW make a subnet public; security groups/NACLs filter traffic.",
+  "scenario": "Web tier in public subnet; database in private subnet reachable only from the web tier.",
+  "comparison": {
+   "title": "IGW vs NAT Gateway",
+   "headers": [
+    "Feature",
+    "Internet Gateway",
+    "NAT Gateway"
+   ],
+   "rows": [
+    [
+     "Direction",
+     "Inbound + outbound",
+     "Outbound only"
+    ],
+    [
+     "For",
+     "Public subnets",
+     "Private subnets"
+    ],
+    [
+     "Cost",
+     "Free",
+     "Hourly + data charges"
+    ]
+   ]
+  }
+ },
+ "aws-c2-t03": {
+  "id": "aws-c2-t03",
+  "title": "Subnets",
+  "importance": "high",
+  "definition": "A subnet is a range of IP addresses within a VPC located in a single Availability Zone; it is public if its route table sends internet traffic to an Internet Gateway, otherwise private.",
+  "simpleExplanation": "VPC ko chhote hisson (subnets) me baanta jata hai. Public subnet me internet route hota hai, private me nahi. Har subnet ek AZ me rehta hai.",
+  "realLifeAnalogy": "Wards of a hospital: reception (public) is open to visitors, ICU (private) is restricted.",
+  "example": "VPC 10.0.0.0/16 → Public subnet 10.0.1.0/24 in AZ-a (256 addresses, 251 usable). Private subnet 10.0.2.0/24 in AZ-b. AWS reserves 5 IPs per subnet.",
+  "keyPoints": [
+   "Subnet CIDR must be within the VPC CIDR and non-overlapping.",
+   "One subnet = one AZ.",
+   "AWS reserves 5 addresses per subnet (network, router, DNS, future, broadcast).",
+   "Public subnet: route 0.0.0.0/0 → IGW.",
+   "Private subnet: no direct internet route.",
+   "Use multiple subnets across AZs for high availability."
+  ],
+  "mustKnow": [
+   "251 usable IPs in a /24.",
+   "Public vs private definition.",
+   "Multi-AZ design."
+  ],
+  "ifYouKnow": [
+   "Plan subnets.",
+   "Compute usable IPs.",
+   "Decide public vs private."
+  ],
+  "commonMistakes": [
+   "Calling a subnet public just because of its name; the route table decides.",
+   "Forgetting the 5 reserved IPs."
+  ],
+  "examQuestions": [
+   {
+    "type": "numerical",
+    "question": "Usable IPs in a /24 AWS subnet?",
+    "answer": "256−5=251."
+   },
+   {
+    "type": "conceptual",
+    "question": "Public vs private subnet.",
+    "answer": "Route to IGW vs none."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "IPs reserved per subnet:",
+    "answer": "5",
+    "explanation": "",
+    "options": [
+     "2",
+     "5",
+     "10",
+     "0"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "A subnet can span two AZs.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "problem solving",
+    "question": "/26 subnet usable IPs?",
+    "answer": "59",
+    "explanation": "64−5."
+   },
+   {
+    "type": "short answer",
+    "question": "What makes a subnet public?",
+    "answer": "A route to an Internet Gateway.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "DB should not be reachable from internet. Subnet?",
+    "answer": "Private subnet",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Subnet: VPC slice in one AZ; public = route to IGW; 5 reserved IPs (251 usable in /24).",
+  "purpose": "Segment a VPC for security and availability.",
+  "components": [
+   "CIDR range",
+   "AZ",
+   "Route table association"
+  ]
+ },
+ "aws-c2-t04": {
+  "id": "aws-c2-t04",
+  "title": "Route Tables",
+  "importance": "high",
+  "definition": "A route table is a set of rules (routes) that decides where network traffic from a subnet is sent, each route having a destination CIDR and a target.",
+  "simpleExplanation": "Route table bataata hai ki kisi destination ka traffic kaha bhejna hai. Jaise 0.0.0.0/0 (internet) ko IGW ki taraf bhejna.",
+  "realLifeAnalogy": "A road signboard at a junction: 'to city X take left'.",
+  "example": "Public subnet route table: 10.0.0.0/16 → local; 0.0.0.0/0 → igw-123. Private subnet: 10.0.0.0/16 → local; 0.0.0.0/0 → nat-456.",
+  "keyPoints": [
+   "Each VPC has a main route table.",
+   "Every route table has a local route for VPC CIDR.",
+   "Routes: destination + target (IGW, NAT, peering, VPN, endpoint).",
+   "Most specific (longest prefix) route wins.",
+   "A subnet is associated with exactly one route table.",
+   "Public subnet = route to IGW."
+  ],
+  "mustKnow": [
+   "Local route.",
+   "0.0.0.0/0 meaning.",
+   "Longest prefix match."
+  ],
+  "ifYouKnow": [
+   "Read a route table.",
+   "Make a subnet public.",
+   "Add a NAT route."
+  ],
+  "commonMistakes": [
+   "Forgetting the route to IGW so instances remain unreachable.",
+   "Thinking a subnet can have two route tables."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write route tables for public and private subnets.",
+    "answer": "As in the example."
+   },
+   {
+    "type": "viva",
+    "question": "What does 0.0.0.0/0 mean?",
+    "answer": "All IPv4 destinations (default route)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Local route covers:",
+    "answer": "VPC CIDR",
+    "explanation": "",
+    "options": [
+     "Internet",
+     "VPC CIDR",
+     "Other VPCs",
+     "On-prem"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "The most specific route wins.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Target for internet in public subnet?",
+    "answer": "Internet Gateway",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Instance can't reach internet though IGW attached. Check?",
+    "answer": "Subnet's route table has 0.0.0.0/0 → IGW",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Main vs custom route table.",
+    "answer": "Main is the default for subnets without explicit association; custom is user-created.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Route table: destination→target; local route; 0.0.0.0/0→IGW (public) or NAT (private); longest prefix wins.",
+  "purpose": "Control where subnet traffic goes.",
+  "working": "Packet destination is matched against routes; the most specific match decides the target."
+ },
+ "aws-c2-t05": {
+  "id": "aws-c2-t05",
+  "title": "Security Groups",
+  "importance": "high",
+  "definition": "A security group is a stateful virtual firewall at the instance (ENI) level that controls inbound and outbound traffic using allow rules.",
+  "simpleExplanation": "Security group instance ka firewall hai. Isme sirf allow rules hote hain; jo rule allow nahi wo block. Stateful hai: inbound allow hua to uska reply apne aap allow.",
+  "realLifeAnalogy": "A security guard at a flat's door with a guest list: only listed visitors enter, and anyone you let in can leave without a new pass.",
+  "example": "Web server SG: inbound TCP 80 from 0.0.0.0/0, TCP 22 from my IP; outbound all. DB SG: inbound 3306 only from the web SG.",
+  "keyPoints": [
+   "Stateful: return traffic automatically allowed.",
+   "Allow rules only; no explicit deny.",
+   "Default: all inbound denied, all outbound allowed.",
+   "Rules reference IPs/CIDRs or other security groups.",
+   "Applied to instances/ENIs; many SGs per instance.",
+   "Changes apply immediately."
+  ],
+  "mustKnow": [
+   "SG vs NACL table.",
+   "Default behaviour.",
+   "SG referencing another SG."
+  ],
+  "ifYouKnow": [
+   "Write SG rules for a web + DB tier.",
+   "Compare with NACL.",
+   "Explain stateful."
+  ],
+  "commonMistakes": [
+   "Trying to create a deny rule in a SG.",
+   "Opening SSH 22 to 0.0.0.0/0 unnecessarily."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "Security group vs NACL.",
+    "answer": "Instance-level, stateful, allow-only vs subnet-level, stateless, allow+deny with ordered rules."
+   },
+   {
+    "type": "viva",
+    "question": "What does stateful mean?",
+    "answer": "Return traffic of an allowed connection is permitted automatically."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Security groups are:",
+    "answer": "Stateful",
+    "explanation": "",
+    "options": [
+     "Stateless",
+     "Stateful",
+     "Subnet-level",
+     "Deny-only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "SGs support deny rules.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Default inbound behaviour?",
+    "answer": "All denied.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Only web servers may reach the DB on 3306. Method?",
+    "answer": "DB SG allowing source = web SG",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "NACL rule evaluation.",
+    "answer": "In order by rule number; first match applies.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "SG: stateful, instance-level, allow-only, default deny inbound; NACL: stateless, subnet-level, allow+deny.",
+  "purpose": "Instance-level traffic filtering.",
+  "comparison": {
+   "title": "Security Group vs NACL",
+   "headers": [
+    "Feature",
+    "Security Group",
+    "NACL"
+   ],
+   "rows": [
+    [
+     "Level",
+     "Instance/ENI",
+     "Subnet"
+    ],
+    [
+     "State",
+     "Stateful",
+     "Stateless"
+    ],
+    [
+     "Rules",
+     "Allow only",
+     "Allow and deny"
+    ],
+    [
+     "Evaluation",
+     "All rules",
+     "In order of number"
+    ]
+   ]
+  }
+ },
+ "aws-c2-t06": {
+  "id": "aws-c2-t06",
+  "title": "VPC Security",
+  "importance": "high",
+  "definition": "VPC security uses layered controls — security groups, NACLs, private subnets, VPC endpoints, flow logs and IAM — to protect network resources (defence in depth).",
+  "simpleExplanation": "VPC ko secure karne ke liye kai layers: security groups, NACLs, private subnets, VPC endpoints, flow logs, bastion host. Ek layer fail ho to doosri bachaye.",
+  "realLifeAnalogy": "A bank with outer gate, ID check, locker and CCTV: many layers.",
+  "example": "Place web servers in public subnets, app/DB in private subnets, restrict DB SG to the app SG, enable VPC Flow Logs, and use an S3 gateway endpoint so S3 traffic never leaves the AWS network.",
+  "keyPoints": [
+   "Layers: NACL (subnet) + SG (instance).",
+   "Put sensitive resources in private subnets.",
+   "VPC endpoints give private access to AWS services.",
+   "VPC Flow Logs record accepted/rejected traffic.",
+   "Bastion host / Systems Manager Session Manager for admin access.",
+   "Least privilege with IAM; encryption in transit (TLS)."
+  ],
+  "mustKnow": [
+   "Defence in depth.",
+   "Flow logs purpose.",
+   "Endpoint benefit."
+  ],
+  "ifYouKnow": [
+   "List VPC security controls.",
+   "Design a secure 3-tier layout.",
+   "Explain endpoints."
+  ],
+  "commonMistakes": [
+   "Relying on only one control.",
+   "Leaving DBs in public subnets."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain security features of a VPC.",
+    "answer": "SG, NACL, private subnets, endpoints, flow logs, IAM."
+   },
+   {
+    "type": "viva",
+    "question": "Why use a VPC endpoint?",
+    "answer": "To reach AWS services privately without going over the internet."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Flow logs capture:",
+    "answer": "Network traffic metadata",
+    "explanation": "",
+    "options": [
+     "Passwords",
+     "Network traffic metadata",
+     "Billing",
+     "CPU"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Private subnets reduce exposure.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Defence in depth means?",
+    "answer": "Multiple layers of security.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Need private S3 access from a VPC. Use?",
+    "answer": "Gateway VPC endpoint",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Bastion vs Session Manager.",
+    "answer": "Bastion is an SSH jump host; Session Manager gives access without opening ports.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "VPC security = layers: SG+NACL, private subnets, endpoints, flow logs, bastion/SSM, IAM.",
+  "purpose": "Protect network resources.",
+  "features": [
+   "Security groups",
+   "NACLs",
+   "Private subnets",
+   "VPC endpoints",
+   "Flow logs"
+  ]
+ },
+ "aws-c2-t07": {
+  "id": "aws-c2-t07",
+  "title": "DNS: AWS Route 53",
+  "importance": "high",
+  "definition": "Amazon Route 53 is AWS's highly available, scalable DNS service that translates domain names to IP addresses, routes traffic and checks resource health.",
+  "simpleExplanation": "DNS naam (example.com) ko IP address me badalta hai. Route 53 AWS ka DNS hai (port 53). Ye routing policies aur health checks bhi deta hai.",
+  "realLifeAnalogy": "The phone book of the internet: you look up a name and get a number.",
+  "example": "Create a hosted zone for example.com; add an A (alias) record pointing www.example.com to a CloudFront distribution; use weighted routing to send 10% traffic to a new version.",
+  "keyPoints": [
+   "Functions: domain registration, DNS routing, health checking.",
+   "Records: A (IPv4), AAAA (IPv6), CNAME, MX, NS, TXT, alias.",
+   "Routing policies: simple, weighted, latency, failover, geolocation.",
+   "Hosted zones: public and private.",
+   "Alias records point to AWS resources, work at the zone apex and are free of query charges.",
+   "Name '53' from DNS port 53."
+  ],
+  "mustKnow": [
+   "Record types.",
+   "Routing policies.",
+   "Alias vs CNAME."
+  ],
+  "ifYouKnow": [
+   "Explain Route 53 services.",
+   "Pick a routing policy.",
+   "Compare alias and CNAME."
+  ],
+  "commonMistakes": [
+   "Using CNAME at the zone apex (not allowed).",
+   "Confusing DNS (name resolution) with CDN."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Route 53 and routing policies.",
+    "answer": "DNS, health checks, domain registration; simple/weighted/latency/failover/geolocation."
+   },
+   {
+    "type": "difference",
+    "question": "Alias vs CNAME.",
+    "answer": "Alias maps to AWS resources and can be at the apex; CNAME maps names to names and cannot be at apex."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Route 53 record for IPv4:",
+    "answer": "A",
+    "explanation": "",
+    "options": [
+     "AAAA",
+     "A",
+     "MX",
+     "TXT"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Route 53 supports health checks.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Routing policy for disaster recovery?",
+    "answer": "Failover",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Send users to the nearest Region. Policy?",
+    "answer": "Latency-based",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Weighted vs latency routing.",
+    "answer": "Weighted splits by percentage; latency picks the lowest-latency Region.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Route 53: DNS+health checks+domain registration; A/AAAA/CNAME/MX/alias; policies simple/weighted/latency/failover/geo.",
+  "purpose": "Resolve domain names and route users reliably.",
+  "components": [
+   "Hosted zones",
+   "Records",
+   "Routing policies",
+   "Health checks"
+  ],
+  "working": "Resolver queries Route 53 name servers; record found; policy picks answer; health checks remove unhealthy targets.",
+  "scenario": "Failover from primary Region to standby when health check fails.",
+  "comparison": {
+   "title": "Alias vs CNAME",
+   "headers": [
+    "Feature",
+    "Alias",
+    "CNAME"
+   ],
+   "rows": [
+    [
+     "Zone apex",
+     "Allowed",
+     "Not allowed"
+    ],
+    [
+     "Target",
+     "AWS resources",
+     "Any name"
+    ],
+    [
+     "Query cost",
+     "Free for AWS targets",
+     "Charged"
+    ]
+   ]
+  }
+ },
+ "aws-c2-t08": {
+  "id": "aws-c2-t08",
+  "title": "CloudFront",
+  "importance": "high",
+  "definition": "Amazon CloudFront is a content delivery network (CDN) that caches content at edge locations to deliver web content to users with low latency.",
+  "simpleExplanation": "CloudFront ek CDN hai. Content ka copy duniya bhar ke edge locations par cache hota hai, to user ko nazdeeki server se jaldi milta hai.",
+  "realLifeAnalogy": "A chain of local warehouses stocking popular items so customers don't wait for delivery from the central factory.",
+  "example": "Static site in S3 (origin) in Mumbai. A user in London requests an image; the nearest edge location serves it from cache; on a miss it fetches from S3 and caches it.",
+  "keyPoints": [
+   "Distribution = CloudFront configuration; origin = S3, ALB, EC2 or custom server.",
+   "Edge locations cache based on TTL.",
+   "Reduces latency and origin load.",
+   "Supports HTTPS, custom domains, WAF and signed URLs.",
+   "Origin Access Control restricts S3 to CloudFront only.",
+   "Good for static and streaming content."
+  ],
+  "mustKnow": [
+   "Edge, origin, TTL.",
+   "Cache hit vs miss.",
+   "Typical S3+CloudFront setup."
+  ],
+  "ifYouKnow": [
+   "Explain how CloudFront works.",
+   "State benefits.",
+   "Describe cache hit/miss."
+  ],
+  "commonMistakes": [
+   "Thinking CloudFront stores the only copy; the origin is the source.",
+   "Forgetting cache invalidation when content changes."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain CloudFront.",
+    "answer": "CDN, edge locations, origin, TTL, benefits."
+   },
+   {
+    "type": "viva",
+    "question": "What is a cache miss?",
+    "answer": "Edge does not have the object, so it fetches it from the origin."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "CloudFront serves content from:",
+    "answer": "Edge locations",
+    "explanation": "",
+    "options": [
+     "Edge locations",
+     "Only the origin",
+     "EBS",
+     "VPC"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "CloudFront can use S3 as origin.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Benefit of CDN?",
+    "answer": "Lower latency and reduced origin load.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Updated image not showing. Fix?",
+    "answer": "Invalidate the cache or lower TTL.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Route 53 vs CloudFront.",
+    "answer": "Route 53 resolves names; CloudFront delivers cached content.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "CloudFront: CDN; edge caching; origin (S3/ALB); TTL; HTTPS; invalidation.",
+  "purpose": "Deliver content globally with low latency.",
+  "components": [
+   "Distribution",
+   "Origin",
+   "Edge locations",
+   "Cache behaviour/TTL"
+  ],
+  "working": "User → nearest edge; hit → serve from cache; miss → fetch from origin, cache, serve.",
+  "scenario": "Global users loading images from an S3 bucket via CloudFront."
+ },
+ "aws-c2-t09": {
+  "id": "aws-c2-t09",
+  "title": "Build Your VPC in AWS and Launch a Web Server",
+  "importance": "high",
+  "definition": "Building a VPC and launching a web server means creating a VPC with a public subnet, internet gateway, route table and security group, and starting an EC2 instance running a web server.",
+  "simpleExplanation": "Lab steps: VPC banao, public subnet banao, IGW attach karo, route table me 0.0.0.0/0→IGW daalo, security group me port 80 kholo, EC2 launch karo aur user data se web server install karo.",
+  "realLifeAnalogy": "Building a small shop: plot (VPC), road to the highway (IGW + route), shop (EC2), and a door policy (security group).",
+  "example": "VPC 10.0.0.0/16; public subnet 10.0.1.0/24; IGW attached; route 0.0.0.0/0→IGW; SG allow TCP 80 (anywhere) and 22 (my IP); EC2 (Amazon Linux) with user data below; open http://<public-IP>.",
+  "keyPoints": [
+   "Create VPC with CIDR.",
+   "Create public subnet in an AZ; enable auto-assign public IPv4.",
+   "Create and attach Internet Gateway.",
+   "Route table: add 0.0.0.0/0 → IGW; associate with subnet.",
+   "Security group: inbound 80 and 22.",
+   "Launch EC2 with user data; verify in browser."
+  ],
+  "mustKnow": [
+   "Seven lab steps in order.",
+   "User data script.",
+   "Troubleshooting: route, SG, public IP."
+  ],
+  "ifYouKnow": [
+   "Describe the steps.",
+   "Troubleshoot an unreachable server.",
+   "Explain user data."
+  ],
+  "commonMistakes": [
+   "Forgetting to associate the route table with the subnet.",
+   "Launching without a public IP.",
+   "Opening SSH to the world."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Steps to build a VPC and launch a web server.",
+    "answer": "VPC → subnet → IGW → route table → SG → EC2 → test."
+   },
+   {
+    "type": "viva",
+    "question": "Why is the page not loading?",
+    "answer": "Check route to IGW, SG port 80, public IP, web server running."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Which makes the subnet public?",
+    "answer": "Route to IGW",
+    "explanation": "",
+    "options": [
+     "SG rule",
+     "Route to IGW",
+     "Key pair",
+     "AMI"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "User data runs at first boot.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Port for HTTP?",
+    "answer": "80",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Instance has no public IP. Fix?",
+    "answer": "Enable auto-assign public IP or attach an Elastic IP.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "User data vs AMI.",
+    "answer": "User data scripts configure at launch; AMI is a prebuilt image.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Lab: VPC → public subnet → IGW → route 0.0.0.0/0 → SG (80,22) → EC2 + user data → test.",
+  "purpose": "Hands-on practice combining VPC and EC2.",
+  "working": "1) Create VPC 10.0.0.0/16. 2) Create subnet 10.0.1.0/24. 3) Create and attach IGW. 4) Route 0.0.0.0/0→IGW and associate. 5) Create SG (80, 22). 6) Launch EC2 with user data. 7) Open public IP in a browser.",
+  "code": "#!/bin/bash\nyum update -y\nyum install -y httpd\nsystemctl start httpd\nsystemctl enable httpd\necho '<h1>Hello from my VPC</h1>' > /var/www/html/index.html",
+  "scenario": "A student hosts a demo web page on a custom VPC."
+ },
+ "aws-c3-t01": {
+  "id": "aws-c3-t01",
+  "title": "IaaS",
+  "importance": "high",
+  "definition": "Infrastructure as a Service (IaaS) provides virtualised computing resources such as servers, storage and networking on demand, while the customer manages the OS, middleware and applications.",
+  "simpleExplanation": "IaaS me AWS hardware, network aur virtualisation sambhalta hai; tum OS, software aur app sambhalte ho. Sabse zyada control, sabse zyada zimmedari.",
+  "realLifeAnalogy": "Renting an empty flat: the building is maintained for you, but furnishing and running it is your job.",
+  "example": "Launch an EC2 instance, install Apache and your app yourself, attach EBS volumes and place it in a VPC — all IaaS building blocks.",
+  "keyPoints": [
+   "AWS IaaS services: EC2, EBS, VPC, ELB.",
+   "Customer manages OS patching, runtime and applications.",
+   "Provider manages data centres, hardware and hypervisor.",
+   "Highest flexibility among service models.",
+   "Pay for what you provision.",
+   "Suitable for lift-and-shift migration."
+  ],
+  "mustKnow": [
+   "IaaS responsibilities split.",
+   "AWS examples.",
+   "When to choose IaaS."
+  ],
+  "ifYouKnow": [
+   "Define IaaS.",
+   "Name AWS IaaS services.",
+   "State what customer manages."
+  ],
+  "commonMistakes": [
+   "Thinking IaaS includes OS patching by AWS.",
+   "Calling Lambda IaaS."
+  ],
+  "examQuestions": [
+   {
+    "type": "definition",
+    "question": "Define IaaS with AWS examples.",
+    "answer": "Virtualised infrastructure on demand; EC2, EBS, VPC."
+   },
+   {
+    "type": "viva",
+    "question": "Who patches the OS on EC2?",
+    "answer": "The customer."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "IaaS on AWS:",
+    "answer": "EC2",
+    "explanation": "",
+    "options": [
+     "Lambda",
+     "EC2",
+     "Gmail",
+     "Beanstalk"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "In IaaS the customer manages the OS.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Two benefits of IaaS.",
+    "answer": "Full control and pay-per-use.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Need a custom OS configuration. Model?",
+    "answer": "IaaS",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "IaaS vs PaaS control.",
+    "answer": "IaaS gives more control; PaaS manages OS/runtime.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "IaaS = virtual servers/storage/network on demand; you manage OS+apps (EC2).",
+  "purpose": "Rent infrastructure instead of owning it.",
+  "features": [
+   "Virtual machines",
+   "Block storage",
+   "Virtual networking",
+   "Full OS control"
+  ],
+  "comparison": {
+   "title": "Who manages what",
+   "headers": [
+    "Layer",
+    "IaaS (EC2)",
+    "PaaS (Beanstalk)"
+   ],
+   "rows": [
+    [
+     "Hardware",
+     "AWS",
+     "AWS"
+    ],
+    [
+     "OS",
+     "You",
+     "AWS"
+    ],
+    [
+     "Runtime",
+     "You",
+     "AWS"
+    ],
+    [
+     "App code",
+     "You",
+     "You"
+    ]
+   ]
+  }
+ },
+ "aws-c3-t02": {
+  "id": "aws-c3-t02",
+  "title": "Virtual Machines in the Cloud",
+  "importance": "high",
+  "definition": "A virtual machine (VM) is a software-emulated computer running on shared physical hardware via a hypervisor, with its own OS and resources.",
+  "simpleExplanation": "Ek physical server par hypervisor kai VMs chalata hai; har VM apna alag computer jaisa behave karta hai. EC2 instances VMs hi hain (Nitro hypervisor).",
+  "realLifeAnalogy": "One big building (physical server) divided into separate apartments (VMs), each with its own door and utilities.",
+  "example": "One physical server hosts 10 EC2 instances of different customers, each isolated, with its own OS and IP.",
+  "keyPoints": [
+   "Hypervisor virtualises CPU, memory, storage and network.",
+   "AWS uses the Nitro system for EC2.",
+   "VMs boot from an AMI (image).",
+   "Multi-tenancy with isolation.",
+   "VM vs container: VM has full OS; container shares host kernel and is lighter.",
+   "Benefits: better utilisation, quick provisioning, snapshots."
+  ],
+  "mustKnow": [
+   "Hypervisor role.",
+   "VM vs container.",
+   "AMI idea."
+  ],
+  "ifYouKnow": [
+   "Explain virtualisation.",
+   "Compare VM and container.",
+   "Name the AWS VM service."
+  ],
+  "commonMistakes": [
+   "Thinking a VM is a physical server.",
+   "Confusing VM with container."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain virtual machines in the cloud.",
+    "answer": "Hypervisor, isolation, AMI, EC2."
+   },
+   {
+    "type": "difference",
+    "question": "VM vs container.",
+    "answer": "VM includes guest OS (heavier); container shares host OS kernel (lighter)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Hypervisor creates:",
+    "answer": "Virtual machines",
+    "explanation": "",
+    "options": [
+     "Containers only",
+     "Virtual machines",
+     "Databases",
+     "DNS"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "EC2 instances are VMs.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is an AMI?",
+    "answer": "A template with OS and software used to launch an instance.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Many isolated servers on one host. Technology?",
+    "answer": "Virtualisation",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "VM vs bare metal.",
+    "answer": "VM shares hardware via hypervisor; bare metal gives direct hardware.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "VM = software computer on shared hardware via hypervisor; EC2 (Nitro); AMI boots it.",
+  "purpose": "Use hardware efficiently and provision servers quickly.",
+  "components": [
+   "Physical host",
+   "Hypervisor (Nitro)",
+   "Guest OS",
+   "AMI"
+  ],
+  "working": "Hypervisor splits host resources among isolated VMs, each booted from an image."
+ },
+ "aws-c3-t03": {
+  "id": "aws-c3-t03",
+  "title": "Amazon EC2",
+  "importance": "high",
+  "definition": "Amazon Elastic Compute Cloud (EC2) provides resizable virtual servers (instances) in the cloud that you launch from an AMI and configure with instance type, storage and security.",
+  "simpleExplanation": "EC2 AWS ka virtual server hai. Tum AMI chunte ho, instance type (CPU/RAM) chunte ho, key pair aur security group lagate ho, aur server tayyar.",
+  "realLifeAnalogy": "Renting a computer by the hour, choosing the size you need and returning it when done.",
+  "example": "Run a web app on a t3.micro instance (Linux AMI), attach a 20 GB EBS volume and a security group that allows HTTP. Later resize to t3.medium when traffic grows.",
+  "keyPoints": [
+   "Instance families: general purpose (t, m), compute optimised (c), memory optimised (r), storage optimised (i), accelerated (p, g).",
+   "Needs: AMI, instance type, key pair, network/security group, storage (EBS or instance store).",
+   "Purchasing: On-Demand, Reserved/Savings Plans, Spot, Dedicated Hosts.",
+   "Instance states: pending, running, stopping, stopped, terminated.",
+   "Instance store is temporary; EBS persists.",
+   "Billed per second (Linux) while running."
+  ],
+  "mustKnow": [
+   "Instance families and use.",
+   "Purchasing options.",
+   "States."
+  ],
+  "ifYouKnow": [
+   "Choose an instance type.",
+   "Pick a purchasing option.",
+   "Describe launch inputs."
+  ],
+  "commonMistakes": [
+   "Thinking stopped instances still pay compute charges (EBS still billed).",
+   "Using Spot for critical non-interruptible jobs."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain EC2 features and purchasing options.",
+    "answer": "Families, AMI, key pair, SG, EBS; On-Demand, Reserved, Spot, Dedicated."
+   },
+   {
+    "type": "difference",
+    "question": "On-Demand vs Spot.",
+    "answer": "On-Demand: pay normal rate, no interruption; Spot: spare capacity at big discount but can be reclaimed."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Cheapest but interruptible:",
+    "answer": "Spot",
+    "explanation": "",
+    "options": [
+     "On-Demand",
+     "Reserved",
+     "Spot",
+     "Dedicated"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Instance store data survives termination.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Instance family for RAM-heavy workloads?",
+    "answer": "Memory optimised (r).",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Steady 1-year workload. Option?",
+    "answer": "Reserved/Savings Plan",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Stop vs terminate.",
+    "answer": "Stop keeps the instance and EBS; terminate deletes the instance.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "EC2 = resizable VMs: AMI + type + key pair + SG + EBS; On-Demand/Reserved/Spot/Dedicated.",
+  "purpose": "Provide scalable virtual servers.",
+  "components": [
+   "AMI",
+   "Instance type",
+   "Key pair",
+   "Security group",
+   "EBS/instance store"
+  ],
+  "working": "Choose AMI and type → configure network/storage → launch → connect via SSH/RDP.",
+  "scenario": "Host a web app and scale instance size with traffic.",
+  "comparison": {
+   "title": "EC2 Purchasing Options",
+   "headers": [
+    "Option",
+    "Best for",
+    "Commitment"
+   ],
+   "rows": [
+    [
+     "On-Demand",
+     "Short/unpredictable",
+     "None"
+    ],
+    [
+     "Reserved/Savings Plan",
+     "Steady usage",
+     "1–3 years"
+    ],
+    [
+     "Spot",
+     "Fault-tolerant batch",
+     "None, can be interrupted"
+    ],
+    [
+     "Dedicated Host",
+     "Licensing/compliance",
+     "On-demand or reserved"
+    ]
+   ]
+  }
+ },
+ "aws-c3-t04": {
+  "id": "aws-c3-t04",
+  "title": "Elastic Load Balancing",
+  "importance": "high",
+  "definition": "Elastic Load Balancing (ELB) automatically distributes incoming traffic across multiple targets such as EC2 instances in one or more Availability Zones.",
+  "simpleExplanation": "Load balancer traffic ko kai servers me baant deta hai taki koi ek server overload na ho. Health check se kharab server ko traffic nahi bhejta.",
+  "realLifeAnalogy": "A traffic police officer directing cars to different lanes so no lane jams.",
+  "example": "Two EC2 web servers in different AZs behind an Application Load Balancer; if one fails its health check, ALB sends all requests to the healthy one.",
+  "keyPoints": [
+   "Types: Application (L7, HTTP/HTTPS, path/host routing), Network (L4, TCP/UDP, high performance, static IP), Gateway (L3, appliances), Classic (legacy).",
+   "Target group: set of targets with health checks.",
+   "Listeners and rules define routing.",
+   "Cross-zone load balancing spreads evenly across AZs.",
+   "Supports SSL termination.",
+   "Gives high availability and fault tolerance."
+  ],
+  "mustKnow": [
+   "ALB vs NLB table.",
+   "Health checks.",
+   "Target groups."
+  ],
+  "ifYouKnow": [
+   "Choose the right load balancer.",
+   "Explain health checks.",
+   "Draw ELB with Auto Scaling."
+  ],
+  "commonMistakes": [
+   "Using NLB when you need path-based routing (that's ALB).",
+   "Putting all targets in a single AZ."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "ALB vs NLB.",
+    "answer": "ALB: layer 7, content routing; NLB: layer 4, ultra-high performance."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain ELB and its benefits.",
+    "answer": "Distribute traffic, health checks, multi-AZ, scalable."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Path-based routing is a feature of:",
+    "answer": "ALB",
+    "explanation": "",
+    "options": [
+     "NLB",
+     "ALB",
+     "GLB",
+     "Route 53"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "ELB performs health checks.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Layer of NLB?",
+    "answer": "Layer 4",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "/api → service A, /images → service B. Choice?",
+    "answer": "Application Load Balancer",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "ELB vs Route 53.",
+    "answer": "ELB balances among instances; Route 53 resolves DNS and routes at DNS level.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "ELB: ALB (L7, path/host), NLB (L4, fast), GLB (L3); target groups + health checks; multi-AZ.",
+  "purpose": "Distribute traffic and improve availability.",
+  "components": [
+   "Load balancer",
+   "Listener",
+   "Target group",
+   "Health check"
+  ],
+  "working": "Client → listener rule → healthy target in a target group.",
+  "comparison": {
+   "title": "ALB vs NLB",
+   "headers": [
+    "Feature",
+    "ALB",
+    "NLB"
+   ],
+   "rows": [
+    [
+     "Layer",
+     "7",
+     "4"
+    ],
+    [
+     "Protocols",
+     "HTTP/HTTPS",
+     "TCP/UDP/TLS"
+    ],
+    [
+     "Routing",
+     "Path/host/header",
+     "Port-based"
+    ],
+    [
+     "Static IP",
+     "No (use Global Accelerator)",
+     "Yes"
+    ]
+   ]
+  }
+ },
+ "aws-c3-t05": {
+  "id": "aws-c3-t05",
+  "title": "AutoScaling",
+  "importance": "high",
+  "definition": "EC2 Auto Scaling automatically adds or removes EC2 instances in an Auto Scaling group to match demand and maintain a desired number of healthy instances.",
+  "simpleExplanation": "Auto Scaling traffic badhne par naye servers add karta hai aur kam hone par hata deta hai. Kharab instance ko replace bhi karta hai.",
+  "realLifeAnalogy": "A restaurant calling extra waiters when it gets crowded and sending them home when it's quiet.",
+  "example": "ASG min=2, desired=2, max=6 with a target-tracking policy: keep average CPU at 50%. During a sale CPU hits 80% → ASG launches more instances up to 6.",
+  "keyPoints": [
+   "Auto Scaling group (ASG): min, desired, max capacity.",
+   "Launch template defines AMI, type, SG, key.",
+   "Policies: target tracking, step, scheduled, predictive.",
+   "Health checks replace unhealthy instances.",
+   "Works with ELB across AZs.",
+   "Improves cost and availability."
+  ],
+  "mustKnow": [
+   "Min/desired/max.",
+   "Scaling policy types.",
+   "ELB + ASG."
+  ],
+  "ifYouKnow": [
+   "Configure an ASG.",
+   "Choose a scaling policy.",
+   "Explain scale out vs in."
+  ],
+  "commonMistakes": [
+   "Confusing scaling out (add instances) with scaling up (bigger instance).",
+   "Setting min=0 for a critical service."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Auto Scaling with policies.",
+    "answer": "ASG, launch template, policies, health checks."
+   },
+   {
+    "type": "difference",
+    "question": "Scale out vs scale up.",
+    "answer": "Out: more instances (horizontal); up: larger instance (vertical)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Which defines instance configuration?",
+    "answer": "Launch template",
+    "explanation": "",
+    "options": [
+     "Launch template",
+     "Route table",
+     "Bucket",
+     "Snapshot"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "ASG can replace unhealthy instances.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two scaling policy types.",
+    "answer": "Target tracking and scheduled.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Traffic spike every day at 9 am. Policy?",
+    "answer": "Scheduled scaling",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Horizontal vs vertical scaling.",
+    "answer": "Horizontal adds instances; vertical increases instance size.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "ASG: launch template + min/desired/max + policies (target/step/scheduled) + health checks; with ELB.",
+  "purpose": "Match capacity to demand automatically.",
+  "components": [
+   "Launch template",
+   "Auto Scaling group",
+   "Scaling policy",
+   "Health check"
+  ],
+  "working": "CloudWatch metric breaches → policy triggers → ASG adds/removes instances; ELB distributes traffic."
+ },
+ "aws-c3-t06": {
+  "id": "aws-c3-t06",
+  "title": "Launch an Amazon EC2 Instance",
+  "importance": "high",
+  "definition": "Launching an EC2 instance means choosing an AMI, instance type, key pair, network and storage settings in the console or CLI and starting the server.",
+  "simpleExplanation": "Console me: Launch instance → naam → AMI (Amazon Linux) → type (t3.micro) → key pair → security group → storage → Launch. Phir SSH se connect.",
+  "realLifeAnalogy": "Booking a hotel room: choose room type, give an ID, get a key, enter.",
+  "example": "Launch Amazon Linux t3.micro, key pair mykey, SG allowing SSH 22 from your IP. Connect: ssh -i mykey.pem ec2-user@<public-ip>.",
+  "keyPoints": [
+   "Steps: name → AMI → instance type → key pair → network/SG → storage → advanced (user data) → Launch.",
+   "Key pair file (.pem) needed for SSH; keep it private (chmod 400).",
+   "Security group must allow SSH (22) or RDP (3389).",
+   "Free Tier eligible types for learning.",
+   "Terminate when done to avoid charges.",
+   "Check instance status checks (2/2 passed)."
+  ],
+  "mustKnow": [
+   "Launch steps.",
+   "SSH command.",
+   "Common errors."
+  ],
+  "ifYouKnow": [
+   "Launch an instance.",
+   "Connect via SSH.",
+   "Troubleshoot connection timeout."
+  ],
+  "commonMistakes": [
+   "Wrong key file permissions (too open).",
+   "Missing SSH rule in the SG.",
+   "Forgetting to terminate."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Describe steps to launch an EC2 instance.",
+    "answer": "As listed."
+   },
+   {
+    "type": "viva",
+    "question": "SSH times out. Why?",
+    "answer": "SG missing port 22, no public IP/route, or wrong IP range."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Linux login port:",
+    "answer": "22",
+    "explanation": "",
+    "options": [
+     "22",
+     "80",
+     "443",
+     "3389"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Key pair is needed to SSH to Linux.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Command to connect?",
+    "answer": "ssh -i key.pem ec2-user@public-ip",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Permission denied (key too open). Fix?",
+    "answer": "chmod 400 key.pem",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Stop vs terminate.",
+    "answer": "Stop pauses; terminate deletes.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Launch: AMI→type→key pair→SG→storage→Launch; SSH with .pem; terminate after use.",
+  "purpose": "Hands-on first server.",
+  "working": "Console → EC2 → Launch instance → configure → Launch → wait for running → connect.",
+  "code": "chmod 400 mykey.pem\nssh -i mykey.pem ec2-user@<public-ip>\n# CLI alternative\naws ec2 run-instances --image-id <ami-id> --instance-type t3.micro --key-name mykey --security-group-ids <sg-id>"
+ },
+ "aws-c3-t07": {
+  "id": "aws-c3-t07",
+  "title": "Serverless Computing",
+  "importance": "high",
+  "definition": "Serverless computing lets you run code without provisioning or managing servers; the provider scales automatically and you pay only for execution.",
+  "simpleExplanation": "Serverless me server hote to hain par tum unhe manage nahi karte. Code likho, AWS chalaata hai, scale karta hai, aur sirf run time ka paisa lagta hai.",
+  "realLifeAnalogy": "Taking a cab instead of owning a car: you pay per ride and never worry about maintenance.",
+  "example": "An image uploaded to S3 triggers a Lambda function that creates a thumbnail and stores it back. No server is running when nothing is uploaded.",
+  "keyPoints": [
+   "No server management; automatic scaling.",
+   "Pay per request/duration; zero cost when idle.",
+   "Event-driven.",
+   "AWS serverless: Lambda, Fargate, API Gateway, DynamoDB, S3, SQS/SNS.",
+   "Limits: cold starts, execution time caps, vendor lock-in.",
+   "Good for variable, event-driven workloads."
+  ],
+  "mustKnow": [
+   "Benefits and limits.",
+   "Serverless services list.",
+   "Event-driven example."
+  ],
+  "ifYouKnow": [
+   "Define serverless.",
+   "Name AWS serverless services.",
+   "Pick use cases."
+  ],
+  "commonMistakes": [
+   "Thinking 'serverless' means no servers exist.",
+   "Using it for long-running jobs."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain serverless computing and benefits.",
+    "answer": "No server management, auto-scale, pay-per-use, event-driven."
+   },
+   {
+    "type": "viva",
+    "question": "Drawback of serverless?",
+    "answer": "Cold starts, time limits, lock-in."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Serverless compute on AWS:",
+    "answer": "Lambda",
+    "explanation": "",
+    "options": [
+     "EC2",
+     "Lambda",
+     "EBS",
+     "VPC"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "You pay when a serverless function is idle.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two serverless services.",
+    "answer": "Lambda and DynamoDB (or Fargate).",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Process an upload event occasionally. Choice?",
+    "answer": "Lambda",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Serverless vs EC2.",
+    "answer": "Serverless: no server management, per-use; EC2: you manage servers, pay while running.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Serverless: no servers to manage, auto-scale, pay per use, event-driven (Lambda, Fargate).",
+  "purpose": "Run code without managing servers.",
+  "features": [
+   "Auto scaling",
+   "Pay per use",
+   "Event-driven",
+   "No server management"
+  ],
+  "comparison": {
+   "title": "EC2 vs Lambda",
+   "headers": [
+    "Feature",
+    "EC2",
+    "Lambda"
+   ],
+   "rows": [
+    [
+     "Server management",
+     "You",
+     "AWS"
+    ],
+    [
+     "Billing",
+     "While running",
+     "Per request & duration"
+    ],
+    [
+     "Max runtime",
+     "Unlimited",
+     "15 minutes"
+    ],
+    [
+     "Scaling",
+     "Configure ASG",
+     "Automatic"
+    ]
+   ]
+  }
+ },
+ "aws-c3-t08": {
+  "id": "aws-c3-t08",
+  "title": "AWS Lambda",
+  "importance": "high",
+  "definition": "AWS Lambda is a serverless compute service that runs your function in response to events and charges only for the compute time used.",
+  "simpleExplanation": "Lambda me tum function likhte ho; koi event (S3 upload, API call, schedule) aaye to AWS use chalata hai. Server ki chinta nahi.",
+  "realLifeAnalogy": "A vending machine: it does its job when someone presses a button, and costs nothing otherwise.",
+  "example": "Python handler: def lambda_handler(event, context): name=event.get('name','World'); return {'statusCode':200,'body':f'Hello {name}'}. Triggered through API Gateway.",
+  "keyPoints": [
+   "Function + trigger + execution role.",
+   "Triggers: S3, API Gateway, DynamoDB streams, SQS, EventBridge schedules.",
+   "Runtimes: Python, Node.js, Java, .NET, Go, Ruby, custom/container.",
+   "Timeout up to 15 minutes; memory 128 MB–10,240 MB.",
+   "Billed on requests and duration (GB-seconds).",
+   "Scales automatically per request."
+  ],
+  "mustKnow": [
+   "Handler signature.",
+   "Triggers.",
+   "Limits and billing."
+  ],
+  "ifYouKnow": [
+   "Explain Lambda.",
+   "Name triggers.",
+   "Write a simple handler."
+  ],
+  "commonMistakes": [
+   "Using Lambda for jobs longer than 15 minutes.",
+   "Forgetting the execution role permissions."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain AWS Lambda with example.",
+    "answer": "Event-driven functions; S3 thumbnail example."
+   },
+   {
+    "type": "viva",
+    "question": "Lambda max timeout?",
+    "answer": "15 minutes."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Lambda timeout max:",
+    "answer": "15 minutes",
+    "explanation": "",
+    "options": [
+     "1 min",
+     "15 minutes",
+     "1 hour",
+     "Unlimited"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Lambda needs you to manage servers.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two triggers.",
+    "answer": "S3 and API Gateway.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Run code every night. Trigger?",
+    "answer": "EventBridge schedule",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Lambda vs EC2 billing.",
+    "answer": "Lambda per request/duration; EC2 per running time.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Lambda: event→function (≤15 min), pay per request+duration, triggers S3/API GW/EventBridge, execution role.",
+  "purpose": "Run code on events without servers.",
+  "components": [
+   "Function code",
+   "Trigger",
+   "Execution role",
+   "Runtime/memory/timeout"
+  ],
+  "working": "Event arrives → Lambda starts execution environment → runs handler → returns result; scales per concurrent event.",
+  "scenario": "S3 upload triggers thumbnail creation.",
+  "code": "def lambda_handler(event, context):\n    name = event.get('name', 'World')\n    return {'statusCode': 200, 'body': f'Hello {name}'}"
+ },
+ "aws-c3-t09": {
+  "id": "aws-c3-t09",
+  "title": "Characteristics of AWS Lambda",
+  "importance": "high",
+  "definition": "The characteristics of Lambda are event-driven execution, stateless functions, automatic scaling, pay-per-use billing, managed runtimes and defined resource limits.",
+  "simpleExplanation": "Lambda ki khaas baatein: event se chalta hai, stateless hai, khud scale hota hai, sirf use ka paisa, aur kuch limits (time, memory) hote hain.",
+  "realLifeAnalogy": "A temporary worker called per task who forgets everything after the job, so any notes must go to a shared notebook (S3/DynamoDB).",
+  "example": "A function counting visits can't keep a counter in memory between calls; it stores the count in DynamoDB.",
+  "keyPoints": [
+   "Event-driven and stateless; persist data externally.",
+   "Automatic scaling and high availability across AZs.",
+   "Pay per request and duration in milliseconds.",
+   "Limits: 15 min timeout, up to 10 GB memory, /tmp storage, package size limits.",
+   "Cold start delay on first/new execution environment.",
+   "Concurrency limits; reserved/provisioned concurrency options.",
+   "Security via execution role and resource policies."
+  ],
+  "mustKnow": [
+   "Stateless idea.",
+   "Limits.",
+   "Cold start."
+  ],
+  "ifYouKnow": [
+   "List characteristics.",
+   "Explain statelessness.",
+   "Explain cold start."
+  ],
+  "commonMistakes": [
+   "Storing state in function memory expecting persistence.",
+   "Ignoring concurrency limits."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "List characteristics of AWS Lambda.",
+    "answer": "Event-driven, stateless, auto-scale, pay-per-use, limits."
+   },
+   {
+    "type": "viva",
+    "question": "What is a cold start?",
+    "answer": "Delay creating a new execution environment for an invocation."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Lambda functions are:",
+    "answer": "Stateless",
+    "explanation": "",
+    "options": [
+     "Stateful",
+     "Stateless",
+     "Persistent",
+     "Static"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Lambda bills in milliseconds.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Max memory?",
+    "answer": "10,240 MB",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Need to keep counter across invocations. Where?",
+    "answer": "DynamoDB/S3",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Cold vs warm start.",
+    "answer": "Cold creates a new environment; warm reuses an existing one.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Lambda: event-driven, stateless, auto-scale, pay-per-ms, limits (15 min, 10 GB), cold start.",
+  "purpose": "Know when Lambda fits.",
+  "features": [
+   "Event-driven",
+   "Stateless",
+   "Auto scaling",
+   "Pay-per-use",
+   "Managed runtimes"
+  ]
+ },
+ "aws-c3-t10": {
+  "id": "aws-c3-t10",
+  "title": "Create and Configure a Lambda Function",
+  "importance": "high",
+  "definition": "Creating a Lambda function involves choosing a runtime, writing a handler, setting an execution role, configuring memory, timeout and triggers, and testing with an event.",
+  "simpleExplanation": "Console me: Create function → name → runtime (Python) → role → code likho → Deploy → Test event banao → memory/timeout set karo → trigger add karo.",
+  "realLifeAnalogy": "Hiring a part-time worker: give a role, instructions and a trigger for when to work.",
+  "example": "Function hello-lambda (Python 3.x). Test event {\"name\":\"Asha\"} → output {\"statusCode\":200,\"body\":\"Hello Asha\"}.",
+  "keyPoints": [
+   "Steps: Create function → runtime → execution role → write code → Deploy → Test.",
+   "Configuration: memory, timeout, environment variables, VPC, layers.",
+   "Add trigger (API Gateway, S3).",
+   "Check logs in CloudWatch Logs.",
+   "Execution role needs basic logging permissions (AWSLambdaBasicExecutionRole).",
+   "Version and alias for releases."
+  ],
+  "mustKnow": [
+   "Steps.",
+   "Test event.",
+   "Logs in CloudWatch."
+  ],
+  "ifYouKnow": [
+   "Create and test a function.",
+   "Configure memory/timeout.",
+   "Find logs."
+  ],
+  "commonMistakes": [
+   "Forgetting to click Deploy after editing.",
+   "Too small timeout for slow code."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Steps to create and configure a Lambda function.",
+    "answer": "As listed."
+   },
+   {
+    "type": "viva",
+    "question": "Where do you see Lambda logs?",
+    "answer": "CloudWatch Logs."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Logs go to:",
+    "answer": "CloudWatch Logs",
+    "explanation": "",
+    "options": [
+     "S3",
+     "CloudWatch Logs",
+     "EBS",
+     "Route 53"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Test events simulate triggers.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Role permission for logging?",
+    "answer": "AWSLambdaBasicExecutionRole",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Function times out at 3 s. Fix?",
+    "answer": "Increase timeout (up to 15 min) or optimise.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Version vs alias.",
+    "answer": "Version is an immutable snapshot; alias is a named pointer to a version.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Lambda lab: create → role → code → Deploy → Test → set memory/timeout → add trigger → check logs.",
+  "purpose": "Hands-on serverless.",
+  "working": "Create function; paste code; Deploy; create test event; invoke; view output and CloudWatch logs.",
+  "code": "def lambda_handler(event, context):\n    name = event.get('name', 'World')\n    return {'statusCode': 200, 'body': 'Hello ' + name}\n# Test event: {\"name\": \"Asha\"}"
+ },
+ "aws-c3-t11": {
+  "id": "aws-c3-t11",
+  "title": "PaaS: AWS Elastic Beanstalk",
+  "importance": "high",
+  "definition": "AWS Elastic Beanstalk is a PaaS that deploys and manages web applications by automatically provisioning EC2, load balancing, Auto Scaling and monitoring from your uploaded code.",
+  "simpleExplanation": "Beanstalk me bas code upload karo; AWS EC2, load balancer, auto scaling aur monitoring khud set up kar deta hai. Tum control rakh sakte ho par infra ka kaam kam.",
+  "realLifeAnalogy": "Moving into a furnished serviced apartment: you bring your belongings (code); setup and maintenance are handled.",
+  "example": "Upload a Python Flask app zip; Beanstalk creates an environment with EC2 + ALB + Auto Scaling and gives a URL.",
+  "keyPoints": [
+   "Supports Java, .NET, PHP, Node.js, Python, Ruby, Go, Docker.",
+   "Environment types: web server and worker.",
+   "Deployment policies: all at once, rolling, rolling with additional batch, immutable, blue/green.",
+   "No extra charge; you pay for underlying resources.",
+   "You retain access to the underlying resources.",
+   "Monitoring via CloudWatch and health dashboard."
+  ],
+  "mustKnow": [
+   "What it provisions.",
+   "Deployment policies.",
+   "PaaS vs IaaS."
+  ],
+  "ifYouKnow": [
+   "Explain Elastic Beanstalk.",
+   "Choose a deployment policy.",
+   "Compare with EC2."
+  ],
+  "commonMistakes": [
+   "Thinking Beanstalk removes all control; you can customise.",
+   "Confusing with CloudFormation (infrastructure templates)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Elastic Beanstalk.",
+    "answer": "PaaS; code upload; auto provisioning; policies."
+   },
+   {
+    "type": "difference",
+    "question": "Elastic Beanstalk vs EC2.",
+    "answer": "Beanstalk is managed PaaS; EC2 is raw IaaS."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Beanstalk is:",
+    "answer": "PaaS",
+    "explanation": "",
+    "options": [
+     "IaaS",
+     "PaaS",
+     "SaaS",
+     "DNS"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Beanstalk itself has no extra charge.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "One deployment policy.",
+    "answer": "Rolling or Immutable.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Developer wants to deploy code, not manage servers. Service?",
+    "answer": "Elastic Beanstalk",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Beanstalk vs Lambda.",
+    "answer": "Beanstalk runs full web apps on managed EC2; Lambda runs event-driven functions.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Beanstalk: PaaS, upload code → EC2+ELB+ASG+CloudWatch auto-created; policies rolling/immutable/blue-green.",
+  "purpose": "Deploy apps quickly without managing infrastructure.",
+  "components": [
+   "Application",
+   "Environment",
+   "EC2/ELB/ASG",
+   "CloudWatch"
+  ],
+  "working": "Upload code → Beanstalk creates environment → deploys → monitors and scales.",
+  "comparison": {
+   "title": "Beanstalk vs EC2 vs Lambda",
+   "headers": [
+    "Feature",
+    "EC2",
+    "Beanstalk",
+    "Lambda"
+   ],
+   "rows": [
+    [
+     "Model",
+     "IaaS",
+     "PaaS",
+     "FaaS"
+    ],
+    [
+     "Server mgmt",
+     "You",
+     "Managed",
+     "None"
+    ],
+    [
+     "Best for",
+     "Full control",
+     "Web apps",
+     "Events"
+    ]
+   ]
+  }
+ },
+ "aws-c3-t12": {
+  "id": "aws-c3-t12",
+  "title": "Deploy a Sample Application to Elastic Beanstalk",
+  "importance": "medium",
+  "definition": "Deploying a sample application to Elastic Beanstalk means creating an application and environment (console or EB CLI), uploading code and opening the generated URL.",
+  "simpleExplanation": "Console se: Create application → platform (Node.js/Python) → sample application ya apna zip → Create environment → URL kholo. CLI se: eb init, eb create, eb open.",
+  "realLifeAnalogy": "Handing over your finished project file to an agency that publishes it for you.",
+  "example": "EB CLI: eb init -p python-3.x myapp; eb create my-env; eb open; after changes: eb deploy; cleanup: eb terminate my-env.",
+  "keyPoints": [
+   "Console steps: Create application → choose platform → Sample/upload code → Create environment.",
+   "Wait for health: Green/OK.",
+   "Open the environment URL.",
+   "EB CLI: eb init, eb create, eb status, eb open, eb deploy, eb terminate.",
+   "Update by uploading a new version.",
+   "Terminate to avoid charges."
+  ],
+  "mustKnow": [
+   "Console and CLI steps.",
+   "Health colours.",
+   "Cleanup."
+  ],
+  "ifYouKnow": [
+   "Deploy a sample app.",
+   "Update it.",
+   "Clean up resources."
+  ],
+  "commonMistakes": [
+   "Forgetting to terminate the environment.",
+   "Wrong platform/runtime version."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Steps to deploy a sample app to Beanstalk.",
+    "answer": "As listed."
+   },
+   {
+    "type": "viva",
+    "question": "How do you roll out a new version?",
+    "answer": "Upload a new application version / eb deploy."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Command to deploy updates:",
+    "answer": "eb deploy",
+    "explanation": "",
+    "options": [
+     "eb open",
+     "eb deploy",
+     "eb init",
+     "eb ssh"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "The environment gets a URL.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Command to remove the environment.",
+    "answer": "eb terminate",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Health shows red. First check?",
+    "answer": "Events/logs in the environment.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "eb init vs eb create.",
+    "answer": "eb init sets up the app locally; eb create provisions an environment.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Beanstalk deploy: Create app+env → upload/sample → open URL → eb deploy → terminate.",
+  "purpose": "Hands-on PaaS deployment.",
+  "working": "Create application and environment, upload code (zip), wait until health is OK, open URL.",
+  "code": "eb init -p python-3.11 myapp --region ap-south-1\neb create my-env\neb open\n# after changes\neb deploy\n# cleanup\neb terminate my-env"
+ },
+ "aws-c4-t01": {
+  "id": "aws-c4-t01",
+  "title": "Object Storage, Block Storage, and File Storage",
+  "importance": "high",
+  "definition": "Object storage stores data as objects with metadata and keys (S3), block storage stores data in fixed blocks attached to a server like a disk (EBS), and file storage provides a shared file system (EFS).",
+  "simpleExplanation": "Object = files ko key se store karna (S3). Block = disk jaisa, ek server se attach (EBS). File = shared folder jise kai servers use karein (EFS).",
+  "realLifeAnalogy": "Object storage is a warehouse with labelled boxes, block storage is your laptop's hard disk, file storage is a shared network drive.",
+  "example": "Photos and backups in S3; the OS and database disk on EBS; shared web content for many servers on EFS.",
+  "keyPoints": [
+   "Object: flat namespace, bucket+key, metadata, HTTP access, unlimited scale (S3).",
+   "Block: raw volume formatted with a file system, low latency, one instance at a time (EBS).",
+   "File: hierarchical shared files via NFS, many instances (EFS).",
+   "Choose by access pattern and latency.",
+   "Object storage is not mounted like a disk.",
+   "Durability/cost differ."
+  ],
+  "mustKnow": [
+   "Three types with AWS service.",
+   "Comparison table.",
+   "Use cases."
+  ],
+  "ifYouKnow": [
+   "Choose the right storage.",
+   "Compare the types.",
+   "Name services."
+  ],
+  "commonMistakes": [
+   "Treating S3 as a block disk.",
+   "Using EBS for shared access across many instances."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "Object vs block vs file storage.",
+    "answer": "Access method, structure, scale, AWS service, use cases."
+   },
+   {
+    "type": "viva",
+    "question": "Which storage for an OS disk?",
+    "answer": "Block (EBS)."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Shared NFS file system:",
+    "answer": "EFS",
+    "explanation": "",
+    "options": [
+     "S3",
+     "EBS",
+     "EFS",
+     "Glacier"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "S3 is object storage.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Block storage service?",
+    "answer": "Amazon EBS",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Many EC2 need the same files. Choice?",
+    "answer": "EFS",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "S3 vs EBS.",
+    "answer": "S3 object, internet-accessible, unlimited; EBS block, attached to one instance.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Object=S3, Block=EBS, File=EFS.",
+  "purpose": "Pick storage by access pattern.",
+  "comparison": {
+   "title": "Storage Types",
+   "headers": [
+    "Type",
+    "Service",
+    "Access",
+    "Best for"
+   ],
+   "rows": [
+    [
+     "Object",
+     "S3",
+     "HTTP/API",
+     "Backups, media, static sites"
+    ],
+    [
+     "Block",
+     "EBS",
+     "Attached volume",
+     "OS, databases"
+    ],
+    [
+     "File",
+     "EFS",
+     "NFS shared",
+     "Shared content"
+    ]
+   ]
+  }
+ },
+ "aws-c4-t02": {
+  "id": "aws-c4-t02",
+  "title": "AWS Storage Services: Amazon S3",
+  "importance": "high",
+  "definition": "Amazon Simple Storage Service (S3) is a highly durable, scalable object storage service that stores objects in buckets.",
+  "simpleExplanation": "S3 me files (objects) buckets me rakhte hain. Har object ki ek key hoti hai. Ye bahut durable hai (11 nines) aur lagbhag unlimited store kar sakta hai.",
+  "realLifeAnalogy": "An infinitely large online locker room: each box (object) has a label (key), grouped in lockers (buckets).",
+  "example": "Create bucket my-notes-2026; upload report.pdf; object URL s3://my-notes-2026/report.pdf; enable versioning to keep old versions.",
+  "keyPoints": [
+   "Bucket names are globally unique; buckets live in a Region.",
+   "Object = data + key + metadata; max object size 5 TB.",
+   "Durability 99.999999999% (11 nines).",
+   "Features: versioning, lifecycle rules, encryption, replication, access policies.",
+   "Strong read-after-write consistency.",
+   "Block Public Access protects buckets by default."
+  ],
+  "mustKnow": [
+   "Bucket/object/key.",
+   "11 nines.",
+   "Versioning and lifecycle."
+  ],
+  "ifYouKnow": [
+   "Explain S3 concepts.",
+   "Use S3 features.",
+   "Secure a bucket."
+  ],
+  "commonMistakes": [
+   "Thinking buckets are per-account unique only (names are global).",
+   "Making buckets public accidentally."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Amazon S3 features.",
+    "answer": "Buckets, objects, durability, versioning, lifecycle, encryption."
+   },
+   {
+    "type": "viva",
+    "question": "Max object size?",
+    "answer": "5 TB."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "S3 durability:",
+    "answer": "11 nines",
+    "explanation": "",
+    "options": [
+     "99%",
+     "99.9%",
+     "11 nines",
+     "100% availability"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Bucket names are globally unique.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is an object key?",
+    "answer": "The unique name of an object in a bucket.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Recover an overwritten file. Feature?",
+    "answer": "Versioning",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Bucket vs object.",
+    "answer": "Bucket is a container; object is the stored data.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "S3: buckets+objects, 11 nines durability, versioning/lifecycle/encryption, 5 TB object max.",
+  "purpose": "Durable, scalable object storage.",
+  "components": [
+   "Bucket",
+   "Object",
+   "Key",
+   "Metadata",
+   "Policies"
+  ],
+  "working": "Client uploads via API/console; S3 stores redundantly across AZs; access via URL and policies.",
+  "features": [
+   "Versioning",
+   "Lifecycle rules",
+   "Encryption",
+   "Replication",
+   "Static website hosting"
+  ]
+ },
+ "aws-c4-t03": {
+  "id": "aws-c4-t03",
+  "title": "Various Storage Classes of S3",
+  "importance": "high",
+  "definition": "S3 storage classes offer different cost/availability/retrieval trade-offs, from S3 Standard for frequent access to Glacier Deep Archive for long-term archives.",
+  "simpleExplanation": "S3 ke alag-alag classes hain: jitna kam access, utna sasta storage par retrieval slow/costly. Lifecycle policy se data apne aap sasti class me chala jaata hai.",
+  "realLifeAnalogy": "A house: everyday items in the living room (Standard), seasonal items in the store room (IA), old records in the attic (Glacier).",
+  "example": "Logs: first 30 days S3 Standard → move to Standard-IA → after 90 days Glacier Flexible Retrieval → after a year Glacier Deep Archive using lifecycle rules.",
+  "keyPoints": [
+   "Standard: frequent access, low latency.",
+   "Intelligent-Tiering: auto moves between tiers.",
+   "Standard-IA: infrequent access, retrieval fee, min 30 days.",
+   "One Zone-IA: single AZ, cheaper, less resilient.",
+   "Glacier Instant Retrieval; Glacier Flexible Retrieval (minutes–hours); Glacier Deep Archive (cheapest, hours).",
+   "Lifecycle policies transition/expire objects automatically."
+  ],
+  "mustKnow": [
+   "Class ladder cheap→expensive access.",
+   "One Zone-IA risk.",
+   "Lifecycle."
+  ],
+  "ifYouKnow": [
+   "Choose a class for a use case.",
+   "Design a lifecycle policy.",
+   "Compare classes."
+  ],
+  "commonMistakes": [
+   "Using One Zone-IA for critical data.",
+   "Ignoring retrieval charges and minimum duration."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain S3 storage classes.",
+    "answer": "Standard, Intelligent-Tiering, IA, One Zone-IA, Glacier tiers."
+   },
+   {
+    "type": "viva",
+    "question": "Which class is cheapest for archives?",
+    "answer": "Glacier Deep Archive."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Frequent access class:",
+    "answer": "Standard",
+    "explanation": "",
+    "options": [
+     "Standard",
+     "Deep Archive",
+     "One Zone-IA",
+     "Flexible Retrieval"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "One Zone-IA stores data in one AZ.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What moves objects between classes automatically?",
+    "answer": "Lifecycle policy.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Unknown access pattern. Class?",
+    "answer": "Intelligent-Tiering",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Standard vs Standard-IA.",
+    "answer": "Standard: no retrieval fee, higher storage price; IA: lower storage, retrieval fee.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "S3 classes: Standard → Int-Tiering → Standard-IA → One Zone-IA → Glacier IR/Flexible/Deep Archive; lifecycle automates moves.",
+  "purpose": "Optimise storage cost by access pattern.",
+  "comparison": {
+   "title": "S3 Classes",
+   "headers": [
+    "Class",
+    "Access",
+    "Cost",
+    "Note"
+   ],
+   "rows": [
+    [
+     "Standard",
+     "Frequent",
+     "Highest storage",
+     "ms latency"
+    ],
+    [
+     "Standard-IA",
+     "Infrequent",
+     "Lower",
+     "Retrieval fee, 30-day min"
+    ],
+    [
+     "One Zone-IA",
+     "Infrequent",
+     "Lower still",
+     "Single AZ"
+    ],
+    [
+     "Glacier Flexible",
+     "Rare",
+     "Low",
+     "Minutes–hours"
+    ],
+    [
+     "Deep Archive",
+     "Archive",
+     "Lowest",
+     "Hours"
+    ]
+   ]
+  }
+ },
+ "aws-c4-t04": {
+  "id": "aws-c4-t04",
+  "title": "Amazon EFS",
+  "importance": "high",
+  "definition": "Amazon Elastic File System (EFS) is a fully managed, elastic, shared NFS file system for Linux workloads that can be mounted by many EC2 instances across AZs.",
+  "simpleExplanation": "EFS ek shared network folder hai jo apne aap bada-chhota hota hai. Kai EC2 servers ek saath mount kar sakte hain (Linux, NFS).",
+  "realLifeAnalogy": "A shared office drive that automatically grows as people add files.",
+  "example": "Three web servers in different AZs mount /mnt/efs to serve the same uploaded images.",
+  "keyPoints": [
+   "Managed NFS (v4) file system; POSIX-compliant.",
+   "Elastic: grows/shrinks automatically; pay for storage used.",
+   "Multi-AZ, accessible by thousands of instances concurrently.",
+   "Linux only (not Windows).",
+   "Storage classes: Standard and Infrequent Access (lifecycle).",
+   "Mount targets in each AZ."
+  ],
+  "mustKnow": [
+   "EFS vs EBS table.",
+   "Mount targets.",
+   "Use cases."
+  ],
+  "ifYouKnow": [
+   "Explain EFS.",
+   "Compare with EBS.",
+   "Mount EFS."
+  ],
+  "commonMistakes": [
+   "Trying to mount EFS on Windows.",
+   "Using EFS where a single-instance disk (EBS) is enough."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "EFS vs EBS.",
+    "answer": "EFS shared multi-AZ NFS elastic; EBS single-AZ block volume for one instance."
+   },
+   {
+    "type": "viva",
+    "question": "Protocol used by EFS?",
+    "answer": "NFS."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "EFS protocol:",
+    "answer": "NFS",
+    "explanation": "",
+    "options": [
+     "SMB",
+     "NFS",
+     "FTP",
+     "iSCSI"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "EFS can be mounted by many instances.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "OS support?",
+    "answer": "Linux.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Shared content across web servers. Service?",
+    "answer": "EFS",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "EFS vs S3.",
+    "answer": "EFS is a file system; S3 is object storage over HTTP.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "EFS: managed elastic NFS, multi-AZ, shared by many Linux instances.",
+  "purpose": "Shared file storage.",
+  "components": [
+   "File system",
+   "Mount targets",
+   "NFS client"
+  ],
+  "working": "Create EFS → create mount targets → mount on instances with NFS.",
+  "comparison": {
+   "title": "EFS vs EBS",
+   "headers": [
+    "Feature",
+    "EFS",
+    "EBS"
+   ],
+   "rows": [
+    [
+     "Type",
+     "File",
+     "Block"
+    ],
+    [
+     "Sharing",
+     "Many instances",
+     "One (mostly)"
+    ],
+    [
+     "Scope",
+     "Multi-AZ",
+     "Single AZ"
+    ],
+    [
+     "Size",
+     "Elastic",
+     "Provisioned"
+    ]
+   ]
+  }
+ },
+ "aws-c4-t05": {
+  "id": "aws-c4-t05",
+  "title": "Amazon EBS",
+  "importance": "high",
+  "definition": "Amazon Elastic Block Store (EBS) provides persistent block storage volumes for EC2 instances, living in a single Availability Zone.",
+  "simpleExplanation": "EBS EC2 ka hard disk hai jo instance band hone par bhi data rakhta hai. Ek AZ me hota hai aur snapshot se backup hota hai.",
+  "realLifeAnalogy": "An external hard disk plugged into a computer: data stays even if the computer is switched off.",
+  "example": "Attach a 100 GB gp3 volume to a database server; take daily snapshots stored in S3.",
+  "keyPoints": [
+   "Volume types: gp3/gp2 (SSD general), io2/io1 (provisioned IOPS), st1 (throughput HDD), sc1 (cold HDD).",
+   "Tied to one AZ; attach to instances in the same AZ.",
+   "Snapshots stored in S3, incremental; can copy across Regions.",
+   "Supports encryption.",
+   "Persistent, unlike instance store.",
+   "Can resize and change type online."
+  ],
+  "mustKnow": [
+   "Volume types.",
+   "Snapshots.",
+   "AZ constraint."
+  ],
+  "ifYouKnow": [
+   "Pick a volume type.",
+   "Explain snapshots.",
+   "Compare with instance store."
+  ],
+  "commonMistakes": [
+   "Attaching a volume to an instance in another AZ.",
+   "Assuming instance store persists."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain EBS volume types and snapshots.",
+    "answer": "Types; snapshots incremental to S3."
+   },
+   {
+    "type": "difference",
+    "question": "EBS vs instance store.",
+    "answer": "EBS persistent network volume; instance store temporary and local."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "General-purpose SSD:",
+    "answer": "gp3",
+    "explanation": "",
+    "options": [
+     "gp3",
+     "sc1",
+     "st1",
+     "io2"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "EBS volume is tied to one AZ.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Where are snapshots stored?",
+    "answer": "S3 (managed by AWS).",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Move volume to another AZ. How?",
+    "answer": "Snapshot → create volume in target AZ.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "gp3 vs io2.",
+    "answer": "gp3 general purpose; io2 provisioned high IOPS.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "EBS: persistent block volumes, one AZ, gp3/io2/st1/sc1, snapshots → S3.",
+  "purpose": "Persistent disks for EC2.",
+  "components": [
+   "Volume",
+   "Snapshot",
+   "Attachment"
+  ],
+  "working": "Create volume in AZ → attach to instance → format and mount → snapshot for backup."
+ },
+ "aws-c4-t06": {
+  "id": "aws-c4-t06",
+  "title": "Create an Amazon EBS Volume",
+  "importance": "medium",
+  "definition": "Creating an EBS volume means creating it in the same AZ as the instance, attaching it, then formatting and mounting it inside the OS.",
+  "simpleExplanation": "Steps: EC2 → Volumes → Create volume (type, size, same AZ) → Attach to instance → instance me format (mkfs) aur mount karo.",
+  "realLifeAnalogy": "Buying a new hard disk, plugging it in, formatting and giving it a drive letter.",
+  "example": "Create 10 GB gp3 in ap-south-1a; attach as /dev/sdf; on Linux run lsblk, mkfs, mount to /data.",
+  "keyPoints": [
+   "Create in the same AZ as the instance.",
+   "Choose type (gp3), size, optional encryption.",
+   "Attach to the instance with a device name.",
+   "Inside the OS: find the device (lsblk), format (mkfs), mount.",
+   "Add to /etc/fstab for auto-mount.",
+   "Snapshot for backup; delete when not needed."
+  ],
+  "mustKnow": [
+   "Same-AZ rule.",
+   "Linux format and mount commands.",
+   "Snapshot."
+  ],
+  "ifYouKnow": [
+   "Create and attach a volume.",
+   "Format and mount it.",
+   "Back it up."
+  ],
+  "commonMistakes": [
+   "Creating the volume in a different AZ.",
+   "Formatting an existing volume that has data."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Steps to create and attach an EBS volume.",
+    "answer": "As listed."
+   },
+   {
+    "type": "viva",
+    "question": "Why can't I see the new disk space?",
+    "answer": "It must be formatted and mounted in the OS."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Command to list block devices:",
+    "answer": "lsblk",
+    "explanation": "",
+    "options": [
+     "ls",
+     "lsblk",
+     "ps",
+     "top"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Volume and instance must be in the same AZ.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Command to format as xfs?",
+    "answer": "sudo mkfs -t xfs /dev/xvdf",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Data lost after reboot of mount. Fix?",
+    "answer": "Add entry in /etc/fstab.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Snapshot vs AMI.",
+    "answer": "Snapshot backs up a volume; AMI is a full image (volume snapshots + metadata).",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "EBS lab: create (same AZ) → attach → lsblk → mkfs → mount → fstab → snapshot.",
+  "purpose": "Hands-on block storage.",
+  "working": "Console: EC2 → Volumes → Create → Attach. OS: format and mount.",
+  "code": "lsblk\nsudo mkfs -t xfs /dev/xvdf\nsudo mkdir /data\nsudo mount /dev/xvdf /data\ndf -h"
+ },
+ "aws-c4-t07": {
+  "id": "aws-c4-t07",
+  "title": "Hosting a Static Website using S3",
+  "importance": "high",
+  "definition": "S3 static website hosting serves HTML, CSS, JS and images directly from a bucket using the S3 website endpoint, with a public-read policy or CloudFront.",
+  "simpleExplanation": "Static website me sirf HTML/CSS/JS hota hai. S3 bucket me files daalo, static website hosting ON karo, public read allow karo, aur website endpoint kholo.",
+  "realLifeAnalogy": "Pinning a printed poster on a public notice board that anyone can read.",
+  "example": "Bucket my-site-demo: upload index.html and error.html; enable static website hosting with index.html as index; add a bucket policy allowing s3:GetObject; open http://my-site-demo.s3-website-<region>.amazonaws.com.",
+  "keyPoints": [
+   "Create a bucket (name globally unique).",
+   "Upload index.html and error.html.",
+   "Enable Static website hosting; set index and error documents.",
+   "Allow public read: turn off Block Public Access + bucket policy.",
+   "Access through the S3 website endpoint (HTTP).",
+   "For HTTPS and custom domain use CloudFront + Route 53."
+  ],
+  "mustKnow": [
+   "Seven steps.",
+   "Bucket policy.",
+   "HTTP vs CloudFront HTTPS."
+  ],
+  "ifYouKnow": [
+   "Host a static site.",
+   "Write a bucket policy.",
+   "Explain limitations."
+  ],
+  "commonMistakes": [
+   "Leaving Block Public Access on and getting 403.",
+   "Expecting HTTPS on the S3 website endpoint."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Steps to host a static website on S3.",
+    "answer": "As listed."
+   },
+   {
+    "type": "viva",
+    "question": "Why 403 Forbidden?",
+    "answer": "Public access blocked or missing GetObject policy."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "S3 website endpoint supports:",
+    "answer": "HTTP",
+    "explanation": "",
+    "options": [
+     "HTTP",
+     "HTTPS only",
+     "FTP",
+     "SSH"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Static sites can run server-side PHP on S3.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Permission needed for public read?",
+    "answer": "s3:GetObject",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Need HTTPS + custom domain. Add?",
+    "answer": "CloudFront and Route 53",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "S3 hosting vs EC2 hosting.",
+    "answer": "S3: static only, cheap, no servers; EC2: dynamic apps, you manage servers.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "S3 static site: bucket → upload → enable hosting → public GetObject policy → endpoint; HTTPS via CloudFront.",
+  "purpose": "Cheap hosting for static content.",
+  "working": "Enable website hosting and public read; browsers fetch objects through the website endpoint.",
+  "code": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [{\n    \"Effect\": \"Allow\",\n    \"Principal\": \"*\",\n    \"Action\": \"s3:GetObject\",\n    \"Resource\": \"arn:aws:s3:::my-site-demo/*\"\n  }]\n}"
+ },
+ "aws-c5-t01": {
+  "id": "aws-c5-t01",
+  "title": "AWS Well-Architected Framework Design Principles",
+  "importance": "high",
+  "definition": "The AWS Well-Architected Framework is a set of best practices organised into six pillars — operational excellence, security, reliability, performance efficiency, cost optimisation and sustainability — for designing good cloud architectures.",
+  "simpleExplanation": "Well-Architected Framework batata hai achha cloud design kaisa hota hai. 6 pillars hain: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability.",
+  "realLifeAnalogy": "A building checklist: strong foundation (reliability), locks (security), smooth operations, efficiency, budget control and eco-friendliness.",
+  "example": "Review a web app: Multi-AZ + Auto Scaling (reliability), IAM least privilege (security), CloudWatch alarms (operations), right-sized instances (cost/performance).",
+  "keyPoints": [
+   "Operational Excellence: automate, small reversible changes, learn from failures.",
+   "Security: least privilege, protect data, traceability.",
+   "Reliability: recover from failure, scale horizontally, stop guessing capacity.",
+   "Performance Efficiency: right resource types, serverless, experiment.",
+   "Cost Optimization: pay for what you use, measure, avoid waste.",
+   "Sustainability: reduce environmental impact.",
+   "General principles: automate, test at scale, data-driven design, game days."
+  ],
+  "mustKnow": [
+   "Six pillars with one principle each.",
+   "Design principles.",
+   "Well-Architected Tool."
+  ],
+  "ifYouKnow": [
+   "Name the six pillars.",
+   "Apply to a scenario.",
+   "Give one principle per pillar."
+  ],
+  "commonMistakes": [
+   "Forgetting sustainability (added 2021).",
+   "Treating cost optimisation as 'cheapest option' only."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain the AWS Well-Architected Framework pillars.",
+    "answer": "List and explain six pillars with examples."
+   },
+   {
+    "type": "viva",
+    "question": "Which pillar covers multi-AZ design?",
+    "answer": "Reliability."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Number of pillars:",
+    "answer": "6",
+    "explanation": "",
+    "options": [
+     "4",
+     "5",
+     "6",
+     "7"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Least privilege belongs to Security.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two pillars.",
+    "answer": "Reliability and Cost Optimization.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Using Auto Scaling instead of guessing capacity. Pillar?",
+    "answer": "Reliability/Performance efficiency",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Reliability vs Performance Efficiency.",
+    "answer": "Reliability = recover and stay available; performance = use resources efficiently.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Six pillars: Ops Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability.",
+  "purpose": "Guide good cloud architecture reviews.",
+  "components": [
+   "Operational Excellence",
+   "Security",
+   "Reliability",
+   "Performance Efficiency",
+   "Cost Optimization",
+   "Sustainability"
+  ],
+  "features": [
+   "Best-practice questions",
+   "Well-Architected Tool",
+   "Lenses for specific workloads"
+  ]
+ },
+ "aws-c5-t02": {
+  "id": "aws-c5-t02",
+  "title": "Relational Database Service",
+  "importance": "high",
+  "definition": "A relational database stores structured data in tables with rows and columns, uses SQL and provides ACID transactions; a relational database service provides this as a managed offering.",
+  "simpleExplanation": "Relational database me data tables me hota hai (rows, columns), tables relations se jude hote hain, SQL se query karte hain. Managed service me AWS admin ka kaam sambhalta hai.",
+  "realLifeAnalogy": "A set of linked Excel sheets with strict column rules and formulas that keep data consistent.",
+  "example": "Students table (id, name) and Marks table (student_id, subject, marks). JOIN gives each student's marks. A bank transfer must be ACID: both debit and credit succeed or both fail.",
+  "keyPoints": [
+   "Tables, rows, columns, primary key, foreign key.",
+   "SQL for queries.",
+   "ACID: Atomicity, Consistency, Isolation, Durability.",
+   "Good for structured, transactional (OLTP) workloads.",
+   "Managed vs self-managed (EC2): patching, backups, HA handled by service.",
+   "AWS options: RDS, Aurora."
+  ],
+  "mustKnow": [
+   "ACID meaning.",
+   "Relational vs NoSQL.",
+   "Managed benefit."
+  ],
+  "ifYouKnow": [
+   "Explain relational model.",
+   "State ACID.",
+   "Choose relational vs NoSQL."
+  ],
+  "commonMistakes": [
+   "Thinking relational means no scaling; it scales with replicas/Aurora.",
+   "Confusing ACID with BASE."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "What is a relational database service?",
+    "answer": "Structured tables, SQL, ACID, managed by AWS."
+   },
+   {
+    "type": "difference",
+    "question": "Relational vs NoSQL.",
+    "answer": "Schema/tables/SQL/ACID vs flexible schema/key-value/scale-out."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "ACID's 'A':",
+    "answer": "Atomicity",
+    "explanation": "",
+    "options": [
+     "Availability",
+     "Atomicity",
+     "Accuracy",
+     "Access"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Relational DBs use SQL.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Primary key purpose?",
+    "answer": "Uniquely identifies each row.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Bank transfers need all-or-nothing. Property?",
+    "answer": "Atomicity",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "RDS vs DB on EC2.",
+    "answer": "RDS is managed; DB on EC2 is self-managed.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Relational = tables+SQL+ACID; managed service handles backup/patch/HA (RDS/Aurora).",
+  "purpose": "Store structured transactional data reliably.",
+  "features": [
+   "SQL",
+   "ACID",
+   "Joins",
+   "Managed operations"
+  ],
+  "comparison": {
+   "title": "Relational vs NoSQL",
+   "headers": [
+    "Aspect",
+    "Relational",
+    "NoSQL (DynamoDB)"
+   ],
+   "rows": [
+    [
+     "Schema",
+     "Fixed",
+     "Flexible"
+    ],
+    [
+     "Query",
+     "SQL, joins",
+     "Key-based"
+    ],
+    [
+     "Scaling",
+     "Vertical + replicas",
+     "Horizontal"
+    ],
+    [
+     "Consistency",
+     "ACID",
+     "Tunable"
+    ]
+   ]
+  }
+ },
+ "aws-c5-t03": {
+  "id": "aws-c5-t03",
+  "title": "MySQL",
+  "importance": "medium",
+  "definition": "MySQL is a popular open-source relational database engine supported by Amazon RDS and Aurora.",
+  "simpleExplanation": "MySQL ek open-source relational database hai, web apps me bahut use hota hai. RDS me MySQL ko managed tareeke se chala sakte ho (port 3306).",
+  "realLifeAnalogy": "A well-known, reliable filing cabinet that most small web apps already know how to use.",
+  "example": "CREATE TABLE student(id INT PRIMARY KEY, name VARCHAR(50)); INSERT INTO student VALUES (1,'Asha'); SELECT * FROM student; Output: 1 | Asha.",
+  "keyPoints": [
+   "Open source (owned by Oracle).",
+   "Default port 3306.",
+   "ACID with InnoDB engine.",
+   "Used in LAMP/WordPress stacks.",
+   "RDS offers MySQL with Multi-AZ, backups, read replicas.",
+   "Aurora MySQL-compatible is faster and more scalable."
+  ],
+  "mustKnow": [
+   "Port 3306.",
+   "InnoDB.",
+   "Basic SQL."
+  ],
+  "ifYouKnow": [
+   "Create a table in MySQL.",
+   "Name the port.",
+   "Say when to choose MySQL."
+  ],
+  "commonMistakes": [
+   "Forgetting to open port 3306 in the SG.",
+   "Assuming MyISAM is transactional."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Create and query a table in MySQL.",
+    "answer": "CREATE, INSERT, SELECT example."
+   },
+   {
+    "type": "viva",
+    "question": "MySQL default port?",
+    "answer": "3306."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "MySQL port:",
+    "answer": "3306",
+    "explanation": "",
+    "options": [
+     "1433",
+     "5432",
+     "3306",
+     "1521"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "MySQL is open source.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Transactional storage engine?",
+    "answer": "InnoDB",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "WordPress on AWS database. Option?",
+    "answer": "RDS for MySQL",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "MySQL vs PostgreSQL.",
+    "answer": "MySQL simpler/popular for web; PostgreSQL more advanced features.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "MySQL: open-source RDBMS, port 3306, InnoDB ACID; RDS/Aurora support.",
+  "purpose": "Widely used open-source relational engine.",
+  "code": "CREATE TABLE student(id INT PRIMARY KEY, name VARCHAR(50));\nINSERT INTO student VALUES (1,'Asha');\nSELECT * FROM student;"
+ },
+ "aws-c5-t04": {
+  "id": "aws-c5-t04",
+  "title": "PostgreSQL",
+  "importance": "medium",
+  "definition": "PostgreSQL is an advanced open-source object-relational database known for standards compliance, extensibility and rich data types such as JSONB.",
+  "simpleExplanation": "PostgreSQL ek powerful open-source database hai: complex queries, JSON, extensions, strict standards. RDS aur Aurora dono support karte hain (port 5432).",
+  "realLifeAnalogy": "A Swiss-army knife database with extra tools for complex jobs.",
+  "example": "CREATE TABLE product(id SERIAL PRIMARY KEY, data JSONB); INSERT INTO product(data) VALUES ('{\"name\":\"pen\"}'); SELECT data->>'name' FROM product; Output: pen.",
+  "keyPoints": [
+   "Default port 5432.",
+   "Supports JSONB, arrays, custom types, window functions.",
+   "Extensions such as PostGIS.",
+   "Strong ACID and MVCC.",
+   "Available on RDS and Aurora PostgreSQL.",
+   "Good for complex analytical and geospatial queries."
+  ],
+  "mustKnow": [
+   "Port 5432.",
+   "JSONB.",
+   "Vs MySQL."
+  ],
+  "ifYouKnow": [
+   "Name features.",
+   "Query JSONB.",
+   "Choose PostgreSQL."
+  ],
+  "commonMistakes": [
+   "Mixing port numbers (5432 vs 3306).",
+   "Thinking PostgreSQL has no JSON."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "PostgreSQL vs MySQL.",
+    "answer": "PostgreSQL: richer features, extensions, strict standards; MySQL: simpler, popular for web."
+   },
+   {
+    "type": "viva",
+    "question": "PostgreSQL port?",
+    "answer": "5432."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "PostgreSQL port:",
+    "answer": "5432",
+    "explanation": "",
+    "options": [
+     "3306",
+     "5432",
+     "1433",
+     "27017"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "PostgreSQL supports JSONB.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Geospatial extension?",
+    "answer": "PostGIS",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Need advanced JSON and geospatial queries. Engine?",
+    "answer": "PostgreSQL",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "PostgreSQL vs SQL Server licensing.",
+    "answer": "PostgreSQL is open source; SQL Server is commercial.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "PostgreSQL: open-source object-relational, port 5432, JSONB, extensions (PostGIS).",
+  "purpose": "Feature-rich open-source database.",
+  "code": "CREATE TABLE product(id SERIAL PRIMARY KEY, data JSONB);\nINSERT INTO product(data) VALUES ('{\"name\":\"pen\"}');\nSELECT data->>'name' FROM product;"
+ },
+ "aws-c5-t05": {
+  "id": "aws-c5-t05",
+  "title": "SQL Server",
+  "importance": "medium",
+  "definition": "Microsoft SQL Server is a commercial relational database that Amazon RDS supports with License Included or bring-your-own-license options.",
+  "simpleExplanation": "SQL Server Microsoft ka commercial database hai (T-SQL, port 1433). RDS me 'License Included' ke saath chala sakte ho, jisme license ka cost bill me hota hai.",
+  "realLifeAnalogy": "A corporate-grade database from the Microsoft ecosystem, usually chosen when the company already uses Windows tools.",
+  "example": "SELECT TOP 5 name FROM students ORDER BY marks DESC; — T-SQL query to get top 5 students.",
+  "keyPoints": [
+   "Default port 1433.",
+   "Query language: T-SQL.",
+   "Editions: Express, Web, Standard, Enterprise.",
+   "Integrates with .NET, Active Directory.",
+   "RDS provides backups, Multi-AZ and patching.",
+   "Higher cost due to licensing."
+  ],
+  "mustKnow": [
+   "Port 1433.",
+   "T-SQL.",
+   "License Included."
+  ],
+  "ifYouKnow": [
+   "Name features.",
+   "Identify port.",
+   "Choose when to use."
+  ],
+  "commonMistakes": [
+   "Forgetting licensing costs.",
+   "Mixing LIMIT (MySQL) with TOP (T-SQL)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain SQL Server on RDS.",
+    "answer": "T-SQL, port 1433, editions, license included, managed features."
+   },
+   {
+    "type": "viva",
+    "question": "SQL Server query language?",
+    "answer": "T-SQL."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "SQL Server port:",
+    "answer": "1433",
+    "explanation": "",
+    "options": [
+     "1433",
+     "3306",
+     "5432",
+     "1521"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "RDS SQL Server may include the license.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Language?",
+    "answer": "T-SQL",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": ".NET app with AD integration. Engine?",
+    "answer": "SQL Server",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "SQL Server vs MySQL cost.",
+    "answer": "SQL Server has licence costs; MySQL is open source.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "SQL Server: Microsoft, T-SQL, port 1433, editions, RDS license included.",
+  "purpose": "Commercial relational engine for Microsoft stacks.",
+  "code": "SELECT TOP 5 name FROM students ORDER BY marks DESC;"
+ },
+ "aws-c5-t06": {
+  "id": "aws-c5-t06",
+  "title": "Amazon RDS (Relational Database Service)",
+  "importance": "high",
+  "definition": "Amazon RDS is a managed service that sets up, operates and scales relational databases, handling backups, patching, monitoring and high availability.",
+  "simpleExplanation": "RDS me database server tumhe nahi sambhalna: AWS backup, patching, failover sambhalta hai. Engines: Aurora, MySQL, PostgreSQL, MariaDB, Oracle, SQL Server.",
+  "realLifeAnalogy": "Hiring a facility manager for your database: you use it, they handle maintenance.",
+  "example": "A web app uses RDS MySQL Multi-AZ: primary in AZ-a, synchronous standby in AZ-b. If the primary fails, RDS fails over automatically.",
+  "keyPoints": [
+   "Engines: Aurora, MySQL, PostgreSQL, MariaDB, Oracle, SQL Server.",
+   "Automated backups (retention 1–35 days) and manual snapshots; point-in-time restore.",
+   "Multi-AZ: synchronous standby for high availability (failover).",
+   "Read replicas: asynchronous copies to scale reads.",
+   "Runs in a VPC; use security groups; encryption with KMS.",
+   "No OS/SSH access to the host."
+  ],
+  "mustKnow": [
+   "Multi-AZ vs read replica.",
+   "Backup retention.",
+   "Managed responsibilities."
+  ],
+  "ifYouKnow": [
+   "Explain RDS features.",
+   "Differentiate Multi-AZ and read replicas.",
+   "Know what you don't control."
+  ],
+  "commonMistakes": [
+   "Thinking Multi-AZ improves read performance (that's read replicas).",
+   "Expecting SSH access to RDS."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "Multi-AZ vs read replica.",
+    "answer": "Multi-AZ: HA, synchronous, standby not readable (classic); replicas: scale reads, asynchronous."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain Amazon RDS.",
+    "answer": "Managed relational DB service with engines, backups, HA."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Read scaling uses:",
+    "answer": "Read replicas",
+    "explanation": "",
+    "options": [
+     "Multi-AZ",
+     "Read replicas",
+     "Snapshots",
+     "Backups"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Multi-AZ replication is synchronous.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Backup retention range?",
+    "answer": "1–35 days",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Primary DB fails; app continues. Feature?",
+    "answer": "Multi-AZ failover",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "RDS vs DB on EC2.",
+    "answer": "RDS managed; EC2 self-managed with full OS control.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "RDS: managed relational DB; Multi-AZ (HA, sync) vs read replicas (scale reads, async); backups 1–35 days.",
+  "purpose": "Remove database administration burden.",
+  "components": [
+   "DB instance",
+   "Storage",
+   "Subnet group",
+   "Security group",
+   "Parameter group"
+  ],
+  "working": "Create instance in a VPC subnet group; AWS manages backups/patches; Multi-AZ keeps a standby; replicas serve reads.",
+  "comparison": {
+   "title": "Multi-AZ vs Read Replica",
+   "headers": [
+    "Feature",
+    "Multi-AZ",
+    "Read replica"
+   ],
+   "rows": [
+    [
+     "Purpose",
+     "High availability",
+     "Read scaling"
+    ],
+    [
+     "Replication",
+     "Synchronous",
+     "Asynchronous"
+    ],
+    [
+     "Failover",
+     "Automatic",
+     "Manual promote"
+    ]
+   ]
+  }
+ },
+ "aws-c5-t07": {
+  "id": "aws-c5-t07",
+  "title": "Amazon Aurora",
+  "importance": "high",
+  "definition": "Amazon Aurora is a cloud-native relational database compatible with MySQL and PostgreSQL that offers higher performance and availability by using a distributed, self-healing storage layer.",
+  "simpleExplanation": "Aurora AWS ka apna cloud-native database hai, MySQL/PostgreSQL compatible. Storage khud badhta hai aur data 3 AZ me 6 copies me rehta hai, isliye bahut reliable aur fast.",
+  "realLifeAnalogy": "A high-performance version of a familiar car engine designed specifically for the AWS road.",
+  "example": "An online store uses Aurora with 1 writer and 3 read replicas; storage grows automatically as orders increase; failover takes seconds.",
+  "keyPoints": [
+   "MySQL- and PostgreSQL-compatible.",
+   "Storage auto-scales from 10 GB up to 128 TiB.",
+   "Six copies of data across three AZs.",
+   "Up to 15 read replicas sharing the same storage.",
+   "Aurora Serverless scales capacity automatically.",
+   "Aurora Global Database for cross-Region replication."
+  ],
+  "mustKnow": [
+   "Six copies/three AZs.",
+   "Auto-scaling storage.",
+   "Aurora vs RDS."
+  ],
+  "ifYouKnow": [
+   "Explain Aurora benefits.",
+   "Compare with standard RDS.",
+   "Pick Aurora Serverless use case."
+  ],
+  "commonMistakes": [
+   "Believing Aurora is a separate non-SQL database; it is relational.",
+   "Saying 3 copies (it is 6)."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Amazon Aurora.",
+    "answer": "Compatibility, storage layer, replicas, serverless."
+   },
+   {
+    "type": "difference",
+    "question": "Aurora vs RDS MySQL.",
+    "answer": "Aurora has shared distributed storage, faster failover, more replicas; RDS MySQL uses EBS-based storage."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Aurora keeps data in:",
+    "answer": "6 copies across 3 AZs",
+    "explanation": "",
+    "options": [
+     "2 copies in 1 AZ",
+     "6 copies across 3 AZs",
+     "1 copy",
+     "3 copies in 1 AZ"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Aurora storage auto-scales.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Max read replicas?",
+    "answer": "15",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Unpredictable workload. Option?",
+    "answer": "Aurora Serverless",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Aurora vs DynamoDB.",
+    "answer": "Aurora is relational/SQL; DynamoDB is NoSQL key-value.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Aurora: MySQL/PostgreSQL compatible, 6 copies/3 AZs, storage to 128 TiB, 15 replicas, serverless option.",
+  "purpose": "High-performance managed relational database.",
+  "features": [
+   "6-way replication",
+   "Auto-scaling storage",
+   "15 read replicas",
+   "Serverless",
+   "Global Database"
+  ],
+  "comparison": {
+   "title": "Aurora vs RDS MySQL",
+   "headers": [
+    "Feature",
+    "Aurora",
+    "RDS MySQL"
+   ],
+   "rows": [
+    [
+     "Storage",
+     "Distributed, auto-scaling",
+     "EBS volume"
+    ],
+    [
+     "Replicas",
+     "Up to 15",
+     "Up to 5"
+    ],
+    [
+     "Failover",
+     "Faster",
+     "Slower"
+    ]
+   ]
+  }
+ },
+ "aws-c5-t08": {
+  "id": "aws-c5-t08",
+  "title": "Amazon DynamoDB",
+  "importance": "high",
+  "definition": "Amazon DynamoDB is a fully managed, serverless NoSQL key-value and document database that provides single-digit-millisecond performance at any scale.",
+  "simpleExplanation": "DynamoDB ek NoSQL database hai: fixed schema nahi, key se data access. Serverless hai, bahut fast aur khud scale hota hai. Gaming, shopping carts, IoT ke liye achha.",
+  "realLifeAnalogy": "A giant dictionary: give the key and get the value instantly, no matter how big the dictionary is.",
+  "example": "Table Users with partition key userId. PutItem {userId:'u1', name:'Asha', city:'Pune'}; GetItem userId='u1' returns the item in milliseconds.",
+  "keyPoints": [
+   "Table → items → attributes; primary key = partition key (+ optional sort key).",
+   "Capacity modes: on-demand and provisioned (RCU/WCU).",
+   "Secondary indexes: GSI and LSI.",
+   "Single-digit ms latency; DAX adds in-memory caching.",
+   "DynamoDB Streams for change capture; Global Tables for multi-Region.",
+   "Item size limit 400 KB."
+  ],
+  "mustKnow": [
+   "Keys.",
+   "Capacity modes.",
+   "When to use."
+  ],
+  "ifYouKnow": [
+   "Design a table key.",
+   "Choose capacity mode.",
+   "Compare with RDS."
+  ],
+  "commonMistakes": [
+   "Using DynamoDB for complex joins.",
+   "Choosing a low-cardinality partition key causing hot partitions."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain DynamoDB.",
+    "answer": "NoSQL, keys, capacity modes, indexes, streams."
+   },
+   {
+    "type": "difference",
+    "question": "DynamoDB vs RDS.",
+    "answer": "Key-value NoSQL serverless scale vs relational SQL with joins."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "DynamoDB is:",
+    "answer": "NoSQL",
+    "explanation": "",
+    "options": [
+     "Relational",
+     "NoSQL",
+     "Warehouse",
+     "File system"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "DynamoDB supports SQL joins natively.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is a partition key?",
+    "answer": "Attribute whose value decides the partition for an item.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Shopping cart needing ms latency at scale. Service?",
+    "answer": "DynamoDB",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "On-demand vs provisioned.",
+    "answer": "On-demand pays per request; provisioned reserves capacity.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "DynamoDB: serverless NoSQL, partition(+sort) key, ms latency, on-demand/provisioned, GSI/LSI, DAX, Streams.",
+  "purpose": "Fast, scalable key-value/document storage.",
+  "components": [
+   "Table",
+   "Item",
+   "Primary key",
+   "Indexes"
+  ],
+  "working": "Requests hash the partition key to find the partition; data replicated across AZs.",
+  "comparison": {
+   "title": "DynamoDB vs RDS",
+   "headers": [
+    "Feature",
+    "DynamoDB",
+    "RDS"
+   ],
+   "rows": [
+    [
+     "Model",
+     "NoSQL",
+     "Relational"
+    ],
+    [
+     "Schema",
+     "Flexible",
+     "Fixed"
+    ],
+    [
+     "Scaling",
+     "Horizontal, serverless",
+     "Instance-based"
+    ],
+    [
+     "Joins",
+     "No",
+     "Yes"
+    ]
+   ]
+  }
+ },
+ "aws-c5-t09": {
+  "id": "aws-c5-t09",
+  "title": "Amazon Redshift",
+  "importance": "high",
+  "definition": "Amazon Redshift is a fully managed, petabyte-scale cloud data warehouse that uses columnar storage and massively parallel processing for analytics (OLAP).",
+  "simpleExplanation": "Redshift data warehouse hai: bahut bada data par analytics aur reports ke liye. Column-based storage aur parallel processing se complex SQL queries tez chalti hain.",
+  "realLifeAnalogy": "A library for researchers: not for daily transactions at the counter, but great for studying huge archives quickly.",
+  "example": "A retailer loads years of sales from S3 into Redshift and runs a SQL query for monthly revenue by region in seconds.",
+  "keyPoints": [
+   "Data warehouse for OLAP, not OLTP.",
+   "Columnar storage + MPP.",
+   "Cluster = leader node + compute nodes.",
+   "SQL (PostgreSQL-based) interface.",
+   "Redshift Spectrum queries data in S3.",
+   "Integrates with BI tools."
+  ],
+  "mustKnow": [
+   "OLAP vs OLTP.",
+   "Leader and compute nodes.",
+   "Columnar storage benefit."
+  ],
+  "ifYouKnow": [
+   "Explain Redshift.",
+   "Compare with RDS.",
+   "Choose for analytics."
+  ],
+  "commonMistakes": [
+   "Using Redshift for frequent small transactions.",
+   "Confusing it with a NoSQL store."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "Redshift vs RDS.",
+    "answer": "Redshift: OLAP analytics, columnar, MPP; RDS: OLTP row-based."
+   },
+   {
+    "type": "viva",
+    "question": "What is Redshift Spectrum?",
+    "answer": "Querying data in S3 directly from Redshift."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Redshift is a:",
+    "answer": "Data warehouse",
+    "explanation": "",
+    "options": [
+     "Data warehouse",
+     "Cache",
+     "DNS",
+     "Queue"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Redshift is best for OLTP.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Storage format?",
+    "answer": "Columnar",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Analyse terabytes of sales history. Service?",
+    "answer": "Redshift",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "OLTP vs OLAP.",
+    "answer": "OLTP: many small transactions; OLAP: complex analytical queries.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Redshift: columnar MPP data warehouse for OLAP; leader+compute nodes; Spectrum queries S3.",
+  "purpose": "Large-scale analytics.",
+  "components": [
+   "Leader node",
+   "Compute nodes",
+   "Columnar storage",
+   "Spectrum"
+  ],
+  "working": "Leader plans query; compute nodes process slices in parallel; results aggregated.",
+  "comparison": {
+   "title": "Redshift vs RDS",
+   "headers": [
+    "Feature",
+    "Redshift",
+    "RDS"
+   ],
+   "rows": [
+    [
+     "Workload",
+     "OLAP",
+     "OLTP"
+    ],
+    [
+     "Storage",
+     "Columnar",
+     "Row-based"
+    ],
+    [
+     "Scale",
+     "Petabytes",
+     "Terabytes"
+    ]
+   ]
+  }
+ },
+ "aws-c5-t10": {
+  "id": "aws-c5-t10",
+  "title": "Launch an Amazon RDS DB Instance",
+  "importance": "medium",
+  "definition": "Launching an RDS DB instance means choosing an engine, instance class, storage, credentials and network settings in the console, then connecting with a SQL client using the endpoint.",
+  "simpleExplanation": "Console: RDS → Create database → engine (MySQL) → Free tier template → identifier, master username/password → db.t3.micro → storage → VPC + security group (3306) → Create. Phir endpoint se connect karo.",
+  "realLifeAnalogy": "Booking a managed office: pick size, set the admin password, and use the address (endpoint) to enter.",
+  "example": "Create db 'mydb' (MySQL, db.t3.micro, 20 GB). Connect: mysql -h mydb.xxxx.ap-south-1.rds.amazonaws.com -u admin -p.",
+  "keyPoints": [
+   "Steps: Create database → Standard create → engine → template (Free tier) → settings → instance class → storage → connectivity → create.",
+   "Master username/password required.",
+   "Public access: No for production; use SG to allow app only.",
+   "SG must allow DB port (3306/5432/1433).",
+   "Endpoint DNS name is used to connect.",
+   "Delete the instance (and skip final snapshot if not needed) to avoid charges."
+  ],
+  "mustKnow": [
+   "Launch steps.",
+   "Connect command.",
+   "Security group port."
+  ],
+  "ifYouKnow": [
+   "Launch an RDS instance.",
+   "Connect to it.",
+   "Fix connection timeouts."
+  ],
+  "commonMistakes": [
+   "Opening 0.0.0.0/0 on the DB port.",
+   "Using the wrong endpoint or port."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Steps to launch an RDS DB instance.",
+    "answer": "As listed."
+   },
+   {
+    "type": "viva",
+    "question": "Cannot connect to RDS. Why?",
+    "answer": "SG not allowing port, public access/subnet routing, wrong endpoint or credentials."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Connect using the DB:",
+    "answer": "Endpoint",
+    "explanation": "",
+    "options": [
+     "Instance ID",
+     "Endpoint",
+     "ARN",
+     "Key pair"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "RDS requires a master password.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "MySQL port for SG?",
+    "answer": "3306",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Production DB reachable from internet. Fix?",
+    "answer": "Disable public access; restrict SG to app tier.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Free tier template vs production.",
+    "answer": "Free tier is single-AZ small; production uses Multi-AZ and larger classes.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "RDS lab: Create database → engine/template → credentials → class/storage → VPC+SG(port) → create → connect via endpoint.",
+  "purpose": "Hands-on managed database.",
+  "working": "Console: RDS → Create database; wait until Available; copy endpoint; connect with client.",
+  "code": "mysql -h mydb.xxxx.ap-south-1.rds.amazonaws.com -u admin -p\nSHOW DATABASES;"
+ },
+ "aws-c6-t01": {
+  "id": "aws-c6-t01",
+  "title": "Identity and Access Management",
+  "importance": "high",
+  "definition": "Identity and Access Management (IAM) controls who (authentication) can do what (authorisation) on which AWS resources, using users, groups, roles and policies.",
+  "simpleExplanation": "IAM me do cheezein: kaun ho (authentication) aur kya kar sakte ho (authorization). Users, groups, roles aur policies se permissions control hoti hain.",
+  "realLifeAnalogy": "A building's security system: ID card proves who you are, access rules decide which rooms you can enter.",
+  "example": "Create user 'asha' in group 'Developers' (policy: S3 read-only). An EC2 instance uses a role to write to S3 without storing keys.",
+  "keyPoints": [
+   "User: a person/app with long-term credentials.",
+   "Group: collection of users; attach policies once for all.",
+   "Role: assumed identity with temporary credentials (for services, cross-account).",
+   "Policy: JSON document defining permissions.",
+   "Root user has full access: protect with MFA and avoid daily use.",
+   "Principle of least privilege."
+  ],
+  "mustKnow": [
+   "User vs group vs role vs policy.",
+   "Root user caution.",
+   "Least privilege."
+  ],
+  "ifYouKnow": [
+   "Differentiate the four.",
+   "Choose role vs user.",
+   "Apply least privilege."
+  ],
+  "commonMistakes": [
+   "Putting access keys inside EC2 instead of using a role.",
+   "Using root user for everyday work."
+  ],
+  "examQuestions": [
+   {
+    "type": "difference",
+    "question": "User vs group vs role.",
+    "answer": "User: identity with credentials; group: set of users; role: temporary assumable identity."
+   },
+   {
+    "type": "conceptual",
+    "question": "Explain IAM basics.",
+    "answer": "Authentication, authorisation, policies, least privilege."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Temporary credentials come from a:",
+    "answer": "Role",
+    "explanation": "",
+    "options": [
+     "User",
+     "Group",
+     "Role",
+     "Policy"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Groups can contain other groups.",
+    "answer": "False",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What is a policy?",
+    "answer": "A JSON document that defines permissions.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "EC2 must read S3 safely. Use?",
+    "answer": "IAM role attached to the instance",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Authentication vs authorisation.",
+    "answer": "Authentication proves identity; authorisation decides permissions.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "IAM: users (credentials), groups (sets), roles (temporary), policies (JSON); least privilege; protect root with MFA.",
+  "purpose": "Secure access control for AWS.",
+  "components": [
+   "Users",
+   "Groups",
+   "Roles",
+   "Policies"
+  ],
+  "comparison": {
+   "title": "User vs Group vs Role",
+   "headers": [
+    "Item",
+    "What",
+    "Credentials"
+   ],
+   "rows": [
+    [
+     "User",
+     "Person/app identity",
+     "Long-term"
+    ],
+    [
+     "Group",
+     "Set of users",
+     "None"
+    ],
+    [
+     "Role",
+     "Assumable identity",
+     "Temporary"
+    ]
+   ]
+  }
+ },
+ "aws-c6-t02": {
+  "id": "aws-c6-t02",
+  "title": "AWS IAM",
+  "importance": "high",
+  "definition": "AWS IAM is the global AWS service that manages identities and permissions, offering MFA, password policies, access keys, federation and policy evaluation.",
+  "simpleExplanation": "AWS IAM free service hai, global hai. MFA, password policy, access keys, federation aur policy evaluation deta hai. Rule: explicit deny sabse upar, phir allow, warna default deny.",
+  "realLifeAnalogy": "The rulebook and ID desk for your whole AWS account.",
+  "example": "A company sets a password policy, enables MFA for all users and uses IAM roles for EC2. An explicit Deny on deleting S3 buckets overrides any Allow.",
+  "keyPoints": [
+   "Global service; no extra cost.",
+   "Features: MFA, password policy, access keys, federation (SAML/OIDC), Access Analyzer, credential reports.",
+   "Policy evaluation: explicit Deny > explicit Allow > implicit Deny.",
+   "By default new users have no permissions.",
+   "Rotate access keys; prefer roles.",
+   "Root user best practices: MFA, no access keys."
+  ],
+  "mustKnow": [
+   "Evaluation order.",
+   "MFA.",
+   "Best practices."
+  ],
+  "ifYouKnow": [
+   "Explain evaluation logic.",
+   "List features.",
+   "Apply best practices."
+  ],
+  "commonMistakes": [
+   "Thinking Allow beats Deny.",
+   "Sharing access keys."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain AWS IAM and its best practices.",
+    "answer": "Features; least privilege; MFA; roles; rotate keys."
+   },
+   {
+    "type": "viva",
+    "question": "Evaluation order of policies?",
+    "answer": "Explicit deny first, then explicit allow, else implicit deny."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Default access for a new user:",
+    "answer": "None",
+    "explanation": "",
+    "options": [
+     "Admin",
+     "None",
+     "Read-only",
+     "Billing"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "An explicit Deny overrides Allow.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What does MFA add?",
+    "answer": "A second authentication factor.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Share access across accounts safely. Use?",
+    "answer": "Cross-account role",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Access key vs role.",
+    "answer": "Access keys are long-term credentials; roles give temporary ones.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "IAM: global, free; MFA, password policy, keys, federation; Deny > Allow > default deny.",
+  "purpose": "Central identity and permission management.",
+  "features": [
+   "MFA",
+   "Password policy",
+   "Federation",
+   "Access Analyzer",
+   "Credential report"
+  ]
+ },
+ "aws-c6-t03": {
+  "id": "aws-c6-t03",
+  "title": "Implement IAM Policies",
+  "importance": "high",
+  "definition": "Implementing IAM policies means writing JSON statements (Effect, Action, Resource, Condition) and attaching them to users, groups or roles to grant least-privilege access.",
+  "simpleExplanation": "Policy JSON me likhte hain: kya allow/deny (Effect), kaunsa action, kaunsa resource, aur condition. Phir group/user/role se attach karte hain.",
+  "realLifeAnalogy": "Writing the rules on a visitor pass: who can enter which rooms and when.",
+  "example": "Policy: Allow s3:GetObject and s3:ListBucket on bucket my-bucket. Attach to group ReadOnlyS3, add user asha to the group, test with the Policy Simulator.",
+  "keyPoints": [
+   "Policy elements: Version, Statement[Effect, Action, Resource, Condition].",
+   "Types: AWS managed, customer managed, inline.",
+   "Identity-based vs resource-based (bucket policy) vs permissions boundary.",
+   "Best practice: attach to groups, least privilege.",
+   "Use IAM Policy Simulator to test.",
+   "Conditions: MFA, source IP, time."
+  ],
+  "mustKnow": [
+   "JSON structure.",
+   "Managed vs inline.",
+   "Attach to group."
+  ],
+  "ifYouKnow": [
+   "Write a simple policy.",
+   "Attach it to a group.",
+   "Test permissions."
+  ],
+  "commonMistakes": [
+   "Using '*' for Action/Resource unnecessarily.",
+   "Forgetting both bucket and object ARNs for S3."
+  ],
+  "examQuestions": [
+   {
+    "type": "explain with example",
+    "question": "Write an S3 read-only policy.",
+    "answer": "JSON with Allow s3:GetObject, s3:ListBucket on bucket and objects."
+   },
+   {
+    "type": "difference",
+    "question": "Managed vs inline policy.",
+    "answer": "Managed reusable and attachable to many; inline embedded in one identity."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Policy effect values:",
+    "answer": "Allow/Deny",
+    "explanation": "",
+    "options": [
+     "Allow/Deny",
+     "Yes/No",
+     "Read/Write",
+     "Grant/Revoke"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Attaching policies to groups is a best practice.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Tool to test policies?",
+    "answer": "IAM Policy Simulator",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Allow only from office IP. Use?",
+    "answer": "Condition with aws:SourceIp",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Identity-based vs resource-based.",
+    "answer": "Identity-based attaches to users/roles; resource-based attaches to the resource.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Policy JSON: Version + Statement(Effect, Action, Resource, Condition); attach to groups; test in simulator.",
+  "purpose": "Grant precise permissions.",
+  "working": "Create policy → attach to group → add users → test.",
+  "code": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [{\n    \"Effect\": \"Allow\",\n    \"Action\": [\"s3:GetObject\", \"s3:ListBucket\"],\n    \"Resource\": [\"arn:aws:s3:::my-bucket\", \"arn:aws:s3:::my-bucket/*\"]\n  }]\n}"
+ },
+ "aws-c6-t04": {
+  "id": "aws-c6-t04",
+  "title": "Monitoring Resources: AWS CloudWatch",
+  "importance": "high",
+  "definition": "Amazon CloudWatch collects metrics, logs and events from AWS resources and applications, and lets you create dashboards and alarms that trigger actions.",
+  "simpleExplanation": "CloudWatch AWS ka monitoring service hai: metrics (CPU), logs, alarms aur dashboards. Alarm threshold cross kare to SNS notification ya Auto Scaling action chala sakta hai.",
+  "realLifeAnalogy": "A dashboard of a car with warning lights: it shows speed and fuel and alerts when something goes wrong.",
+  "example": "Alarm: CPUUtilization > 80% for 2 consecutive 5-minute periods → send SNS email and trigger Auto Scaling.",
+  "keyPoints": [
+   "Metrics: time-ordered data points (CPU, network, disk).",
+   "Basic monitoring 5 minutes; detailed monitoring 1 minute.",
+   "Memory/disk-usage needs the CloudWatch agent.",
+   "Alarms: OK, ALARM, INSUFFICIENT_DATA.",
+   "Logs: centralised log groups and streams.",
+   "CloudTrail records API calls (who did what); CloudWatch monitors performance."
+  ],
+  "mustKnow": [
+   "Metric, alarm, log.",
+   "Basic vs detailed monitoring.",
+   "CloudWatch vs CloudTrail."
+  ],
+  "ifYouKnow": [
+   "Create an alarm.",
+   "Know default metrics.",
+   "Differentiate from CloudTrail."
+  ],
+  "commonMistakes": [
+   "Expecting memory metrics by default.",
+   "Confusing CloudWatch with CloudTrail."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain CloudWatch features.",
+    "answer": "Metrics, logs, alarms, dashboards, events."
+   },
+   {
+    "type": "difference",
+    "question": "CloudWatch vs CloudTrail.",
+    "answer": "CloudWatch = performance monitoring; CloudTrail = API audit logging."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "API call auditing:",
+    "answer": "CloudTrail",
+    "explanation": "",
+    "options": [
+     "CloudWatch",
+     "CloudTrail",
+     "Route 53",
+     "Inspector"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "EC2 memory usage is reported by default.",
+    "answer": "False",
+    "explanation": "Needs agent."
+   },
+   {
+    "type": "short answer",
+    "question": "Alarm states?",
+    "answer": "OK, ALARM, INSUFFICIENT_DATA.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Email me when CPU > 80%. Use?",
+    "answer": "CloudWatch alarm with SNS",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Basic vs detailed monitoring.",
+    "answer": "5-minute vs 1-minute data.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "CloudWatch: metrics, logs, alarms (OK/ALARM/INSUFFICIENT), dashboards; basic 5 min, detailed 1 min; CloudTrail audits API calls.",
+  "purpose": "Observe and react to resource health.",
+  "components": [
+   "Metrics",
+   "Alarms",
+   "Logs",
+   "Dashboards",
+   "Events"
+  ],
+  "working": "Resources publish metrics; alarms evaluate thresholds; actions (SNS, Auto Scaling) triggered.",
+  "scenario": "High-CPU alarm triggers scale-out."
+ },
+ "aws-c6-t05": {
+  "id": "aws-c6-t05",
+  "title": "Elastic Load Balancing (Scaling and Monitoring Context)",
+  "importance": "medium",
+  "definition": "In the scaling context, Elastic Load Balancing distributes traffic across healthy targets, supports connection draining and is monitored through CloudWatch metrics such as RequestCount and HealthyHostCount.",
+  "simpleExplanation": "Is chapter me ELB ko scaling aur monitoring ke saath dekhte hain: health checks, connection draining, sticky sessions aur CloudWatch metrics. (Syllabus me ye topic Chapter 3 me bhi hai.)",
+  "realLifeAnalogy": "A queue manager who also reports how busy each counter is.",
+  "example": "ALB metrics: RequestCount, TargetResponseTime, HealthyHostCount, HTTPCode_Target_5XX_Count. If HealthyHostCount drops to 0, an alarm notifies the team.",
+  "keyPoints": [
+   "Health checks decide eligible targets.",
+   "Connection draining (deregistration delay) lets in-flight requests finish.",
+   "Sticky sessions bind a user to a target.",
+   "SSL/TLS termination at the load balancer.",
+   "CloudWatch metrics for monitoring and scaling.",
+   "Works with Auto Scaling to add/remove targets automatically."
+  ],
+  "mustKnow": [
+   "Key metrics.",
+   "Connection draining.",
+   "ELB + ASG integration."
+  ],
+  "ifYouKnow": [
+   "Name ELB metrics.",
+   "Explain draining.",
+   "Link with scaling."
+  ],
+  "commonMistakes": [
+   "Ignoring health-check path configuration.",
+   "Overusing sticky sessions that unbalance load."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain ELB role in scalable architecture.",
+    "answer": "Distribution, health checks, draining, metrics, ASG."
+   },
+   {
+    "type": "viva",
+    "question": "What is connection draining?",
+    "answer": "Allowing in-flight requests to complete before removing a target."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Metric showing number of healthy targets:",
+    "answer": "HealthyHostCount",
+    "explanation": "",
+    "options": [
+     "CPUUtilization",
+     "HealthyHostCount",
+     "DiskReadOps",
+     "NetworkIn"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "ELB integrates with Auto Scaling.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "What do sticky sessions do?",
+    "answer": "Route a client to the same target.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Deploying new instances without dropping requests. Feature?",
+    "answer": "Connection draining",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Health check vs alarm.",
+    "answer": "Health check decides routing; alarm notifies/acts on metrics.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "ELB in scaling: health checks, draining, sticky sessions, CloudWatch metrics, ASG integration.",
+  "purpose": "Keep traffic on healthy capacity."
+ },
+ "aws-c6-t06": {
+  "id": "aws-c6-t06",
+  "title": "Auto Scaling (Policies and Cooldown Context)",
+  "importance": "medium",
+  "definition": "In this chapter's context, Auto Scaling uses CloudWatch alarms and scaling policies, cooldown/warm-up periods and lifecycle hooks to adjust capacity safely.",
+  "simpleExplanation": "Auto Scaling CloudWatch alarm ke basis par instances add/remove karta hai. Cooldown period baar-baar scale hone se rokta hai. (Syllabus me ye topic Chapter 3 me bhi hai.)",
+  "realLifeAnalogy": "A thermostat with a delay so the AC doesn't switch on and off every second.",
+  "example": "Target tracking: keep average CPU at 50%. If CPU rises to 80%, ASG scales out; after the cooldown, if CPU falls below target, it scales in.",
+  "keyPoints": [
+   "Policies: target tracking, step, simple, scheduled, predictive.",
+   "CloudWatch alarms drive step/simple policies.",
+   "Cooldown/warm-up prevents thrashing.",
+   "Lifecycle hooks pause instances for custom actions.",
+   "Scale-in protection protects chosen instances.",
+   "Costs follow actual capacity."
+  ],
+  "mustKnow": [
+   "Policy types.",
+   "Cooldown.",
+   "Lifecycle hook."
+  ],
+  "ifYouKnow": [
+   "Choose a policy.",
+   "Explain cooldown.",
+   "Describe scale-in protection."
+  ],
+  "commonMistakes": [
+   "Setting cooldown too short causing thrashing.",
+   "Using only scheduled scaling for unpredictable load."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain Auto Scaling policies and cooldown.",
+    "answer": "Types, alarms, cooldown, hooks."
+   },
+   {
+    "type": "viva",
+    "question": "Why a cooldown period?",
+    "answer": "To avoid launching/terminating instances too frequently."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Policy that keeps a metric at a target value:",
+    "answer": "Target tracking",
+    "explanation": "",
+    "options": [
+     "Scheduled",
+     "Target tracking",
+     "Manual",
+     "Simple only"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Cooldown reduces thrashing.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Purpose of lifecycle hook?",
+    "answer": "Pause instance launch/termination for custom actions.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Predictable 9 am spike. Policy?",
+    "answer": "Scheduled scaling",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "Step vs target tracking.",
+    "answer": "Step uses alarm thresholds with steps; target tracking auto-adjusts to hold a target.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "ASG policies: target tracking/step/scheduled/predictive; alarms; cooldown; lifecycle hooks.",
+  "purpose": "Scale safely and cost-effectively."
+ },
+ "aws-c6-t07": {
+  "id": "aws-c6-t07",
+  "title": "Cloud Economics and Billing",
+  "importance": "high",
+  "definition": "Cloud economics studies cost advantages of the pay-as-you-go model, and AWS billing tools (Pricing Calculator, Cost Explorer, Budgets) help estimate, track and control spending.",
+  "simpleExplanation": "Cloud me kharcha usage par depend karta hai. AWS ke tools se cost estimate, track aur control karte hain: Pricing Calculator, Cost Explorer, Budgets, tags, consolidated billing.",
+  "realLifeAnalogy": "A mobile bill: pay for usage, see itemised charges, set a limit alert so there are no surprises.",
+  "example": "Illustrative: if an instance costs $0.02/hour and runs 200 hours, cost = $4. Using Budgets, set an alert at 80% of a $50 monthly limit.",
+  "keyPoints": [
+   "Pricing principles: pay-as-you-go, save when you commit (Reserved/Savings Plans), pay less by using more (volume discounts), pay less as AWS grows.",
+   "Free tier: 12-month, always-free and short trials.",
+   "Tools: Pricing Calculator (estimate), Cost Explorer (analyse), Budgets (alerts), Cost and Usage Report.",
+   "Tagging for cost allocation; consolidated billing with AWS Organizations.",
+   "Support plans: Basic, Developer, Business, Enterprise.",
+   "TCO compares on-prem vs cloud."
+  ],
+  "mustKnow": [
+   "Pricing principles.",
+   "Billing tools and purpose.",
+   "Free tier types."
+  ],
+  "ifYouKnow": [
+   "Estimate costs.",
+   "Choose a billing tool.",
+   "Explain consolidated billing."
+  ],
+  "commonMistakes": [
+   "Forgetting data transfer and EBS charges.",
+   "Leaving resources running."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Explain cloud economics and AWS billing tools.",
+    "answer": "Principles and tools with purpose."
+   },
+   {
+    "type": "difference",
+    "question": "Cost Explorer vs Budgets.",
+    "answer": "Explorer analyses past/forecast costs; Budgets alerts when thresholds are crossed."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "Tool to estimate costs before deploying:",
+    "answer": "Pricing Calculator",
+    "explanation": "",
+    "options": [
+     "Cost Explorer",
+     "Pricing Calculator",
+     "CloudTrail",
+     "Inspector"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "Tags help allocate costs.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Name two support plans.",
+    "answer": "Developer and Business.",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "Alert at 80% of budget. Tool?",
+    "answer": "AWS Budgets",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "On-Demand vs Reserved.",
+    "answer": "On-Demand flexible; Reserved cheaper with commitment.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Economics: pay-as-you-go, commit to save, volume discounts; tools: Calculator, Cost Explorer, Budgets, tags, Organizations.",
+  "purpose": "Control and optimise cloud spend.",
+  "features": [
+   "Pricing Calculator",
+   "Cost Explorer",
+   "Budgets",
+   "Tags",
+   "Consolidated billing"
+  ],
+  "comparison": {
+   "title": "Billing Tools",
+   "headers": [
+    "Tool",
+    "Use"
+   ],
+   "rows": [
+    [
+     "Pricing Calculator",
+     "Estimate before deploying"
+    ],
+    [
+     "Cost Explorer",
+     "Analyse and forecast"
+    ],
+    [
+     "Budgets",
+     "Alert on thresholds"
+    ],
+    [
+     "Cost & Usage Report",
+     "Detailed data"
+    ]
+   ]
+  }
+ },
+ "aws-c6-t08": {
+  "id": "aws-c6-t08",
+  "title": "Scale and Load Balance Your Architecture",
+  "importance": "high",
+  "definition": "Scaling and load balancing an architecture means combining an Application Load Balancer, an Auto Scaling group across multiple AZs and CloudWatch-driven policies so capacity follows demand with no single point of failure.",
+  "simpleExplanation": "Lab: Launch template banao, ALB aur target group banao, Auto Scaling group 2 AZ me banao, scaling policy lagao, load daal ke dekho instances badhte hain, aur end me cleanup.",
+  "realLifeAnalogy": "A restaurant chain adding counters automatically as the queue grows, with a manager directing people to the shortest queue.",
+  "example": "Launch template (web server AMI) → target group → ALB (2 public subnets) → ASG min 2, max 4, target CPU 50% → generate load → ASG scales out to 4 → remove load → scales in.",
+  "keyPoints": [
+   "Create a launch template (AMI, type, SG, user data).",
+   "Create a target group and ALB across 2 AZs.",
+   "Create an Auto Scaling group using the template and attach the target group.",
+   "Add a target tracking scaling policy.",
+   "Test with load; watch CloudWatch and ASG activity history.",
+   "Clean up: delete ASG, ALB, target group, launch template."
+  ],
+  "mustKnow": [
+   "Lab flow.",
+   "Why multi-AZ.",
+   "Verification steps."
+  ],
+  "ifYouKnow": [
+   "Build the architecture.",
+   "Test scale-out/in.",
+   "Clean up resources."
+  ],
+  "commonMistakes": [
+   "Putting the ALB in private subnets only.",
+   "Forgetting to delete resources afterwards."
+  ],
+  "examQuestions": [
+   {
+    "type": "conceptual",
+    "question": "Steps to scale and load balance an architecture.",
+    "answer": "As listed."
+   },
+   {
+    "type": "viva",
+    "question": "How do you verify scaling?",
+    "answer": "Generate load and watch ASG activity and CloudWatch metrics."
+   }
+  ],
+  "knowledgeCheck": [
+   {
+    "type": "MCQ",
+    "question": "ALB should be placed in:",
+    "answer": "Public subnets across AZs",
+    "explanation": "",
+    "options": [
+     "One private subnet",
+     "Public subnets across AZs",
+     "No subnet",
+     "S3"
+    ]
+   },
+   {
+    "type": "true/false",
+    "question": "ASG attaches to a target group.",
+    "answer": "True",
+    "explanation": ""
+   },
+   {
+    "type": "short answer",
+    "question": "Policy to hold CPU at 50%?",
+    "answer": "Target tracking",
+    "explanation": ""
+   },
+   {
+    "type": "scenario",
+    "question": "One AZ fails. What happens?",
+    "answer": "ALB and ASG continue in the other AZ.",
+    "explanation": ""
+   },
+   {
+    "type": "comparison",
+    "question": "ASG scale-out vs scale-in.",
+    "answer": "Out adds instances on high load; in removes them on low load.",
+    "explanation": ""
+   }
+  ],
+  "quickRevision": "Lab: launch template → target group → ALB (2 AZ) → ASG (min/max) + target tracking → load test → cleanup.",
+  "purpose": "Combine ELB and Auto Scaling for resilience.",
+  "working": "1) Launch template. 2) Target group + ALB. 3) ASG across two AZs with target group. 4) Target-tracking policy. 5) Load test. 6) Observe scaling. 7) Cleanup.",
+  "architecture": "Users → ALB (public subnets, 2 AZ) → target group → EC2 in Auto Scaling group → CloudWatch metrics feed scaling policy."
+ }
+}
