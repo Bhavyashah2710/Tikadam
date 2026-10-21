@@ -1,0 +1,31 @@
+{
+  "toc-c1-t01": {
+    "id": "toc-c1-t01",
+    "title": "Alphabet",
+    "importance": "high",
+    "definition": "Alphabet Σ = a finite, non-empty set of symbols. String over Σ = a finite sequence of symbols of Σ. ε = empty string (length 0). Σ* = all strings over Σ (including ε); Σ⁺ = Σ* − {ε}.",
+    "simpleExplanation": "Alphabet matlab 'kaunse symbols allowed hain' (jaise 0 aur 1). String matlab un symbols ko line me jodkar bana word, jaise 0110. ε ka matlab khaali string — kuch bhi nahi.",
+    "whyUsed": "Har automaton aur grammar isi se start hota hai: pehle batana padta hai input kin symbols se banega.",
+    "realLifeAnalogy": "Alphabet = keyboard ki keys; string = un keys se type kiya hua word.",
+    "coreConcept": ["Σ finite hona chahiye aur empty nahi.", "Length |w| = symbols ki ginti; |ε| = 0.", "Σⁿ = length-n wali saari strings, |Σⁿ| = |Σ|ⁿ.", "Σ* = Σ⁰ ∪ Σ¹ ∪ Σ² ∪ … (infinite set, par har string finite).", "Concatenation xy = x ke baad y; εw = wε = w."],
+    "visuals": [
+      {"kind":"table","title":"Strings of length n over Σ = {0,1}","headers":["n","Σⁿ","Count = 2ⁿ"],"rows":[["0","{ε}","1"],["1","{0, 1}","2"],["2","{00, 01, 10, 11}","4"],["3","{000, 001, 010, 011, 100, 101, 110, 111}","8"]],"caption":"Har position par 2 choices → 2×2×…×2 = 2ⁿ."},
+      {"kind":"table","title":"Prefix, suffix, substring of w = abc","headers":["Part","Meaning","All of them"],"rows":[["Prefix","shuru ka hissa","ε, a, ab, abc"],["Suffix","end ka hissa","ε, c, bc, abc"],["Substring","beech ka continuous hissa","ε, a, b, c, ab, bc, abc"]],"caption":"Prefix aur suffix bhi substring hote hain."},
+      {"kind":"nested","title":"Σ* aur Σ⁺","layers":[{"name":"Σ* — saari strings (ε included)","note":"jaise ε, 0, 1, 00, 01 …"},{"name":"Σ⁺ — saari non-empty strings","note":"Σ* − {ε}"}]}
+    ],
+    "steps":["Alphabet likho, jaise Σ = {a, b}.","Strings banao: symbols ko ek ke baad ek jodo.","Length = symbols ki ginti (ε ki length 0).","Σⁿ chahiye? Har position par |Σ| choices → |Σ|ⁿ strings.","Prefix = shuru ka hissa, suffix = end ka hissa, substring = beech ka continuous hissa."],
+    "example":"Σ = {a, b}: Σ² likho aur |Σ³| nikalo.",
+    "exampleSteps":["Σ² = length-2 strings: aa, ab, ba, bb → 4 strings.","|Σ³| = 2³ = 8.","Σ* = {ε, a, b, aa, ab, ba, bb, aaa, …} — infinite."],
+    "examExample":{"question":"Σ = {0,1} par length ≤ 3 wali kitni strings hain?","steps":["Length 0 → 1 (ε)","Length 1 → 2","Length 2 → 4","Length 3 → 8"],"answer":"1 + 2 + 4 + 8 = 15"},
+    "keyPoints":["Σ finite aur non-empty hota hai.","|xy| = |x| + |y|.","(xy)ᴿ = yᴿ xᴿ (reverse ulta order).","ε alphabet ka symbol nahi, ek string hai.","Σ* infinite hai, Σⁿ finite hai."],
+    "commonMistakes":["ε ko symbol samajhna — ε string hai (length 0).","Σ* ko finite maan lena.","Σ⁺ me ε include kar dena."],
+    "quickRevision":"Σ = finite symbols; string = unka sequence; |Σⁿ| = |Σ|ⁿ; Σ* me ε hai, Σ⁺ me nahi.",
+    "mustKnow":["|Σⁿ| = |Σ|ⁿ","Σ* = sab strings (ε sahit); Σ⁺ = Σ* − {ε}","|ε| = 0 aur εw = w"],
+    "memoryTrick":"Star (*) = 'zero ya zyada' (ε included); Plus (+) = 'kam se kam ek'.",
+    "ifYouKnow":["Σⁿ list karna.","Prefix/suffix/substring nikalna.","Σ* aur Σ⁺ ka fark batana."],
+    "vivaQuestions":[{"question":"Alphabet kya hota hai?","answer":"Symbols ka finite non-empty set."},{"question":"ε kya hai?","answer":"Empty string, jiski length 0 hoti hai."},{"question":"Σ* aur Σ⁺ me fark?","answer":"Σ* me ε hai, Σ⁺ me nahi."},{"question":"Σ={0,1} ke liye |Σ³|?","answer":"8"}],
+    "examQuestions":[{"type":"numerical","question":"Σ = {a,b,c} par length-2 wali kitni strings?","answer":"3² = 9."}],
+    "knowledgeCheck":[{"type":"MCQ","question":"|Σⁿ| for |Σ| = 3 is:","answer":"3ⁿ","explanation":"Har position par 3 choices.","options":["3n","3ⁿ","n³","n"]},{"type":"true/false","question":"ε ∈ Σ⁺.","answer":"False","explanation":"Σ⁺ = Σ* − {ε}."},{"type":"short answer","question":"Prefixes of 'ab'?","answer":"ε, a, ab","explanation":""},{"type":"scenario","question":"Σ = {0,1}. Length-4 strings kitni?","answer":"16","explanation":"2⁴."},{"type":"comparison","question":"Σ* vs Σ⁺ — ek fark?","answer":"Σ* me ε hota hai, Σ⁺ me nahi.","explanation":""}],
+    "visualGuide":"Diagram/table ko aise padho: pehle Σ dekho — allowed symbols. Phir Σⁿ ki row dekho: har position par |Σ| choices hoti hain, isliye |Σⁿ| = |Σ|ⁿ. Σ* ko finite list mat samjho; woh saari possible finite strings ka infinite collection hai, aur ε usme zaroor hota hai."
+  }
+}
